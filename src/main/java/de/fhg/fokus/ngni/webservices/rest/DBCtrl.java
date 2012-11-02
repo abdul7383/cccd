@@ -1,5 +1,7 @@
 package de.fhg.fokus.ngni.webservices.rest;
 
+import java.security.Principal;
+
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -57,10 +59,11 @@ public class DBCtrl extends BaseCtrl{
 	
 	//list databases
 	@RequestMapping(value = "/db", method = RequestMethod.GET)
-	public ModelAndView listDatabases() {
+	public ModelAndView listDatabases(Principal principal) {
 		if (!isAuthorized())
 			return response(false, null, "Invalid username or password");
 		logger_c.debug("/db : doGet()");
+		logger_c.debug("principal: "+principal.getName());
 		return response(true, mongoDb.getDatabaseNames(), null);
 	}
 	
