@@ -20,3 +20,25 @@ createBucket												1
 updateBucket												0
 deleteBucket												1
 ##/gridfs/appName/bucketName/{_put,_get,_update,_delete}	1,1,0,1
+###########################################
+#Search Engine
+
+
+
+
+#Message Queue
+
+
+
+
+#MM Framework
+
+
+
+
+#CDN
+
+
+
+
+#Android Mobile App
