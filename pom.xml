@@ -122,7 +122,7 @@
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-mongodb</artifactId>
-			<version>1.0.3.RELEASE</version>
+			<version>1.1.0.RELEASE</version>
 		</dependency> 
 		<dependency>
 			<groupId>commons-fileupload</groupId>
@@ -144,5 +144,10 @@
 		    <artifactId>spring-security-config</artifactId>
 		    <version>${spring.version}</version>
 		</dependency>
+		<dependency> 
+       		<groupId>org.elasticsearch</groupId> 
+       		<artifactId>elasticsearch</artifactId> 
+       		<version>0.20.1</version> 
+     	</dependency> 
 	</dependencies>
 </project>

@@ -21,24 +21,24 @@ updateBucket												0
 deleteBucket												1
 ##/gridfs/appName/bucketName/{_put,_get,_update,_delete}	1,1,0,1
 ###########################################
-#Search Engine
+#Search Engine       	------->	bis zum 03.12
+integration mit mongodb
+
+
+
+#Message Queue 			-------> 	bis zum 03.12
 
 
 
 
-#Message Queue
+#MM Framework			------->	bis zum 10.12
 
 
 
 
-#MM Framework
+#CDN					------>		bis zum 10.12
 
 
 
 
-#CDN
-
-
-
-
-#Android Mobile App
+#Android Mobile App		------>

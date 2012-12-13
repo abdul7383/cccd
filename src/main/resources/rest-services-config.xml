@@ -31,18 +31,39 @@
 	<context:component-scan base-package="de.fhg.fokus.ngni.services" />
 	
 	<sec:http create-session="stateless">
-   		<sec:intercept-url pattern="/db/**" access="ROLE_ADMIN" />
+   		<sec:intercept-url pattern="/app/**" access="ROLE_USER" />
+   		<sec:intercept-url pattern="/users/**" access="ROLE_ADMIN" />
    		<sec:http-basic />
 	</sec:http>
 	
-	<sec:authentication-manager>
+	<bean id="customUserDetailsService" class="de.fhg.fokus.ngni.services.CustomUserDetailsService" />
+	
+	<bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource">
+		<property name="userPropertyToUse" value="username"/>
+	</bean>
+
+	<bean id="passwordEncoder" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+
+	<sec:authentication-manager  alias="authenticationManager" erase-credentials="false">
+		<sec:authentication-provider user-service-ref="customUserDetailsService">
+	 		<sec:password-encoder ref="passwordEncoder">
+	 			<sec:salt-source ref="saltSource" />
+	 		</sec:password-encoder>
+	 	</sec:authentication-provider>
+	 </sec:authentication-manager>
+	
+	<!--sec:authentication-manager alias="authenticationManager" erase-credentials="false">
    		<sec:authentication-provider>
       		<sec:user-service id="userService">
          		<sec:user name="abdul" password="abdul" authorities="ROLE_ADMIN" />
+         		<sec:user name="test1" password="test1" authorities="ROLE_ADMIN" />
+         		<sec:user name="cccd" password="cccd" authorities="ROLE_ADMIN" />
+         		<sec:user name="abdul12" password="abdul21" authorities="ROLE_ADMIN" />
+         		<sec:user name="abdul13" password="abdul31" authorities="ROLE_ADMIN" />
          		<sec:user name="user" password="user" authorities="ROLE_USER" />
       		</sec:user-service>
    		</sec:authentication-provider>
-	</sec:authentication-manager>
+	</sec:authentication-manager-->
 	
 	<!--
 		 TODO
@@ -83,26 +104,48 @@
 	                <constructor-arg index="0" value="localhost"/>
 	                <constructor-arg index="1" value="27017"/>
 	            </bean>
-	            <!--  bean class="com.mongodb.ServerAddress">
+	            <bean class="com.mongodb.ServerAddress">
 	                <constructor-arg index="0" value="localhost"/>
 	                <constructor-arg index="1" value="27018"/>
 	            </bean>
 	            <bean class="com.mongodb.ServerAddress">
 	                <constructor-arg index="0" value="localhost"/>
 	                <constructor-arg index="1" value="27019"/>
-	            </bean-->
+	            </bean>
 	        </list>
 	    </constructor-arg>
 	</bean>
+
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+ 		<constructor-arg ref="mongoDb" />
+ 		<constructor-arg name="databaseName" value="users"/>
+ 	</bean>	
+
 	<bean id="debugResponse" class="java.lang.Boolean">
 		<constructor-arg index="0" value="true"/>
 	</bean>
-	<bean id="settingsCollection" class="java.lang.String">
-		<constructor-arg index="0" value="settingsCollection"/>
+	
+	<bean id="esClient" class="org.elasticsearch.client.transport.TransportClient" />
+
+	<bean class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject"><ref local="esClient"/></property>
+		<property name="targetMethod"><value>addTransportAddresses</value></property>
+		<property name="arguments"> 
+			<list value-type="org.elasticsearch.common.transport.InetSocketTransportAddress">
+				<bean class="org.elasticsearch.common.transport.InetSocketTransportAddress">
+					<constructor-arg index="0" value="localhost"/>
+					<constructor-arg index="1" value="9300"/>
+				</bean>
+		 	</list>
+		</property>
 	</bean>
+	
+	
 	<bean id="baseCtrl" class="de.fhg.fokus.ngni.webservices.rest.BaseCtrl">
 	   	<property name="mongoDb" ref="mongoDb"/>
+	   	<property name="esClient" ref="esClient"/>
 	   	<property name="debugResponse" ref="debugResponse"/>
-	   	<property name="settingsCollection" ref="settingsCollection"/> 
+	   	<property name="customUserDetailsService" ref="customUserDetailsService"/>
 	</bean>
+		
 </beans>
