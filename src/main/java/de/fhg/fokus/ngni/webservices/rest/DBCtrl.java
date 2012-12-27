@@ -1,11 +1,15 @@
 package de.fhg.fokus.ngni.webservices.rest;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.springframework.amqp.AmqpException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +22,8 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
+
+import de.fhg.fokus.ngni.model.newAppEvent;
 
 /**
  * FundsController class will expose a series of RESTful endpoints
@@ -37,7 +43,8 @@ public class DBCtrl extends BaseCtrl {
 		if (mongoDb.getDatabaseNames().contains(appName))
 			return response(false, null, "app: " + appName
 					+ " is already created");
-
+		if(body == null || body.compareTo("") == 0)
+			return response(false, null, "you have to specify the settings for this app, at least the secret setting i.e {\"secret\": zz\"simpleSecret\"}");
 		DB db = mongoDb.getDB(appName);
 		HashMap<String, Object> jsonBody;
 		try {
@@ -53,6 +60,25 @@ public class DBCtrl extends BaseCtrl {
 		DBCollection coll = db.createCollection("users", user);
 		coll.ensureIndex(new BasicDBObject("username", 1), null, true);
 		coll.save(user);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		try {
+			amqpTemplate.convertAndSend("cccdApp",mapper.writeValueAsString(new newAppEvent(appName,jsonBody.get("secret").toString(),"created")));
+		} catch (JsonGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (AmqpException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return response(true, null, "app: " + appName + " created");
 	}
 
@@ -203,6 +229,24 @@ public class DBCtrl extends BaseCtrl {
 		if (!canWrite(appName, principal.getName()))
 			return response(false, null, "you don't have WRITE permission");
 		mongoDb.dropDatabase(appName);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			amqpTemplate.convertAndSend("cccdApp",mapper.writeValueAsString(new newAppEvent(appName,"deleted")));
+		} catch (JsonGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (AmqpException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return response(true, null, "app: " + appName + " deleted");
 	}
 }

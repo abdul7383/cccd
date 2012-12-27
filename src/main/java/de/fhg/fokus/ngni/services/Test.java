@@ -32,16 +32,18 @@ public class Test {
 		user.setRole(1);
 		MongoTemplate mongoTemplate = new MongoTemplate(mongo,"users");
 		mongoTemplate.save(user);*/
-		TransportClient esClient = new 
-				TransportClient().addTransportAddress(new 
-				InetSocketTransportAddress("localhost", 9300));
-		ClusterState cs = esClient.admin().cluster().prepareState()
-				.setFilterIndices("db1_test3").execute().actionGet()
-				.getState();
-		IndexMetaData imd = cs.getMetaData().index("db1_test3");
-		MappingMetaData mdd = imd.mapping("test3");
-		System.out.println("###################");
-		System.out.println(mdd.sourceAsMap());
+//		TransportClient esClient = new 
+//				TransportClient().addTransportAddress(new 
+//				InetSocketTransportAddress("localhost", 9300));
+//		ClusterState cs = esClient.admin().cluster().prepareState()
+//				.setFilterIndices("db1_test3").execute().actionGet()
+//				.getState();
+//		IndexMetaData imd = cs.getMetaData().index("db1_test3");
+//		MappingMetaData mdd = imd.mapping("test3");
+//		System.out.println("###################");
+//		System.out.println(mdd.sourceAsMap());
+		for(String fi : "id,s".split(","))
+			System.out.println('#'+fi+'#');
 	}
 
 }

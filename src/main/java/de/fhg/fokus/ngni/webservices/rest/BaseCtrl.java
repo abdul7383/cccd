@@ -2,6 +2,7 @@ package de.fhg.fokus.ngni.webservices.rest;
 
 import org.apache.log4j.Logger;
 import org.elasticsearch.client.Client;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
@@ -35,6 +36,9 @@ public class BaseCtrl {
 
 	@Autowired
 	protected Boolean debugResponse;
+	
+	@Autowired
+	protected RabbitTemplate amqpTemplate;
 
 	protected static final boolean SUCCESS = true;
 	protected static final boolean ERROR = false;
@@ -150,5 +154,9 @@ public class BaseCtrl {
 
 	public void setDebugResponse(Boolean debugResponse) {
 		this.debugResponse = debugResponse;
+	}
+
+	public void setAmqpTemplate(RabbitTemplate amqpTemplate) {
+		this.amqpTemplate = amqpTemplate;
 	}
 }
