@@ -44,7 +44,7 @@ public class DBCtrl extends BaseCtrl {
 			return response(false, null, "app: " + appName
 					+ " is already created");
 		if(body == null || body.compareTo("") == 0)
-			return response(false, null, "you have to specify the settings for this app, at least the secret setting i.e {\"secret\": zz\"simpleSecret\"}");
+			return response(false, null, "you have to specify the settings for this app, at least the secret setting i.e {\"secret\": \"simpleSecret\"}");
 		DB db = mongoDb.getDB(appName);
 		HashMap<String, Object> jsonBody;
 		try {

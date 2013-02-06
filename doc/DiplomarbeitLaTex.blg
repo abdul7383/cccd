@@ -1,0 +1,55 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: DiplomarbeitLaTex.aux
+A level-1 auxiliary file: ./misc/titlepage.aux
+The style file: plainnat.bst
+Database file #1: ./bib/references.bib
+Warning--entry type for "W3C" isn't style-file defined
+--line 151 of file ./bib/references.bib
+Warning--to sort, need author or key in W3C
+Warning--empty year in W3C
+Warning--empty year in cisco1
+Warning--empty year in ec1
+Warning--empty year in youtube1
+You've used 13 entries,
+            2773 wiz_defined-function locations,
+            682 strings with 7274 characters,
+and the built_in function-call counts, 5197 in all, are:
+= -- 470
+> -- 233
+< -- 11
++ -- 82
+- -- 69
+* -- 368
+:= -- 782
+add.period$ -- 48
+call.type$ -- 13
+change.case$ -- 60
+chr.to.int$ -- 13
+cite$ -- 32
+duplicate$ -- 260
+empty$ -- 482
+format.name$ -- 87
+if$ -- 1125
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 7
+newline$ -- 81
+num.names$ -- 50
+pop$ -- 149
+preamble$ -- 1
+purify$ -- 48
+quote$ -- 0
+skip$ -- 195
+stack$ -- 0
+substring$ -- 118
+swap$ -- 33
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 143
+warning$ -- 5
+while$ -- 44
+width$ -- 0
+write$ -- 184
+(There were 6 warnings)

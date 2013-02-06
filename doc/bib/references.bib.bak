@@ -1,0 +1,83 @@
+% This file was created with JabRef 2.5.
+% Encoding: Cp1252
+
+
+@article{Abowd,
+        author = "Abowd G. D. and Ebling M. and Hunt G. and Lei H. and Gellersen H.",
+        title = "Context-Aware Computing",
+        journal = "IEEE Pervasive Computing Journal",
+        volume = "1",
+        year = "2002",
+        pages = "22--23",
+}
+
+@article{Tao,
+        author = "Tao Gu and Hung Keng Pung and Da Qing Zhang",
+        title = "A Service-Oriented middleware for building context-aware service",
+        journal = "Journal of Network and Computer Applications 28",
+        volume = "28",
+        year = "2005",
+        pages = "1--18",
+}
+
+@incollection{Weiser:1995:CC:212925.213017,
+ author = {Weiser, Mark},
+ chapter = {The computer for the 21st century},
+ title = {Human-computer interaction},
+ editor = {Baecker, Ronald M. and Grudin, Jonathan and Buxton, William A. S. and Greenberg, Saul},
+ year = {1995},
+ isbn = {1-55860-246-1},
+ pages = {933--940},
+ numpages = {8},
+ url = {http://dl.acm.org/citation.cfm?id=212925.213017},
+ acmid = {213017},
+ publisher = {Morgan Kaufmann Publishers Inc.},
+ address = {San Francisco, CA, USA},
+}
+
+%%%%%%%%%%%%%
+@MISC{timwww,
+  author = {Tim Berners-Lee},
+  title = {WWW Book (no real book, just an example)}
+}
+
+@MISC{billgates,
+  author = {Bill Gates},
+  title = {no real citate}
+}
+
+@MISC{stevejobs,
+  author = {Steve Jobs},
+  title = {no real citate}
+}
+
+@BOOK{SIPBook,
+  title = {SIP, understanding the Session Initiation Protocol, Second Edition},
+  publisher = {Artech House Publishers},
+  year = {2003},
+  author = {Alan B. Johnston},
+  note = {ISBN: 1580536557}
+}
+
+@STANDARD{rfcsip,
+  title = {SIP: Session Initiation Protocol},
+  author = {J. Rosenberg and H. Schulzrinne and G. Camarillo and A. Johnston
+	and J. Peterson and R. Sparks and M. Handley and E. Schooler},
+  howpublished = {RFC 3261 (Proposed Standard)},
+  number = {3261},
+  month = jun,
+  year = {2002},
+  note = {Updated by RFCs 3265, 3853, 4320, 4916, 5393},
+  url = {http://www.ietf.org/rfc/rfc3261.txt},
+  organisation = {Internet Engineering Task Force},
+  publisher = {IETF},
+  series = {Request for Comments}
+}
+
+@MANUAL{w3cwsdl,
+  title = {Web Services Description Language (WSDL) 1.1},
+  organization = {W3C},
+  year = {2001},
+  note = {\url{http://www.w3.org/TR/wsdl}}
+}
+
