@@ -21,54 +21,48 @@
 \BOOKMARK [2][-]{subsection.2.5.2}{Download}{section.2.5}% 21
 \BOOKMARK [1][-]{section.2.6}{Related Technologies}{chapter.2}% 22
 \BOOKMARK [2][-]{subsection.2.6.1}{Web Services}{section.2.6}% 23
-\BOOKMARK [2][-]{subsection.2.6.2}{SOAP}{section.2.6}% 24
-\BOOKMARK [2][-]{subsection.2.6.3}{REST}{section.2.6}% 25
-\BOOKMARK [2][-]{subsection.2.6.4}{SOAP vs. REST TODO}{section.2.6}% 26
-\BOOKMARK [2][-]{subsection.2.6.5}{NoSQL Databases TODO NoSQL Evaluation}{section.2.6}% 27
-\BOOKMARK [2][-]{subsection.2.6.6}{Application Messaging}{section.2.6}% 28
-\BOOKMARK [2][-]{subsection.2.6.7}{Search Engines }{section.2.6}% 29
-\BOOKMARK [2][-]{subsection.2.6.8}{Web Servers}{section.2.6}% 30
-\BOOKMARK [2][-]{subsection.2.6.9}{Spring Framework}{section.2.6}% 31
-\BOOKMARK [2][-]{subsection.2.6.10}{Application Servers}{section.2.6}% 32
-\BOOKMARK [1][-]{section.2.7}{Related Work}{chapter.2}% 33
-\BOOKMARK [0][-]{chapter.3}{Requirements}{}% 34
-\BOOKMARK [1][-]{section.3.1}{Problem Statement}{chapter.3}% 35
-\BOOKMARK [1][-]{section.3.2}{Scenarios}{chapter.3}% 36
-\BOOKMARK [1][-]{section.3.3}{Functional requirements}{chapter.3}% 37
-\BOOKMARK [1][-]{section.3.4}{Non functional requirements}{chapter.3}% 38
-\BOOKMARK [2][-]{subsection.3.4.1}{Usability}{section.3.4}% 39
-\BOOKMARK [2][-]{subsection.3.4.2}{Efficiency}{section.3.4}% 40
-\BOOKMARK [2][-]{subsection.3.4.3}{Changeability}{section.3.4}% 41
-\BOOKMARK [2][-]{subsection.3.4.4}{Scalability}{section.3.4}% 42
-\BOOKMARK [0][-]{chapter.4}{Design}{}% 43
-\BOOKMARK [1][-]{section.4.1}{Architecture Overview}{chapter.4}% 44
-\BOOKMARK [1][-]{section.4.2}{Framework Components}{chapter.4}% 45
-\BOOKMARK [2][-]{subsection.4.2.1}{Repository}{section.4.2}% 46
-\BOOKMARK [2][-]{subsection.4.2.2}{Search Engine}{section.4.2}% 47
-\BOOKMARK [2][-]{subsection.4.2.3}{Content Adaptation}{section.4.2}% 48
-\BOOKMARK [2][-]{subsection.4.2.4}{Content Distribution}{section.4.2}% 49
-\BOOKMARK [2][-]{subsection.4.2.5}{Application Messaging}{section.4.2}% 50
-\BOOKMARK [2][-]{subsection.4.2.6}{User API}{section.4.2}% 51
-\BOOKMARK [1][-]{section.4.3}{Interfaces}{chapter.4}% 52
-\BOOKMARK [1][-]{section.4.4}{Requirement Fulfillment}{chapter.4}% 53
-\BOOKMARK [0][-]{chapter.5}{Implementation}{}% 54
-\BOOKMARK [1][-]{section.5.1}{Development Environment}{chapter.5}% 55
-\BOOKMARK [2][-]{subsection.5.1.1}{Eclipse}{section.5.1}% 56
-\BOOKMARK [2][-]{subsection.5.1.2}{Maven}{section.5.1}% 57
-\BOOKMARK [1][-]{section.5.2}{Framework Implementation}{chapter.5}% 58
-\BOOKMARK [2][-]{subsection.5.2.1}{Spring Framework}{section.5.2}% 59
-\BOOKMARK [2][-]{subsection.5.2.2}{Repository}{section.5.2}% 60
-\BOOKMARK [2][-]{subsection.5.2.3}{Search Engine}{section.5.2}% 61
-\BOOKMARK [2][-]{subsection.5.2.4}{Content Adaptation}{section.5.2}% 62
-\BOOKMARK [2][-]{subsection.5.2.5}{Content Distribution}{section.5.2}% 63
-\BOOKMARK [2][-]{subsection.5.2.6}{Application Messaging}{section.5.2}% 64
-\BOOKMARK [2][-]{subsection.5.2.7}{User API}{section.5.2}% 65
-\BOOKMARK [1][-]{section.5.3}{Components Integration and Configuration}{chapter.5}% 66
-\BOOKMARK [1][-]{section.5.4}{REST API}{chapter.5}% 67
-\BOOKMARK [0][-]{chapter.6}{Evaluation}{}% 68
-\BOOKMARK [1][-]{section.6.1}{Test Environment}{chapter.6}% 69
-\BOOKMARK [1][-]{section.6.2}{Test Scenarios}{chapter.6}% 70
-\BOOKMARK [2][-]{subsection.6.2.1}{Usability}{section.6.2}% 71
-\BOOKMARK [2][-]{subsection.6.2.2}{Performance}{section.6.2}% 72
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 73
-\BOOKMARK [0][-]{chapter*.39}{Bibliography}{}% 74
+\BOOKMARK [2][-]{subsection.2.6.2}{NoSQL Databases TODO NoSQL Evaluation}{section.2.6}% 24
+\BOOKMARK [2][-]{subsection.2.6.3}{Message Queue}{section.2.6}% 25
+\BOOKMARK [2][-]{subsection.2.6.4}{Search Platforms }{section.2.6}% 26
+\BOOKMARK [2][-]{subsection.2.6.5}{Spring Framework}{section.2.6}% 27
+\BOOKMARK [1][-]{section.2.7}{Related Work}{chapter.2}% 28
+\BOOKMARK [0][-]{chapter.3}{Requirements}{}% 29
+\BOOKMARK [1][-]{section.3.1}{Problem Statement}{chapter.3}% 30
+\BOOKMARK [1][-]{section.3.2}{Scenarios}{chapter.3}% 31
+\BOOKMARK [1][-]{section.3.3}{Functional requirements}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.4}{Non functional requirements}{chapter.3}% 33
+\BOOKMARK [2][-]{subsection.3.4.1}{Usability}{section.3.4}% 34
+\BOOKMARK [2][-]{subsection.3.4.2}{Efficiency}{section.3.4}% 35
+\BOOKMARK [2][-]{subsection.3.4.3}{Changeability}{section.3.4}% 36
+\BOOKMARK [2][-]{subsection.3.4.4}{Scalability}{section.3.4}% 37
+\BOOKMARK [0][-]{chapter.4}{Design}{}% 38
+\BOOKMARK [1][-]{section.4.1}{Architecture Overview}{chapter.4}% 39
+\BOOKMARK [1][-]{section.4.2}{Framework Components}{chapter.4}% 40
+\BOOKMARK [2][-]{subsection.4.2.1}{Repository}{section.4.2}% 41
+\BOOKMARK [2][-]{subsection.4.2.2}{Search Engine}{section.4.2}% 42
+\BOOKMARK [2][-]{subsection.4.2.3}{Content Adaptation}{section.4.2}% 43
+\BOOKMARK [2][-]{subsection.4.2.4}{Content Distribution}{section.4.2}% 44
+\BOOKMARK [2][-]{subsection.4.2.5}{Application Messaging}{section.4.2}% 45
+\BOOKMARK [2][-]{subsection.4.2.6}{User API}{section.4.2}% 46
+\BOOKMARK [1][-]{section.4.3}{Interfaces}{chapter.4}% 47
+\BOOKMARK [1][-]{section.4.4}{Requirement Fulfillment}{chapter.4}% 48
+\BOOKMARK [0][-]{chapter.5}{Implementation}{}% 49
+\BOOKMARK [1][-]{section.5.1}{Development Environment}{chapter.5}% 50
+\BOOKMARK [2][-]{subsection.5.1.1}{Eclipse}{section.5.1}% 51
+\BOOKMARK [2][-]{subsection.5.1.2}{Maven}{section.5.1}% 52
+\BOOKMARK [1][-]{section.5.2}{Framework Implementation}{chapter.5}% 53
+\BOOKMARK [2][-]{subsection.5.2.1}{Spring Framework}{section.5.2}% 54
+\BOOKMARK [2][-]{subsection.5.2.2}{Repository}{section.5.2}% 55
+\BOOKMARK [2][-]{subsection.5.2.3}{Search Engine}{section.5.2}% 56
+\BOOKMARK [2][-]{subsection.5.2.4}{Content Adaptation}{section.5.2}% 57
+\BOOKMARK [2][-]{subsection.5.2.5}{Content Distribution}{section.5.2}% 58
+\BOOKMARK [2][-]{subsection.5.2.6}{Application Messaging}{section.5.2}% 59
+\BOOKMARK [2][-]{subsection.5.2.7}{User API}{section.5.2}% 60
+\BOOKMARK [1][-]{section.5.3}{Components Integration and Configuration}{chapter.5}% 61
+\BOOKMARK [1][-]{section.5.4}{REST API}{chapter.5}% 62
+\BOOKMARK [0][-]{chapter.6}{Evaluation}{}% 63
+\BOOKMARK [1][-]{section.6.1}{Test Environment}{chapter.6}% 64
+\BOOKMARK [1][-]{section.6.2}{Test Scenarios}{chapter.6}% 65
+\BOOKMARK [2][-]{subsection.6.2.1}{Usability}{section.6.2}% 66
+\BOOKMARK [2][-]{subsection.6.2.2}{Performance}{section.6.2}% 67
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 68

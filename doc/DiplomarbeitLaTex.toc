@@ -23,87 +23,95 @@
 \contentsline {subsection}{\numberline {2.5.2}Download}{12}{subsection.2.5.2}
 \contentsline {section}{\numberline {2.6}Related Technologies}{12}{section.2.6}
 \contentsline {subsection}{\numberline {2.6.1}Web Services}{12}{subsection.2.6.1}
-\contentsline {subsection}{\numberline {2.6.2}SOAP}{12}{subsection.2.6.2}
-\contentsline {paragraph}{SOAP Message Example:}{13}{section*.6}
-\contentsline {subsection}{\numberline {2.6.3}REST}{13}{subsection.2.6.3}
-\contentsline {paragraph}{REST Example:}{14}{section*.7}
-\contentsline {subsection}{\numberline {2.6.4}SOAP vs. REST TODO}{14}{subsection.2.6.4}
-\contentsline {paragraph}{API Flexibility \& Simplicity}{15}{section*.8}
-\contentsline {paragraph}{Bandwidth Usage}{15}{section*.9}
-\contentsline {paragraph}{Security}{15}{section*.10}
-\contentsline {paragraph}{Type Handling}{16}{section*.11}
-\contentsline {paragraph}{Client-side Complexity}{16}{section*.12}
-\contentsline {paragraph}{Testing and Troubleshooting}{16}{section*.13}
-\contentsline {paragraph}{Server-side Complexity}{17}{section*.14}
-\contentsline {paragraph}{Caching}{17}{section*.15}
-\contentsline {subsection}{\numberline {2.6.5}NoSQL Databases TODO NoSQL Evaluation}{17}{subsection.2.6.5}
-\contentsline {paragraph}{Key Value Stores:}{18}{section*.16}
-\contentsline {paragraph}{Document Stores:}{18}{section*.17}
-\contentsline {paragraph}{Column Stores:}{18}{section*.18}
-\contentsline {paragraph}{Graph Stores:}{19}{section*.19}
-\contentsline {subsection}{\numberline {2.6.6}Application Messaging}{19}{subsection.2.6.6}
-\contentsline {subsection}{\numberline {2.6.7}Search Engines }{19}{subsection.2.6.7}
-\contentsline {subsubsection}{Apache Solr }{19}{section*.20}
-\contentsline {subsubsection}{Elasticsearch }{19}{section*.21}
-\contentsline {subsection}{\numberline {2.6.8}Web Servers}{19}{subsection.2.6.8}
-\contentsline {subsubsection}{Apache }{19}{section*.22}
-\contentsline {subsubsection}{NginX}{19}{section*.23}
-\contentsline {subsection}{\numberline {2.6.9}Spring Framework}{19}{subsection.2.6.9}
-\contentsline {subsection}{\numberline {2.6.10}Application Servers}{19}{subsection.2.6.10}
-\contentsline {section}{\numberline {2.7}Related Work}{19}{section.2.7}
-\contentsline {chapter}{\numberline {3}Requirements}{21}{chapter.3}
-\contentsline {section}{\numberline {3.1}Problem Statement}{21}{section.3.1}
-\contentsline {section}{\numberline {3.2}Scenarios}{21}{section.3.2}
-\contentsline {paragraph}{Mobile capturing of live event}{21}{section*.24}
-\contentsline {paragraph}{Restaurant guide}{22}{section*.25}
-\contentsline {section}{\numberline {3.3}Functional requirements}{22}{section.3.3}
-\contentsline {paragraph}{R1 User Management}{22}{section*.26}
-\contentsline {paragraph}{Applications Management}{22}{section*.27}
-\contentsline {paragraph}{Content \& Context Data Store}{22}{section*.28}
-\contentsline {paragraph}{Content Discovery}{23}{section*.29}
-\contentsline {paragraph}{Content Adaptation}{23}{section*.30}
-\contentsline {paragraph}{Content Distribution}{23}{section*.31}
-\contentsline {section}{\numberline {3.4}Non functional requirements}{23}{section.3.4}
-\contentsline {subsection}{\numberline {3.4.1}Usability}{23}{subsection.3.4.1}
-\contentsline {subsection}{\numberline {3.4.2}Efficiency}{24}{subsection.3.4.2}
-\contentsline {subsection}{\numberline {3.4.3}Changeability}{24}{subsection.3.4.3}
-\contentsline {subsection}{\numberline {3.4.4}Scalability}{24}{subsection.3.4.4}
-\contentsline {chapter}{\numberline {4}Design}{25}{chapter.4}
-\contentsline {section}{\numberline {4.1}Architecture Overview}{25}{section.4.1}
-\contentsline {section}{\numberline {4.2}Framework Components}{25}{section.4.2}
-\contentsline {subsection}{\numberline {4.2.1}Repository}{25}{subsection.4.2.1}
-\contentsline {subsection}{\numberline {4.2.2}Search Engine}{25}{subsection.4.2.2}
-\contentsline {subsection}{\numberline {4.2.3}Content Adaptation}{25}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Content Distribution}{25}{subsection.4.2.4}
-\contentsline {subsection}{\numberline {4.2.5}Application Messaging}{25}{subsection.4.2.5}
-\contentsline {subsection}{\numberline {4.2.6}User API}{25}{subsection.4.2.6}
-\contentsline {section}{\numberline {4.3}Interfaces}{25}{section.4.3}
-\contentsline {section}{\numberline {4.4}Requirement Fulfillment}{25}{section.4.4}
-\contentsline {chapter}{\numberline {5}Implementation}{27}{chapter.5}
-\contentsline {section}{\numberline {5.1}Development Environment}{28}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Eclipse}{28}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Maven}{28}{subsection.5.1.2}
-\contentsline {section}{\numberline {5.2}Framework Implementation}{28}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Spring Framework}{28}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Repository}{28}{subsection.5.2.2}
-\contentsline {subsubsection}{MongoDB}{28}{section*.32}
-\contentsline {subsection}{\numberline {5.2.3}Search Engine}{28}{subsection.5.2.3}
-\contentsline {subsubsection}{ElasticSearch}{28}{section*.33}
-\contentsline {subsection}{\numberline {5.2.4}Content Adaptation}{28}{subsection.5.2.4}
-\contentsline {subsubsection}{FFmpeg}{28}{section*.34}
-\contentsline {subsection}{\numberline {5.2.5}Content Distribution}{28}{subsection.5.2.5}
-\contentsline {subsubsection}{HTTP-Live-Video-Stream-Segmenter-and-Distributor}{28}{section*.35}
-\contentsline {subsubsection}{NginX}{28}{section*.36}
-\contentsline {subsection}{\numberline {5.2.6}Application Messaging}{28}{subsection.5.2.6}
-\contentsline {subsubsection}{RabbitMQ}{28}{section*.37}
-\contentsline {subsection}{\numberline {5.2.7}User API}{28}{subsection.5.2.7}
-\contentsline {subsubsection}{SPRING DATA - REST}{28}{section*.38}
-\contentsline {section}{\numberline {5.3}Components Integration and Configuration}{28}{section.5.3}
-\contentsline {section}{\numberline {5.4}REST API}{28}{section.5.4}
-\contentsline {chapter}{\numberline {6}Evaluation}{29}{chapter.6}
-\contentsline {section}{\numberline {6.1}Test Environment}{29}{section.6.1}
-\contentsline {section}{\numberline {6.2}Test Scenarios}{29}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Usability}{29}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Performance}{29}{subsection.6.2.2}
-\contentsline {chapter}{\numberline {7}Conclusion}{31}{chapter.7}
-\contentsline {chapter}{Bibliography}{33}{chapter*.39}
+\contentsline {subsubsection}{SOAP}{13}{section*.5}
+\contentsline {paragraph}{SOAP Message Example:}{13}{section*.7}
+\contentsline {subsubsection}{REST}{14}{section*.8}
+\contentsline {paragraph}{REST Example:}{14}{section*.9}
+\contentsline {subsubsection}{SOAP vs. REST TODO}{15}{section*.10}
+\contentsline {paragraph}{API Flexibility \& Simplicity}{15}{section*.11}
+\contentsline {paragraph}{Bandwidth Usage}{16}{section*.12}
+\contentsline {paragraph}{Security}{16}{section*.13}
+\contentsline {paragraph}{Type Handling}{16}{section*.14}
+\contentsline {paragraph}{Client-side Complexity}{17}{section*.15}
+\contentsline {paragraph}{Testing and Troubleshooting}{17}{section*.16}
+\contentsline {paragraph}{Server-side Complexity}{17}{section*.17}
+\contentsline {paragraph}{Caching}{17}{section*.18}
+\contentsline {subsection}{\numberline {2.6.2}NoSQL Databases TODO NoSQL Evaluation}{17}{subsection.2.6.2}
+\contentsline {subsubsection}{Key Value Stores}{18}{section*.19}
+\contentsline {paragraph}{Riak:}{19}{section*.20}
+\contentsline {subsubsection}{Document Stores}{19}{section*.23}
+\contentsline {paragraph}{CouchDB:}{20}{section*.24}
+\contentsline {paragraph}{MongoDB:}{21}{section*.27}
+\contentsline {subsubsection}{Column Stores}{22}{section*.29}
+\contentsline {paragraph}{Cassandra}{23}{section*.30}
+\contentsline {subsubsection}{Graph Databases:}{24}{section*.31}
+\contentsline {paragraph}{Neo4J}{24}{section*.32}
+\contentsline {subsection}{\numberline {2.6.3}Message Queue}{25}{subsection.2.6.3}
+\contentsline {paragraph}{RabbitMQ}{25}{section*.34}
+\contentsline {paragraph}{ActiveMQ}{26}{section*.38}
+\contentsline {subsection}{\numberline {2.6.4}Search Platforms }{26}{subsection.2.6.4}
+\contentsline {subsubsection}{Apache Solr }{27}{section*.39}
+\contentsline {subsubsection}{Elasticsearch }{27}{section*.40}
+\contentsline {subsection}{\numberline {2.6.5}Spring Framework}{28}{subsection.2.6.5}
+\contentsline {subsubsection}{Modules}{29}{section*.42}
+\contentsline {paragraph}{Core Container:}{29}{section*.44}
+\contentsline {paragraph}{Data Access/Integration:}{30}{section*.45}
+\contentsline {paragraph}{Web:}{30}{section*.46}
+\contentsline {paragraph}{AOP and Instrumentation:}{30}{section*.47}
+\contentsline {paragraph}{Test:}{30}{section*.48}
+\contentsline {section}{\numberline {2.7}Related Work}{31}{section.2.7}
+\contentsline {chapter}{\numberline {3}Requirements}{33}{chapter.3}
+\contentsline {section}{\numberline {3.1}Problem Statement}{33}{section.3.1}
+\contentsline {section}{\numberline {3.2}Scenarios}{33}{section.3.2}
+\contentsline {paragraph}{Mobile capturing of live event}{33}{section*.49}
+\contentsline {paragraph}{Restaurant guide}{34}{section*.50}
+\contentsline {section}{\numberline {3.3}Functional requirements}{34}{section.3.3}
+\contentsline {paragraph}{R1 User Management}{34}{section*.51}
+\contentsline {paragraph}{Applications Management}{34}{section*.52}
+\contentsline {paragraph}{Content \& Context Data Store}{34}{section*.53}
+\contentsline {paragraph}{Content Discovery}{35}{section*.54}
+\contentsline {paragraph}{Content Adaptation}{35}{section*.55}
+\contentsline {paragraph}{Content Distribution}{35}{section*.56}
+\contentsline {section}{\numberline {3.4}Non functional requirements}{35}{section.3.4}
+\contentsline {subsection}{\numberline {3.4.1}Usability}{35}{subsection.3.4.1}
+\contentsline {subsection}{\numberline {3.4.2}Efficiency}{36}{subsection.3.4.2}
+\contentsline {subsection}{\numberline {3.4.3}Changeability}{36}{subsection.3.4.3}
+\contentsline {subsection}{\numberline {3.4.4}Scalability}{36}{subsection.3.4.4}
+\contentsline {chapter}{\numberline {4}Design}{37}{chapter.4}
+\contentsline {section}{\numberline {4.1}Architecture Overview}{37}{section.4.1}
+\contentsline {section}{\numberline {4.2}Framework Components}{38}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Repository}{38}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Search Engine}{38}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Content Adaptation}{38}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Content Distribution}{38}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Application Messaging}{38}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}User API}{38}{subsection.4.2.6}
+\contentsline {section}{\numberline {4.3}Interfaces}{38}{section.4.3}
+\contentsline {section}{\numberline {4.4}Requirement Fulfillment}{38}{section.4.4}
+\contentsline {chapter}{\numberline {5}Implementation}{39}{chapter.5}
+\contentsline {section}{\numberline {5.1}Development Environment}{40}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Eclipse}{40}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Maven}{40}{subsection.5.1.2}
+\contentsline {section}{\numberline {5.2}Framework Implementation}{40}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Spring Framework}{40}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Repository}{40}{subsection.5.2.2}
+\contentsline {subsubsection}{MongoDB}{40}{section*.58}
+\contentsline {subsection}{\numberline {5.2.3}Search Engine}{40}{subsection.5.2.3}
+\contentsline {subsubsection}{ElasticSearch}{40}{section*.59}
+\contentsline {subsection}{\numberline {5.2.4}Content Adaptation}{40}{subsection.5.2.4}
+\contentsline {subsubsection}{FFmpeg}{40}{section*.60}
+\contentsline {subsection}{\numberline {5.2.5}Content Distribution}{40}{subsection.5.2.5}
+\contentsline {subsubsection}{HTTP-Live-Video-Stream-Segmenter-and-Distributor}{40}{section*.61}
+\contentsline {subsubsection}{NginX}{40}{section*.62}
+\contentsline {subsection}{\numberline {5.2.6}Application Messaging}{40}{subsection.5.2.6}
+\contentsline {subsubsection}{RabbitMQ}{40}{section*.63}
+\contentsline {subsection}{\numberline {5.2.7}User API}{40}{subsection.5.2.7}
+\contentsline {subsubsection}{SPRING DATA - REST}{40}{section*.64}
+\contentsline {section}{\numberline {5.3}Components Integration and Configuration}{40}{section.5.3}
+\contentsline {section}{\numberline {5.4}REST API}{40}{section.5.4}
+\contentsline {chapter}{\numberline {6}Evaluation}{41}{chapter.6}
+\contentsline {section}{\numberline {6.1}Test Environment}{41}{section.6.1}
+\contentsline {section}{\numberline {6.2}Test Scenarios}{41}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Usability}{41}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Performance}{41}{subsection.6.2.2}
+\contentsline {chapter}{\numberline {7}Conclusion}{43}{chapter.7}
