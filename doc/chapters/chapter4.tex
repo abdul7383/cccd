@@ -4,7 +4,7 @@ Against the background of the requirements described previously in chapter 3, th
 
 
 \section{Architecture Overview\label{sec:des_ar_ov}}
-Figure \ref{fig:arch_overview} shows an architecture overview of the framework, which consists mainly of seven components. The components with three dots(...) in them means that the framework can be later extended with new components for adding new services to the framework like SUBSCRIBE/NOTIFICATION.
+Figure \ref{fig:arch_overview} shows an architecture overview of the framework, which consists mainly of six components. The components with three dots(...) in them means that the framework can be later extended with new components for adding new services to the framework like SUBSCRIBE/NOTIFICATION etc.
 
 \begin{figure}[htb]
   \centering
@@ -13,9 +13,113 @@ Figure \ref{fig:arch_overview} shows an architecture overview of the framework, 
   \label{fig:arch_overview}
 \end{figure}
 
-The App Management component is the main entry for each developer to interact with the framework. These developers needs to authenticate them self in order to use the framework and therefore a User Management component is needed. Furthermore the Repository/Media Store is also needed for     
+Before diving into the details of each component, the following subsections illustrate some work flows that have to be processed in order to process a request, i.e. creating a new application, adding a new content or searching for a content.
+
+\subsection{Create App-Work Flow}
+As illustrated in figure bla, these steps are needed for creating a new application:
+
+\begin{itemize}
+\item developer sends a request for creating a new app to the App Management API along with his credentials and containing the name for the new app and a secret to be later used to get the stored contents
+\item App Management checks if the credentials are correct
+\item App Management checks if the new app name already exist
+\item AppM creates a database in the repository with the given app name and sets its owner to the developer who created it.
+\item AppM send a message to the Worker Queue and thereby announce the creation of a new app with the given name and the secret
+\item Content Distribution servers which listens to the Worker Queue create a virtual space for the new app and securing it with the secret word provided while creation the new app
+\end{itemize}
+
 \section{Framework Components\label{sec:des_com}}
+The App Management component is the main entry for each developer to interact with the framework. These developers needs to authenticate them self in order to use the framework and therefore a appropriate User Management is needed. Furthermore the Repository/Media Store is needed in order to store the data an the multimedia files. For efficient data discovery, the Search Engine component  is required. The task of the Content Adaptation component is to convert the stored files to other formats and then upload these converted files to the Content Distribution component which then serve them to various devices.
+
+Those components are described in more details in the next subsections.
+ 
 \subsection{App Management\label{sec:des_repo}}
+
+The App Management component is the core of the entire framework and it interacts with almost all components in the framework. The following subsections describe the design decision that have been made for implementing this component.
+
+\subsubsection{JSON}
+\subsubsection{User Management}
+In order to allow only registered developers to use the framework, a User Management design concept is described in the following.
+
+The User Management component provides two levels of management. The first one is to provide a role based user management for using the entire framework. The role can be either an admin or a normal user - which here means a developer who use the framework. Both admin and user are allowed to use the framework i.e. creating new applications, modeling the app and storing, getting or deleting contents etc. Only admins can add a new admin or user.
+
+The second level of the User Management component provides a mechanism for managing who can modify an existing app or store/get contents from this app. The user who created the app is theoretically the owner of it and he is the only one who is allowed to add other users for using his app. Thereby he can add users with the same rights as his rights, meaning they can modify the whole app, deleting contents etc., or add other users, who only allowed to store/get/search contents. For example this is useful for a developer, who has deployed/configured a new app and then lets a service provider to use his app by only storing, getting, searching the contents in this app. 
+
+\subsubsection{REST Interfaces} For interacting with the outside world, a standard and well defined interface is needed. The decision for choosing REST as an API interface is due to its flexibility, simplicity, less bandwidth usage and very easy way to scale for large deployment, see section \ref{sec:back_soap_vs_rest} for more detailed comparison.
+
+Following paragraphs describes the various interfaces needed in order to be able to use the framework:
+
+\paragraph{App interface:} This interface provides the four CRUD operation, which described bellow, to allow developers to interact with there apps.
+
+\begin{itemize}
+\item \textbf{Create(POST):} This method creates a new app and it requires a name and global configuration parameters for the app. These configuration parameters can be for example a mandatory secret word to be later used for securing the contents which belongs to this app or a list of video formats, which will be then used to transcode each uploaded video within this app in order to support various devices i.e. iPad, iPhone, PC and etc. Listing \ref{lst:new_app_json} shows a JSON example creating a new app with the name vod1.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+POST https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+\end{minted}
+Payload:
+\begin{minted}[frame=single]{json}
+{
+"secret":"pass123",
+"video_formats":"cell_4x3_150k,wifi_4x3_640k,wifi_4x3_1240k"
+}
+\end{minted}
+Response:
+\begin{minted}[frame=single]{json}
+{
+"ok": "1",
+"debug": "app: vod1 created"
+}
+\end{minted}
+\caption{Creating a new app}
+\label{lst:new_app_json}
+\end{code}
+
+\item \textbf{Read(GET):} There are two methods in this App Interface, which can be consumed through a HTTP GET, first one is for listing all apps which belongs to the user, see listing \ref{lst:listing_apps} as an example. 
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+GET https://user1:pass@107.23.121.185:8080/cccd/app
+\end{minted}
+Response:
+\begin{minted}[frame=single]{json}
+{
+"data":["app3","vod","vod1","app1"],
+"ok":"1"
+}
+\end{minted}
+\caption{Listing all apps which belong to a user}
+\label{lst:listing_apps}
+\end{code}
+
+The second method is for listing all collections within this app. These collections can be compared with tables in SQL systems and it contains the real data, i.e. the metadata for a content, see listing \ref{lst:listing_coll} for an example.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+GET https://user1:pass@107.23.121.185:8080/cccd/app
+\end{minted}
+Response:
+\begin{minted}[frame=single]{json}
+{
+"data":["app3","vod","vod1","app1"],
+"ok":"1"
+}
+\end{minted}
+\caption{Listing all collections within an app}
+\label{lst:listing_coll}
+\end{code}
+
+\item App Management checks if the new app name already exist
+\item AppM creates a database in the repository with the given app name and sets its owner to the developer who created it.
+\item AppM send a message to the Worker Queue and thereby announce the creation of a new app with the given name and the secret
+\item Content Distribution servers which listens to the Worker Queue create a virtual space for the new app and securing it with the secret word provided while creation the new app
+\end{itemize}
+
+
+
+\subsubsection{Informative Response:} In order to know if a request to the framework succeeded or failed, the API should always send a tag in each response which shows either the request processed successfully or not, i.e. {"ok":1} in case of success or {"ok":0} in case of failure. Furthermore a configuration parameter will be implemented to enable more debug information, i.e. while creating a new app, if its name exist already, then the response include the error as a string i.e. {"ok":0,"debug":"app name exist already"}.
+
+
 \subsection{User Management}
 \subsection{Repository\label{sec:des_repo}}
 \subsection{Search Engine\label{sec:des_se_en}}

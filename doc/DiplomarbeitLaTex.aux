@@ -98,7 +98,7 @@
 \newlabel{sec:back_tech_ws_rest}{{2.6.1}{14}{REST\relax }{section*.8}{}}
 \@writefile{toc}{\contentsline {subsubsection}{REST}{14}{section*.8}}
 \@writefile{toc}{\contentsline {paragraph}{REST Example:}{14}{section*.9}}
-\newlabel{sec:back_tech_ws_rest}{{2.6.1}{15}{SOAP vs. REST TODO\relax }{section*.10}{}}
+\newlabel{sec:back_soap_vs_rest}{{2.6.1}{15}{SOAP vs. REST TODO\relax }{section*.10}{}}
 \@writefile{toc}{\contentsline {subsubsection}{SOAP vs. REST TODO}{15}{section*.10}}
 \@writefile{toc}{\contentsline {paragraph}{API Flexibility \& Simplicity}{15}{section*.11}}
 \@writefile{toc}{\contentsline {paragraph}{Bandwidth Usage}{16}{section*.12}}
@@ -195,89 +195,102 @@
 \@writefile{toc}{\contentsline {section}{\numberline {4.1}Architecture Overview}{37}{section.4.1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.1}{\ignorespaces Architecture Overview\relax }}{37}{figure.caption.57}}
 \newlabel{fig:arch_overview}{{4.1}{37}{Architecture Overview\relax \relax }{figure.caption.57}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1.1}Create App-Work Flow}{38}{subsection.4.1.1}}
 \newlabel{sec:des_com}{{4.2}{38}{Framework Components\relax }{section.4.2}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {4.2}Framework Components}{38}{section.4.2}}
-\newlabel{sec:des_repo}{{4.2.1}{38}{Repository\relax }{subsection.4.2.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}Repository}{38}{subsection.4.2.1}}
-\newlabel{sec:des_se_en}{{4.2.2}{38}{Search Engine\relax }{subsection.4.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Search Engine}{38}{subsection.4.2.2}}
-\newlabel{sec:des_ar_ov}{{4.2.3}{38}{Content Adaptation\relax }{subsection.4.2.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Content Adaptation}{38}{subsection.4.2.3}}
-\newlabel{sec:des_cdn}{{4.2.4}{38}{Content Distribution\relax }{subsection.4.2.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Content Distribution}{38}{subsection.4.2.4}}
-\newlabel{sec:des_me}{{4.2.5}{38}{Application Messaging\relax }{subsection.4.2.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Application Messaging}{38}{subsection.4.2.5}}
-\newlabel{sec:des_api}{{4.2.6}{38}{User API\relax }{subsection.4.2.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}User API}{38}{subsection.4.2.6}}
-\newlabel{sec:des_inter}{{4.3}{38}{Interfaces\relax }{section.4.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.3}Interfaces}{38}{section.4.3}}
-\newlabel{sec:des_inter}{{4.4}{38}{Requirement Fulfillment\relax }{section.4.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4.4}Requirement Fulfillment}{38}{section.4.4}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementation}{39}{chapter.5}}
+\newlabel{sec:des_repo}{{4.2.1}{38}{App Management\relax }{subsection.4.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.1}App Management}{38}{subsection.4.2.1}}
+\@writefile{toc}{\contentsline {subsubsection}{JSON}{39}{section*.58}}
+\@writefile{toc}{\contentsline {subsubsection}{User Management}{39}{section*.59}}
+\@writefile{toc}{\contentsline {subsubsection}{REST Interfaces}{39}{section*.60}}
+\@writefile{toc}{\contentsline {paragraph}{App interface:}{39}{section*.61}}
+\@writefile{lol}{\contentsline {listing}{\numberline {3}{\ignorespaces Creating a new app\relax }}{40}{listing.caption.62}}
+\newlabel{lst:new_app_json}{{3}{40}{Creating a new app\relax \relax }{listing.caption.62}{}}
+\@writefile{lol}{\contentsline {listing}{\numberline {4}{\ignorespaces Listing all apps which belong to a user\relax }}{40}{listing.caption.63}}
+\newlabel{lst:listing_apps}{{4}{40}{Listing all apps which belong to a user\relax \relax }{listing.caption.63}{}}
+\@writefile{toc}{\contentsline {subsubsection}{Informative Response:}{41}{section*.64}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}User Management}{41}{subsection.4.2.2}}
+\newlabel{sec:des_repo}{{4.2.3}{41}{Repository\relax }{subsection.4.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Repository}{41}{subsection.4.2.3}}
+\newlabel{sec:des_se_en}{{4.2.4}{41}{Search Engine\relax }{subsection.4.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.4}Search Engine}{41}{subsection.4.2.4}}
+\newlabel{sec:des_ar_ov}{{4.2.5}{41}{Content Adaptation\relax }{subsection.4.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.5}Content Adaptation}{41}{subsection.4.2.5}}
+\newlabel{sec:des_cdn}{{4.2.6}{41}{Content Distribution\relax }{subsection.4.2.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.6}Content Distribution}{41}{subsection.4.2.6}}
+\newlabel{sec:des_me}{{4.2.7}{41}{Application Messaging\relax }{subsection.4.2.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.7}Application Messaging}{41}{subsection.4.2.7}}
+\newlabel{sec:des_api}{{4.2.8}{41}{User API\relax }{subsection.4.2.8}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2.8}User API}{41}{subsection.4.2.8}}
+\newlabel{sec:des_inter}{{4.3}{41}{Interfaces\relax }{section.4.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.3}Interfaces}{41}{section.4.3}}
+\newlabel{sec:des_inter}{{4.4}{41}{Requirement Fulfillment\relax }{section.4.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4.4}Requirement Fulfillment}{41}{section.4.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementation}{43}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{cha:chapter5}{{5}{40}{Implementation\relax }{chapter.5}{}}
-\newlabel{sec:impl_ecl}{{5.1}{40}{Development Environment\relax }{section.5.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.1}Development Environment}{40}{section.5.1}}
-\newlabel{sec:impl_ecl}{{5.1.1}{40}{Eclipse\relax }{subsection.5.1.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Eclipse}{40}{subsection.5.1.1}}
-\newlabel{sec:impl_ecl}{{5.1.2}{40}{Maven\relax }{subsection.5.1.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Maven}{40}{subsection.5.1.2}}
-\newlabel{sec:impl_used_op_sr}{{5.2}{40}{Framework Implementation\relax }{section.5.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.2}Framework Implementation}{40}{section.5.2}}
-\newlabel{sec:impl_sp_fr}{{5.2.1}{40}{Spring Framework\relax }{subsection.5.2.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Spring Framework}{40}{subsection.5.2.1}}
-\newlabel{sec:des_repo}{{5.2.2}{40}{Repository\relax }{subsection.5.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Repository}{40}{subsection.5.2.2}}
-\newlabel{sec:impl_mon}{{5.2.2}{40}{MongoDB\relax }{section*.58}{}}
-\@writefile{toc}{\contentsline {subsubsection}{MongoDB}{40}{section*.58}}
-\newlabel{sec:des_se_en}{{5.2.3}{40}{Search Engine\relax }{subsection.5.2.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Search Engine}{40}{subsection.5.2.3}}
-\newlabel{sec:impl_el_se}{{5.2.3}{40}{ElasticSearch\relax }{section*.59}{}}
-\@writefile{toc}{\contentsline {subsubsection}{ElasticSearch}{40}{section*.59}}
-\newlabel{sec:des_ar_ov}{{5.2.4}{40}{Content Adaptation\relax }{subsection.5.2.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Content Adaptation}{40}{subsection.5.2.4}}
-\newlabel{sec:impl_ff}{{5.2.4}{40}{FFmpeg\relax }{section*.60}{}}
-\@writefile{toc}{\contentsline {subsubsection}{FFmpeg}{40}{section*.60}}
-\newlabel{sec:des_cdn}{{5.2.5}{40}{Content Distribution\relax }{subsection.5.2.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.5}Content Distribution}{40}{subsection.5.2.5}}
-\newlabel{sec:impl_http_li}{{5.2.5}{40}{HTTP-Live-Video-Stream-Segmenter-and-Distributor\relax }{section*.61}{}}
-\@writefile{toc}{\contentsline {subsubsection}{HTTP-Live-Video-Stream-Segmenter-and-Distributor}{40}{section*.61}}
-\newlabel{sec:impl_ngi}{{5.2.5}{40}{NginX\relax }{section*.62}{}}
-\@writefile{toc}{\contentsline {subsubsection}{NginX}{40}{section*.62}}
-\newlabel{sec:des_me}{{5.2.6}{40}{Application Messaging\relax }{subsection.5.2.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.6}Application Messaging}{40}{subsection.5.2.6}}
-\newlabel{sec:impl_ra_mq}{{5.2.6}{40}{RabbitMQ\relax }{section*.63}{}}
-\@writefile{toc}{\contentsline {subsubsection}{RabbitMQ}{40}{section*.63}}
-\newlabel{sec:des_api}{{5.2.7}{40}{User API\relax }{subsection.5.2.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.7}User API}{40}{subsection.5.2.7}}
-\newlabel{sec:des_api}{{5.2.7}{40}{SPRING DATA - REST\relax }{section*.64}{}}
-\@writefile{toc}{\contentsline {subsubsection}{SPRING DATA - REST}{40}{section*.64}}
-\newlabel{sec:impl_comp_in}{{5.3}{40}{Components Integration and Configuration\relax }{section.5.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Components Integration and Configuration}{40}{section.5.3}}
-\newlabel{sec:impl_rest_api}{{5.4}{40}{REST API\relax }{section.5.4}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}REST API}{40}{section.5.4}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Evaluation}{41}{chapter.6}}
+\newlabel{cha:chapter5}{{5}{44}{Implementation\relax }{chapter.5}{}}
+\newlabel{sec:impl_ecl}{{5.1}{44}{Development Environment\relax }{section.5.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.1}Development Environment}{44}{section.5.1}}
+\newlabel{sec:impl_ecl}{{5.1.1}{44}{Eclipse\relax }{subsection.5.1.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.1}Eclipse}{44}{subsection.5.1.1}}
+\newlabel{sec:impl_ecl}{{5.1.2}{44}{Maven\relax }{subsection.5.1.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1.2}Maven}{44}{subsection.5.1.2}}
+\newlabel{sec:impl_used_op_sr}{{5.2}{44}{Framework Implementation\relax }{section.5.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.2}Framework Implementation}{44}{section.5.2}}
+\newlabel{sec:impl_sp_fr}{{5.2.1}{44}{Spring Framework\relax }{subsection.5.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Spring Framework}{44}{subsection.5.2.1}}
+\newlabel{sec:des_repo}{{5.2.2}{44}{Repository\relax }{subsection.5.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Repository}{44}{subsection.5.2.2}}
+\newlabel{sec:impl_mon}{{5.2.2}{44}{MongoDB\relax }{section*.65}{}}
+\@writefile{toc}{\contentsline {subsubsection}{MongoDB}{44}{section*.65}}
+\newlabel{sec:des_se_en}{{5.2.3}{44}{Search Engine\relax }{subsection.5.2.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Search Engine}{44}{subsection.5.2.3}}
+\newlabel{sec:impl_el_se}{{5.2.3}{44}{ElasticSearch\relax }{section*.66}{}}
+\@writefile{toc}{\contentsline {subsubsection}{ElasticSearch}{44}{section*.66}}
+\newlabel{sec:des_ar_ov}{{5.2.4}{44}{Content Adaptation\relax }{subsection.5.2.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Content Adaptation}{44}{subsection.5.2.4}}
+\newlabel{sec:impl_ff}{{5.2.4}{44}{FFmpeg\relax }{section*.67}{}}
+\@writefile{toc}{\contentsline {subsubsection}{FFmpeg}{44}{section*.67}}
+\newlabel{sec:des_cdn}{{5.2.5}{44}{Content Distribution\relax }{subsection.5.2.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.5}Content Distribution}{44}{subsection.5.2.5}}
+\newlabel{sec:impl_http_li}{{5.2.5}{44}{HTTP-Live-Video-Stream-Segmenter-and-Distributor\relax }{section*.68}{}}
+\@writefile{toc}{\contentsline {subsubsection}{HTTP-Live-Video-Stream-Segmenter-and-Distributor}{44}{section*.68}}
+\newlabel{sec:impl_ngi}{{5.2.5}{44}{NginX\relax }{section*.69}{}}
+\@writefile{toc}{\contentsline {subsubsection}{NginX}{44}{section*.69}}
+\newlabel{sec:des_me}{{5.2.6}{44}{Application Messaging\relax }{subsection.5.2.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.6}Application Messaging}{44}{subsection.5.2.6}}
+\newlabel{sec:impl_ra_mq}{{5.2.6}{44}{RabbitMQ\relax }{section*.70}{}}
+\@writefile{toc}{\contentsline {subsubsection}{RabbitMQ}{44}{section*.70}}
+\newlabel{sec:des_api}{{5.2.7}{44}{User API\relax }{subsection.5.2.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.7}User API}{44}{subsection.5.2.7}}
+\newlabel{sec:des_api}{{5.2.7}{44}{SPRING DATA - REST\relax }{section*.71}{}}
+\@writefile{toc}{\contentsline {subsubsection}{SPRING DATA - REST}{44}{section*.71}}
+\newlabel{sec:impl_comp_in}{{5.3}{44}{Components Integration and Configuration\relax }{section.5.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Components Integration and Configuration}{44}{section.5.3}}
+\newlabel{sec:impl_rest_api}{{5.4}{44}{REST API\relax }{section.5.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}REST API}{44}{section.5.4}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Evaluation}{45}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{cha:chapter6}{{6}{41}{Evaluation\relax }{chapter.6}{}}
-\newlabel{sec:eval_te_en}{{6.1}{41}{Test Environment\relax }{section.6.1}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.1}Test Environment}{41}{section.6.1}}
-\newlabel{sec:eval__te_sc}{{6.2}{41}{Test Scenarios\relax }{section.6.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6.2}Test Scenarios}{41}{section.6.2}}
-\newlabel{seq:eval_usab}{{6.2.1}{41}{Usability\relax }{subsection.6.2.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Usability}{41}{subsection.6.2.1}}
-\newlabel{seq:eval_perf}{{6.2.2}{41}{Performance\relax }{subsection.6.2.2}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Performance}{41}{subsection.6.2.2}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusion}{43}{chapter.7}}
+\newlabel{cha:chapter6}{{6}{45}{Evaluation\relax }{chapter.6}{}}
+\newlabel{sec:eval_te_en}{{6.1}{45}{Test Environment\relax }{section.6.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.1}Test Environment}{45}{section.6.1}}
+\newlabel{sec:eval__te_sc}{{6.2}{45}{Test Scenarios\relax }{section.6.2}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6.2}Test Scenarios}{45}{section.6.2}}
+\newlabel{seq:eval_usab}{{6.2.1}{45}{Usability\relax }{subsection.6.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.1}Usability}{45}{subsection.6.2.1}}
+\newlabel{seq:eval_perf}{{6.2.2}{45}{Performance\relax }{subsection.6.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2.2}Performance}{45}{subsection.6.2.2}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusion}{47}{chapter.7}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
 \@writefile{lol}{\addvspace {10\p@ }}
-\newlabel{cha:chapter7}{{7}{43}{Conclusion\relax }{chapter.7}{}}
+\newlabel{cha:chapter7}{{7}{47}{Conclusion\relax }{chapter.7}{}}
 \bibstyle{plainnat}
 \bibdata{./bib/references}

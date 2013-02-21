@@ -37,32 +37,35 @@
 \BOOKMARK [2][-]{subsection.3.4.4}{Scalability}{section.3.4}% 37
 \BOOKMARK [0][-]{chapter.4}{Design}{}% 38
 \BOOKMARK [1][-]{section.4.1}{Architecture Overview}{chapter.4}% 39
-\BOOKMARK [1][-]{section.4.2}{Framework Components}{chapter.4}% 40
-\BOOKMARK [2][-]{subsection.4.2.1}{Repository}{section.4.2}% 41
-\BOOKMARK [2][-]{subsection.4.2.2}{Search Engine}{section.4.2}% 42
-\BOOKMARK [2][-]{subsection.4.2.3}{Content Adaptation}{section.4.2}% 43
-\BOOKMARK [2][-]{subsection.4.2.4}{Content Distribution}{section.4.2}% 44
-\BOOKMARK [2][-]{subsection.4.2.5}{Application Messaging}{section.4.2}% 45
-\BOOKMARK [2][-]{subsection.4.2.6}{User API}{section.4.2}% 46
-\BOOKMARK [1][-]{section.4.3}{Interfaces}{chapter.4}% 47
-\BOOKMARK [1][-]{section.4.4}{Requirement Fulfillment}{chapter.4}% 48
-\BOOKMARK [0][-]{chapter.5}{Implementation}{}% 49
-\BOOKMARK [1][-]{section.5.1}{Development Environment}{chapter.5}% 50
-\BOOKMARK [2][-]{subsection.5.1.1}{Eclipse}{section.5.1}% 51
-\BOOKMARK [2][-]{subsection.5.1.2}{Maven}{section.5.1}% 52
-\BOOKMARK [1][-]{section.5.2}{Framework Implementation}{chapter.5}% 53
-\BOOKMARK [2][-]{subsection.5.2.1}{Spring Framework}{section.5.2}% 54
-\BOOKMARK [2][-]{subsection.5.2.2}{Repository}{section.5.2}% 55
-\BOOKMARK [2][-]{subsection.5.2.3}{Search Engine}{section.5.2}% 56
-\BOOKMARK [2][-]{subsection.5.2.4}{Content Adaptation}{section.5.2}% 57
-\BOOKMARK [2][-]{subsection.5.2.5}{Content Distribution}{section.5.2}% 58
-\BOOKMARK [2][-]{subsection.5.2.6}{Application Messaging}{section.5.2}% 59
-\BOOKMARK [2][-]{subsection.5.2.7}{User API}{section.5.2}% 60
-\BOOKMARK [1][-]{section.5.3}{Components Integration and Configuration}{chapter.5}% 61
-\BOOKMARK [1][-]{section.5.4}{REST API}{chapter.5}% 62
-\BOOKMARK [0][-]{chapter.6}{Evaluation}{}% 63
-\BOOKMARK [1][-]{section.6.1}{Test Environment}{chapter.6}% 64
-\BOOKMARK [1][-]{section.6.2}{Test Scenarios}{chapter.6}% 65
-\BOOKMARK [2][-]{subsection.6.2.1}{Usability}{section.6.2}% 66
-\BOOKMARK [2][-]{subsection.6.2.2}{Performance}{section.6.2}% 67
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 68
+\BOOKMARK [2][-]{subsection.4.1.1}{Create App-Work Flow}{section.4.1}% 40
+\BOOKMARK [1][-]{section.4.2}{Framework Components}{chapter.4}% 41
+\BOOKMARK [2][-]{subsection.4.2.1}{App Management}{section.4.2}% 42
+\BOOKMARK [2][-]{subsection.4.2.2}{User Management}{section.4.2}% 43
+\BOOKMARK [2][-]{subsection.4.2.3}{Repository}{section.4.2}% 44
+\BOOKMARK [2][-]{subsection.4.2.4}{Search Engine}{section.4.2}% 45
+\BOOKMARK [2][-]{subsection.4.2.5}{Content Adaptation}{section.4.2}% 46
+\BOOKMARK [2][-]{subsection.4.2.6}{Content Distribution}{section.4.2}% 47
+\BOOKMARK [2][-]{subsection.4.2.7}{Application Messaging}{section.4.2}% 48
+\BOOKMARK [2][-]{subsection.4.2.8}{User API}{section.4.2}% 49
+\BOOKMARK [1][-]{section.4.3}{Interfaces}{chapter.4}% 50
+\BOOKMARK [1][-]{section.4.4}{Requirement Fulfillment}{chapter.4}% 51
+\BOOKMARK [0][-]{chapter.5}{Implementation}{}% 52
+\BOOKMARK [1][-]{section.5.1}{Development Environment}{chapter.5}% 53
+\BOOKMARK [2][-]{subsection.5.1.1}{Eclipse}{section.5.1}% 54
+\BOOKMARK [2][-]{subsection.5.1.2}{Maven}{section.5.1}% 55
+\BOOKMARK [1][-]{section.5.2}{Framework Implementation}{chapter.5}% 56
+\BOOKMARK [2][-]{subsection.5.2.1}{Spring Framework}{section.5.2}% 57
+\BOOKMARK [2][-]{subsection.5.2.2}{Repository}{section.5.2}% 58
+\BOOKMARK [2][-]{subsection.5.2.3}{Search Engine}{section.5.2}% 59
+\BOOKMARK [2][-]{subsection.5.2.4}{Content Adaptation}{section.5.2}% 60
+\BOOKMARK [2][-]{subsection.5.2.5}{Content Distribution}{section.5.2}% 61
+\BOOKMARK [2][-]{subsection.5.2.6}{Application Messaging}{section.5.2}% 62
+\BOOKMARK [2][-]{subsection.5.2.7}{User API}{section.5.2}% 63
+\BOOKMARK [1][-]{section.5.3}{Components Integration and Configuration}{chapter.5}% 64
+\BOOKMARK [1][-]{section.5.4}{REST API}{chapter.5}% 65
+\BOOKMARK [0][-]{chapter.6}{Evaluation}{}% 66
+\BOOKMARK [1][-]{section.6.1}{Test Environment}{chapter.6}% 67
+\BOOKMARK [1][-]{section.6.2}{Test Scenarios}{chapter.6}% 68
+\BOOKMARK [2][-]{subsection.6.2.1}{Usability}{section.6.2}% 69
+\BOOKMARK [2][-]{subsection.6.2.2}{Performance}{section.6.2}% 70
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 71
