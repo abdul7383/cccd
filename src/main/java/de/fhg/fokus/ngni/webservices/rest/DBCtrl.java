@@ -208,7 +208,7 @@ public class DBCtrl extends BaseCtrl {
 
 		// list collections
 		if (op == null)
-			return response(true, db.getCollectionNames(), null);
+			return response(true, db.getCollectionNames().remove("system.indexes"), null);
 
 		// check app status
 		if (op.compareTo("stats") != 0)
