@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.JsonGenerationException;
@@ -207,9 +208,11 @@ public class DBCtrl extends BaseCtrl {
 		DB db = mongoDb.getDB(appName);
 
 		// list collections
-		if (op == null)
-			return response(true, db.getCollectionNames().remove("system.indexes"), null);
-
+		if (op == null){
+			Set<String> list = db.getCollectionNames();
+			list.remove("system.indexes");
+			return response(true, list, null);
+		}
 		// check app status
 		if (op.compareTo("stats") != 0)
 			return response(false, null, "op: " + op + " is not supported");
