@@ -48,10 +48,10 @@ The second level of the User Management component provides a mechanism for manag
 
 Following paragraphs describes the various interfaces needed in order to be able to use the framework:
 
-\paragraph{App interface:} This interface provides the four CRUD operation, which described bellow, to allow developers to interact with there apps.
+\paragraph{App interface(/app/):} This interface provides the four CRUD operation, which described bellow, to allow developers to interact with there apps.
 
 \begin{itemize}
-\item \textbf{Create(POST):} This method creates a new app and it requires a name and global configuration parameters for the app. These configuration parameters can be for example a mandatory secret word to be later used for securing the contents which belongs to this app or a list of video formats, which will be then used to transcode each uploaded video within this app in order to support various devices i.e. iPad, iPhone, PC and etc. Listing \ref{lst:new_app_json} shows a JSON example creating a new app with the name vod1.
+\item \textbf{Create(POST):} This method 'createApp' creates a new app and it requires a name and global configuration parameters for the app. These configuration parameters can be for example a mandatory secret word to be later used for securing the contents which belongs to this app or a list of video formats, which will be then used to transcode each uploaded video within this app in order to support various devices i.e. iPad, iPhone, PC and etc. Listing \ref{lst:new_app_json} shows a JSON example creating a new app with the name vod1.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -96,12 +96,12 @@ The second method is for listing all collections within this app. These collecti
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-GET https://user1:pass@107.23.121.185:8080/cccd/app
+GET https://user1:pass@107.23.121.185:8080/cccd/app/vod1
 \end{minted}
 Response:
 \begin{minted}[frame=single]{json}
 {
-"data":["app3","vod","vod1","app1"],
+"data":["collection1","collection2","conf","users"],
 "ok":"1"
 }
 \end{minted}
@@ -109,7 +109,7 @@ Response:
 \label{lst:listing_coll}
 \end{code}
 
-\item App Management checks if the new app name already exist
+\item \textbf{Update(PUT):}  
 \item AppM creates a database in the repository with the given app name and sets its owner to the developer who created it.
 \item AppM send a message to the Worker Queue and thereby announce the creation of a new app with the given name and the secret
 \item Content Distribution servers which listens to the Worker Queue create a virtual space for the new app and securing it with the secret word provided while creation the new app

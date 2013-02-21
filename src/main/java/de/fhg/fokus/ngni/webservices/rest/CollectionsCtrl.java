@@ -1,6 +1,7 @@
 package de.fhg.fokus.ngni.webservices.rest;
 
 import java.security.Principal;
+import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
@@ -25,14 +26,14 @@ import com.mongodb.DB;
  * FundsController class will expose a series of RESTful endpoints
  */
 @Controller
-@RequestMapping(value = "/app/{appName}/collections/{collName}")
+@RequestMapping(value = "/app/{appName}/collections")
 public class CollectionsCtrl extends BaseCtrl {
 
 	protected static final Logger logger_c = Logger
 			.getLogger(CollectionsCtrl.class);
 
 	// create collection a long with an index in es
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(value = "/{collName}", method = RequestMethod.POST)
 	public ModelAndView createColl(@PathVariable String appName,
 			@PathVariable String collName, Principal principal,
 			@RequestBody String body) {
@@ -74,7 +75,7 @@ public class CollectionsCtrl extends BaseCtrl {
 	}
 
 	// add a new mapping
-	@RequestMapping(value = "/_mapping", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{collName}/_mapping", method = RequestMethod.PUT)
 	public ModelAndView updateMapping(@PathVariable String appName,
 			@PathVariable String collName, Principal principal,
 			@RequestBody String body) {
@@ -82,6 +83,24 @@ public class CollectionsCtrl extends BaseCtrl {
 		return response(true, null, "not implemented yet!");
 	}
 
+	// get the index mapping for a collection
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView listCollections(@PathVariable String appName,
+			@PathVariable String collName, Principal principal) {
+		if (!isAuthorized())
+			return response(false, null, "Invalid username or password");
+		logger_c.debug("/app/" + appName + "/collections" + " : doGet()");
+
+		if (!mongoDb.getDatabaseNames().contains(appName))
+			return response(false, null, "app: " + appName + " is not found");
+
+		DB db = mongoDb.getDB(appName);
+
+		// list collections
+		Set<String> list = db.getCollectionNames();
+		list.remove("system.indexes");
+		return response(true, list, null);
+	}
 	// get the index mapping for a collection
 	@RequestMapping(value = "/_mapping", method = RequestMethod.GET)
 	public ModelAndView getMapping(@PathVariable String appName,
@@ -124,7 +143,7 @@ public class CollectionsCtrl extends BaseCtrl {
 	}
 
 	// delete collection
-	@RequestMapping(method = RequestMethod.DELETE)
+	@RequestMapping(value = "/{collName}", method = RequestMethod.DELETE)
 	public ModelAndView deleteColl(@PathVariable String appName,
 			@PathVariable String collName, Principal principal) {
 		if (!canWrite(appName, principal.getName())) {

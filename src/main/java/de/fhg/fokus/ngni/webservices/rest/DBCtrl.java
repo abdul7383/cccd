@@ -196,7 +196,7 @@ public class DBCtrl extends BaseCtrl {
 
 	// list collections OR check app status
 	@RequestMapping(value = "/app/{appName}", method = RequestMethod.GET)
-	public ModelAndView checkDBStatus(@PathVariable String appName,
+	public ModelAndView checkAppStatus(@PathVariable String appName,
 			@RequestParam(value = "op", required = false) String op) {
 		if (!isAuthorized())
 			return response(false, null, "Invalid username or password");
@@ -207,17 +207,17 @@ public class DBCtrl extends BaseCtrl {
 
 		DB db = mongoDb.getDB(appName);
 
-		// list collections
+		/*// list collections
 		if (op == null){
 			Set<String> list = db.getCollectionNames();
 			list.remove("system.indexes");
 			return response(true, list, null);
-		}
+		}*/
 		// check app status
-		if (op.compareTo("stats") != 0)
+		/*if (op.compareTo("stats") != 0)
 			return response(false, null, "op: " + op + " is not supported");
-		else
-			return response(true, db.getStats(), null);
+		else*/
+		return response(true, db.getStats(), null);
 	}
 
 	// drop app
