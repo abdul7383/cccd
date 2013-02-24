@@ -222,7 +222,7 @@ public class DBCtrl extends BaseCtrl {
 
 	// drop app
 	@RequestMapping(value = "/app/{appName}", method = RequestMethod.DELETE)
-	public ModelAndView DeleteApp(@PathVariable String appName,
+	public ModelAndView deleteApp(@PathVariable String appName,
 			Principal principal) {
 		logger_c.debug("/app/" + appName + " : doDELETE()");
 

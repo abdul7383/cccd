@@ -13,19 +13,19 @@ Figure \ref{fig:arch_overview} shows an architecture overview of the framework, 
   \label{fig:arch_overview}
 \end{figure}
 
-Before diving into the details of each component, the following subsections illustrate some work flows that have to be processed in order to process a request, i.e. creating a new application, adding a new content or searching for a content.
-
-\subsection{Create App-Work Flow}
-As illustrated in figure bla, these steps are needed for creating a new application:
-
-\begin{itemize}
-\item developer sends a request for creating a new app to the App Management API along with his credentials and containing the name for the new app and a secret to be later used to get the stored contents
-\item App Management checks if the credentials are correct
-\item App Management checks if the new app name already exist
-\item AppM creates a database in the repository with the given app name and sets its owner to the developer who created it.
-\item AppM send a message to the Worker Queue and thereby announce the creation of a new app with the given name and the secret
-\item Content Distribution servers which listens to the Worker Queue create a virtual space for the new app and securing it with the secret word provided while creation the new app
-\end{itemize}
+%Before diving into the details of each component, the following subsections illustrate some work flows that have to be processed in order to process a request, i.e. creating a new application, adding a new content or searching for a content.
+%
+%\subsection{Create App-Work Flow}
+%As illustrated in figure bla, these steps are needed for creating a new application:
+%
+%\begin{itemize}
+%\item developer sends a request for creating a new app to the App Management API along with his credentials and containing the name for the new app and a secret to be later used to get the stored contents
+%\item App Management checks if the credentials are correct
+%\item App Management checks if the new app name already exist
+%\item AppM creates a database in the repository with the given app name and sets its owner to the developer who created it.
+%\item AppM send a message to the Worker Queue and thereby announce the creation of a new app with the given name and the secret
+%\item Content Distribution servers which listens to the Worker Queue create a virtual space for the new app and securing it with the secret word provided while creation the new app
+%\end{itemize}
 
 \section{Framework Components\label{sec:des_com}}
 The App Management component is the main entry for each developer to interact with the framework. These developers needs to authenticate them self in order to use the framework and therefore a appropriate User Management is needed. Furthermore the Repository/Media Store is needed in order to store the data an the multimedia files. For efficient data discovery, the Search Engine component  is required. The task of the Content Adaptation component is to convert the stored files to other formats and then upload these converted files to the Content Distribution component which then serve them to various devices.
@@ -37,6 +37,8 @@ Those components are described in more details in the next subsections.
 The App Management component is the core of the entire framework and it interacts with almost all components in the framework. The following subsections describe the design decision that have been made for implementing this component.
 
 \subsubsection{JSON}
+The data format to interact with the framework is JSON. It has been chosen due its low-overhead comparing with XML and it is also the data format for many of the known NoSQL systems, which one of them will be used in the framework.
+ 
 \subsubsection{User Management}
 In order to allow only registered developers to use the framework, a User Management design concept is described in the following.
 
@@ -48,10 +50,10 @@ The second level of the User Management component provides a mechanism for manag
 
 Following paragraphs describes the various interfaces needed in order to be able to use the framework:
 
-\paragraph{App interface(/app/):} This interface provides the four CRUD operation, which described bellow, to allow developers to interact with there apps.
+\paragraph{App interface \textit{/app/} :} This interface provides the four CRUD operation, which described bellow, to allow developers to interact with there apps.
 
 \begin{itemize}
-\item \textbf{Create(POST):} This method 'createApp' creates a new app and it requires a name and global configuration parameters for the app. These configuration parameters can be for example a mandatory secret word to be later used for securing the contents which belongs to this app or a list of video formats, which will be then used to transcode each uploaded video within this app in order to support various devices i.e. iPad, iPhone, PC and etc. Listing \ref{lst:new_app_json} shows a JSON example creating a new app with the name vod1.
+\item \textbf{Create(POST):} This method \textit{createApp} creates a new app and it requires a name and global configuration parameters for the app. These configuration parameters can be for example a mandatory secret word to be later used for securing the contents which belongs to this app or a list of video formats, which will be then used to transcode each uploaded video within this app in order to support various devices i.e. iPad, iPhone, PC and etc. Listing \ref{lst:new_app_json} shows a JSON example for creating a new app with \textbf{vod1} as a name.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -75,7 +77,7 @@ Response:
 \label{lst:new_app_json}
 \end{code}
 
-\item \textbf{Read(GET):} There are two methods in this App Interface, which can be consumed through a HTTP GET, first one is for listing all apps which belongs to the user, see listing \ref{lst:listing_apps} as an example. 
+\item \textbf{Read(GET):} There are two methods in this App Interface, which can be consumed through a HTTP GET, first one \textit{listApps} is for listing all apps which belongs to the user, see listing \ref{lst:listing_apps} as an example. 
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -92,16 +94,48 @@ Response:
 \label{lst:listing_apps}
 \end{code}
 
-The second method is for listing all collections within this app. These collections can be compared with tables in SQL systems and it contains the real data, i.e. the metadata for a content, see listing \ref{lst:listing_coll} for an example.
+
+The second method \textit{checkAppStatus} returns data that reflects the amount of storage used and data contained in a specific app, as well as object, collection, and index counters. This data can be used to check and track the state and storage of a specific app, the example below will returns these data for an app called \textit{vod1}.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
 GET https://user1:pass@107.23.121.185:8080/cccd/app/vod1
 \end{minted}
+%Response:
+%\begin{minted}[frame=single]{json}
+%{
+%"data":["app3","vod","vod1","app1"],
+%"ok":"1"
+%}
+%\end{minted}
+%\caption{Listing all apps which belong to a user}
+%\label{lst:listing_apps}
+\end{code}
+
+\item \textbf{Update(PUT):}  This method \textit{updateApp} is for updating/adding the configuration parameters of the app. i.e changing the secret word or adding new configuration parameters which can be needed from other components, i.e. adding the user credentials for a Justin.TV account in order to stream a video to it.
+
+\item \textbf{DELETE(DELETE):} This method \textit{deleteApp} delete the app along with its related contents which might be in the Repository, Media Store or in the Content Distributor component.
+
+\end{itemize}
+
+\paragraph{Collection Interface /app/{appName}/collections/ :} The collection within an app can be compared with tables in SQL systems and it contains the real data, i.e. the metadata for a content. This interface provide only Create, Read, and Delete operations. 
+
+%There is two types of collections interface within an app, namely \textit{/collections/} and \textit{/acollections/}. This interface \textit{/collections/} is for managing data, which does not require any kind of transcoding/transforming for contents, i.e. a collection which contain the friend list of an end user.
+
+\begin{itemize}
+\item \textbf{Create:} The method \textit{createCollection} requires two argument, namely the app name and the name of the new collection. This method creates automatically an empty index in the search engine, which can be later used for searching within this collection. The name of the created index is based on the name of the app combined with '\_' and the name of the collection, i.e if the name of the app is \textit{vod1} and the name of the collection is \textit{collection1}, the created index name would be \textit{vod1\_collection1}.
+
+\item \textbf{Read:} The method \textit{listCollections} is for listing all collections within an app, see listing \ref{lst:listing_coll} for an example.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+GET https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+/collections
+\end{minted}
 Response:
 \begin{minted}[frame=single]{json}
 {
-"data":["collection1","collection2","conf","users"],
+"data":["collection1","collection2"],
 "ok":"1"
 }
 \end{minted}
@@ -109,11 +143,62 @@ Response:
 \label{lst:listing_coll}
 \end{code}
 
-\item \textbf{Update(PUT):}  
-\item AppM creates a database in the repository with the given app name and sets its owner to the developer who created it.
-\item AppM send a message to the Worker Queue and thereby announce the creation of a new app with the given name and the secret
-\item Content Distribution servers which listens to the Worker Queue create a virtual space for the new app and securing it with the secret word provided while creation the new app
+\item \textbf{Delete:} Deleting a collection would delete the entire data in it and also delete its index in the Search Engine. Furthermore the data/files which are in the Content Distribution component, which belong to this collection will be deleted too.
 \end{itemize}
+
+\paragraph{Buckets Interface /app/{appName}/buckets :} Just like a bucket holds water, buckets - known in Amazon Web Services - are a container for files. The name of the bucket must be unique within an app. The four CRUD operations are described below.
+
+\begin{itemize}
+\item \textbf{Create:} The method \textit{createBucket} requires two parameters, namely the app name and the bucket name and it creates a bucket within an app. The following example is for creating a bucket name \textit{bucket1} within the app \textit{vod1}.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+POST https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+/buckets/bucket1
+\end{minted}
+\end{code}
+
+
+\item \textbf{Read:} Within buckets interface there are two methods, which can be consumed through a HTTP GET. The first method \textit{listBuckets} lists all buckets which belong to a specific app. 
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+GET https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
+/buckets
+\end{minted}
+\end{code}
+
+The second method \textit{listAllFilesInBucket} takes as parameters the \textit{appName} and the \textit{bucketName} and lists all the files which are in bucket \textit{bucketName}.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+GET https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
+/buckets/books
+\end{minted}
+\end{code}
+
+
+\item \textbf{Delete:} The method \textit{deleteBucket} deletes a bucket along with its files from an app 
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+DELETE https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
+/buckets/books
+\end{minted}
+\end{code}
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+GET https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
+/books/test.pdf
+\end{minted}
+\end{code}
+
+and the name of the file which need to be retrieved. Listing bla shows an example for downloading a file named \textit{test.pdf} from the bucket \textit{books} and app \textit{bookstore}.
+
+\end{itemize}
+
+
 
 
 

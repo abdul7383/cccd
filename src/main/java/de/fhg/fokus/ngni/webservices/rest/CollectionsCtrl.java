@@ -34,7 +34,7 @@ public class CollectionsCtrl extends BaseCtrl {
 
 	// create collection a long with an index in es
 	@RequestMapping(value = "/{collName}", method = RequestMethod.POST)
-	public ModelAndView createColl(@PathVariable String appName,
+	public ModelAndView createCollection(@PathVariable String appName,
 			@PathVariable String collName, Principal principal,
 			@RequestBody String body) {
 		if (!canWrite(appName, principal.getName())) {
@@ -70,7 +70,7 @@ public class CollectionsCtrl extends BaseCtrl {
 					"error while creating the collection or the index: "
 							+ ex.getMessage());
 		}
-		return response(true, null, "collection: " + collName + " created");
+		return response(true, null, "collection: " + collName + " and an empty index created");
 
 	}
 
@@ -79,37 +79,49 @@ public class CollectionsCtrl extends BaseCtrl {
 	public ModelAndView updateMapping(@PathVariable String appName,
 			@PathVariable String collName, Principal principal,
 			@RequestBody String body) {
-		//TODO PUT _mapping not implemented yet! 
+		// TODO PUT _mapping not implemented yet!
 		return response(true, null, "not implemented yet!");
 	}
 
 	// get the index mapping for a collection
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView listCollections(@PathVariable String appName,
-			@PathVariable String collName, Principal principal) {
+			Principal principal) {
 		if (!isAuthorized())
 			return response(false, null, "Invalid username or password");
+		
+		if (!canWrite(appName, principal.getName())) {
+			if (!mongoDb.getDatabaseNames().contains(appName))
+				return response(false, null, "app: " + appName
+						+ " is not found");
+			return response(false, null, "you don't have permission");
+		}
 		logger_c.debug("/app/" + appName + "/collections" + " : doGet()");
-
-		if (!mongoDb.getDatabaseNames().contains(appName))
-			return response(false, null, "app: " + appName + " is not found");
 
 		DB db = mongoDb.getDB(appName);
 
 		// list collections
 		Set<String> list = db.getCollectionNames();
 		list.remove("system.indexes");
+		list.remove("conf");
+		list.remove("users");
+		for(String c:list)
+			if(c.endsWith(".chunks")){
+				list.remove(c);
+				list.remove(c.replace(".chunks", ".files"));
+			}
 		return response(true, list, null);
 	}
+
 	// get the index mapping for a collection
 	@RequestMapping(value = "/_mapping", method = RequestMethod.GET)
 	public ModelAndView getMapping(@PathVariable String appName,
 			@PathVariable String collName, Principal principal) {
-		
-		Message msg = new Message("test".getBytes(),null);
-		int i=10;
-		while(i>0){
-			amqpTemplate.convertAndSend("cccdQueue4","test: "+i);
+
+		Message msg = new Message("test".getBytes(), null);
+		int i = 10;
+		while (i > 0) {
+			amqpTemplate.convertAndSend("cccdQueue4", "test: " + i);
 			try {
 				Thread.sleep(20);
 			} catch (InterruptedException e) {
@@ -152,17 +164,18 @@ public class CollectionsCtrl extends BaseCtrl {
 						+ " is not found");
 			return response(false, null, "you don't have permission");
 		}
-		
+
 		logger_c.debug("/app/" + appName + "/collections/" + collName
 				+ " : doDELETE()");
-		
+
 		if (!checkCollectionExist(appName, collName))
 			return response(false, null, "collection: " + collName
 					+ " not found in app: " + appName);
 		DB db = mongoDb.getDB(appName);
 		db.getCollection(collName).drop();
-		esClient.admin().indices().delete(new DeleteIndexRequest(appName + "_" + collName))
-		.actionGet();
+		esClient.admin().indices()
+				.delete(new DeleteIndexRequest(appName + "_" + collName))
+				.actionGet();
 		return response(true, null, "collection: " + collName + " deleted");
 	}
 }

@@ -3,12 +3,14 @@ package de.fhg.fokus.ngni.webservices.rest;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.security.Principal;
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,160 +29,84 @@ import com.mongodb.gridfs.GridFSInputFile;
  * FundsController class will expose a series of RESTful endpoints
  */
 @Controller
+@RequestMapping(value = "/app/{appName}/buckets")
 public class GridFSCtrl extends BaseCtrl {
 
 	protected static final Logger logger_c = Logger.getLogger(GridFSCtrl.class);
 
 	// create bucket
-	@RequestMapping(value = "/gridfs/{DBname}/{bucket}", method = RequestMethod.PUT)
-	public ModelAndView createBucket(@PathVariable String DBname,
-			@PathVariable String bucket) {
+	@RequestMapping(value = "/{bucketName}", method = RequestMethod.POST)
+	public ModelAndView createBucket(@PathVariable String appName,
+			@PathVariable String bucketName, Principal principal) {
 		if (!isAuthorized())
 			return response(false, null, "Invalid username or password");
-		logger_c.debug("/gridfs/" + DBname + "/" + bucket + " : doPut()");
+		
+		if (!canWrite(appName, principal.getName())) {
+			if (!mongoDb.getDatabaseNames().contains(appName))
+				return response(false, null, "app: " + appName
+						+ " is not found");
+			return response(false, null, "you don't have WRITE permission");
+		}
+		logger_c.debug("/app/" + appName + "/buckets/" + bucketName
+				+ " : doPOST()");
 
-		if (!mongoDb.getDatabaseNames().contains(DBname))
-			return response(false, null, "database: " + DBname
-					+ " is not found");
-
-		DB db = mongoDb.getDB(DBname);
+		DB db = mongoDb.getDB(appName);
+		if (db.getCollectionNames().contains(bucketName+".files"))
+			return response(false, null, "bucket: " + bucketName
+					+ " is already created in app: " + appName);
 		// if bucket does not exist, it will be created
-		new GridFS(db, bucket);
-		return response(true, null, "GridFS bucket: " + bucket + " created");
+		new GridFS(db, bucketName);
+		return response(true, null, "bucket: " + bucketName + " created");
 
 	}
 	
-	// put a file in bucket
-	@RequestMapping(value = "/gridfs/{DBname}/{bucket}/put", method = RequestMethod.POST)
-	public ModelAndView putFileInBucket(@PathVariable String DBname,
-			@PathVariable String bucket, @RequestParam(value = "filename",
-					  required = false) String filename, @RequestParam(value="file",
-					  required = false) MultipartFile file) {
+	// list all buckets in a app
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView listBuckets(@PathVariable String appName,
+			Principal principal) {
 		if (!isAuthorized())
 			return response(false, null, "Invalid username or password");
-		logger_c.debug("/gridfs/" + DBname + "/" + bucket + "/put" + " : doPut()");
 		
-		if(filename==null || filename=="")
-			return response(false, null, "required String parameter 'filename' is not present");
-		
-		if(file==null || file.isEmpty())
-			return response(false, null, "file is empty");
-		
-		if (!mongoDb.getDatabaseNames().contains(DBname))
-			return response(false, null, "database: " + DBname
-					+ " is not found");
-
-		DB db = mongoDb.getDB(DBname);
-		// check if bucket exist
-		if(!db.getCollectionNames().contains(bucket+".chunks"))
-			return response(false, null, "bucket: " + bucket
-					+ " does not exist in databse: " + DBname);
-		GridFS gfs = new GridFS(db, bucket);
-		GridFSDBFile old_file = gfs.findOne( filename );
-		if( old_file!=null ){
-			return response(false, null, "file: " + filename
-					+ " already exists, use POST to override or change the filename if new");
-	    }
-		InputStream in=null;
-		try {
-			in=file.getInputStream();
-		} catch (IOException e) {
-			return response(false, null, "error while reading file: " + filename);
+		if (!canWrite(appName, principal.getName())) {
+			if (!mongoDb.getDatabaseNames().contains(appName))
+				return response(false, null, "app: " + appName
+						+ " is not found");
+			return response(false, null, "you don't have WRITE permission");
 		}
-		if(in==null)
-			return response(false, null, "error while reading file: " + filename);
-		
-		GridFSInputFile newfile = gfs.createFile(in,filename);
-		newfile.setContentType(file.getContentType());
-		newfile.save();
-		return response(true, null, "put file: "+ filename + " in bucket: " + bucket + " succeded");
+		logger_c.debug("/app/" + appName + "/buckets" + " : doGet()");
 
-	}
-
-	// list buckets in a db
-	@RequestMapping(value = "/gridfs/{DBname}", method = RequestMethod.GET)
-	public ModelAndView listBuckets(@PathVariable String DBname) {
-		if (!isAuthorized())
-			return response(false, null, "Invalid username or password");
-		logger_c.debug("/gridfs/" + DBname + " : doGet()");
-
-		if (!mongoDb.getDatabaseNames().contains(DBname))
-			return response(false, null, "database: " + DBname
-					+ " is not found");
-
-		
-		DB db = mongoDb.getDB(DBname);
+		DB db = mongoDb.getDB(appName);
 		// TODO alternative to LinkedList 
 		List<String> buckets = new LinkedList<String>();
 		for(String c : db.getCollectionNames()){
 			if(c.endsWith(".chunks"))
-				buckets.add(c.substring(0, c.indexOf(".chunks")));
+				//buckets.add(c.substring(0, c.indexOf(".chunks")));
+				buckets.add(c.replace(".chunks",""));
 		}
 		return response(true, buckets, null);
 
 	}
 	
-	// get file
-	@RequestMapping(value = "/gridfs/{DBname}/{bucket}/get", method = RequestMethod.GET)
-	public ModelAndView getFileFromBucket(@PathVariable String DBname,
-			@PathVariable String bucket, @RequestParam(value = "filename",
-			  required = false) String filename , HttpServletResponse response) {
-		if (!isAuthorized())
-			return response(false, null, "Invalid username or password");
-		logger_c.debug("/gridfs/" + DBname + "/" + bucket + "/get : doGet()");
-		
-		if (!mongoDb.getDatabaseNames().contains(DBname))
-			return response(false, null, "database: " + DBname
-					+ " is not found");
-
-		DB db = mongoDb.getDB(DBname);
-		// check if bucket exist
-		if(!db.getCollectionNames().contains(bucket+".chunks"))
-			return response(false, null, "bucket: " + bucket
-					+ " does not exist in databse: " + DBname);
-		GridFS gfs = new GridFS(db, bucket);
-		GridFSDBFile file = gfs.findOne( filename );
-		if(file==null)
-			return response(false, null, "file: " + filename
-					+ " does not exist in bucket: " + bucket);
-		//InputStream in = new FileInputStream(file);
-		response.setContentType(file.getContentType());
-		InputStream is = file.getInputStream();
-		int read = 0;  
-		byte[] bytes = new byte[1024];
-		OutputStream os = null;
-		try {
-			 os=response.getOutputStream();
-			while((read = is.read(bytes)) != -1) {  
-				os.write(bytes, 0, read);  
-			}
-			os.flush();  
-			os.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return response(true, null, "");
-	}
-	
 	// list all files in bucket
-	@RequestMapping(value = "/gridfs/{DBname}/{bucket}", method = RequestMethod.GET)
-	public ModelAndView listFilesInBucket(@PathVariable String DBname,
-			@PathVariable String bucket) {
+	@RequestMapping(value = "/{bucketName}", method = RequestMethod.GET)
+	public ModelAndView listAllFilesInBucket(@PathVariable String appName,
+			@PathVariable String bucketName, Principal principal) {
 		if (!isAuthorized())
 			return response(false, null, "Invalid username or password");
-		logger_c.debug("/gridfs/" + DBname + "/" + bucket + " : doGet()");
+		if (!canWrite(appName, principal.getName())) {
+			if (!mongoDb.getDatabaseNames().contains(appName))
+				return response(false, null, "app: " + appName
+						+ " is not found");
+			return response(false, null, "you don't have WRITE permission");
+		}
+		logger_c.debug("/app/" + appName + "/buckets/" + bucketName + " : doGet()");
 		
-		if (!mongoDb.getDatabaseNames().contains(DBname))
-			return response(false, null, "database: " + DBname
-					+ " is not found");
-
-		DB db = mongoDb.getDB(DBname);
+		DB db = mongoDb.getDB(appName);
 		// check if bucket exist
-		if(!db.getCollectionNames().contains(bucket+".chunks"))
-			return response(false, null, "bucket: " + bucket
-					+ " does not exist in databse: " + DBname);
-		GridFS gfs = new GridFS(db, bucket);
+		if(!db.getCollectionNames().contains(bucketName+".chunks"))
+			return response(false, null, "bucket: " + bucketName
+					+ " does not exist in app: " + appName);
+		GridFS gfs = new GridFS(db, bucketName);
 		List<String> fl = new LinkedList<String>();
 		DBCursor dbc = gfs.getFileList();
 		
@@ -190,32 +116,27 @@ public class GridFSCtrl extends BaseCtrl {
 		return response(true, fl, null);
 	}
 	
-	// delete file
-	@RequestMapping(value = "/gridfs/{DBname}/{bucket}/delete", method = RequestMethod.DELETE)
-	public ModelAndView deleteFileFromBucket(@PathVariable String DBname,
-			@PathVariable String bucket, @RequestParam(value = "filename",
-			  required = false) String filename) {
-		if (!isAuthorized())
-			return response(false, null, "Invalid username or password");
-		logger_c.debug("/gridfs/" + DBname + "/" + bucket + "/delete : doDelete()");
-		
-		if (!mongoDb.getDatabaseNames().contains(DBname))
-			return response(false, null, "database: " + DBname
-					+ " is not found");
+	// delete a bucket
+	@RequestMapping(value = "/{bucketName}", method = RequestMethod.DELETE)
+	public ModelAndView deleteBucket(@PathVariable String appName,
+			@PathVariable String bucketName, Principal principal) {
+		if (!canWrite(appName, principal.getName())) {
+			if (!mongoDb.getDatabaseNames().contains(appName))
+				return response(false, null, "app: " + appName
+						+ " is not found");
+			return response(false, null, "you don't have permission");
+		}
 
-		DB db = mongoDb.getDB(DBname);
-		// check if bucket exist
-		if(!db.getCollectionNames().contains(bucket+".chunks"))
-			return response(false, null, "bucket: " + bucket
-					+ " does not exist in databse: " + DBname);
-		GridFS gfs = new GridFS(db, bucket);
-		GridFSDBFile file = gfs.findOne( filename );
-		if(file==null)
-			return response(false, null, "file: " + filename
-					+ " does not exist in bucket: " + bucket);
-		
-		gfs.remove(filename);
-		return response(true, null, "file: " + filename + " deleted");
+		logger_c.debug("/app/" + appName + "/buckets/" + bucketName
+				+ " : doDELETE()");
+
+		if (!checkCollectionExist(appName, bucketName+".chunks"))
+			return response(false, null, "bucket: " + bucketName
+					+ " not found in app: " + appName);
+		DB db = mongoDb.getDB(appName);
+		db.getCollection(bucketName+".chunks").drop();
+		db.getCollection(bucketName+".files").drop();
+		return response(true, null, "bucket: " + bucketName + " deleted");
 	}
 	/*
 	 * //check collection status
