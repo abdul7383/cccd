@@ -39,7 +39,7 @@ The App Management component is the core of the entire framework and it interact
 \subsubsection{JSON}
 The data format to interact with the framework is JSON. It has been chosen due its low-overhead comparing with XML and it is also the data format for many of the known NoSQL systems, which one of them will be used in the framework.
  
-\subsubsection{User Management}
+\subsubsection{User Management \label{sec:des_user_man}}
 In order to allow only registered developers to use the framework, a User Management design concept is described in the following.
 
 The User Management component provides two levels of management. The first one is to provide a role based user management for using the entire framework. The role can be either an admin or a normal user - which here means a developer who use the framework. Both admin and user are allowed to use the framework i.e. creating new applications, modeling the app and storing, getting or deleting contents etc. Only admins can add a new admin or user.
@@ -49,6 +49,31 @@ The second level of the User Management component provides a mechanism for manag
 \subsubsection{REST Interfaces} For interacting with the outside world, a standard and well defined interface is needed. The decision for choosing REST as an API interface is due to its flexibility, simplicity, less bandwidth usage and very easy way to scale for large deployment, see section \ref{sec:back_soap_vs_rest} for more detailed comparison.
 
 Following paragraphs describes the various interfaces needed in order to be able to use the framework:
+
+\paragraph{Framework User Management Interface /users :} This interface provide the first level of user management described in \ref{sec:des_user_man}. Only admins are allowed to use this interface for managing users.
+
+\begin{itemize}
+\item \textbf{Create:} The method \textit{addUser} requires following parameters, \textit{username}, \textit{password}, \textit{firstname}, \textit{lastname}, \textit{email} and \textit{role}.  The role parameter is an integer and specify if the user has ADMIN - 1 - or USER - 2 - role. These parameters is passed through an URI parameters, see following example for adding a new admin.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+POST https://user1:pass@107.23.121.185:8080/cccd/
+/users?username=frank&password=pass2&firstname=frank&
+lastname=schulz&email=frank21@yahoo.de&role=1
+\end{minted}
+\end{code}
+
+\item \textbf{Delete:} The method \textit{deleteUser} requires only \textit{username} as a parameter. It is not allowed to delete the \textit{username} if he is the last admin in the framework, else no one can admin it.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+DELETE https://user1:pass@107.23.121.185:8080/cccd/
+/users?username=frank
+\end{minted}
+\end{code}
+
+\end{itemize}
+
 
 \paragraph{App interface \textit{/app/} :} This interface provides the four CRUD operation, which described bellow, to allow developers to interact with there apps.
 
@@ -114,7 +139,30 @@ GET https://user1:pass@107.23.121.185:8080/cccd/app/vod1
 
 \item \textbf{Update(PUT):}  This method \textit{updateApp} is for updating/adding the configuration parameters of the app. i.e changing the secret word or adding new configuration parameters which can be needed from other components, i.e. adding the user credentials for a Justin.TV account in order to stream a video to it.
 
-\item \textbf{DELETE(DELETE):} This method \textit{deleteApp} delete the app along with its related contents which might be in the Repository, Media Store or in the Content Distributor component.
+\item \textbf{Delete(DELETE):} This method \textit{deleteApp} delete the app along with its related contents which might be in the Repository, Media Store or in the Content Distributor component.
+
+\end{itemize}
+
+\paragraph{App User Management Interface /app/{appName}/users :} This interface provide the second level user management described in \ref{sec:des_user_man}. The users table is saved on the repository within the app. In order to add a user to an app with WRITE or only READ rights, he must be already registered in the framework as a valid user.
+
+\begin{itemize}
+\item \textbf{Create:} The method \textit{addUser} takes following parameters, \textit{appName}, \textit{username} which needs to be added to the app and which rights will it has \textit{readonly}. The \textit{username} and \textit{readonly} parameters are passed through URI parameters, see following example.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+POST https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+/users?username=frank&readonly=true
+\end{minted}
+\end{code}
+
+\item \textbf{Delete:} The method \textit{deleteUser} takes two parameters, namely \textit{appName} and the name of the user \textit{username} which needs to be deleted from the app. It is not allowed to delete the \textit{username} if he is the last user who has WRITE rights, else no one else can admin the app.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+DELETE https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+/users?username=frank
+\end{minted}
+\end{code}
 
 \end{itemize}
 
@@ -146,6 +194,140 @@ Response:
 \item \textbf{Delete:} Deleting a collection would delete the entire data in it and also delete its index in the Search Engine. Furthermore the data/files which are in the Content Distribution component, which belong to this collection will be deleted too.
 \end{itemize}
 
+\paragraph{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :} Before adding data to any collection, fields should be mapped to a proper object, i.e. string, integer, date, array or geo\_point. 
+
+cite http://www.elasticsearch.org/guide/reference/mapping/
+Mapping is the process of defining how a document should be mapped to the Search Engine, including its searchable characteristics such as which fields are searchable and if/how they are tokenized.  By default, there is no need to define an explicit mapping, since one is automatically created and registered when a new type or new field is introduced and have sensible defaults. Only when the defaults need to be overridden must a mapping definition be provided. Only Get and Update are provided through this interface.
+ 
+\begin{itemize}
+
+\item \textbf{Read:} The method \textit{listAllMappings} takes as parameters the \textit{appName} and the \textit{collectionName} and returns the entire mapping list for this collection.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+GET https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+/collections/collection1/mapping
+\end{minted}
+Payload:
+\begin{minted}[frame=single]{json}
+{
+"data": {
+	"sourceAsMap": {
+		"properties": {
+			"date": {
+				"type": "date",
+				"format": "dateOptionalTime"
+				},
+			"name": {
+				"type": "string"
+			},
+			"owner": {
+				"type": "string"
+			}
+		}
+	}
+},
+"ok": "1"
+}
+
+\end{minted}
+\end{code}
+
+\item \textbf{Update:} The method \textit{updateMapping} takes as parameters the \textit{appName}, the \textit{collectionName} and the mapping description \textit{body} as payload in JSON format and allows to register specific mapping definition for a specific collection.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+PUT https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+/collections/collection1/mapping
+\end{minted}
+Payload:
+\begin{minted}[frame=single]{json}
+{
+	"collection1" : {
+		"properties" : {
+			"name" : {"type" : "string"}
+		}
+	}
+}
+\end{minted}
+\end{code}
+
+\end{itemize}
+
+
+\paragraph{Document Interface /app/{appName}/collections/{collectionName}/doc :} The repository of the framework is a document-based database system, and as a result, all records, or data, in it are documents. Documents are the default representation of most user accessible data structures in the repository.
+
+\begin{itemize}
+\item \textbf{Create:} The method \textit{createDocument} takes as parameters  the \textit{appName}, \textit{collectionName} and  the document it self as payload in JSON format \textit{body} and saves this document in the repository and also in the search engine in order to make the document searchable.  
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+POST http://abdul:abdul@107.23.121.185:8080/cccd/app/vod1
+/collections/collection1/doc
+\end{minted}
+Payload:
+\begin{minted}[frame=single]{json}
+{
+"name":"video in Berlin",
+"date":"2013-01-01T01:12:12",
+"owner":"Tom"
+}
+\end{minted}
+\end{code}
+
+
+\item \textbf{Read:} The method \textit{getDocument} requires the \textit{appName}, \textit{collectionName} and an \textit{objectId} and returns the correspondent document. The example below shows how to get the document with the \textit{objectId} 512d3258e4b0acc3647858f2.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+GET http://abdul:abdul@107.23.121.185:8080/cccd/app/vod1
+/collections/collection1/doc/512d3258e4b0acc3647858f2
+\end{minted}
+Response:
+\begin{minted}[frame=single]{json}
+{
+"data":{
+	"_id":{
+			"machine":-458183485,
+			"timeSecond":1361916504,
+			"inc":1685608690,
+			"time":1361916504000,
+			"new":false
+	},
+	"name":"video in Berlin",
+	"owner":"Tom",
+	"date":"2013-01-01T01:12:12"
+},
+"ok":"1"
+}
+\end{minted}
+\end{code}
+
+\item \textbf{Update:} The method \textit{updateDocument} requires the \textit{appName}, \textit{collectionName}, \textit{objectID} and the JSON formatted payload \textit{body}. The body contains  the fields, which needs to be updated within a document.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+POST http://abdul:abdul@107.23.121.185:8080/cccd/app/vod1
+/collections/collection1/doc/512d3258e4b0acc3647858f2
+\end{minted}
+Payload:
+\begin{minted}[frame=single]{json}
+{
+"name":"video in Potsdam"
+}
+\end{minted}
+\end{code}
+
+\item \textbf{Delete:} The method \textit{deleteDocument} deletes the specific document from the repository and from the search engine too.
+
+\begin{code}
+\begin{minted}[frame=single]{console}
+DELETE http://abdul:abdul@107.23.121.185:8080/cccd/app/vod1
+/collections/collection1/doc/512d3258e4b0acc3647858f2
+\end{minted}
+\end{code}
+ 
+\end{itemize}
 \paragraph{Buckets Interface /app/{appName}/buckets :} Just like a bucket holds water, buckets - known in Amazon Web Services - are a container for files. The name of the bucket must be unique within an app. The four CRUD operations are described below.
 
 \begin{itemize}
@@ -187,14 +369,31 @@ DELETE https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
 \end{minted}
 \end{code}
 
+\end{itemize}
+
+\paragraph{Files Interface /app/{appName}/buckets/{bucketName}/{filename} :}  This interface manages files within a buckets.
+
+\begin{itemize}
+\item {Create:} The method \textit{addFileToBucket} allows to upload a file to a bucket and it requires the parameters \textit{appName}, \textit{bucketName} and \textit{filename} along with the file its self.
+
+\item {Read:} The method \textit{getFileFromBucket} allows to get a file from a bucket and it requires also the parameters \textit{appName}, \textit{bucketName} and \textit{filename}.  An example for downloading a file named \textit{test.pdf} from the bucket \textit{books} and app \textit{bookstore} is listed below.
+
 \begin{code}
 \begin{minted}[frame=single]{console}
 GET https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
-/books/test.pdf
+/buckets/books/test.pdf
 \end{minted}
 \end{code}
 
-and the name of the file which need to be retrieved. Listing bla shows an example for downloading a file named \textit{test.pdf} from the bucket \textit{books} and app \textit{bookstore}.
+\item {Update:} The method \textit{updateFileInBucket} allows to update a file within a bucket and it requires also the parameters \textit{appName}, \textit{bucketName}, \textit{filename} and the file its self.  The update here is theoretically removing the old file and then adding the new one.
+\begin{code}
+\begin{minted}[frame=single]{console}
+PUT https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
+/buckets/books/test.pdf
+\end{minted}
+\end{code}
+
+\item {Remove:} The method \textit{deleteFileFromBucket} deletes a file from a bucket.
 
 \end{itemize}
 
@@ -204,9 +403,9 @@ and the name of the file which need to be retrieved. Listing bla shows an exampl
 
 \subsubsection{Informative Response:} In order to know if a request to the framework succeeded or failed, the API should always send a tag in each response which shows either the request processed successfully or not, i.e. {"ok":1} in case of success or {"ok":0} in case of failure. Furthermore a configuration parameter will be implemented to enable more debug information, i.e. while creating a new app, if its name exist already, then the response include the error as a string i.e. {"ok":0,"debug":"app name exist already"}.
 
+\subsection{Repository / Media Store \label{sec:des_repo}}
 
-\subsection{User Management}
-\subsection{Repository\label{sec:des_repo}}
+
 \subsection{Search Engine\label{sec:des_se_en}}
 \subsection{Content Adaptation\label{sec:des_ar_ov}}
 \subsection{Content Distribution\label{sec:des_cdn}}	

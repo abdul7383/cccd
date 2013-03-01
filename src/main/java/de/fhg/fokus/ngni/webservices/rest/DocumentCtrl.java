@@ -32,7 +32,7 @@ public class DocumentCtrl extends BaseCtrl {
 	// add a new document to a collection
 	@SuppressWarnings("unchecked")
 	@RequestMapping(method = RequestMethod.POST)
-	public ModelAndView createDoc(@PathVariable String appName,
+	public ModelAndView createDocument(@PathVariable String appName,
 			@PathVariable String collName, Principal principal,
 			@RequestBody String body) {
 		if (!canRead(appName, principal.getName())) {
@@ -75,13 +75,13 @@ public class DocumentCtrl extends BaseCtrl {
 		} catch (Exception ex) {
 			return response(false, null, "error : " + ex.getMessage());
 		}
-		return response(true, null, "doc added succesfully created");
+		return response(true, null, "doc created succesfully");
 
 	}
 
 	// get a document from a collection
 	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
-	public ModelAndView getDoc(@PathVariable String appName,
+	public ModelAndView getDocument(@PathVariable String appName,
 			@PathVariable String collName, Principal principal,
 			@PathVariable String id,
 			@RequestParam(value = "fields", required = false) String fields) {

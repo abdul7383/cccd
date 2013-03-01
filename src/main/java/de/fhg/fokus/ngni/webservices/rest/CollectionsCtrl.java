@@ -1,6 +1,8 @@
 package de.fhg.fokus.ngni.webservices.rest;
 
 import java.security.Principal;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.log4j.Logger;
@@ -10,8 +12,6 @@ import org.elasticsearch.cluster.ClusterState;
 import org.elasticsearch.cluster.metadata.IndexMetaData;
 import org.elasticsearch.cluster.metadata.MappingMetaData;
 import org.springframework.amqp.core.Message;
-import org.springframework.amqp.core.MessageDeliveryMode;
-import org.springframework.amqp.core.MessageProperties;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -105,20 +105,25 @@ public class CollectionsCtrl extends BaseCtrl {
 		list.remove("system.indexes");
 		list.remove("conf");
 		list.remove("users");
+		List<String> buckets = new LinkedList<String>();
 		for(String c:list)
 			if(c.endsWith(".chunks")){
-				list.remove(c);
-				list.remove(c.replace(".chunks", ".files"));
-			}
+				buckets.add(c);
+				buckets.add(c.replace(".chunks", ".files"));
+				//list.remove(c);
+				//list.remove(c.replace(".chunks", ".files"));
+		}
+		for (String b:buckets)
+			list.remove(b);
 		return response(true, list, null);
 	}
 
 	// get the index mapping for a collection
-	@RequestMapping(value = "/_mapping", method = RequestMethod.GET)
+	@RequestMapping(value = "/{collName}/mapping", method = RequestMethod.GET)
 	public ModelAndView getMapping(@PathVariable String appName,
 			@PathVariable String collName, Principal principal) {
 
-		Message msg = new Message("test".getBytes(), null);
+		/*Message msg = new Message("test".getBytes(), null);
 		int i = 10;
 		while (i > 0) {
 			amqpTemplate.convertAndSend("cccdQueue4", "test: " + i);
@@ -129,7 +134,7 @@ public class CollectionsCtrl extends BaseCtrl {
 				e.printStackTrace();
 			}
 			i--;
-		}
+		}*/
 		if (!canRead(appName, principal.getName())) {
 			if (!mongoDb.getDatabaseNames().contains(appName))
 				return response(false, null, "app: " + appName
@@ -137,7 +142,7 @@ public class CollectionsCtrl extends BaseCtrl {
 			return response(false, null, "you don't have READ permission");
 		}
 		logger_c.debug("/app/" + appName + "/collections/" + collName
-				+ "/_mapping" + " : doGET()");
+				+ "/mapping" + " : doGET()");
 
 		if (!checkCollectionExist(appName, collName))
 			return response(false, null, "collection: " + collName
@@ -150,7 +155,9 @@ public class CollectionsCtrl extends BaseCtrl {
 		if (imd == null)
 			return response(false, null, "no mapping found");
 		MappingMetaData mdd = imd.mapping(collName);
-
+		
+		if (mdd == null)
+			return response(false, null, "no mapping found");
 		return response(true, mdd, null);
 	}
 
