@@ -17,14 +17,14 @@ A recent definition of context-awareness is described by [\citeauthor{Dey2000b}]
 
 This way it is easier for an application developer to enumerate the context for a given application scenario. If a piece of information can be used to characterize the situation of a participant in an interaction, then that information is regarded as context.
 
-After the term ''context'' has been defined the next term ''context-aware computing'' is discussed.
+After the term ''context'' has been defined the term ''context-aware computing'' is discussed in the following subsection.
 
 \subsection{Context-aware Computing}
-Context-aware computing was first described by [\citeauthor{ieee313011}] in 1994 to be software that ''adapts according to its location of use, the collection of nearby people and objects, as well as changes to those objects over time''. However, it is commonly agreed that context-aware computing was first investigated in 1992 by [\citeauthor{WantHFG92}]. 
+Context-aware computing was first described by [\citeauthor{ieee313011}] in 1994 to be software, that adapts according to its location of use, the collection of nearby people and objects, as well as changes to those objects over time. However, it is commonly agreed that context-aware computing was first investigated in 1992 by [\citeauthor{WantHFG92}]. 
 
 [\citeauthor{RyanME}] has also defined the term context-aware applications as applications that allow users to select from a range of physical and logical contexts according to their current interests or activities and also monitor input from environmental sensors.
 
-\subsection{M2M}
+%\subsection{M2M}
 
 \subsection{Context Examples}
 The orientation of the screen of a tablet computer is automatically changed, maps can orientate themselves according to the user's direction with the zoom level adapted to the current speed, and the backlight of the phone is switched on when used in the dark.
@@ -58,57 +58,64 @@ e.g. talking, reading, walking, and running
 In order to efficiently use the context data after acquisition, it needs to be represented and/or stored in an appropriate form suitable for further processing. Now some of the different types of context modeling will be discussed.
 
 \begin{itemize}
-\item \textbf{Key-value model:}  This modeling technique represents contextual information with key-value pairs which is one of the most simple data structures for modeling contextual information. This model was already used by Schilit et al. [35] TODO to present the context by providing the value of a context information (e.g. location information) to an application as an environment variable. Distributed service frameworks  frequently use the key-value modeling approach. Although key-value pairs lack capabilities for sophisticated structuring for enabling efficient context retrieval algorithms, they are easy to manage.
+\item \textbf{Key-value model:}  This modeling technique represents contextual information with key-value pairs which is one of the most simple data structures for modeling contextual information. This model was already used in 1994 by \citeauthor{ieee512740} to present the context by providing the value of a context information (e.g. location information) to an application as an environment variable. Distributed service frameworks  frequently use the key-value modeling approach. Although key-value pairs lack capabilities for sophisticated structuring for enabling efficient context retrieval algorithms, they are easy to manage.
 
-\item \textbf{Logic based model: } This model is based on facts, expressions and rules. [10] A logic based system manipulates with the elemental items of this model and infers higher level logic by utilizing the already defined rules to deduce new facts.TODO cite "A Context Modeling Survey"
+\item \textbf{Logic based model: } %This model is based on facts, expressions and rules. [10] A logic based system manipulates with the elemental items of this model and infers higher level logic by utilizing the already defined rules to deduce new facts.
+Logic-based models have a high degree of formality. Typically, facts, expressions and rules are used to define a context model. \cite{BaldaufDustdarRosenberg07ijahuc}
 
-A logic defines the conditions on which a concluding expression or fact may be derived (a process known as reasoning or inferencing) from a set of other expressions or facts. To describe these conditions in a set of rules a formal system is applied. In a logic based context model, the context is consequently defined as facts, expressions and rules. Usually contextual information is added to, updated in and deleted from a logic based system in terms of facts or inferred from the rules in the system respectively. Common to all logic based models is a high degree of formality.TODO cite "A Context Modeling Survey"
 
-In early 1993 McCarthy and his group at Stanford [29, 30] TODO researched one of the first logic based context modeling approaches and published it as a "Notes on formalizing contexts". They introduced contexts such as abstract mathematical entities with properties useful in artificial intelligence.
+
+%A logic based system is then used to manage the aforementioned terms and allows to add, update or remove new facts. The inference (also called reasoning) process can be used to derive new facts based on existing rules in the systems. The contextual information needs to be represented in a formal way as facts.\cite{BaldaufDustdarRosenberg07ijahuc}
+
+%One of the first approaches was published by McCarthy and Buvac (1997).
+
+A logic defines the conditions on which a concluding expression or fact may be derived (a process known as reasoning or inferencing) from a set of other expressions or facts. To describe these conditions in a set of rules a formal system is applied. In a logic based context model, the context is consequently defined as facts, expressions and rules. Usually contextual information is added to, updated in and deleted from a logic based system in terms of facts or inferred from the rules in the system respectively. Common to all logic based models is a high degree of formality.\cite{Strang2004}
+
+In early 1993 \citeauthor{McCarthy1993Notes} and his group at Stanford researched one of the first logic based context modeling approaches and published it as a "Notes on formalizing contexts". They introduced contexts such as abstract mathematical entities with properties useful in artificial intelligence.
 
 
 \item \textbf{Ontology based model: }
-Ontologies are a promising instrument to specify concepts and interrelations [43, 20]TODO. The Web Onotlogy Language (OWL) is one way of implementing these ontologies. This consists of a set of classes, class hierarchies, set of property assertions, constraints on these elements, and types of permitted relationships between them. [12]TODO Another way to implement the ontologies is to use a knowledge representation language - the Resource Description Framework (RDF). This is a promising model because of the possibility to apply reasoning techniques. [8]  
+Ontologies are a promising instrument to specify concepts and interrelations \cite{gruber_1993}. The Web Onotlogy Language (OWL) is one way of implementing these ontologies. This consists of a set of classes, class hierarchies, set of property assertions, constraints on these elements, and types of permitted relationships between them. Another way to implement the ontologies is to use a knowledge representation language - the Resource Description Framework (RDF). This is a promising model because of the possibility to apply reasoning techniques \cite{Riva04}.  
 
-Ötztürk and Aamodt [31] TODO proposed one of the first approaches of modeling the context with ontologies. 
-
-Psychological studies on the difference between recall and recognition of several issues in combination with contextual information were analyzed by them. The necessity of normalizing and combining the knowledge from different domains was derived from this examination. A context model based on ontologies due to their strengths in the field of normalization and formality was proposed by them.
+\citeauthor{Oeztuerk97towardsa} proposed one of the first approaches of modeling the context with ontologies. Psychological studies on the difference between recall and recognition of several issues in combination with contextual information were analyzed by them. The necessity of normalizing and combining the knowledge from different domains was derived from this examination. A context model based on ontologies due to their strengths in the field of normalization and formality was proposed by them.
 
 \item \textbf{Graphical models:} 
-The Unified Modeling Language (UML) is a wide spread modeling tool for software systems. When using UML, the architectural aspects of software systems are defined as classes. Each class constitutes a set of objects with common services, properties, and behavior. Services are described by methods. Properties are described by attributes and associations. see ContextUML TODO
+The Unified Modeling Language (UML) is a wide spread modeling tool for software systems. When using UML, the architectural aspects of software systems are defined as classes. Each class constitutes a set of objects with common services, properties, and behavior. Services are described by methods and properties are described by attributes and associations \cite{Sheng2005}.
 
-Due to its generic structure, UML is also appropriate to model the context. 
+%Due to its generic structure, UML is also appropriate to model the context. This is shown for instance by Bauer in [5], where contextual aspects relevant to air traffic management are modeled as UML extensions.
 
-This is shown for instance by Bauer in [5], where contextual aspects relevant to air traffic management are modeled as UML extensions.
+%Using the Unified Modeling Language (UML) is another way of representing context, as well as using an extension of the Object-Role Modeling (ORM) with context information. [10]
 
+\item \textbf{Object-oriented models:} Object-oriented design of context benefits from the common properties object-oriented programming, such as inheritance, encapsulation, reuse, and polymorphism. As an example, in a model of a Payroll System, a Company is an Object. An Employee is another Object. Employment is a Relationship or Association. An Employee Class (or Object for simplicity) has Attributes like Name, Birthdate, etc. The Association itself may be considered as an Object, having Attributes, or Qualifiers like Position, etc. An Employee Method may be Promote, Raise, etc \cite{wiki:Object-oriented_modeling}.
 
-Using the Unified Modeling Language (UML) is another way of representing context, as well as using an extension of the Object-Role Modeling (ORM) with context information. [10]
+%An architecture exists that uses a class ContextObject, which is inherited by other context-specific classes which implement the common abstract methods, convert data streams to context objects and vice versa, and provide well known interfaces to access the context's logic.
 
-\item \textbf{Object-oriented models:} Object-oriented design of context benefits from the common properties object-oriented programming, such as inheritance, encapsulation, reuse, and polymorphism. An architecture exists that uses a class ContextObject, which is inherited by other context-specific classes which implement the common abstract methods, convert data streams to context objects and vice versa, and provide well known interfaces to access the context's logic.
+\item \textbf{Markup languages: } All markup scheme modeling approaches share a hierarchical data structure consisting of markup tags with attributes and content. In particular, the content of the markup tags is usually recursively defined by other markup tags. Typical representatives of this kind of context modeling approach are profiles. They usually base upon a serialization of a derivative of Standard Generic Markup Language(SGML), the superclass of all markup languages such as the popular XML\cite{Strang2004}.
 
-\item \textbf{Markup languages: }These models have hierarchical structure composed of tags and attributes. User Agent Profile (UAProf) and Composite Capabilities/Preference Profile (CC/PP) are some of the specifications that describe the capabilities of mobile devices and different user agents, enabling the content providers to produce and deliver content suitable for each request.
+%These models have hierarchical structure composed of tags and attributes. User Agent Profile (UAProf) and Composite Capabilities/Preference Profile (CC/PP) are some of the specifications that describe the capabilities of mobile devices and different user agents, enabling the content providers to produce and deliver content suitable for each request.
 \end{itemize}
 
-\section{Content Adaptation\label{sec:back_con_ad}}
-bla
+%\section{Content Adaptation\label{sec:back_con_ad}}
 
-Content adaptation can be defined as ''the set of measures taken against a dynamically changing context, for the purpose of maintaining a user experience of the delivered content as close to that of the original content as possible''.[\citeauthor{ieee6040622}]
-''Content adaptation has been widely acknowledged as one of the most important aspects for context-aware ubiquitous content delivery''. 
+%\citeauthor{ieee6040622} has defined content adaptation as the set of measures taken against a dynamically changing context, for the purpose of maintaining a user experience of the delivered content as close to that of the original content as possible.
 
-\subsection{Audios/Videos Adaptation}
-bla
-\subsection{Documents Adaptation}
-bla
-\section{Content Discovery}
-bla
-\section{Content Distribution\label{sec:back_con_di}}
-bla
-\subsection{Stream}
-bla
-\subsection{Download}
-bla	
+%''Content adaptation has been widely acknowledged as one of the most important aspects for context-aware ubiquitous content delivery''. 
+
+%\subsection{Audios/Videos Adaptation}
+%bla
+%\subsection{Documents Adaptation}
+%bla
+%\section{Content Discovery}
+%bla
+%\section{Content Distribution\label{sec:back_con_di}}
+%bla
+%\subsection{Stream}
+%bla
+%\subsection{Download}
+%bla	
 \section{Related Technologies\label{sec:back_rel_tech}}
-bla	
+This section covers a wide of technologies which are relevant for this thesis.	
+
 \subsection{Web Services\label{sec:back_tech_ws}}
 
 There are many definitions for the term Web service, the World Wide Web Consortium (W3C) defines it as follows:\cite{W3C}\\
@@ -174,7 +181,7 @@ Each object of the application, such as the product or the customer is a resourc
 GET /cart/7621
 \end{lstlisting}
 
-It is not specified in REST how the result of a request is represented. Client and server must have a shared understanding how the data is represented, i.e. in XML or JSON TODO akro. The following example is a response in JSON format.
+It is not specified in REST how the result of a request is represented. Client and server must have a shared understanding how the data is represented, i.e. in XML or JSON. The following example is a response in JSON format.
 
 %\lstset{language=JSON}
 \begin{lstlisting}
@@ -258,7 +265,7 @@ To consume a REST based API service, a simple GET request is needed, therewith a
 \subsection{NoSQL Databases TODO NoSQL Evaluation\label{sec:back_da_per}}
 SQL databases have been used to solve storage problems for a long time, including cases in which there is a high discrepancy between the object model and its relational model. The conversion of graphs to tables represents yet another dis-functional use of data mapping. The complex structure this sort of mismanagement causes depends on mapping frameworks and complex algorithms. The rigid relational scheme characteristic for SQL becomes especially inefficient for such web applications as blogs due to their multifaceted range of attributes that need to be stored in their respective tables, e.g. comments, pictures, audios, videos, source codes. Therefore adding or removing a new feature to this sort of website will necessarily result in system unavailability.          
 
-Nowadays of course,  web sites are developing towards more interactive models, obliging databases to perform real-time scheme updates, thereby paving the way for NoSQL TODO akr to provide a database molded for modern demands. %The following section describes the characteristics of NoSQL and its different types of databases.   
+Nowadays of course,  web sites are developing towards more interactive models, obliging databases to perform real-time scheme updates, thereby paving the way for NoSQL to provide a database molded for modern demands. %The following section describes the characteristics of NoSQL and its different types of databases.   
 
 %\subsubsection{SQL\label{sec:back_da_per}}
 %\subsubsection{NoSQL\label{sec:back_da_per}}	
@@ -289,11 +296,11 @@ The following sections will examine these groups, each accompanied by one or mor
 
 \subsubsection{Key Value Stores}
 
-Key value stores provide suitable storage systems for simple operations, based on key attributes only. They can be compared to maps or dictionaries due to the fact that data is identified by a unique key. They allow for a user specific webpage to be partially calculated beforehand and consequently be served quickly to the user when requested. Most key value stores save their data in memory, so they are frequently used for caching of SQL queries, which result more time intensive. Examples for key value stores are Project Voldemort [6], Redis,Membase and Riak of which the latter will be described in detail in the following paragraph.
+Key value stores provide suitable storage systems for simple operations, based on key attributes only. They can be compared to maps or dictionaries due to the fact that data is identified by a unique key. They allow for a user specific webpage to be partially calculated beforehand and consequently be served quickly to the user when requested. Most key value stores save their data in memory, so they are frequently used for caching of SQL queries, which result more time intensive. Examples for key value stores are Project Voldemort, Redis,Membase and Riak of which the latter will be described in detail in the following paragraph.
 
 \paragraph{Riak:} Riak is a distributed, scalable, open source key/value store. Riak scales predictably and easily and simplifies development by giving users the ability to quickly prototype, test, and deploy their applications. One of two ways to access data in Riak by using a REST API. The other way to access data is through a fully-featured Protocol Buffers API. This is a simple binary protocol based on the library Google's open source project of the same name.
 
-The only one way to organize data inside of Riak is by using buckets and keys. Data is stored and referenced by bucket/key pairs. These buckets are used to define a virtual keyspace and provide the ability to define isolated non-default configuration. They might be compared to tables or folders in relational databases or file systems, respectively. TODO cite http://docs.basho.com/riak/latest/references/appendices/concepts/Buckets/
+The only one way to organize data inside of Riak is by using buckets and keys. Data is stored and referenced by bucket/key pairs. These buckets are used to define a virtual keyspace and provide the ability to define isolated non-default configuration. They might be compared to tables or folders in relational databases or file systems, respectively \cite{Riak:Buckets}.
 
 Interactions with Riak are mostly setting or retrieving the value of a key. The following describes how to do that using the Riak HTTP API. To read an object, this is a basic command formation for retrieving a specific key from a bucket. 
 

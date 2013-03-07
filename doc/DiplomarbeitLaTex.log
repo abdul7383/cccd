@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  1 MAR 2013 19:12
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  4 MAR 2013 20:46
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -846,7 +846,7 @@ Package caption Info: End \AtBeginDocument code.
 \openout2 = `./misc/titlepage.aux'.
 
  (./misc/titlepage.tex
-<./img/tu_logo.jpg, id=285, 21.07875pt x 15.77895pt>
+<./img/tu_logo.jpg, id=281, 21.07875pt x 15.77895pt>
 File: ./img/tu_logo.jpg Graphic file (type jpg)
  <use ./img/tu_logo.jpg>
 Package pdftex.def Info: ./img/tu_logo.jpg used on input line 18.
@@ -868,14 +868,17 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 5.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 5.
- [3] [4])
+ [3]
+Underfull \vbox (badness 1248) has occurred while \output is active []
+
+ [4])
 \tf@toc=\write6
 \openout6 = `DiplomarbeitLaTex.toc'.
 
- [5] [6
 
-]
-(./DiplomarbeitLaTex.lof)
+[5] [6
+
+] (./DiplomarbeitLaTex.lof)
 \tf@lof=\write7
 \openout7 = `DiplomarbeitLaTex.lof'.
 
@@ -893,7 +896,7 @@ Class scrbook Warning: \float@addtolists detected!
 
 [1
 
-] [2] <DA-OverallArchitecture.jpg, id=435, 697.8572pt x 371.13657pt>
+] [2] <DA-OverallArchitecture.jpg, id=430, 697.8572pt x 371.13657pt>
 File: DA-OverallArchitecture.jpg Graphic file (type jpg)
 
 <use DA-OverallArchitecture.jpg>
@@ -908,7 +911,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 46.
  [4]
-<Inp_Out.jpg, id=446, 942.52126pt x 259.7203pt>
+<Inp_Out.jpg, id=441, 942.52126pt x 259.7203pt>
 File: Inp_Out.jpg Graphic file (type jpg)
  <use Inp_Out.jpg>
 Package pdftex.def Info: Inp_Out.jpg used on input line 68.
@@ -923,16 +926,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--34
 
  []
 
-[8] [9] [10] [11]
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+[8] [9]
+
+Package natbib Warning: Citation `' on page 10 undefined on input line 78.
+
+[10] [11]
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
 
  []
 
-[12] <soap_envelope.jpg, id=506, 292.09125pt x 327.2225pt>
+[12] <soap_envelope.jpg, id=520, 292.09125pt x 327.2225pt>
 File: soap_envelope.jpg Graphic file (type jpg)
 
 <use soap_envelope.jpg>
-Package pdftex.def Info: soap_envelope.jpg used on input line 135.
+Package pdftex.def Info: soap_envelope.jpg used on input line 139.
 (pdftex.def)             Requested size: 146.04526pt x 163.61084pt.
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/listings/lstlang1.sty
@@ -941,105 +948,104 @@ File: lstlang1.sty 2004/09/05 1.3 listings language file
 (/usr/local/texlive/2012/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
 )
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 146.
+LaTeX Font Info:    Try loading font information for OML+cmr on input line 150.
 
 
 (/usr/local/texlive/2012/texmf-dist/tex/latex/base/omlcmr.fd
 File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 146.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 150.
 
-Overfull \hbox (61.1455pt too wide) in paragraph at lines 147--148
+Overfull \hbox (61.1455pt too wide) in paragraph at lines 151--152
 [][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
-Overfull \hbox (4.74559pt too wide) in paragraph at lines 151--152
+Overfull \hbox (4.74559pt too wide) in paragraph at lines 155--156
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
 [13 <./soap_envelope.jpg>] [14]
-Overfull \hbox (52.02061pt too wide) in paragraph at lines 206--207
+Overfull \hbox (52.02061pt too wide) in paragraph at lines 210--211
 \OT1/cmr/m/n/12 ble on a Web server via the fol-low-ing URI: http://www.currenc
 yconverter.comconvert?in=us-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--217
+Underfull \hbox (badness 10000) in paragraph at lines 212--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--217
+Underfull \hbox (badness 10000) in paragraph at lines 212--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--217
+Underfull \hbox (badness 10000) in paragraph at lines 212--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--217
+Underfull \hbox (badness 10000) in paragraph at lines 212--221
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--222
+Underfull \hbox (badness 10000) in paragraph at lines 223--226
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 219--222
+Underfull \hbox (badness 10000) in paragraph at lines 223--226
 
  []
 
 [15] [16]
-Underfull \hbox (badness 10000) in paragraph at lines 268--287
+Underfull \hbox (badness 10000) in paragraph at lines 272--291
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--287
+Underfull \hbox (badness 10000) in paragraph at lines 272--291
 
  []
 
 
-Overfull \hbox (43.3936pt too wide) in paragraph at lines 268--287
+Overfull \hbox (43.3936pt too wide) in paragraph at lines 272--291
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--287
+Underfull \hbox (badness 10000) in paragraph at lines 272--291
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 268--287
+Underfull \hbox (badness 10000) in paragraph at lines 272--291
 
  []
 
 [17]
-Overfull \hbox (133.74579pt too wide) in paragraph at lines 296--297
+Overfull \hbox (133.74579pt too wide) in paragraph at lines 300--301
 \OT1/cmr/m/n/12 tems, re-spec-tively. TODO cite http://docs.basho.com/riak/late
 st/references/appendices/concepts/Buckets/ 
  []
 
-[18]
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
 runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
 ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
 ted.
 
- (./DiplomarbeitLaTex.out.pyg)
+(./DiplomarbeitLaTex.out.pyg [18])
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 308--312
+Underfull \hbox (badness 10000) in paragraph at lines 312--316
 
  []
 
@@ -1055,23 +1061,23 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 
-Overfull \hbox (10.70537pt too wide) in paragraph at lines 330--331
+Overfull \hbox (10.70537pt too wide) in paragraph at lines 334--335
 [] []\OT1/cmss/bx/n/12 CouchDB:[][] \OT1/cmr/m/n/12 Apache CouchDB is a free an
 d open-source document-oriented database
  []
 
-[19]
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
 runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
 = ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...executed
 .
 
- (./DiplomarbeitLaTex.out.pyg
-Underfull \hbox (badness 10000) in paragraph at lines 336--1
+(./DiplomarbeitLaTex.out.pyg
+Underfull \hbox (badness 10000) in paragraph at lines 340--1
 
  []
 
+[19]
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
 (Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3.
 )
@@ -1080,64 +1086,59 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 Package hyperref Info: bookmark level for unknown listing defaults to 0 on inpu
-t line 352.
- <couchdb_repl.png, id=588, 200.4288pt x 127.1952pt>
+t line 356.
+ <couchdb_repl.png, id=602, 200.4288pt x 127.1952pt>
 File: couchdb_repl.png Graphic file (type png)
- <use couchdb_repl.png>
-Package pdftex.def Info: couchdb_repl.png used on input line 362.
+
+<use couchdb_repl.png>
+Package pdftex.def Info: couchdb_repl.png used on input line 366.
 (pdftex.def)             Requested size: 200.4283pt x 127.19489pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 3803) has occurred while \output is active []
 
- [20]
-[21 <./couchdb_repl.png>]
-<mongodb_repl.png, id=601, 345.54094pt x 195.73125pt>
+ [20 <./couchdb_repl.png>] <mongodb_repl.png, id=609, 345.54094pt x 195.73125pt
+>
 File: mongodb_repl.png Graphic file (type png)
- <use mongodb_repl.png>
-Package pdftex.def Info: mongodb_repl.png used on input line 385.
+
+<use mongodb_repl.png>
+Package pdftex.def Info: mongodb_repl.png used on input line 389.
 (pdftex.def)             Requested size: 345.54008pt x 195.73076pt.
-
-[22 <./mongodb_repl.png>] [23] <neo4j.png, id=613, 636.61368pt x 279.51485pt>
+ [21] [22 <./mongodb_repl.png>] [23]
+<neo4j.png, id=627, 636.61368pt x 279.51485pt>
 File: neo4j.png Graphic file (type png)
-
-<use neo4j.png>
-Package pdftex.def Info: neo4j.png used on input line 443.
+ <use neo4j.png>
+Package pdftex.def Info: neo4j.png used on input line 447.
 (pdftex.def)             Requested size: 254.64096pt x 111.80394pt.
-
-Underfull \vbox (badness 7397) has occurred while \output is active []
-
- [24]
-<rabbit_mq.png, id=621, 702.625pt x 295.1025pt>
+ [24 <./neo4j.png>] <rabbit_mq.png, id=635, 702.625pt x 295.1025pt>
 File: rabbit_mq.png Graphic file (type png)
  <use rabbit_mq.png>
-Package pdftex.def Info: rabbit_mq.png used on input line 462.
+Package pdftex.def Info: rabbit_mq.png used on input line 466.
 (pdftex.def)             Requested size: 421.57825pt x 177.06285pt.
 
-Overfull \hbox (3.32457pt too wide) in paragraph at lines 462--462
+Overfull \hbox (3.32457pt too wide) in paragraph at lines 466--466
  [][] 
  []
 
-<rabbit_mq_direct.png, id=622, 611.28375pt x 407.5225pt>
+<rabbit_mq_direct.png, id=636, 611.28375pt x 407.5225pt>
 File: rabbit_mq_direct.png Graphic file (type png)
 
 <use rabbit_mq_direct.png>
-Package pdftex.def Info: rabbit_mq_direct.png used on input line 473.
+Package pdftex.def Info: rabbit_mq_direct.png used on input line 477.
 (pdftex.def)             Requested size: 366.77307pt x 244.51538pt.
 
-Overfull \hbox (24.94312pt too wide) in paragraph at lines 469--477
+Overfull \hbox (24.94312pt too wide) in paragraph at lines 473--481
 []\OT1/cmr/m/n/12 Direct ex-change witer vom http://www.rabbitmq.com/tutorials/
 amqp-concepts.html
  []
 
-[25 <./neo4j.png> <./rabbit_mq.png>]
-<rabbit_mq_fanout.png, id=629, 420.57124pt x 326.21875pt>
+<rabbit_mq_fanout.png, id=637, 420.57124pt x 326.21875pt>
 File: rabbit_mq_fanout.png Graphic file (type png)
 
 <use rabbit_mq_fanout.png>
-Package pdftex.def Info: rabbit_mq_fanout.png used on input line 483.
+Package pdftex.def Info: rabbit_mq_fanout.png used on input line 487.
 (pdftex.def)             Requested size: 252.3447pt x 195.73274pt.
-
-Overfull \hbox (47.62898pt too wide) in paragraph at lines 498--499
+ [25 <./rabbit_mq.png>]
+Overfull \hbox (47.62898pt too wide) in paragraph at lines 502--503
 \OT1/cmr/m/n/12 cite https://svn.apache.org/repos/asf/lucene/dev/branches/lucen
 e3622/solr/site/index.pdf 
  []
@@ -1149,27 +1150,27 @@ runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
 ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
 ted.
 
- (./DiplomarbeitLaTex.out.pyg [27 <./rabbit_mq_fanout.png>])
+ (./DiplomarbeitLaTex.out.pyg)
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
-
-Overfull \hbox (63.62187pt too wide) in paragraph at lines 551--563
+ [27 <./rabbit_mq_fanout.png>]
+Overfull \hbox (63.62187pt too wide) in paragraph at lines 555--567
 \OT1/cmr/m/n/12 cite: http://static.springsource.org/spring/docs/3.2.x/spring-f
 ramework-reference/pdf/spring-
  []
 
-[28] <spring_architecture.png, id=646, 420.57124pt x 388.45125pt>
+<spring_architecture.png, id=655, 420.57124pt x 388.45125pt>
 File: spring_architecture.png Graphic file (type png)
 
 <use spring_architecture.png>
-Package pdftex.def Info: spring_architecture.png used on input line 573.
+Package pdftex.def Info: spring_architecture.png used on input line 577.
 (pdftex.def)             Requested size: 252.3447pt x 233.07254pt.
- [29 <./spring_architecture.png>])
-(./chapters/chapter3.tex [30] [31] [32
+ [28]
+Underfull \vbox (badness 1365) has occurred while \output is active []
 
-]
+ [29 <./spring_architecture.png>]) (./chapters/chapter3.tex [30]
 Chapter 3.
 
 Overfull \hbox (0.10725pt too wide) in paragraph at lines 6--8
@@ -1177,17 +1178,19 @@ Overfull \hbox (0.10725pt too wide) in paragraph at lines 6--8
  internet-ready de-vices(e.g.
  []
 
-[33] [34] [35]) (./chapters/chapter4.tex [36]
+[31
+
+] [32] [33]) (./chapters/chapter4.tex [34]
 Chapter 4.
-<./img/arch_overview.png, id=698, 472.76625pt x 333.245pt>
+<./img/arch_overview.png, id=702, 472.76625pt x 333.245pt>
 File: ./img/arch_overview.png Graphic file (type png)
 
 <use ./img/arch_overview.png>
 Package pdftex.def Info: ./img/arch_overview.png used on input line 11.
 (pdftex.def)             Requested size: 283.66193pt x 199.94853pt.
- [37
+ [35
 
- <./img/arch_overview.png>] [38]
+ <./img/arch_overview.png>] [36]
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
 runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
@@ -1222,7 +1225,7 @@ runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
 ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
 ted.
 
-(./DiplomarbeitLaTex.out.pyg [39])
+(./DiplomarbeitLaTex.out.pyg [37])
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
@@ -1284,7 +1287,7 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
- [40]
+ [38]
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
 runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
@@ -1308,7 +1311,7 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
- [41]
+ [39]
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
 runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
@@ -1361,7 +1364,7 @@ runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
 = ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...executed
 .
 
- (./DiplomarbeitLaTex.out.pyg [42])
+ (./DiplomarbeitLaTex.out.pyg [40])
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
@@ -1383,6 +1386,123 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
 = ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...executed
 .
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+ [41]
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
+ted.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
+= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...executed
+.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
+ted.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
+= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...executed
+.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+ [42]
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
+ted.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
+= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...executed
+.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
+ted.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
+ted.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
+ted.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
+ted.
 
  (./DiplomarbeitLaTex.out.pyg)
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
@@ -1404,76 +1524,6 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
-runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
-= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...executed
-.
-
- (./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
-ted.
-
-
-(./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
-= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...executed
-.
-
- (./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
- [44]
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
-ted.
-
-
-(./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
-= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...executed
-.
-
- (./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
-ted.
-
-
-(./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
 runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
 ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
 ted.
@@ -1495,108 +1545,64 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
-ted.
-
- (./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
- [45]
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
-ted.
-
-
-(./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
-ted.
-
- (./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
-ted.
-
-
-(./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-) (./chapters/chapter5.tex [46] [47] [48
+) (./chapters/chapter5.tex [44] [45] [46
 
 ]
 Chapter 5.
 ) (./chapters/chapter6.tex
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [49]
+ [47]
 Overfull \vbox (29.0818pt too high) has occurred while \output is active []
 
 
-[50]
+[48]
 Chapter 6.
-) (./chapters/chapter7.tex [51
+) (./chapters/chapter7.tex [49
 
-] [52
+] [50
 
 ]
 Chapter 7.
-) [53] [54
+) [51] [52
 
 
 ] (./DiplomarbeitLaTex.bbl
-Underfull \hbox (badness 2717) in paragraph at lines 21--25
+Underfull \hbox (badness 2717) in paragraph at lines 30--34
 []\OT1/cmr/m/n/12 Cisco.  Cisco vi-sual net-work-ing in-dex: Fore-cast and meth
 od-ol-ogy,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--61
+Underfull \hbox (badness 10000) in paragraph at lines 65--70
 []\OT1/cmr/m/n/12 EC FI-Arch Group.  Fun-da-men-tal lim-i-ta-tions of cur-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--61
+Underfull \hbox (badness 10000) in paragraph at lines 65--70
 \OT1/cmr/m/n/12 rent in-ter-net and the path to fu-ture in-ter-net.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 56--61
+Underfull \hbox (badness 10000) in paragraph at lines 65--70
 \OT1/cmr/m/n/12 http://ec.europa.eu/information[]society/activities/foi/docs/ c
 ur-
  []
 
-[55
+[53
 
-])
+] [54])
+
+Package natbib Warning: There were undefined citations.
+
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 81.
- [56]
+[55]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
  (./DiplomarbeitLaTex.aux (./misc/titlepage.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 81.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 81.
 Package rerunfilecheck Info: File `DiplomarbeitLaTex.out' has not changed.
-(rerunfilecheck)             Checksum: EAB0302E72BC64D17A8905A0A9C886B5;4500.
+(rerunfilecheck)             Checksum: 6AB69B9C2568C7AA847C7A024F23DC89;4443.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1607,10 +1613,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 81.
  ) 
 Here is how much of TeX's memory you used:
- 12909 strings out of 493488
- 194331 string characters out of 3141326
- 343727 words of memory out of 3000000
- 15651 multiletter control sequences out of 15000+200000
+ 12943 strings out of 493488
+ 195117 string characters out of 3141326
+ 343715 words of memory out of 3000000
+ 15678 multiletter control sequences out of 15000+200000
  9938 words of font info for 35 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
  50i,14n,54p,1465b,1304s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1623,10 +1629,10 @@ r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr
 r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
 /local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/
 local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on DiplomarbeitLaTex.pdf (64 pages, 1375468 bytes).
+Output written on DiplomarbeitLaTex.pdf (63 pages, 1380434 bytes).
 PDF statistics:
- 928 PDF objects out of 1000 (max. 8388607)
- 830 compressed objects within 9 object streams
- 270 named destinations out of 1000 (max. 500000)
- 621 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 948 PDF objects out of 1000 (max. 8388607)
+ 851 compressed objects within 9 object streams
+ 277 named destinations out of 1000 (max. 500000)
+ 613 words of extra memory for PDF output out of 10000 (max. 10000000)
 

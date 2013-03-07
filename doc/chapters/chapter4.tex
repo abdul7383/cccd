@@ -4,7 +4,7 @@ Against the background of the requirements described previously in chapter 3, th
 
 
 \section{Architecture Overview\label{sec:des_ar_ov}}
-Figure \ref{fig:arch_overview} shows an architecture overview of the framework, which consists mainly of six components. The components with three dots(...) in them means that the framework can be later extended with new components for adding new services to the framework like SUBSCRIBE/NOTIFICATION etc.
+Figure \ref{fig:arch_overview} shows an architecture overview of the framework, which consists mainly of six components. The components with three dots(...) in them mean that the framework can be later extended with new components for adding new services to the framework like SUBSCRIBE/NOTIFICATION etc.
 
 \begin{figure}[htb]
   \centering
@@ -32,7 +32,7 @@ The App Management component is the main entry for each developer to interact wi
 
 Those components are described in more details in the next subsections.
  
-\subsection{App Management\label{sec:des_repo}}
+\subsection{App Management\label{sec:des_app_man}}
 
 The App Management component is the core of the entire framework and it interacts with almost all components in the framework. The following subsections describe the design decision that have been made for implementing this component.
 
@@ -46,7 +46,7 @@ The User Management component provides two levels of management. The first one i
 
 The second level of the User Management component provides a mechanism for managing who can modify an existing app or store/get contents from this app. The user who created the app is theoretically the owner of it and he is the only one who is allowed to add other users for using his app. Thereby he can add users with the same rights as his rights, meaning they can modify the whole app, deleting contents etc., or add other users, who only allowed to store/get/search contents. For example this is useful for a developer, who has deployed/configured a new app and then lets a service provider to use his app by only storing, getting, searching the contents in this app. 
 
-\subsubsection{REST Interfaces} For interacting with the outside world, a standard and well defined interface is needed. The decision for choosing REST as an API interface is due to its flexibility, simplicity, less bandwidth usage and very easy way to scale for large deployment, see section \ref{sec:back_soap_vs_rest} for more detailed comparison.
+\subsubsection{REST Interfaces \label{sec:des_rest_api}} For interacting with the outside world, a standard and well defined interface is needed. The decision for choosing REST as an API interface is due to its flexibility, simplicity, less bandwidth usage and very easy way to scale for large deployment, see section \ref{sec:back_soap_vs_rest} for more detailed comparison.
 
 Following paragraphs describes the various interfaces needed in order to be able to use the framework:
 
@@ -194,7 +194,7 @@ Response:
 \item \textbf{Delete:} Deleting a collection would delete the entire data in it and also delete its index in the Search Engine. Furthermore the data/files which are in the Content Distribution component, which belong to this collection will be deleted too.
 \end{itemize}
 
-\paragraph{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :} Before adding data to any collection, fields should be mapped to a proper object, i.e. string, integer, date, array or geo\_point. 
+\paragraph{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :\label{sec:des_rest_api_mapping}} Before adding data to any collection, fields should be mapped to a proper object, i.e. string, integer, date, array or geo\_point. 
 
 cite http://www.elasticsearch.org/guide/reference/mapping/
 Mapping is the process of defining how a document should be mapped to the Search Engine, including its searchable characteristics such as which fields are searchable and if/how they are tokenized.  By default, there is no need to define an explicit mapping, since one is automatically created and registered when a new type or new field is introduced and have sensible defaults. Only when the defaults need to be overridden must a mapping definition be provided. Only Get and Update are provided through this interface.
@@ -403,17 +403,40 @@ PUT https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
 
 \subsubsection{Informative Response:} In order to know if a request to the framework succeeded or failed, the API should always send a tag in each response which shows either the request processed successfully or not, i.e. {"ok":1} in case of success or {"ok":0} in case of failure. Furthermore a configuration parameter will be implemented to enable more debug information, i.e. while creating a new app, if its name exist already, then the response include the error as a string i.e. {"ok":0,"debug":"app name exist already"}.
 
-\subsection{Repository / Media Store \label{sec:des_repo}}
+\subsection{Repository/Media Store \label{sec:des_repo}}
 
+The repository/media store is accessible through the REST interfaces described above. The design decisions for this component are listed below.
 
+\begin{itemize}
+\item {JSON data format:} As described in section \ref{sec:des_rest_api}, the REST API data format is JSON and therefor the repository should be based on JSON format too in order to avoid unnecessarily data conversations.
+
+\item {Schema-less:} The framework is generic and should support wide variety of applications and therefore the repository should be based on schema less solutions in order to allow the application developer to store schema-less data.
+
+\item {Replication:} Data replication ensures redundancy, backup, and automatic failover.
+
+\item {Distribution:} While replication provide basic protection against single-instance failure, when all of the members of a replication group are in a single facility, the replication is still susceptible to some classes of errors in that facility including power outages, networking distortions, and natural disasters. To protect against these classes of failures, the repository/media store component should be easy to distribute in a geographically distinct facility or data center.
+
+\item {Media Store:} In order to store or retrieve contents, a file server is needed. This file server can be either as a component within the repository itself or as a separated component. In order to ensure the correlation between the content stored in the media store and its metadata within the repository, the URI of the content in the media store is embedded in its metadata in the repository.
+\end{itemize}
+ 
 \subsection{Search Engine\label{sec:des_se_en}}
-\subsection{Content Adaptation\label{sec:des_ar_ov}}
-\subsection{Content Distribution\label{sec:des_cdn}}	
-	
-	\subsection{Application Messaging\label{sec:des_me}}
-	
-	\subsection{User API\label{sec:des_api}}
+The search engine is accessible through following REST interfaces, \textit{search} and \textit{mapping}. The first one is for searching withing a collection. The later is for configuring the mapping of fields within a collection. The design decisions for this component are mostly like the repository/media store component described in \ref{sec:des_repo} like JSON data format, schema-less, easy to replicate and distribute.% In additional, the following decisions should be considered while choosing a proper search engine.
+%\begin{itemize}
+%\item{Schema Mapping:}
+%\end{itemize}
 
+\subsection{Worker Queue\label{sec:des_worker_queue}}
+The main idea behind Work Queue or Task Queue component is to avoid doing a resource-intensive task immediately and having to wait for it to complete. Instead the task will be scheduled to be done later. The task get encapsulated as a message and  get sent to a queue. A worker process running in other components like \ref{sec:des_con_ad} or \ref{ec:des_cdn} will pop the tasks and eventually execute the job. When there is many of the same worker the tasks will be shared between them.
+
+
+\subsection{Content Adaptation\label{sec:des_con_ad}}
+The Content Adaptation component is a worker process and it listens for new tasks from the Worker Queue. This component is responsible for transcoding and scaling videos. Furthermore it splits the transcoded/scaled videos into segments compatible to the Apple HLS. Then the video chunks will be uploaded to the Content Distribution component. After that the metadata of the original video. Figure bla illustrates how this component works internally. As soon as it receives a message notification from the Worker Queue component, which shows that a new video has been stored and it needs further processing, like transcoding and scaling, it fetches the video file from the media store and and then it provides this file as an input for the media encoder. The media encoder transcodes and scales this video and returns a MPEG-2 transport stream which is used by the stream segmenter as an input, The stream segmenter brokes this stream into segments and saves these segments as a series of one or more .ts media files. The segmenter also creates an index file which contains a list of media files and metadata. This index file is saved as an .M3U8 playlist. The index file along with the .ts media files are uploaded then to the proper path in the Content Distribution component.
+
+%cite http://developer.apple.com/library/ios/#documentation/networkinginternet/conceptual/streamingmediaguide/HTTPStreamingArchitecture/HTTPStreamingArchitecture.html
+
+\subsection{Content Distribution\label{sec:des_cdn}}
+The Content Distribution component contains internally of two components. The first one is a worker process, which listens for tasks from the Worker Queue component.
+ The URL of the index file is accessed by clients, which then request the indexed files in sequence.
 \section{Interfaces\label{sec:des_inter}}
 
 \section{Requirement Fulfillment\label{sec:des_inter}}
