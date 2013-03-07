@@ -430,13 +430,31 @@ The main idea behind Work Queue or Task Queue component is to avoid doing a reso
 
 
 \subsection{Content Adaptation\label{sec:des_con_ad}}
-The Content Adaptation component is a worker process and it listens for new tasks from the Worker Queue. This component is responsible for transcoding and scaling videos. Furthermore it splits the transcoded/scaled videos into segments compatible to the Apple HLS. Then the video chunks will be uploaded to the Content Distribution component. After that the metadata of the original video. Figure bla illustrates how this component works internally. As soon as it receives a message notification from the Worker Queue component, which shows that a new video has been stored and it needs further processing, like transcoding and scaling, it fetches the video file from the media store and and then it provides this file as an input for the media encoder. The media encoder transcodes and scales this video and returns a MPEG-2 transport stream which is used by the stream segmenter as an input, The stream segmenter brokes this stream into segments and saves these segments as a series of one or more .ts media files. The segmenter also creates an index file which contains a list of media files and metadata. This index file is saved as an .M3U8 playlist. The index file along with the .ts media files are uploaded then to the proper path in the Content Distribution component.
+The Content Adaptation component is a worker process and it listens for new tasks from the Worker Queue. This component is responsible for transcoding or scaling videos. Furthermore it splits the transcoded/scaled videos into segments compatible to the Apple HLS. %Then the video chunks will be uploaded to the Content Distribution component. After that the metadata of the original video. 
 
-%cite http://developer.apple.com/library/ios/#documentation/networkinginternet/conceptual/streamingmediaguide/HTTPStreamingArchitecture/HTTPStreamingArchitecture.html
+Figure \ref{fig:content_adaptation_overview} illustrates how this component works internally. As soon as it receives a message notification from the Worker Queue component, which tells that a new video has been stored and it needs further processing i.e. transcoding or scaling, it fetches the video file from the media store and and then provides this file as an input for the media encoder. The media encoder transcodes and scales this video and returns a MPEG-2 transport stream which is used by the stream segmenter as an input, The stream segmenter brokes this stream into segments and saves these segments as a series of one or more .ts media files. The segmenter also creates an index file which contains a list of media files and metadata. This index file is saved as an .M3U8 playlist. The index file along with the .ts media files are uploaded then to the proper path in the Content Distribution component.
+
+%original on http://developer.apple.com/library/ios/#documentation/networkinginternet/conceptual/streamingmediaguide/HTTPStreamingArchitecture/HTTPStreamingArchitecture.html
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.3]{img/content_adaptation_overview.png}\\
+  \caption{Content Adaptation Overview}
+  \label{fig:content_adaptation_overview}
+\end{figure}
+
+\pagebreak
 
 \subsection{Content Distribution\label{sec:des_cdn}}
-The Content Distribution component contains internally of two components. The first one is a worker process, which listens for tasks from the Worker Queue component.
- The URL of the index file is accessed by clients, which then request the indexed files in sequence.
-\section{Interfaces\label{sec:des_inter}}
+The Content Distribution component consists internally of two components. The first one is an HTTP server to serve contents to consumers, see figure \ref{fig:content_distribution}. The second one is a worker process, which listens for messages notifications from the Worker Queue component. These messages tells when a new app is created or deleted. In case of a new created app, the worker process creates a new dictionary within the HTTP server and secures it with a secret word to grants access only to this app. And in case of a deleted app, the worker process deletes the dictionary for this app along with its entire contents.
 
-\section{Requirement Fulfillment\label{sec:des_inter}}
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.7]{img/content_distribution.png}\\
+  \caption{Content Distribution}
+  \label{fig:content_distribution}
+\end{figure}
+
+%\section{Interfaces\label{sec:des_inter}}
+
+%\section{Requirement Fulfillment\label{sec:des_inter}}

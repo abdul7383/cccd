@@ -1,0 +1,162 @@
+\begin{thebibliography}{22}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[W3C()]{W3C}
+Web services architecture.
+\newblock URL \url{http://www.w3.org/TR/ws-arch/}.
+
+\bibitem[Baldauf et~al.(2007)Baldauf, Dustdar, and
+  Rosenberg]{BaldaufDustdarRosenberg07ijahuc}
+Matthias Baldauf, Schahram Dustdar, and Florian Rosenberg.
+\newblock A survey on context-aware systems.
+\newblock \emph{International Journal of Ad Hoc and Ubiquitous Computing},
+  2\penalty0 (4):\penalty0 263--277, jun 2007.
+\newblock ISSN 1743-8225.
+\newblock \doi{10.1504/IJAHUC.2007.014070}.
+
+\bibitem[Brown et~al.(1997)Brown, Bovey, and Chen]{ieee626984}
+P.J. Brown, J.D. Bovey, and Xian Chen.
+\newblock Context-aware applications: from the laboratory to the marketplace.
+\newblock \emph{Personal Communications, IEEE}, 4\penalty0 (5):\penalty0 58
+  --64, oct 1997.
+\newblock ISSN 1070-9916.
+\newblock \doi{10.1109/98.626984}.
+
+\bibitem[Cisco()]{cisco1}
+Cisco.
+\newblock Cisco visual networking index: Forecast and methodology, 2010-2015.
+\newblock http://www.cisco.com/en/US/solutions/collateral/ns341/ns525
+  /ns537/ns705/ns827/white\_paper\_c11-481360.pdf.
+
+\bibitem[Dey(1998)]{Dey98}
+Anind~K. Dey.
+\newblock Context-aware computing: The cyberdesk project.
+\newblock In \emph{AAAI 1998 Spring Symposium on Intelligent Environments},
+  pages 51--54, Palo Alto, 1998. AAAI Press.
+\newblock URL
+  \url{http://www.cc.gatech.edu/fce/cyberdesk/pubs/AAAI98/AAAI98.html}.
+
+\bibitem[Dey and Abowd(2000)]{Dey2000b}
+Anind~K. Dey and Gregory~D. Abowd.
+\newblock Towards a better understanding of context and context-awareness.
+\newblock In \emph{Workshop on The What, Who, Where, When, and How of
+  Context-Awareness (CHI 2000)}, The Hague, The Netherlands, April 2000.
+\newblock URL \url{http://www.cc.gatech.edu/fce/contexttoolkit/}.
+
+\bibitem[Ding and Li(2011)]{ieee6040622}
+Jie Ding and Ning Li.
+\newblock A distributed adaptation management framework in content delivery
+  networks.
+\newblock In \emph{Wireless Communications, Networking and Mobile Computing
+  (WiCOM), 2011 7th International Conference on}, pages 1 --4, sept. 2011.
+\newblock \doi{10.1109/wicom.2011.6040622}.
+
+\bibitem[Fielding(2000)]{Fielding2000}
+Roy Fielding.
+\newblock \emph{Architectural Styles and the Design of Network-based Software
+  Architectures}.
+\newblock PhD thesis, University of California, Irvine, 2000.
+
+\bibitem[Group()]{ec1}
+EC~FIArch Group.
+\newblock Fundamental limitations of current internet and the path to future
+  internet.
+\newblock http://ec.europa.eu/information\_society/activities/foi/docs/
+  current\_internet\_limitations\_v9.pdf.
+
+\bibitem[Gruber(1993)]{gruber_1993}
+Thomas~R. Gruber.
+\newblock A translation approach to portable ontology specifications.
+\newblock \emph{Knowledge Acquisition}, 5\penalty0 (2):\penalty0 199--220,
+  1993.
+\newblock URL \url{http://tomgruber.org/writing/ontolingua-kaj-1993.pdf}.
+
+\bibitem[Mccarthy(1993)]{McCarthy1993Notes}
+John Mccarthy.
+\newblock Notes on formalizing context.
+\newblock In \emph{IJCAI}, pages 555--562, San Mateo, California, 1993. Morgan
+  Kaumann.
+\newblock URL \url{http://dblp.uni-trier.de/rec/bibtex/conf/ijcai/McCarthy93}.
+
+\bibitem[Riva(2004)]{Riva04}
+Oriana Riva.
+\newblock A conceptual model for structuring context-aware applications.
+\newblock In \emph{Fourth Berkeley-Helsinki Ph.D. Student Workshop on
+  Telecommunication Software Architectures}, 2004.
+
+\bibitem[Ryan(19997)]{RyanME}
+N~Ryan.
+\newblock Mobile computing in a fieldwork environment: Metadata elements.
+\newblock Project working document, version 0.2, 19997.
+
+\bibitem[Ryan et~al.(1997)Ryan, Pascoe, and Morse]{Ryan97}
+N.~Ryan, J.~Pascoe, and D.~Morse.
+\newblock Enhanced reality fieldwork: the context-aware archaeological
+  assistant.
+\newblock In V.~Gaffney, M.~van Leusen, and S.~Exxon, editors, \emph{Computer
+  Applications and Quantitative Methods in Archaeology (CAA 97), Oxford}, 1997.
+\newblock URL
+  \url{http://www.cs.ukc.ac.uk/research/infosys/mobicomp/Fieldwork/Papers/CAA97/ERFldwk.html}.
+
+\bibitem[Schilit et~al.(1994)Schilit, Adams, and Want]{ieee512740}
+B.~Schilit, N.~Adams, and R.~Want.
+\newblock Context-aware computing applications.
+\newblock In \emph{Mobile Computing Systems and Applications, 1994.
+  Proceedings., Workshop on}, pages 85 --90, dec 1994.
+\newblock \doi{10.1109/MCSA.1994.512740}.
+
+\bibitem[Schilit and Theimer(1994)]{ieee313011}
+B.N. Schilit and M.M. Theimer.
+\newblock Disseminating active map information to mobile hosts.
+\newblock \emph{Network, IEEE}, 8\penalty0 (5):\penalty0 22 --32, sept.-oct.
+  1994.
+\newblock ISSN 0890-8044.
+\newblock \doi{10.1109/65.313011}.
+
+\bibitem[Sheng and Benatallah(2005)]{Sheng2005}
+Quan~Z. Sheng and Boualem Benatallah.
+\newblock Contextuml: A uml-based modeling language for model-driven
+  development of context-aware web services development.
+\newblock In \emph{Proceedings of the International Conference on Mobile
+  Business}, pages 206--212, Washington, DC, USA, 2005. IEEE Computer Society.
+\newblock ISBN 0-7695-2367-6.
+\newblock \doi{10.1109/ICMB.2005.33}.
+\newblock URL \url{http://portal.acm.org/citation.cfm?id=1084013.1084215}.
+
+\bibitem[Strang and Popien(2004)]{Strang2004}
+Thomas Strang and Claudia~L. Popien.
+\newblock A context modeling survey.
+\newblock In \emph{UbiComp 1st International Workshop on Advanced Context
+  Modelling, Reasoning and Management}, pages 31--41, Nottingham, September
+  2004.
+\newblock URL \url{http://citeseer.ist.psu.edu/712164.html}.
+
+\bibitem[Want et~al.(1992)Want, Hopper, Falcao, and Gibbons]{WantHFG92}
+Roy Want, Andy Hopper, Veronica Falcao, and Jonathan Gibbons.
+\newblock The active badge location system.
+\newblock \emph{ACM Trans. Inf. Syst.}, 10\penalty0 (1):\penalty0 91--102,
+  1992.
+\newblock URL
+  \url{http://dblp.uni-trier.de/db/journals/tois/tois10.html#WantHFG92}.
+
+\bibitem[Wikipedia(2012)]{wiki:Object-oriented_modeling}
+Wikipedia.
+\newblock Object-oriented modeling, 2012.
+\newblock URL \url{http://en.wikipedia.org/wiki/Object-oriented_modeling}.
+\newblock [Online; accessed 01.02.2013].
+
+\bibitem[Youtube()]{youtube1}
+Youtube.
+\newblock press statistics.
+\newblock http://www.youtube.com/t/press\_statistics.
+
+\bibitem[Öztürk and Aamodt(1997)]{Oeztuerk97towardsa}
+Pinar Öztürk and Agnar Aamodt.
+\newblock Towards a model of context for case-based diagnostic problem solving.
+\newblock In \emph{IN CONTEXT-97; PROCEEDINGS OF THE}, pages 198--208, 1997.
+
+\end{thebibliography}
