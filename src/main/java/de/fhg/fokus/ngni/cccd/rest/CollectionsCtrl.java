@@ -1,4 +1,4 @@
-package de.fhg.fokus.ngni.webservices.rest;
+package de.fhg.fokus.ngni.cccd.rest;
 
 import java.security.Principal;
 import java.util.LinkedList;
@@ -11,7 +11,6 @@ import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.cluster.ClusterState;
 import org.elasticsearch.cluster.metadata.IndexMetaData;
 import org.elasticsearch.cluster.metadata.MappingMetaData;
-import org.springframework.amqp.core.Message;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;

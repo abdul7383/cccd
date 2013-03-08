@@ -1,10 +1,9 @@
-package de.fhg.fokus.ngni.webservices.rest;
+package de.fhg.fokus.ngni.cccd.rest;
 
 import java.io.IOException;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Set;
 
 import org.apache.log4j.Logger;
 import org.codehaus.jackson.JsonGenerationException;
@@ -24,16 +23,16 @@ import com.mongodb.DB;
 import com.mongodb.DBCollection;
 import com.mongodb.DBObject;
 
-import de.fhg.fokus.ngni.model.newAppEvent;
+import de.fhg.fokus.ngni.cccd.model.AppEvent;
 
 /**
  * FundsController class will expose a series of RESTful endpoints
  */
 @SuppressWarnings("unchecked")
 @Controller
-public class DBCtrl extends BaseCtrl {
+public class AppCtrl extends BaseCtrl {
 
-	protected static final Logger logger_c = Logger.getLogger(DBCtrl.class);
+	protected static final Logger logger_c = Logger.getLogger(AppCtrl.class);
 
 	// create App, addUser, settingCollection
 	@RequestMapping(value = "/app/{appName}", method = RequestMethod.POST)
@@ -65,7 +64,7 @@ public class DBCtrl extends BaseCtrl {
 		ObjectMapper mapper = new ObjectMapper();
 		
 		try {
-			amqpTemplate.convertAndSend("cccdApp",mapper.writeValueAsString(new newAppEvent(appName,jsonBody.get("secret").toString(),"created")));
+			amqpTemplate.convertAndSend("cccdApp",mapper.writeValueAsString(new AppEvent(appName,jsonBody.get("secret").toString(),"created")));
 		} catch (JsonGenerationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -235,7 +234,7 @@ public class DBCtrl extends BaseCtrl {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			amqpTemplate.convertAndSend("cccdApp",mapper.writeValueAsString(new newAppEvent(appName,"deleted")));
+			amqpTemplate.convertAndSend("cccdApp",mapper.writeValueAsString(new AppEvent(appName,"deleted")));
 		} catch (JsonGenerationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

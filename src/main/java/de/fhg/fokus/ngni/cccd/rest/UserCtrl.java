@@ -1,4 +1,4 @@
-package de.fhg.fokus.ngni.webservices.rest;
+package de.fhg.fokus.ngni.cccd.rest;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import de.fhg.fokus.ngni.services.CustomUserDetailsService;
+import de.fhg.fokus.ngni.cccd.services.CustomUserDetailsService;
 
 /**
  * FundsController class will expose a series of RESTful endpoints
  */
 //@SuppressWarnings("unchecked")
 @Controller
-public class addUserCtrl extends BaseCtrl {
+public class UserCtrl extends BaseCtrl {
 
 	protected static final Logger logger_c = Logger
-			.getLogger(addUserCtrl.class);
+			.getLogger(UserCtrl.class);
 	@Autowired
 	protected CustomUserDetailsService customUserDetailsService;
 
@@ -68,7 +68,7 @@ public class addUserCtrl extends BaseCtrl {
 */
 	// list users
 	@RequestMapping(value = "/users", method = RequestMethod.GET)
-	public ModelAndView listApps() {
+	public ModelAndView listUsers() {
 		logger_c.debug("/users : doGet()");
 		return response(true, customUserDetailsService.listUserDetails(), null);
 	}

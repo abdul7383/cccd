@@ -1,4 +1,4 @@
-package de.fhg.fokus.ngni.model;
+package de.fhg.fokus.ngni.cccd.model;
 
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;

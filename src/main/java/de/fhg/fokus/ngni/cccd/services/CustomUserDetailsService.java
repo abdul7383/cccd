@@ -1,4 +1,4 @@
-package de.fhg.fokus.ngni.services;
+package de.fhg.fokus.ngni.cccd.services;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +17,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import de.fhg.fokus.ngni.model.User;
-import de.fhg.fokus.ngni.webservices.rest.BaseCtrl;
+import de.fhg.fokus.ngni.cccd.model.User;
+import de.fhg.fokus.ngni.cccd.rest.BaseCtrl;
 
 public class CustomUserDetailsService implements UserDetailsService {
 

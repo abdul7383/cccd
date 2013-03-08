@@ -32,15 +32,12 @@
         <level value="debug" />
     </logger>
 
-	<logger name="de.fhg.fokus.ngni">
+	<logger name="de.fhg.fokus.ngni.cccd">
         <level value="debug" />
     </logger>
-
-
     <!-- Root Logger -->
     <root>
         <priority value="info" />
         <appender-ref ref="console" />
     </root>
-
 </log4j:configuration>

@@ -376,7 +376,7 @@ As illustrated in figure \ref{fig:couchdb_repl}, one can synchronize the data be
 For conflict handling, CouchDB relies on the MVCC model. Each document is assigned a revision id and every time a document is updated, the old version is kept and the updated version is given a different revision id. Whenever a conflict is detected, the winning version is saved as the most recent version and the losing version is also saved in the document’s history. This is done consistently throughout all the nodes so that the exact same choices are made. The application can then chose to handle the conflict by itself (ignoring one version or merging the changes) [ALS10].
 
 
-\paragraph{MongoDB:}
+\paragraph{MongoDB:\label{sec:back_mongo}}
 MongoDB (from “humongous”) is a free and open-source document-oriented database written in C++ [10g11d]. Aside from the open-source community, the development is also supported by the company 10gen.
 It is completely schema-free and manages JSON-style documents, as in CouchDB. It focuses on high-performance and agile development, providing the developer with a set of features to easily model and query data, as well as to scale the system.
 

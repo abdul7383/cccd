@@ -1,4 +1,4 @@
-package de.fhg.fokus.ngni.model;
+package de.fhg.fokus.ngni.cccd.model;
 
 public class Role {
 	private String id;

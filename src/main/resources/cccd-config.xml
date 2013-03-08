@@ -30,8 +30,8 @@
 		 for classes configured as Spring managed beans and automatically sets up objects annotated with
 		 @Controller, @Service etc.
 	-->
-    <context:component-scan base-package="de.fhg.fokus.ngni.webservices.rest" />
-	<context:component-scan base-package="de.fhg.fokus.ngni.services" />
+    <context:component-scan base-package="de.fhg.fokus.ngni.cccd.rest" />
+	<context:component-scan base-package="de.fhg.fokus.ngni.cccd.services" />
 	
 	<sec:http create-session="stateless">
    		<sec:intercept-url pattern="/app/**" access="ROLE_USER" />
@@ -100,24 +100,24 @@
 	<bean id="jsonMessageConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"/>
 
 	<!--  Abdul -->
-	<bean id="mongoDb" class="com.mongodb.Mongo">
-	    <constructor-arg index="0">
-	        <list value-type="com.mongodb.ServerAddress">
-	            <bean class="com.mongodb.ServerAddress">
-	                <constructor-arg index="0" value="localhost"/>
-	                <constructor-arg index="1" value="27017"/>
-	            </bean>
-	            <bean class="com.mongodb.ServerAddress">
-	                <constructor-arg index="0" value="localhost"/>
-	                <constructor-arg index="1" value="27018"/>
-	            </bean>
-	            <bean class="com.mongodb.ServerAddress">
-	                <constructor-arg index="0" value="localhost"/>
-	                <constructor-arg index="1" value="27019"/>
-	            </bean>
-	        </list>
-	    </constructor-arg>
-	</bean>
+    <bean id="mongoDb" class="com.mongodb.Mongo">
+        <constructor-arg index="0">
+            <list value-type="com.mongodb.ServerAddress">
+                <bean class="com.mongodb.ServerAddress">
+                    <constructor-arg index="0" value="10.0.0.73"/>
+                    <constructor-arg index="1" value="27017"/>
+                </bean>
+                <!--bean class="com.mongodb.ServerAddress">
+                    <constructor-arg index="0" value="localhost"/>
+                    <constructor-arg index="1" value="27018"/>
+                </bean>
+                <bean class="com.mongodb.ServerAddress">
+                    <constructor-arg index="0" value="localhost"/>
+                    <constructor-arg index="1" value="27019"/>
+                </bean-->
+            </list>
+        </constructor-arg>
+    </bean>
 
 	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
  		<constructor-arg ref="mongoDb" />
@@ -136,7 +136,7 @@
 		<property name="arguments"> 
 			<list value-type="org.elasticsearch.common.transport.InetSocketTransportAddress">
 				<bean class="org.elasticsearch.common.transport.InetSocketTransportAddress">
-					<constructor-arg index="0" value="localhost"/>
+					<constructor-arg index="0" value="10.0.0.186"/>
 					<constructor-arg index="1" value="9300"/>
 				</bean>
 		 	</list>
@@ -144,7 +144,7 @@
 	</bean>
 	
 	<bean id="connectionFactory" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
-	    <constructor-arg value="hammody" />
+	    <constructor-arg value="10.0.0.140" />
 		<property name="username" value="guest" />
 	    <property name="password" value="guest"/>
 	</bean>

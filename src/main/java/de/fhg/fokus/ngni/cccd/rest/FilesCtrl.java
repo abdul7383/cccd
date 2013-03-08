@@ -1,16 +1,13 @@
-package de.fhg.fokus.ngni.webservices.rest;
+package de.fhg.fokus.ngni.cccd.rest;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.security.Principal;
-import java.util.LinkedList;
-import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
-import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.mongodb.DB;
-import com.mongodb.DBCursor;
 import com.mongodb.gridfs.GridFS;
 import com.mongodb.gridfs.GridFSDBFile;
 import com.mongodb.gridfs.GridFSInputFile;

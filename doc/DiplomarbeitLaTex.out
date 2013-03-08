@@ -40,8 +40,8 @@
 \BOOKMARK [1][-]{section.5.1}{Tools \046 Technologies}{chapter.5}% 40
 \BOOKMARK [2][-]{subsection.5.1.1}{Tools}{section.5.1}% 41
 \BOOKMARK [2][-]{subsection.5.1.2}{Technologies}{section.5.1}% 42
-\BOOKMARK [1][-]{section.5.2}{Framework Implementation}{chapter.5}% 43
-\BOOKMARK [2][-]{subsection.5.2.1}{Spring Framework}{section.5.2}% 44
+\BOOKMARK [1][-]{section.5.2}{Framework Components}{chapter.5}% 43
+\BOOKMARK [2][-]{subsection.5.2.1}{App Managment}{section.5.2}% 44
 \BOOKMARK [2][-]{subsection.5.2.2}{Repository}{section.5.2}% 45
 \BOOKMARK [2][-]{subsection.5.2.3}{Search Engine}{section.5.2}% 46
 \BOOKMARK [2][-]{subsection.5.2.4}{Content Adaptation}{section.5.2}% 47
@@ -56,4 +56,4 @@
 \BOOKMARK [2][-]{subsection.6.2.1}{Usability}{section.6.2}% 56
 \BOOKMARK [2][-]{subsection.6.2.2}{Performance}{section.6.2}% 57
 \BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 58
-\BOOKMARK [0][-]{chapter*.104}{Bibliography}{}% 59
+\BOOKMARK [0][-]{chapter*.112}{Bibliography}{}% 59

@@ -1,4 +1,4 @@
-package de.fhg.fokus.ngni.webservices.rest;
+package de.fhg.fokus.ngni.cccd.rest;
 
 import java.security.Principal;
 

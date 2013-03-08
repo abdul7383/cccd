@@ -1,10 +1,10 @@
-package de.fhg.fokus.ngni.model;
+package de.fhg.fokus.ngni.cccd.model;
 
 import java.sql.Timestamp;
 import org.codehaus.jackson.annotate.JsonWriteNullProperties;
 
 @JsonWriteNullProperties(false)
-public class newAppEvent {
+public class AppEvent {
 
 	private String appName;
 	
@@ -14,7 +14,7 @@ public class newAppEvent {
 	
 	private String status;
 	
-	public newAppEvent(String appName, String secret, String status) {
+	public AppEvent(String appName, String secret, String status) {
 		super();
 		this.appName = appName;
 		this.secret = secret;
@@ -22,14 +22,14 @@ public class newAppEvent {
 		this.timestamp = new Timestamp(System.currentTimeMillis());
 	}
 
-	public newAppEvent(String appName, String status) {
+	public AppEvent(String appName, String status) {
 		super();
 		this.appName = appName;
 		this.status = status;
 		this.timestamp = new Timestamp(System.currentTimeMillis());
 	}
 
-	public newAppEvent(String appName, String secret, String status, Timestamp timestamp) {
+	public AppEvent(String appName, String secret, String status, Timestamp timestamp) {
 		super();
 		this.appName = appName;
 		this.secret = secret;

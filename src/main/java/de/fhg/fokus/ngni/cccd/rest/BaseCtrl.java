@@ -1,4 +1,4 @@
-package de.fhg.fokus.ngni.webservices.rest;
+package de.fhg.fokus.ngni.cccd.rest;
 
 import org.apache.log4j.Logger;
 import org.elasticsearch.client.Client;
@@ -13,7 +13,7 @@ import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.Mongo;
 
-import de.fhg.fokus.ngni.services.CustomUserDetailsService;
+import de.fhg.fokus.ngni.cccd.services.CustomUserDetailsService;
 
 
 
@@ -51,7 +51,7 @@ public class BaseCtrl {
 	protected boolean canRead(String db, String user) {
 		if (mongoDb.getDB(db).getCollectionNames().contains("users")) {
 			DBCollection col = mongoDb.getDB(db).getCollection("users");
-			col.find();
+			//col.find();
 			DBCursor cursor = col.find();
 			while (cursor.hasNext()) {
 				DBObject doc = cursor.next();
@@ -65,7 +65,7 @@ public class BaseCtrl {
 	protected boolean canWrite(String db, String user) {
 		if (mongoDb.getDB(db).getCollectionNames().contains("users")) {
 			DBCollection col = mongoDb.getDB(db).getCollection("users");
-			col.find();
+			//col.find();
 			DBCursor cursor = col.find();
 			while (cursor.hasNext()) {
 				DBObject doc = cursor.next();
