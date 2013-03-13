@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  8 MAR 2013 19:49
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  13 MAR 2013 12:32
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -690,19 +690,10 @@ LaTeX Info: Redefining \pagemark on input line 176.
 LaTeX Warning: Label `lst:riak_get' multiply defined.
 
 
-LaTeX Warning: Label `sec:des_repo' multiply defined.
-
-
 LaTeX Warning: Label `sec:des_se_en' multiply defined.
 
 
 LaTeX Warning: Label `sec:des_ar_ov' multiply defined.
-
-
-LaTeX Warning: Label `sec:des_cdn' multiply defined.
-
-
-LaTeX Warning: Label `sec:des_api' multiply defined.
 
 )
 \openout1 = `DiplomarbeitLaTex.aux'.
@@ -825,7 +816,7 @@ Package caption Info: End \AtBeginDocument code.
 \openout2 = `./misc/titlepage.aux'.
 
  (./misc/titlepage.tex
-<./img/tu_logo.jpg, id=241, 21.07875pt x 15.77895pt>
+<./img/tu_logo.jpg, id=229, 21.07875pt x 15.77895pt>
 File: ./img/tu_logo.jpg Graphic file (type jpg)
  <use ./img/tu_logo.jpg>
 Package pdftex.def Info: ./img/tu_logo.jpg used on input line 18.
@@ -871,7 +862,7 @@ Class scrbook Warning: \float@addtolists detected!
 
 [1
 
-] [2] <DA-OverallArchitecture.jpg, id=376, 697.8572pt x 371.13657pt>
+] [2] <DA-OverallArchitecture.jpg, id=363, 697.8572pt x 371.13657pt>
 File: DA-OverallArchitecture.jpg Graphic file (type jpg)
 
 <use DA-OverallArchitecture.jpg>
@@ -886,7 +877,7 @@ File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 46.
  [4]
-<Inp_Out.jpg, id=387, 942.52126pt x 259.7203pt>
+<Inp_Out.jpg, id=374, 942.52126pt x 259.7203pt>
 File: Inp_Out.jpg Graphic file (type jpg)
  <use Inp_Out.jpg>
 Package pdftex.def Info: Inp_Out.jpg used on input line 68.
@@ -906,104 +897,113 @@ Underfull \hbox (badness 10000) in paragraph at lines 121--122
 
  []
 
-[11] <soap_envelope.jpg, id=457, 292.09125pt x 327.2225pt>
+[11] <soap_envelope.jpg, id=444, 292.09125pt x 327.2225pt>
 File: soap_envelope.jpg Graphic file (type jpg)
 
 <use soap_envelope.jpg>
 Package pdftex.def Info: soap_envelope.jpg used on input line 142.
 (pdftex.def)             Requested size: 146.04526pt x 163.61084pt.
+\openout3 = `DiplomarbeitLaTex.pyg'.
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2004/09/05 1.3 listings language file
+runsystem(pygmentize -l xml -f latex -F tokenmerge             -P "verboptions=
+ ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg 
+DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 3.
 )
-(/usr/local/texlive/2012/texmf-dist/tex/latex/listings/lstmisc.sty
-File: lstmisc.sty 2007/02/22 1.4 (Carsten Heinz)
-)
-LaTeX Font Info:    Try loading font information for OML+cmr on input line 153.
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
-(/usr/local/texlive/2012/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 153.
+Package hyperref Info: bookmark level for unknown listing defaults to 0 on inpu
+t line 165.
+ [12 <./soap_envelope.jpg>]
+\openout3 = `DiplomarbeitLaTex.pyg'.
 
-Overfull \hbox (61.1455pt too wide) in paragraph at lines 154--155
-[][][][][][][][][][][][][][][][][][][][][][] 
- []
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
 
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
-Overfull \hbox (4.74559pt too wide) in paragraph at lines 158--159
-[][][][][][][][][][][][][][][][][][][][][] 
- []
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
-[12 <./soap_envelope.jpg>] [13]
-Overfull \hbox (52.02061pt too wide) in paragraph at lines 213--214
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
+= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
+ DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+ [13]
+Overfull \hbox (52.02061pt too wide) in paragraph at lines 225--226
 \OT1/cmr/m/n/12 ble on a Web server via the fol-low-ing URI: http://www.currenc
 yconverter.comconvert?in=us-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--224
+Underfull \hbox (badness 10000) in paragraph at lines 227--236
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--224
+Underfull \hbox (badness 10000) in paragraph at lines 227--236
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--224
+Underfull \hbox (badness 10000) in paragraph at lines 227--236
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 215--224
+Underfull \hbox (badness 10000) in paragraph at lines 227--236
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--229
+Underfull \hbox (badness 10000) in paragraph at lines 238--241
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 226--229
+Underfull \hbox (badness 10000) in paragraph at lines 238--241
 
  []
 
 [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 275--294
+Overfull \hbox (43.3936pt too wide) in paragraph at lines 295--305
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--310
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--294
+Underfull \hbox (badness 10000) in paragraph at lines 287--310
 
  []
 
 
-Overfull \hbox (43.3936pt too wide) in paragraph at lines 275--294
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 275--294
+Underfull \hbox (badness 10000) in paragraph at lines 287--310
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 275--294
+Underfull \hbox (badness 10000) in paragraph at lines 287--310
 
  []
 
-[16]
-
-Package natbib Warning: Citation `Riak:Buckets' on page 17 undefined on input l
-ine 303.
-
-[17]
+[16] [17]
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
 runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
@@ -1016,7 +1016,7 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 315--319
+Underfull \hbox (badness 10000) in paragraph at lines 331--335
 
  []
 
@@ -1032,7 +1032,7 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 
-Overfull \hbox (10.70537pt too wide) in paragraph at lines 337--338
+Overfull \hbox (10.70537pt too wide) in paragraph at lines 353--354
 [] []\OT1/cmss/bx/n/12 CouchDB:[][] \OT1/cmr/m/n/12 Apache CouchDB is a free an
 d open-source document-oriented database
  []
@@ -1045,7 +1045,7 @@ runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
 .
 
  (./DiplomarbeitLaTex.out.pyg
-Underfull \hbox (badness 10000) in paragraph at lines 343--1
+Underfull \hbox (badness 10000) in paragraph at lines 359--1
 
  []
 
@@ -1056,57 +1056,63 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
-Package hyperref Info: bookmark level for unknown listing defaults to 0 on inpu
-t line 359.
- <couchdb_repl.png, id=540, 200.4288pt x 127.1952pt>
+ <couchdb_repl.png, id=511, 200.4288pt x 127.1952pt>
 File: couchdb_repl.png Graphic file (type png)
  <use couchdb_repl.png>
-Package pdftex.def Info: couchdb_repl.png used on input line 369.
+Package pdftex.def Info: couchdb_repl.png used on input line 385.
 (pdftex.def)             Requested size: 200.4283pt x 127.19489pt.
 
-[19 <./couchdb_repl.png>]
-<mongodb_repl.png, id=548, 345.54094pt x 195.73125pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19]
+[20 <./couchdb_repl.png>]
+<mongodb_repl.png, id=525, 345.54094pt x 195.73125pt>
 File: mongodb_repl.png Graphic file (type png)
  <use mongodb_repl.png>
-Package pdftex.def Info: mongodb_repl.png used on input line 392.
+Package pdftex.def Info: mongodb_repl.png used on input line 408.
 (pdftex.def)             Requested size: 345.54008pt x 195.73076pt.
 
-[20] [21 <./mongodb_repl.png>] [22]
-<neo4j.png, id=565, 636.61368pt x 279.51485pt>
+[21 <./mongodb_repl.png>] [22] <neo4j.png, id=536, 636.61368pt x 279.51485pt>
 File: neo4j.png Graphic file (type png)
- <use neo4j.png>
-Package pdftex.def Info: neo4j.png used on input line 450.
+
+<use neo4j.png>
+Package pdftex.def Info: neo4j.png used on input line 466.
 (pdftex.def)             Requested size: 254.64096pt x 111.80394pt.
- [23 <./neo4j.png>] <rabbit_mq.png, id=573, 702.625pt x 295.1025pt>
+
+Underfull \vbox (badness 7397) has occurred while \output is active []
+
+ [23]
+<rabbit_mq.png, id=544, 702.625pt x 295.1025pt>
 File: rabbit_mq.png Graphic file (type png)
  <use rabbit_mq.png>
-Package pdftex.def Info: rabbit_mq.png used on input line 469.
+Package pdftex.def Info: rabbit_mq.png used on input line 485.
 (pdftex.def)             Requested size: 421.57825pt x 177.06285pt.
 
-Overfull \hbox (3.32457pt too wide) in paragraph at lines 469--469
+Overfull \hbox (3.32457pt too wide) in paragraph at lines 485--485
  [][] 
  []
 
-<rabbit_mq_direct.png, id=574, 611.28375pt x 407.5225pt>
+<rabbit_mq_direct.png, id=545, 611.28375pt x 407.5225pt>
 File: rabbit_mq_direct.png Graphic file (type png)
 
 <use rabbit_mq_direct.png>
-Package pdftex.def Info: rabbit_mq_direct.png used on input line 480.
+Package pdftex.def Info: rabbit_mq_direct.png used on input line 496.
 (pdftex.def)             Requested size: 366.77307pt x 244.51538pt.
 
-Overfull \hbox (24.94312pt too wide) in paragraph at lines 476--484
+Overfull \hbox (24.94312pt too wide) in paragraph at lines 492--500
 []\OT1/cmr/m/n/12 Direct ex-change witer vom http://www.rabbitmq.com/tutorials/
 amqp-concepts.html
  []
 
-<rabbit_mq_fanout.png, id=575, 420.57124pt x 326.21875pt>
+[24 <./neo4j.png> <./rabbit_mq.png>]
+<rabbit_mq_fanout.png, id=552, 420.57124pt x 326.21875pt>
 File: rabbit_mq_fanout.png Graphic file (type png)
 
 <use rabbit_mq_fanout.png>
-Package pdftex.def Info: rabbit_mq_fanout.png used on input line 490.
+Package pdftex.def Info: rabbit_mq_fanout.png used on input line 506.
 (pdftex.def)             Requested size: 252.3447pt x 195.73274pt.
- [24 <./rabbit_mq.png>]
-Overfull \hbox (47.62898pt too wide) in paragraph at lines 505--506
+
+Overfull \hbox (47.62898pt too wide) in paragraph at lines 521--522
 \OT1/cmr/m/n/12 cite https://svn.apache.org/repos/asf/lucene/dev/branches/lucen
 e3622/solr/site/index.pdf 
  []
@@ -1118,27 +1124,25 @@ runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
 ons= ,frame=single" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)...execu
 ted.
 
- (./DiplomarbeitLaTex.out.pyg)
+ (./DiplomarbeitLaTex.out.pyg [26 <./rabbit_mq_fanout.png>])
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
- [26 <./rabbit_mq_fanout.png>]
-Overfull \hbox (63.62187pt too wide) in paragraph at lines 558--570
+
+Overfull \hbox (63.62187pt too wide) in paragraph at lines 574--586
 \OT1/cmr/m/n/12 cite: http://static.springsource.org/spring/docs/3.2.x/spring-f
 ramework-reference/pdf/spring-
  []
 
-<spring_architecture.png, id=595, 420.57124pt x 388.45125pt>
+[27] <spring_architecture.png, id=570, 420.57124pt x 388.45125pt>
 File: spring_architecture.png Graphic file (type png)
 
 <use spring_architecture.png>
-Package pdftex.def Info: spring_architecture.png used on input line 580.
+Package pdftex.def Info: spring_architecture.png used on input line 596.
 (pdftex.def)             Requested size: 252.3447pt x 233.07254pt.
- [27]
-Underfull \vbox (badness 1365) has occurred while \output is active []
-
- [28 <./spring_architecture.png>]) (./chapters/chapter3.tex [29] [30
+ [28 <./spring_architecture.png>])
+(./chapters/chapter3.tex [29] [30
 
 ]
 Chapter 3.
@@ -1150,7 +1154,7 @@ Overfull \hbox (0.10725pt too wide) in paragraph at lines 6--8
 
 [31] [32] [33]) (./chapters/chapter4.tex [34]
 Chapter 4.
-<./img/arch_overview.png, id=646, 472.76625pt x 333.245pt>
+<./img/arch_overview.png, id=618, 472.76625pt x 333.245pt>
 File: ./img/arch_overview.png Graphic file (type png)
 
 <use ./img/arch_overview.png>
@@ -1522,7 +1526,7 @@ n against single-instance
 
 LaTeX Warning: Reference `ec:des_cdn' on page 45 undefined on input line 429.
 
-[45] <img/content_adaptation_overview.png, id=736, 772.8875pt x 550.055pt>
+[45] <img/content_adaptation_overview.png, id=708, 772.8875pt x 550.055pt>
 File: img/content_adaptation_overview.png Graphic file (type png)
 
 <use img/content_adaptation_overview.png>
@@ -1530,7 +1534,7 @@ Package pdftex.def Info: img/content_adaptation_overview.png used on input line
  441.
 (pdftex.def)             Requested size: 231.86803pt x 165.01776pt.
  [46 <./img/content_adaptation_overview.png>] <img/content_distribution.png, id
-=743, 381.425pt x 319.1925pt>
+=715, 381.425pt x 319.1925pt>
 File: img/content_distribution.png Graphic file (type png)
 
 <use img/content_distribution.png>
@@ -1553,14 +1557,33 @@ nced - is a free, open-source, high-performance
  []
 
 [50]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [51]
 Overfull \hbox (42.74463pt too wide) in paragraph at lines 50--51
 \OT1/cmr/m/it/12 de.fhg.fokus.ngni.cccd.model\OT1/cmr/m/n/12 , \OT1/cmr/m/it/12
  de.fhg.fokus.ngni.cccd.rest \OT1/cmr/m/n/12 and \OT1/cmr/m/it/12 de.fhg.fokus.
 ngni.cccd.services\OT1/cmr/m/n/12 ,
  []
+
+<./img/eclipse_project.png, id=746, 296.10625pt x 409.53pt>
+File: ./img/eclipse_project.png Graphic file (type png)
+
+<use ./img/eclipse_project.png>
+Package pdftex.def Info: ./img/eclipse_project.png used on input line 54.
+(pdftex.def)             Requested size: 177.66512pt x 245.7199pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [51]
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l xml -f latex -F tokenmerge             -P "verboptions=
+ ,frame=single,tabsize=2" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)..
+.executed.
+
+
+(./DiplomarbeitLaTex.out.pyg [52 <./img/eclipse_project.png>])
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
@@ -1568,58 +1591,236 @@ runsystem(pygmentize -l xml -f latex -F tokenmerge             -P "verboptions=
  ,frame=single,tabsize=2" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)..
 .executed.
 
+
 (./DiplomarbeitLaTex.out.pyg)
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
- [52]) (./chapters/chapter6.tex [53] [54
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l xml -f latex -F tokenmerge             -P "verboptions=
+ ,frame=single,tabsize=2" -o DiplomarbeitLaTex.out.pyg DiplomarbeitLaTex.pyg)..
+.executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+ [53]
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l xml -f latex -F tokenmerge             -P "verboptions=
+ ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg 
+DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l xml -f latex -F tokenmerge             -P "verboptions=
+ ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg 
+DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l java -f latex -F tokenmerge             -P "verboptions
+= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
+ DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg [54])
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l xml -f latex -F tokenmerge             -P "verboptions=
+ ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg 
+DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l xml -f latex -F tokenmerge             -P "verboptions=
+ ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg 
+DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg [55])
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l java -f latex -F tokenmerge             -P "verboptions
+= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
+ DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l xml -f latex -F tokenmerge             -P "verboptions=
+ ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg 
+DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg [56])
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+
+
+LaTeX Warning: Reference `sec:eval_te_en_elasic' on page 57 undefined on input 
+line 250.
+
+
+LaTeX Warning: Reference `st:rabbitmq_driver' on page 57 undefined on input lin
+e 253.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l xml -f latex -F tokenmerge             -P "verboptions=
+ ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg 
+DiplomarbeitLaTex.pyg)...executed.
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+
+
+LaTeX Warning: Reference `sec:eval_te_en_rabittmq' on page 57 undefined on inpu
+t line 269.
+
+
+LaTeX Warning: Reference `' on page 57 undefined on input line 276.
+
+
+LaTeX Warning: Reference `' on page 57 undefined on input line 278.
+
+[57]
+
+LaTeX Warning: Reference `sec:eval_te_ca' on page 58 undefined on input line 28
+2.
+
+
+LaTeX Warning: Reference `' on page 58 undefined on input line 295.
+
+
+LaTeX Warning: Reference `' on page 58 undefined on input line 295.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [58]
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l python -f latex -F tokenmerge             -P "verboptio
+ns= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.p
+yg DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l php -f latex -F tokenmerge             -P "verboptions=
+ ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg 
+DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+)
+(./chapters/chapter6.tex [59] [60
 
 ]
 Chapter 6.
-) (./chapters/chapter7.tex [55] [56
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+) (./chapters/chapter7.tex [61] [62
 
 ]
 Chapter 7.
-) [57] [58
+) [63] [64
 
 
 ] (./DiplomarbeitLaTex.bbl
-Underfull \hbox (badness 2717) in paragraph at lines 30--34
+Underfull \hbox (badness 2717) in paragraph at lines 44--48
 []\OT1/cmr/m/n/12 Cisco.  Cisco vi-sual net-work-ing in-dex: Fore-cast and meth
 od-ol-ogy,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--70
+Underfull \hbox (badness 10000) in paragraph at lines 77--82
 []\OT1/cmr/m/n/12 EC FI-Arch Group.  Fun-da-men-tal lim-i-ta-tions of cur-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--70
+Underfull \hbox (badness 10000) in paragraph at lines 77--82
 \OT1/cmr/m/n/12 rent in-ter-net and the path to fu-ture in-ter-net.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 65--70
+Underfull \hbox (badness 10000) in paragraph at lines 77--82
 \OT1/cmr/m/n/12 http://ec.europa.eu/information[]society/activities/foi/docs/ c
 ur-
  []
 
-[59
+[65
 
-] [60])
+]
+Underfull \hbox (badness 1838) in paragraph at lines 98--103
+[]\OT1/cmr/m/n/12 oracle Cor-po-ra-tion.  Web ser-vices and the sun one de-vel-
+oper plat-
+ []
 
-Package natbib Warning: There were undefined citations.
-
+[66])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 81.
-[61]
+ [67]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 81.
  (./DiplomarbeitLaTex.aux (./misc/titlepage.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 81.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 81.
 Package rerunfilecheck Info: File `DiplomarbeitLaTex.out' has not changed.
-(rerunfilecheck)             Checksum: E312DAEC8572F378E998404F3A53E974;3772.
+(rerunfilecheck)             Checksum: 88516C1DF92398F6EAADF1602343947B;3571.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -1633,26 +1834,27 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 81.
  ) 
 Here is how much of TeX's memory you used:
- 12971 strings out of 493488
- 195807 string characters out of 3141326
- 344877 words of memory out of 3000000
- 15692 multiletter control sequences out of 15000+200000
- 9938 words of font info for 35 fonts, out of 3000000 for 9000
+ 12632 strings out of 493488
+ 193214 string characters out of 3141326
+ 334909 words of memory out of 3000000
+ 15335 multiletter control sequences out of 15000+200000
+ 10274 words of font info for 37 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
- 50i,14n,54p,1465b,1304s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 50i,17n,54p,1465b,686s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></
-usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr
-/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr
-/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb
+></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></u
+sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
+sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
+r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on DiplomarbeitLaTex.pdf (67 pages, 1517067 bytes).
+Output written on DiplomarbeitLaTex.pdf (73 pages, 1593187 bytes).
 PDF statistics:
- 942 PDF objects out of 1000 (max. 8388607)
- 838 compressed objects within 9 object streams
- 286 named destinations out of 1000 (max. 500000)
- 543 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 973 PDF objects out of 1000 (max. 8388607)
+ 861 compressed objects within 9 object streams
+ 278 named destinations out of 1000 (max. 500000)
+ 524 words of extra memory for PDF output out of 10000 (max. 10000000)
 

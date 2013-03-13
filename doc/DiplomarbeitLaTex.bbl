@@ -1,4 +1,4 @@
-\begin{thebibliography}{22}
+\begin{thebibliography}{25}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,6 +9,13 @@
 Web services architecture.
 \newblock URL \url{http://www.w3.org/TR/ws-arch/}.
 
+\bibitem[10gen(2013)]{MongoDb:installation}
+Inc. 10gen.
+\newblock Install mongodb on ubuntu, 2013.
+\newblock URL
+  \url{http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/}.
+\newblock [Online; accessed 12.03.2013].
+
 \bibitem[Baldauf et~al.(2007)Baldauf, Dustdar, and
   Rosenberg]{BaldaufDustdarRosenberg07ijahuc}
 Matthias Baldauf, Schahram Dustdar, and Florian Rosenberg.
@@ -17,6 +24,13 @@ Matthias Baldauf, Schahram Dustdar, and Florian Rosenberg.
   2\penalty0 (4):\penalty0 263--277, jun 2007.
 \newblock ISSN 1743-8225.
 \newblock \doi{10.1504/IJAHUC.2007.014070}.
+
+\bibitem[Basho~Technologies(2013)]{Riak:Buckets}
+Inc. Basho~Technologies.
+\newblock Riak buckets, 2013.
+\newblock URL
+  \url{http://docs.basho.com/riak/latest/references/appendices/concepts/Buckets/}.
+\newblock [Online; accessed 07.02.2013].
 
 \bibitem[Brown et~al.(1997)Brown, Bovey, and Chen]{ieee626984}
 P.J. Brown, J.D. Bovey, and Xian Chen.
@@ -32,6 +46,12 @@ Cisco.
 \newblock http://www.cisco.com/en/US/solutions/collateral/ns341/ns525
   /ns537/ns705/ns827/white\_paper\_c11-481360.pdf.
 
+\bibitem[Community(2013)]{nginx:securelink}
+Nginx Community.
+\newblock Httpsecurelinkmodule, 2013.
+\newblock URL \url{http://wiki.nginx.org/HttpSecureLinkModule}.
+\newblock [Online; accessed 12.03.2013].
+
 \bibitem[Dey(1998)]{Dey98}
 Anind~K. Dey.
 \newblock Context-aware computing: The cyberdesk project.
@@ -46,14 +66,6 @@ Anind~K. Dey and Gregory~D. Abowd.
 \newblock In \emph{Workshop on The What, Who, Where, When, and How of
   Context-Awareness (CHI 2000)}, The Hague, The Netherlands, April 2000.
 \newblock URL \url{http://www.cc.gatech.edu/fce/contexttoolkit/}.
-
-\bibitem[Ding and Li(2011)]{ieee6040622}
-Jie Ding and Ning Li.
-\newblock A distributed adaptation management framework in content delivery
-  networks.
-\newblock In \emph{Wireless Communications, Networking and Mobile Computing
-  (WiCOM), 2011 7th International Conference on}, pages 1 --4, sept. 2011.
-\newblock \doi{10.1109/wicom.2011.6040622}.
 
 \bibitem[Fielding(2000)]{Fielding2000}
 Roy Fielding.
@@ -81,6 +93,13 @@ John Mccarthy.
 \newblock In \emph{IJCAI}, pages 555--562, San Mateo, California, 1993. Morgan
   Kaumann.
 \newblock URL \url{http://dblp.uni-trier.de/rec/bibtex/conf/ijcai/McCarthy93}.
+
+\bibitem[oracle Corporation(2013)]{oracle_soap}
+oracle Corporation.
+\newblock Web services and the sun one developer platform, 2013.
+\newblock URL
+  \url{http://dsc.sun.com/appserver/reference/techart/webservice.html}.
+\newblock [Online; accessed 12.03.2013].
 
 \bibitem[Riva(2004)]{Riva04}
 Oriana Riva.

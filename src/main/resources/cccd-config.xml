@@ -39,7 +39,7 @@
    		<sec:http-basic />
 	</sec:http>
 	
-	<bean id="customUserDetailsService" class="de.fhg.fokus.ngni.services.CustomUserDetailsService" />
+	<bean id="customUserDetailsService" class="de.fhg.fokus.ngni.cccd.services.CustomUserDetailsService" />
 	
 	<bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource">
 		<property name="userPropertyToUse" value="username"/>
@@ -139,6 +139,14 @@
 					<constructor-arg index="0" value="10.0.0.186"/>
 					<constructor-arg index="1" value="9300"/>
 				</bean>
+				<!-- bean class="org.elasticsearch.common.transport.InetSocketTransportAddress">
+					<constructor-arg index="0" value="10.0.0.187"/>
+					<constructor-arg index="1" value="9300"/>
+				</bean>
+				<bean class="org.elasticsearch.common.transport.InetSocketTransportAddress">
+					<constructor-arg index="0" value="10.0.0.188"/>
+					<constructor-arg index="1" value="9300"/>
+				</bean-->
 		 	</list>
 		</property>
 	</bean>
@@ -149,14 +157,14 @@
 	    <property name="password" value="guest"/>
 	</bean>
 	
-	<rabbit:template id="amqpTemplate" connection-factory="connectionFactory" queue="cccdQueue4" />
+	<rabbit:template id="amqpTemplate" connection-factory="connectionFactory"/>
 
 	<rabbit:admin connection-factory="connectionFactory"/>
 	
 	<rabbit:queue name="cccdApp" durable="true"/>
 	<rabbit:queue name="cccdNewDocument" durable="true"/>	
 	
-	<bean id="baseCtrl" class="de.fhg.fokus.ngni.webservices.rest.BaseCtrl">
+	<bean id="baseCtrl" class="de.fhg.fokus.ngni.cccd.rest.BaseCtrl">
 	   	<property name="mongoDb" ref="mongoDb"/>
 	   	<property name="esClient" ref="esClient"/>
 	   	<property name="debugResponse" ref="debugResponse"/>

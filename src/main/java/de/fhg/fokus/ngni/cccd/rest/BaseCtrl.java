@@ -12,6 +12,7 @@ import com.mongodb.DBCollection;
 import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 import com.mongodb.Mongo;
+import com.mongodb.ReadPreference;
 
 import de.fhg.fokus.ngni.cccd.services.CustomUserDetailsService;
 
@@ -21,12 +22,17 @@ public class BaseCtrl {
 
 	protected static final Logger logger_c = Logger.getLogger(BaseCtrl.class);
 	
-
+	/* MongoDB Java Driver */
 	@Autowired
 	protected Mongo mongoDb;
 	
+	/* Elasticsearch Java Driver */
 	@Autowired
 	Client esClient;
+	
+	/* RabbitMQ Java Driver */
+	@Autowired
+	protected RabbitTemplate amqpTemplate;
 	
 	@Autowired
 	protected CustomUserDetailsService customUserDetailsService;
@@ -36,9 +42,6 @@ public class BaseCtrl {
 
 	@Autowired
 	protected Boolean debugResponse;
-	
-	@Autowired
-	protected RabbitTemplate amqpTemplate;
 
 	protected static final boolean SUCCESS = true;
 	protected static final boolean ERROR = false;
@@ -145,6 +148,7 @@ public class BaseCtrl {
 	}
 
 	public void setMongoDb(Mongo mongoDb) {
+		mongoDb.setReadPreference(ReadPreference.secondaryPreferred());
 		this.mongoDb = mongoDb;
 	}
 

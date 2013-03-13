@@ -1,4 +1,4 @@
-\chapter{Background and Related Work\label{cha:chapter2}}
+\chapter{Background\label{cha:chapter2}}
 dkjekdede dejfekjfhkjehf jefkjefkjefkje jekfnkejfbkjebfkje kejfbnekjfbjkebfekjfnekjfbnkjebf kjenfk jbkejfkjenfkj nejk kjn kj kjbjkbkjbkjb kj bkj jk bkjb kjb kj bkj bkj bkj bkjb kj  kjbkjbkjbkjbkj
 kjhkjhkjhjk kjhkjhjkh kjhkjhkjh kjhkjhk kjhjkhkj.
 
@@ -130,10 +130,10 @@ We can identify two major classes of Web services, REST-compliant Web services, 
 
 By using Web Services, it is now very easy to make existing data and functions from existing applications available to consumers. Web services are considered as a "machine to machine" communication, which  exchange messages via standard protocols.
 
-The most known web services technologies TODO akronom SOAP and TODO REST are  discussed in the following sections.
+The most known web services technologies SOAP and REST are discussed in the following sections.
 
 \subsubsection{SOAP\label{sec:back_tech_ws_soap}}
-SOAP stands for "Simple Object Access Protocol" and it relies on TODO akro. XML for its message format. For message negotiation and transmission, it is dependent on other Application Layer protocols, particularly Hypertext Transfer Protocol (HTTP) or Simple Mail Transfer Protocol (SMTP), however HTTP has gained wider acceptance as it works well with today's Internet infrastructure and also with network firewalls.
+SOAP stands for "Simple Object Access Protocol" and it relies on  XML for its message format. For message negotiation and transmission, it is dependent on other Application Layer protocols, particularly Hypertext Transfer Protocol (HTTP) or Simple Mail Transfer Protocol (SMTP), however HTTP has gained wider acceptance as it works well with today's Internet infrastructure and also with network firewalls.
 
 A SOAP message is a type of envelope or container, which may contain an optional header element and a mandatory body element, see figure \ref{fig:soap_env}. Meta-data for this message are located in the header and the user data are stored in the body.
 
@@ -142,14 +142,15 @@ A SOAP message is a type of envelope or container, which may contain an optional
   \includegraphics[scale=0.5]{soap_envelope.jpg}\\
   \caption{SOAP Envelop}
   \label{fig:soap_env}
+  \protect\cite{oracle_soap}
 \end{figure}
 
 \paragraph{SOAP Message Example:}
 
-The following example gives an overview of a SOAP message:
+Listing \ref{lst:soap_message} is an example, which gives an overview of a SOAP message:
 
-\lstset{language=XML}
-\begin{lstlisting}
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
 <?xml version="1.0"?>
 <soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
   <soap:Header>
@@ -160,7 +161,10 @@ The following example gives an overview of a SOAP message:
     </m:GetStockPrice>
   </soap:Body>
 </soap:Envelope>
-\end{lstlisting}
+\end{minted}
+\caption{SOAP message example}
+\label{lst:soap_message}
+\end{code}
 
 \subsubsection{REST\label{sec:back_tech_ws_rest}}
 In addition to SOAP, there is another alternative for the implementation of Web services. \citeauthor{Fielding2000} in his dissertation describes an architectural style that he calls REpresentational State Transfer architecture or short REST.
@@ -177,30 +181,38 @@ REST is not a product or standard. REST describes how web standards in a Web-fri
 Each object of the application, such as the product or the customer is a resource that is externally accessible via a URL. With the following request in the example application, the shopping cart with the number 7621 is retrieved.
 
 %\lstset{language=JSON}
-\begin{lstlisting}
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 GET /cart/7621
-\end{lstlisting}
+\end{minted}
+%\caption{Sample configuration file for locations within NginX}
+%\label{lst:locations_nginx}
+\end{code}
 
-It is not specified in REST how the result of a request is represented. Client and server must have a shared understanding how the data is represented, i.e. in XML or JSON. The following example is a response in JSON format.
 
-%\lstset{language=JSON}
-\begin{lstlisting}
+It is not specified in REST how the result of a request is represented. Client and server must have a shared understanding how the data is represented, i.e. in XML or JSON. Listing \ref{lst:json_response} is a response example in JSON format.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "customer": 7621,
 "articles":[
 	{"position":1,
-	"articleNumber"=89,
+	"articleNumber":89,
 	"description":"iPhone5",
 	"price":200},
 	{"position":2,
-	"articleNumber"=76,
+	"articleNumber":76,
 	"description":"Samsung Galaxy S III",
 	"price":150}
-]
+	]
 }
-\end{lstlisting}
+\end{minted}
+\caption{JSON response example}
+\label{lst:json_response}
+\end{code}
 
-\subsubsection{SOAP vs. REST TODO\label{sec:back_soap_vs_rest}}
+\subsubsection{SOAP vs. REST\label{sec:back_soap_vs_rest}}
 
 The main advantages of REST web services is that they are lightweight, without a lot of extra XML markup. Also REST has easy to read results and is easy to build requiring no special tool-kits.
 
@@ -276,9 +288,10 @@ To this end, many companies have developed their own storage systems, according 
 --------------------
 \\
 \\
-A selection of the best known NoSQL systems are shown in Table , which are categorized into the following groups: Key Value Stores, Document Stores, Column Family Stores and  Graph Databases
+A selection of the best known NoSQL systems are shown in Table \ref{tbl:nosql_sys}, which are categorized into the following groups: Key Value Stores, Document Stores, Column Family Stores and  Graph Databases
 \\
 \\
+\begin{table}[htb]
 \begin{tabular}{|c|c|c|c|}
 \hline 
 \textbf{Key Value Stores} & \textbf{Document Stores} & \textbf{Column Stores} & \textbf{Graph Databases} \\ 
@@ -289,6 +302,9 @@ $\begin{array}{l} \textbf{HBase} \\ \textbf{Hypertable} \\ \textbf{Cassandra}  \
 $\begin{array}{l} \textbf{Neo4J} \\ \textbf{AllegroGraph}   \end{array}$ \\ 
 \hline 
 \end{tabular}
+\caption{best known NoSQL systems}
+\label{tbl:nosql_sys}
+\end{table}
 \\
 \\
 
@@ -629,4 +645,4 @@ you can use to test your code in isolation.
 
 
 
-\section{Related Work\label{sec:back_rel_work}}
+%\section{Related Work\label{sec:back_rel_work}}

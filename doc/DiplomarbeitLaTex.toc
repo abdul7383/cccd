@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {1.3}Scope}{4}{section.1.3}
 \contentsline {section}{\numberline {1.4}Methodologie}{5}{section.1.4}
 \contentsline {section}{\numberline {1.5}Outline}{5}{section.1.5}
-\contentsline {chapter}{\numberline {2}Background and Related Work}{7}{chapter.2}
+\contentsline {chapter}{\numberline {2}Background}{7}{chapter.2}
 \contentsline {section}{\numberline {2.1}Context-awareness}{7}{section.2.1}
 \contentsline {subsection}{\numberline {2.1.1}What is Context?}{7}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Context-aware Computing}{8}{subsection.2.1.2}
@@ -17,53 +17,52 @@
 \contentsline {subsection}{\numberline {2.3.1}Web Services}{11}{subsection.2.3.1}
 \contentsline {subsubsection}{SOAP}{12}{section*.5}
 \contentsline {paragraph}{SOAP Message Example:}{12}{section*.7}
-\contentsline {subsubsection}{REST}{13}{section*.8}
-\contentsline {paragraph}{REST Example:}{13}{section*.9}
-\contentsline {subsubsection}{SOAP vs. REST TODO}{14}{section*.10}
-\contentsline {paragraph}{API Flexibility \& Simplicity}{14}{section*.11}
-\contentsline {paragraph}{Bandwidth Usage}{14}{section*.12}
-\contentsline {paragraph}{Security}{15}{section*.13}
-\contentsline {paragraph}{Type Handling}{15}{section*.14}
-\contentsline {paragraph}{Client-side Complexity}{15}{section*.15}
-\contentsline {paragraph}{Testing and Troubleshooting}{16}{section*.16}
-\contentsline {paragraph}{Server-side Complexity}{16}{section*.17}
-\contentsline {paragraph}{Caching}{16}{section*.18}
+\contentsline {subsubsection}{REST}{13}{section*.9}
+\contentsline {paragraph}{REST Example:}{13}{section*.10}
+\contentsline {subsubsection}{SOAP vs. REST}{14}{section*.13}
+\contentsline {paragraph}{API Flexibility \& Simplicity}{14}{section*.14}
+\contentsline {paragraph}{Bandwidth Usage}{14}{section*.15}
+\contentsline {paragraph}{Security}{15}{section*.16}
+\contentsline {paragraph}{Type Handling}{15}{section*.17}
+\contentsline {paragraph}{Client-side Complexity}{15}{section*.18}
+\contentsline {paragraph}{Testing and Troubleshooting}{16}{section*.19}
+\contentsline {paragraph}{Server-side Complexity}{16}{section*.20}
+\contentsline {paragraph}{Caching}{16}{section*.21}
 \contentsline {subsection}{\numberline {2.3.2}NoSQL Databases TODO NoSQL Evaluation}{16}{subsection.2.3.2}
-\contentsline {subsubsection}{Key Value Stores}{17}{section*.19}
-\contentsline {paragraph}{Riak:}{17}{section*.20}
-\contentsline {subsubsection}{Document Stores}{18}{section*.23}
-\contentsline {paragraph}{CouchDB:}{18}{section*.24}
-\contentsline {paragraph}{MongoDB:}{20}{section*.27}
-\contentsline {subsubsection}{Column Stores}{20}{section*.29}
-\contentsline {paragraph}{Cassandra}{21}{section*.30}
-\contentsline {subsubsection}{Graph Databases:}{22}{section*.31}
-\contentsline {paragraph}{Neo4J}{23}{section*.32}
-\contentsline {subsection}{\numberline {2.3.3}Message Queue}{23}{subsection.2.3.3}
-\contentsline {paragraph}{RabbitMQ}{24}{section*.34}
-\contentsline {paragraph}{ActiveMQ}{24}{section*.38}
-\contentsline {subsection}{\numberline {2.3.4}Search Platforms }{24}{subsection.2.3.4}
-\contentsline {subsubsection}{Apache Solr }{25}{section*.39}
-\contentsline {subsubsection}{Elasticsearch }{26}{section*.40}
+\contentsline {subsubsection}{Key Value Stores}{17}{section*.23}
+\contentsline {paragraph}{Riak:}{17}{section*.24}
+\contentsline {subsubsection}{Document Stores}{18}{section*.27}
+\contentsline {paragraph}{CouchDB:}{19}{section*.28}
+\contentsline {paragraph}{MongoDB:}{20}{section*.31}
+\contentsline {subsubsection}{Column Stores}{21}{section*.33}
+\contentsline {paragraph}{Cassandra}{22}{section*.34}
+\contentsline {subsubsection}{Graph Databases:}{23}{section*.35}
+\contentsline {paragraph}{Neo4J}{23}{section*.36}
+\contentsline {subsection}{\numberline {2.3.3}Message Queue}{24}{subsection.2.3.3}
+\contentsline {paragraph}{RabbitMQ}{24}{section*.38}
+\contentsline {paragraph}{ActiveMQ}{25}{section*.42}
+\contentsline {subsection}{\numberline {2.3.4}Search Platforms }{25}{subsection.2.3.4}
+\contentsline {subsubsection}{Apache Solr }{26}{section*.43}
+\contentsline {subsubsection}{Elasticsearch }{26}{section*.44}
 \contentsline {subsection}{\numberline {2.3.5}Spring Framework}{27}{subsection.2.3.5}
-\contentsline {subsubsection}{Modules}{27}{section*.42}
-\contentsline {paragraph}{Core Container:}{28}{section*.44}
-\contentsline {paragraph}{Data Access/Integration:}{29}{section*.45}
-\contentsline {paragraph}{Web:}{29}{section*.46}
-\contentsline {paragraph}{AOP and Instrumentation:}{29}{section*.47}
-\contentsline {paragraph}{Test:}{29}{section*.48}
-\contentsline {section}{\numberline {2.4}Related Work}{29}{section.2.4}
+\contentsline {subsubsection}{Modules}{28}{section*.46}
+\contentsline {paragraph}{Core Container:}{28}{section*.48}
+\contentsline {paragraph}{Data Access/Integration:}{29}{section*.49}
+\contentsline {paragraph}{Web:}{29}{section*.50}
+\contentsline {paragraph}{AOP and Instrumentation:}{29}{section*.51}
+\contentsline {paragraph}{Test:}{29}{section*.52}
 \contentsline {chapter}{\numberline {3}Requirements}{31}{chapter.3}
 \contentsline {section}{\numberline {3.1}Problem Statement}{31}{section.3.1}
 \contentsline {section}{\numberline {3.2}Scenarios}{31}{section.3.2}
-\contentsline {paragraph}{Mobile capturing of live event}{31}{section*.49}
-\contentsline {paragraph}{Restaurant guide}{32}{section*.50}
+\contentsline {paragraph}{Mobile capturing of live event}{31}{section*.53}
+\contentsline {paragraph}{Restaurant guide}{32}{section*.54}
 \contentsline {section}{\numberline {3.3}Functional requirements}{32}{section.3.3}
-\contentsline {paragraph}{R1 User Management}{32}{section*.51}
-\contentsline {paragraph}{Applications Management}{32}{section*.52}
-\contentsline {paragraph}{Content \& Context Data Store}{32}{section*.53}
-\contentsline {paragraph}{Content Discovery}{33}{section*.54}
-\contentsline {paragraph}{Content Adaptation}{33}{section*.55}
-\contentsline {paragraph}{Content Distribution}{33}{section*.56}
+\contentsline {paragraph}{R1 User Management}{32}{section*.55}
+\contentsline {paragraph}{Applications Management}{32}{section*.56}
+\contentsline {paragraph}{Content \& Context Data Store}{32}{section*.57}
+\contentsline {paragraph}{Content Discovery}{33}{section*.58}
+\contentsline {paragraph}{Content Adaptation}{33}{section*.59}
+\contentsline {paragraph}{Content Distribution}{33}{section*.60}
 \contentsline {section}{\numberline {3.4}Non functional requirements}{33}{section.3.4}
 \contentsline {subsection}{\numberline {3.4.1}Usability}{33}{subsection.3.4.1}
 \contentsline {subsection}{\numberline {3.4.2}Efficiency}{34}{subsection.3.4.2}
@@ -73,18 +72,18 @@
 \contentsline {section}{\numberline {4.1}Architecture Overview}{35}{section.4.1}
 \contentsline {section}{\numberline {4.2}Framework Components}{36}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}App Management}{36}{subsection.4.2.1}
-\contentsline {subsubsection}{JSON}{36}{section*.58}
-\contentsline {subsubsection}{User Management }{36}{section*.59}
-\contentsline {subsubsection}{REST Interfaces }{37}{section*.60}
-\contentsline {paragraph}{Framework User Management Interface /users :}{37}{section*.61}
-\contentsline {paragraph}{App interface \textit {/app/} :}{37}{section*.64}
-\contentsline {paragraph}{App User Management Interface /app/{appName}/users :}{39}{section*.68}
-\contentsline {paragraph}{Collection Interface /app/{appName}/collections/ :}{39}{section*.71}
-\contentsline {paragraph}{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :}{40}{section*.73}
-\contentsline {paragraph}{Document Interface /app/{appName}/collections/{collectionName}/doc :}{41}{section*.76}
-\contentsline {paragraph}{Buckets Interface /app/{appName}/buckets :}{43}{section*.81}
-\contentsline {paragraph}{Files Interface /app/{appName}/buckets/{bucketName}/{filename} :}{44}{section*.86}
-\contentsline {subsubsection}{Informative Response:}{44}{section*.89}
+\contentsline {subsubsection}{JSON}{36}{section*.62}
+\contentsline {subsubsection}{User Management }{36}{section*.63}
+\contentsline {subsubsection}{REST Interfaces }{37}{section*.64}
+\contentsline {paragraph}{Framework User Management Interface /users :}{37}{section*.65}
+\contentsline {paragraph}{App interface \textit {/app/} :}{37}{section*.68}
+\contentsline {paragraph}{App User Management Interface /app/{appName}/users :}{39}{section*.72}
+\contentsline {paragraph}{Collection Interface /app/{appName}/collections/ :}{39}{section*.75}
+\contentsline {paragraph}{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :}{40}{section*.77}
+\contentsline {paragraph}{Document Interface /app/{appName}/collections/{collectionName}/doc :}{41}{section*.80}
+\contentsline {paragraph}{Buckets Interface /app/{appName}/buckets :}{43}{section*.85}
+\contentsline {paragraph}{Files Interface /app/{appName}/buckets/{bucketName}/{filename} :}{44}{section*.90}
+\contentsline {subsubsection}{Informative Response:}{44}{section*.93}
 \contentsline {subsection}{\numberline {4.2.2}Repository/Media Store }{45}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Search Engine}{45}{subsection.4.2.3}
 \contentsline {subsection}{\numberline {4.2.4}Worker Queue}{46}{subsection.4.2.4}
@@ -93,40 +92,33 @@
 \contentsline {chapter}{\numberline {5}Implementation}{49}{chapter.5}
 \contentsline {section}{\numberline {5.1}Tools \& Technologies}{49}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Tools}{49}{subsection.5.1.1}
-\contentsline {paragraph}{Eclipse Juno 4.2 IDE:}{49}{section*.92}
-\contentsline {paragraph}{Maven 3:}{49}{section*.93}
-\contentsline {paragraph}{Advanced REST client:}{49}{section*.94}
+\contentsline {paragraph}{Eclipse Juno 4.2 IDE:}{49}{section*.96}
+\contentsline {paragraph}{Maven 3:}{49}{section*.97}
+\contentsline {paragraph}{Advanced REST client:}{49}{section*.98}
 \contentsline {subsection}{\numberline {5.1.2}Technologies}{50}{subsection.5.1.2}
-\contentsline {paragraph}{Spring Framework 3.1.1:}{50}{section*.95}
-\contentsline {subparagraph}{Spring Security 3.1.1:}{50}{section*.96}
-\contentsline {subparagraph}{Spring Data MongoDB 1.1.0:}{50}{section*.97}
-\contentsline {subparagraph}{Spring AMQP 1.1.3:}{50}{section*.98}
-\contentsline {paragraph}{MongoDB 2.2.3:}{50}{section*.99}
-\contentsline {paragraph}{Elasticsearch 0.20.4:}{50}{section*.100}
-\contentsline {paragraph}{RabbitMQ 3.0.1:}{50}{section*.101}
-\contentsline {paragraph}{NginX 1.2.6:}{51}{section*.102}
-\contentsline {paragraph}{FFmpeg 0.9.2:}{51}{section*.103}
-\contentsline {section}{\numberline {5.2}Framework Components}{52}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}App Managment}{52}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Repository}{53}{subsection.5.2.2}
-\contentsline {subsubsection}{MongoDB}{53}{section*.105}
-\contentsline {subsection}{\numberline {5.2.3}Search Engine}{53}{subsection.5.2.3}
-\contentsline {subsubsection}{ElasticSearch}{53}{section*.106}
-\contentsline {subsection}{\numberline {5.2.4}Content Adaptation}{53}{subsection.5.2.4}
-\contentsline {subsubsection}{FFmpeg}{53}{section*.107}
-\contentsline {subsection}{\numberline {5.2.5}Content Distribution}{53}{subsection.5.2.5}
-\contentsline {subsubsection}{HTTP-Live-Video-Stream-Segmenter-and-Distributor}{53}{section*.108}
-\contentsline {subsubsection}{NginX}{53}{section*.109}
-\contentsline {subsection}{\numberline {5.2.6}Application Messaging}{53}{subsection.5.2.6}
-\contentsline {subsubsection}{RabbitMQ}{53}{section*.110}
-\contentsline {subsection}{\numberline {5.2.7}User API}{53}{subsection.5.2.7}
-\contentsline {subsubsection}{SPRING DATA - REST}{53}{section*.111}
-\contentsline {section}{\numberline {5.3}Components Integration and Configuration}{53}{section.5.3}
-\contentsline {section}{\numberline {5.4}REST API}{53}{section.5.4}
-\contentsline {chapter}{\numberline {6}Evaluation}{55}{chapter.6}
-\contentsline {section}{\numberline {6.1}Test Environment}{55}{section.6.1}
-\contentsline {section}{\numberline {6.2}Test Scenarios}{55}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Usability}{55}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Performance}{55}{subsection.6.2.2}
-\contentsline {chapter}{\numberline {7}Conclusion}{57}{chapter.7}
-\contentsline {chapter}{Bibliography}{59}{chapter*.112}
+\contentsline {paragraph}{Spring Framework 3.1.1:}{50}{section*.99}
+\contentsline {subparagraph}{Spring Security 3.1.1:}{50}{section*.100}
+\contentsline {subparagraph}{Spring Data MongoDB 1.1.0:}{50}{section*.101}
+\contentsline {subparagraph}{Spring AMQP 1.1.3:}{50}{section*.102}
+\contentsline {paragraph}{MongoDB 2.2.3:}{50}{section*.103}
+\contentsline {paragraph}{Elasticsearch 0.20.4:}{50}{section*.104}
+\contentsline {paragraph}{RabbitMQ 3.0.1:}{50}{section*.105}
+\contentsline {paragraph}{NginX 1.2.6:}{51}{section*.106}
+\contentsline {paragraph}{FFmpeg 0.9.2:}{51}{section*.107}
+\contentsline {section}{\numberline {5.2}Framework Components}{51}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}App Managment}{51}{subsection.5.2.1}
+\contentsline {paragraph}{User Management:}{53}{section*.111}
+\contentsline {paragraph}{REST Interfaces:}{54}{section*.115}
+\contentsline {subsection}{\numberline {5.2.2}Repository/Media Store}{55}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Search Engine}{56}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Message Broker}{57}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}Content Adaptation}{57}{subsection.5.2.5}
+\contentsline {subsection}{\numberline {5.2.6}Content Distribution}{58}{subsection.5.2.6}
+\contentsline {chapter}{\numberline {6}Evaluation}{61}{chapter.6}
+\contentsline {section}{\numberline {6.1}Test Environment}{61}{section.6.1}
+\contentsline {subsection}{\numberline {6.1.1}MongoDb Installation}{61}{subsection.6.1.1}
+\contentsline {section}{\numberline {6.2}Test Scenarios}{61}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Usability}{61}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Performance}{61}{subsection.6.2.2}
+\contentsline {chapter}{\numberline {7}Conclusion}{63}{chapter.7}
+\contentsline {chapter}{Bibliography}{65}{chapter*.125}

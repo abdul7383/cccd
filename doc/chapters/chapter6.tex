@@ -1,7 +1,20 @@
 \chapter{Evaluation\label{cha:chapter6}}
 
+
 \section{Test Environment\label{sec:eval_te_en}}
 
+\subsection{MongoDb Installation\label{sec:eval_te_en_mongo}}
+The installation of MongoDB on Ubuntu is described in listing \ref{lst:mongdb_installation}, see this reference for more details \cite{MongoDb:installation}.
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+sudo echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" >> /etc/apt/sources.list.d/10gen.list
+sudo apt-get update
+sudo apt-get install mongodb-10gen
+\end{minted}
+\caption{Installing MongoDB on Ubuntu}
+\label{lst:mongdb_installation}
+\end{code}
 \section{Test Scenarios\label{sec:eval__te_sc}}
 	\subsection{Usability\label{seq:eval_usab}}
 	
