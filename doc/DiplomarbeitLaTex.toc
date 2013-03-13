@@ -34,18 +34,18 @@
 \contentsline {subsubsection}{Document Stores}{18}{section*.27}
 \contentsline {paragraph}{CouchDB:}{19}{section*.28}
 \contentsline {paragraph}{MongoDB:}{20}{section*.31}
-\contentsline {subsubsection}{Column Stores}{21}{section*.33}
-\contentsline {paragraph}{Cassandra}{22}{section*.34}
-\contentsline {subsubsection}{Graph Databases:}{23}{section*.35}
+\contentsline {subsubsection}{Column Stores}{20}{section*.33}
+\contentsline {paragraph}{Cassandra}{21}{section*.34}
+\contentsline {subsubsection}{Graph Databases:}{22}{section*.35}
 \contentsline {paragraph}{Neo4J}{23}{section*.36}
-\contentsline {subsection}{\numberline {2.3.3}Message Queue}{24}{subsection.2.3.3}
+\contentsline {subsection}{\numberline {2.3.3}Message Queue}{23}{subsection.2.3.3}
 \contentsline {paragraph}{RabbitMQ}{24}{section*.38}
-\contentsline {paragraph}{ActiveMQ}{25}{section*.42}
-\contentsline {subsection}{\numberline {2.3.4}Search Platforms }{25}{subsection.2.3.4}
-\contentsline {subsubsection}{Apache Solr }{26}{section*.43}
+\contentsline {paragraph}{ActiveMQ}{24}{section*.42}
+\contentsline {subsection}{\numberline {2.3.4}Search Platforms }{24}{subsection.2.3.4}
+\contentsline {subsubsection}{Apache Solr }{25}{section*.43}
 \contentsline {subsubsection}{Elasticsearch }{26}{section*.44}
 \contentsline {subsection}{\numberline {2.3.5}Spring Framework}{27}{subsection.2.3.5}
-\contentsline {subsubsection}{Modules}{28}{section*.46}
+\contentsline {subsubsection}{Modules}{27}{section*.46}
 \contentsline {paragraph}{Core Container:}{28}{section*.48}
 \contentsline {paragraph}{Data Access/Integration:}{29}{section*.49}
 \contentsline {paragraph}{Web:}{29}{section*.50}

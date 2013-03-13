@@ -1,4 +1,4 @@
-\begin{thebibliography}{25}
+\begin{thebibliography}{30}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,12 +9,37 @@
 Web services architecture.
 \newblock URL \url{http://www.w3.org/TR/ws-arch/}.
 
-\bibitem[10gen(2013)]{MongoDb:installation}
+\bibitem[bso(2013)]{bson_intro}
+Introduction to bson, 2013.
+\newblock URL \url{http://bsonspec.org/}.
+\newblock [Online; accessed 13.03.2013].
+
+\bibitem[10gen(2013{\natexlab{a}})]{MongoDb:installation}
 Inc. 10gen.
-\newblock Install mongodb on ubuntu, 2013.
+\newblock Install mongodb on ubuntu, 2013{\natexlab{a}}.
 \newblock URL
   \url{http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/}.
 \newblock [Online; accessed 12.03.2013].
+
+\bibitem[10gen(2013{\natexlab{b}})]{mongodb_intro}
+Inc. 10gen.
+\newblock Introduction to mongodb, 2013{\natexlab{b}}.
+\newblock URL \url{http://www.mongodb.org/about/introduction/}.
+\newblock [Online; accessed 13.03.2013].
+
+\bibitem[10gen(2013{\natexlab{c}})]{mongodb_replication}
+Inc. 10gen.
+\newblock Introduction to mongodb, 2013{\natexlab{c}}.
+\newblock URL
+  \url{http://wiki.10gen.com/pages/viewpage.action?pageId=21270635}.
+\newblock [Online; accessed 13.03.2013].
+
+\bibitem[Anderson et~al.(2010)Anderson, Lehnardt, and
+  Slater]{books/daglib/0024051}
+J.~Chris Anderson, Jan Lehnardt, and Noah Slater.
+\newblock \emph{CouchDB - The Definitive Guide: Time to Relax.}
+\newblock O'Reilly, 2010.
+\newblock ISBN 978-0-596-15589-6.
 
 \bibitem[Baldauf et~al.(2007)Baldauf, Dustdar, and
   Rosenberg]{BaldaufDustdarRosenberg07ijahuc}
@@ -52,6 +77,13 @@ Nginx Community.
 \newblock URL \url{http://wiki.nginx.org/HttpSecureLinkModule}.
 \newblock [Online; accessed 12.03.2013].
 
+\bibitem[Corporation(2013)]{oracle_soap}
+Oracle Corporation.
+\newblock Web services and the sun one developer platform, 2013.
+\newblock URL
+  \url{http://dsc.sun.com/appserver/reference/techart/webservice.html}.
+\newblock [Online; accessed 12.03.2013].
+
 \bibitem[Dey(1998)]{Dey98}
 Anind~K. Dey.
 \newblock Context-aware computing: The cyberdesk project.
@@ -73,6 +105,12 @@ Roy Fielding.
   Architectures}.
 \newblock PhD thesis, University of California, Irvine, 2000.
 
+\bibitem[Foundation(2013)]{couchdb_cons}
+Apache~Software Foundation.
+\newblock Eventual consistency, 2013.
+\newblock URL \url{http://guide.couchdb.org/draft/consistency.html}.
+\newblock [Online; accessed 13.03.2013].
+
 \bibitem[Group()]{ec1}
 EC~FIArch Group.
 \newblock Fundamental limitations of current internet and the path to future
@@ -93,13 +131,6 @@ John Mccarthy.
 \newblock In \emph{IJCAI}, pages 555--562, San Mateo, California, 1993. Morgan
   Kaumann.
 \newblock URL \url{http://dblp.uni-trier.de/rec/bibtex/conf/ijcai/McCarthy93}.
-
-\bibitem[oracle Corporation(2013)]{oracle_soap}
-oracle Corporation.
-\newblock Web services and the sun one developer platform, 2013.
-\newblock URL
-  \url{http://dsc.sun.com/appserver/reference/techart/webservice.html}.
-\newblock [Online; accessed 12.03.2013].
 
 \bibitem[Riva(2004)]{Riva04}
 Oriana Riva.

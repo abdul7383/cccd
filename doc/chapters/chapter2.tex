@@ -349,14 +349,11 @@ Document Stores interlace key value pairs in JSON or JSON like documents. Each o
 
 Key value stores don't allow for values to be queried, because the values are only accessible through their respective keys. Document stores on the other hand provide mechanisms for this additional function. They therefore allow complex data structures to be handled more efficiently. The interpretable JSON format applied by document stores ensures a developer friendly handling by supporting data types. In contrast to key value stores which focus on high performance for read and write concurrent, document stores concentrate on storing big data efficiently while also providing a high query performance. Most known document stores are CouchDB and MongoDB  which are described in detail in the following paragraphs.
 
-%--------------
-\paragraph{CouchDB:} Apache CouchDB is a free and open-source document-oriented database written in Erlang, a programming language aimed at concurrent and distributed applications. It was firstly released in 2005 and later became an Apache project in 2008.
+\paragraph{CouchDB:} CouchDB is a free open source document oriented database developed by Apache Software Foundation. It is written in Erlang, a programming language aimed at concurrent and distributed applications. First release was in 2005 and 2008 it has become an Apache project.
 
-CouchDB implements a form of Multi-Version Concurrency Control (MVCC) in order to avoid the need to lock the database file during writes. Conflicts are left to the application to resolve. Resolving a conflict generally involves first merging data into one of the documents, then deleting the stale one.
+CouchDB implements a Multi-Version Concurrency Control to avoid the need to lock the database file while writing. The application has to be aware of resolving conflicts, which generally involves firstly to merge data into one of the documents, then to delete the stale one.
 
-CouchDB stores data in semi-structured documents. A document is a JSON file which is a collection of named key-value pairs. Values can either be numbers, string, booleans, lists or dictionaries. The documents are completely schema-free and do not have to follow any structure (except for JSON’s inherent structure).
-
-An example document is shown in Listing \ref{lst:couch_doc}, which represent the apple price in various supermarket. 
+CouchDB adopts a semi structured data model based on JSON format, which is a collection of named key-value pairs. Value can either be a number, string, boolean, list or a dictionary. The data model is completely schema-free and it only need to be conform to the JSON specification. An example document is shown in listing \ref{lst:couch_doc}, which represent the apple price in various supermarket. 
 \\
 \\
 \begin{code}
@@ -376,38 +373,35 @@ An example document is shown in Listing \ref{lst:couch_doc}, which represent the
 \label{lst:couch_doc}
 \end{code}
 
-Each document in a CouchDB database is identified by a unique ID (the 'id' field). CouchDB is a simple container of a collection of documents and it does not establish any mandatory relationship between them [ALS10].  CouchDB exposes a RESTful HTTP API to perform basic CRUD operations on all stored items and it uses the HTTP methods POST, GET, PUT and DELETE to do so.
+Each document is identified by a unique ID (the \textit{id} field) within a CouchDB database . CouchDB can be simply seen as a collection of documents and it does not know or track relationships between documents \cite{books/daglib/0024051}.  It provides a RESTful HTTP API to perform basic CRUD operations on all stored documents, which can be easily done via the HTTP methods POST, GET, PUT and DELETE.
 
-As illustrated in figure \ref{fig:couchdb_repl}, one can synchronize the data between any two databases easily. After replication, each database is able to work independently.
-% TODO cite http://guide.couchdb.org/draft/consistency.html
+Figure \ref{fig:couchdb_repl} illustrates how easily the data synchronization between any two databases. After replication, each database is able to work independently.
+
 \begin{figure}[htb]
   \centering
   \includegraphics{couchdb_repl.png}\\
   \caption{CouchDB replication}
   \label{fig:couchdb_repl}
+  \protect\cite{couchdb_cons}
 \end{figure}
 
-\pagebreak
-\pagebreak
-For conflict handling, CouchDB relies on the MVCC model. Each document is assigned a revision id and every time a document is updated, the old version is kept and the updated version is given a different revision id. Whenever a conflict is detected, the winning version is saved as the most recent version and the losing version is also saved in the document’s history. This is done consistently throughout all the nodes so that the exact same choices are made. The application can then chose to handle the conflict by itself (ignoring one version or merging the changes) [ALS10].
-
+CouchDB relies on the MVCC model for handling conflicts. Each document has a revision id and on each update of a document, the old version is kept and the new version is given a different revision id. Always in case of a conflict, the desired version is saved as the most recent version and the old version is also saved in the document's history.Thereby the application handles the conflict by itself and decides which version is the desired one to keep and which is the old one \cite{books/daglib/0024051}.
 
 \paragraph{MongoDB:\label{sec:back_mongo}}
-MongoDB (from “humongous”) is a free and open-source document-oriented database written in C++ [10g11d]. Aside from the open-source community, the development is also supported by the company 10gen.
-It is completely schema-free and manages JSON-style documents, as in CouchDB. It focuses on high-performance and agile development, providing the developer with a set of features to easily model and query data, as well as to scale the system.
+MongoDB is a free and open source document oriented database written in C++ that provides high performance, high availability, and easy scalability. The development is supported by the open source community and also by the company 10gen. As in CouchDB, it is completely schema-free and its data model is based on JSON format  that is easy to code to, easy to manage, and yields excellent performance by grouping relevant data together internally \cite{mongodb_intro}. 
 
-MongoDB stores data as BSON objects, which is a binary-encoded serialization of JSON-like documents. It supports all the data types that are part of JSON but also defines new data types, i.e. the Date data type and the BinData type [BSO11]. The key advantage of using BSON is efficiency (both in space and compute time), as it is a binary format [10g09].
-Documents are contained in 'collections', they can be seen as an equivalent to relational database tables [10g11b]. Collections can contain any kind of document, no relationship is enforced, still documents within a collection usually have the same structure as it provides a logical way to organize data.
-As data within a collections is usually contiguous on disk, if collections are smaller better performance is achieved [10g11h]. Each document is identified by a unique ID ( 'id' field), which can be given by the user upon document creating or automatically generated by the database [10g11e]. An index is automatically created on the ID field although other indexes can be manually created in order to speed up common queries.
+The document structure in MongoDB are BSON objects, short for Binary JSON, which is a binary-encoded serialization of JSON-like documents.  BSON supports all JSON data types but also defines new types, i.e. the Date data type and the BinData type \cite{bson_intro}.
 
-Two forms of replication are available, Replica Sets and Master-Slave, see figure \ref{fig:mongodb_repl}. As Master-Slave replication is deprecated since version 1.6, Replica Sets are used for all new production deployments.
+Like CouchDB, the documents are saved within collections, which can be compared to tables in relational database. Any kind of documents can be stored within collections but in order to provide a logical way to organize data, the documents within a collection usually have the same structure.
 
-% TODO cite http://guide.couchdb.org/draft/consistency.html
+MongoDB provides two ways for replication, namely Replica Sets and Master-Slave, see figure \ref{fig:mongodb_repl}. Master-Slave replication is deprecated since version 1.6 therefore Replica Sets are used for all new production deployments.
+
 \begin{figure}[htb]
   \centering
   \includegraphics{mongodb_repl.png}\\
   \caption{MongoDB replication}
   \label{fig:mongodb_repl}
+  \protect\cite{mongodb_replication}
 \end{figure}
 
 %-----------

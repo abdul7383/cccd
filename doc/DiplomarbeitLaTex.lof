@@ -7,7 +7,7 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces SOAP Envelop\relax }}{12}{figure.caption.6}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces CouchDB replication\relax }}{20}{figure.caption.30}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces MongoDB replication\relax }}{21}{figure.caption.32}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Embedded (a) vs. Server (b)\relax }}{24}{figure.caption.37}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Embedded (a) vs. Server (b)\relax }}{23}{figure.caption.37}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces RabbitMQ Components\relax }}{24}{figure.caption.39}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Direct exchange routing\relax }}{25}{figure.caption.40}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Fanout exchange routing\relax }}{26}{figure.caption.41}
