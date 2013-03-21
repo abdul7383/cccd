@@ -6,51 +6,55 @@ The style file: plainnat.bst
 Database file #1: ./bib/references.bib
 Warning--entry type for "W3C" isn't style-file defined
 --line 151 of file ./bib/references.bib
+Warning--I didn't find a database entry for "books/daglib/0024051"
 Warning--to sort, need author or key in W3C
 Warning--to sort, need author or key in bson_intro
+Warning--to sort, need author or key in amqp-concepts
+Warning--to sort, need author or key in welcome_to_solr
+Warning--to sort, need author or key in spring-framework-reference
 Warning--empty year in W3C
 Warning--empty year in cisco1
 Warning--empty year in ec1
 Warning--empty year in youtube1
-You've used 30 entries,
+You've used 37 entries,
             2773 wiz_defined-function locations,
-            784 strings with 10013 characters,
-and the built_in function-call counts, 11942 in all, are:
-= -- 1116
-> -- 475
-< -- 28
-+ -- 173
-- -- 141
-* -- 802
-:= -- 1761
-add.period$ -- 118
-call.type$ -- 30
-change.case$ -- 134
-chr.to.int$ -- 28
-cite$ -- 68
-duplicate$ -- 609
-empty$ -- 1134
-format.name$ -- 179
-if$ -- 2618
+            838 strings with 11576 characters,
+and the built_in function-call counts, 14999 in all, are:
+= -- 1428
+> -- 602
+< -- 34
++ -- 219
+- -- 180
+* -- 1028
+:= -- 2180
+add.period$ -- 151
+call.type$ -- 37
+change.case$ -- 167
+chr.to.int$ -- 35
+cite$ -- 88
+duplicate$ -- 756
+empty$ -- 1408
+format.name$ -- 228
+if$ -- 3308
 int.to.chr$ -- 3
 int.to.str$ -- 1
-missing$ -- 16
-newline$ -- 183
-num.names$ -- 114
-pop$ -- 345
+missing$ -- 21
+newline$ -- 227
+num.names$ -- 130
+pop$ -- 425
 preamble$ -- 1
-purify$ -- 106
+purify$ -- 133
 quote$ -- 0
-skip$ -- 467
+skip$ -- 592
 stack$ -- 0
-substring$ -- 323
-swap$ -- 93
-text.length$ -- 6
+substring$ -- 415
+swap$ -- 117
+text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 325
-warning$ -- 6
-while$ -- 106
+type$ -- 397
+warning$ -- 9
+while$ -- 126
 width$ -- 0
-write$ -- 433
-(There were 7 warnings)
+write$ -- 545
+(There were 11 warnings)

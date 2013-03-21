@@ -1,12 +1,12 @@
 \chapter{Requirements\label{cha:chapter3}}
-As described in section \ref{sec:objective}, the objective of this thesis is to design and develop a generic contextual content management platform, which supports the correlation of context information and multimedia content, content discovery and content distribution. In the following sections, the problem statement is discussed furthermore providing two instructive use cases. The use cases illustrates the functional assets of the framework and facilitate a deduction of its non-functional requirements.
+As described in section \ref{sec:objective}, the objective of this thesis is to design and develop a generic contextual content management framework, which supports the correlation of context information and multimedia content, content discovery and content distribution. In the following sections, two instructive use cases are provided. These use cases illustrates the functional assets of the framework and facilitate a deduction of its functional and non-functional requirements.
  
-\section{Problem Statement\label{sec:req_pro_st}}
-
-The evident growth of multimedia content offered by highly competitive  providers alongside the technological progress concerning portable internet-ready devices(e.g. iPhone, iPad) calls for a more efficient correlation between content requests on the one hand and personalized search results and discovery mechanisms provided by the framework on the other.
-The challenge is to provide users with technical means for rapid and instant access to relevant, trustworthy multimedia content information and enriched personalization.
- 
- TODO
+%\section{Problem Statement\label{sec:req_pro_st}}
+%
+%The evident growth of multimedia content offered by highly competitive  providers alongside the technological progress concerning portable internet-ready devices(e.g. iPhone, iPad) calls for a more efficient correlation between content requests on the one hand and personalized search results and discovery mechanisms provided by the framework on the other.
+%The challenge is to provide users with technical means for rapid and instant access to relevant, trustworthy multimedia content information and enriched personalization.
+% 
+% TODO
  
 \section{Scenarios\label{sec:req_sce}}
 
@@ -14,7 +14,7 @@ For better comprehension of the functionality of the proposed platform, two exam
 
 \paragraph{Mobile capturing of live event}
 
-A user - as a content provider - captures a live event (e.g. demonstration, car race, marathon, Tour de France, etc.) using an application on a GPS capable smart phone. While filming, the application also collects context information (e.g. location, acceleration, temperature, time, etc.). Later the user uploads the captured content with its context information to the platform.
+A user - as a content provider - captures a live event (e.g. demonstration, car race, marathon, Tour de France, etc.) using an application on a \ac{GPS} capable smart phone. While filming, the application also collects context information (e.g. location, acceleration, temperature, time, etc.). Later the user uploads the captured content with its context information to the platform.
 
 Let's consider a video of the Tour de France as an example for the uploaded content. Any consumer, who is interested in a specific uploaded video that has been taken in a specific place on the road of the tour (e.g. Les Essarts: town which is located in western France), searches for the video by specifying some related information such as time range, location and "Tour de France" as search string. The platform will then give the user a list of all videos that match the specified criteria. The user can select any of the listed videos and begin streaming.
 
@@ -48,7 +48,7 @@ The framework should support content delivery to most widespread internet-able d
 Non-functional requirements are mainly related to quality aspects of a system. As a implementation of the design presented in Chapter 4, which is considered in this work as a prototype, the non-functional requirements play a subordinate role. However, some non-functional requirements have quite an influence on fundamental architectural decisions. So it is nevertheless important to analyze these requirements. The following section outlines the non-functional requirements for the development of the framework.
 
 \subsection{Usability}
-Since this thesis concerns the development of a framework and not a concrete application or GUI this quality feature's applicability is limited. However there are certain ease-of-use requirements constituting the degree of effort needed to comprehended, evaluate and effectively use the software that are relevant.  
+Since this thesis concerns the development of a framework and not a concrete application or \ac{GUI} this quality feature's applicability is limited. However there are certain ease-of-use requirements constituting the degree of effort needed to comprehended, evaluate and effectively use the software that are relevant.  
 
 
 All functionalities of the framework shall be accessible in a simple way. From a developer's point of view, who in a sense represent the "user" of the framework, it can be said that a good structure and readability of the source code is desirable. Changes and enhancements to the framework shall always be restricted to as few logical components as possible. More importantly, however, the standard use of the framework shall not require deep knowledge of the internal structure of the framework's components. Creating a new application for instance, shall be possible without further knowledge of the framework via the external interface of the framework.
@@ -57,5 +57,5 @@ All functionalities of the framework shall be accessible in a simple way. From a
 \subsection{Efficiency}
 The efficiency describes the response time for inquiries, as well as the consumption of resources. The framework shall be capable to serve multiple applications simultaneously. The creation of an additional application shall affect the performance of the overall system only marginally.
 
-\subsection{Changeability}
 \subsection{Scalability}
+The framework shall be able to scale easily. Thereby it shall provide a mechanism to either add or remove resources, which are individual machines, at any time in order to support a growing data set or perhaps in order to satisfy an increasing amount of requests and to improve the performance of the desired solution.

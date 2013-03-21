@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{37}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -9,10 +9,27 @@
 Web services architecture.
 \newblock URL \url{http://www.w3.org/TR/ws-arch/}.
 
+\bibitem[amq(2013)]{amqp-concepts}
+Amqp concepts, 2013.
+\newblock URL \url{http://www.rabbitmq.com/tutorials/amqp-concepts.html}.
+\newblock [Online; accessed 15.03.2013].
+
 \bibitem[bso(2013)]{bson_intro}
 Introduction to bson, 2013.
 \newblock URL \url{http://bsonspec.org/}.
 \newblock [Online; accessed 13.03.2013].
+
+\bibitem[spr(2013)]{spring-framework-reference}
+Spring framework reference, 2013.
+\newblock URL
+  \url{http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/pdf/spring-framework-reference.pdf}.
+\newblock [Online; accessed 18.01.2013].
+
+\bibitem[wel(2013)]{welcome_to_solr}
+Welcome to solr, 2013.
+\newblock URL
+  \url{https://svn.apache.org/repos/asf/lucene/dev/branches/lucene3622/solr/site/index.pdf}.
+\newblock [Online; accessed 13.01.2013].
 
 \bibitem[10gen(2013{\natexlab{a}})]{MongoDb:installation}
 Inc. 10gen.
@@ -34,13 +51,6 @@ Inc. 10gen.
   \url{http://wiki.10gen.com/pages/viewpage.action?pageId=21270635}.
 \newblock [Online; accessed 13.03.2013].
 
-\bibitem[Anderson et~al.(2010)Anderson, Lehnardt, and
-  Slater]{books/daglib/0024051}
-J.~Chris Anderson, Jan Lehnardt, and Noah Slater.
-\newblock \emph{CouchDB - The Definitive Guide: Time to Relax.}
-\newblock O'Reilly, 2010.
-\newblock ISBN 978-0-596-15589-6.
-
 \bibitem[Baldauf et~al.(2007)Baldauf, Dustdar, and
   Rosenberg]{BaldaufDustdarRosenberg07ijahuc}
 Matthias Baldauf, Schahram Dustdar, and Florian Rosenberg.
@@ -57,6 +67,13 @@ Inc. Basho~Technologies.
   \url{http://docs.basho.com/riak/latest/references/appendices/concepts/Buckets/}.
 \newblock [Online; accessed 07.02.2013].
 
+\bibitem[Biba and Xhafa(2011)]{biba2011learning}
+M.~Biba and F.~Xhafa.
+\newblock \emph{Learning Structure and Schemas from Documents}.
+\newblock Studies in Computational Intelligence. Springer, 2011.
+\newblock ISBN 9783642229121.
+\newblock URL \url{http://books.google.de/books?id=7Zh0oFDFBvEC}.
+
 \bibitem[Brown et~al.(1997)Brown, Bovey, and Chen]{ieee626984}
 P.J. Brown, J.D. Bovey, and Xian Chen.
 \newblock Context-aware applications: from the laboratory to the marketplace.
@@ -64,6 +81,16 @@ P.J. Brown, J.D. Bovey, and Xian Chen.
   --64, oct 1997.
 \newblock ISSN 1070-9916.
 \newblock \doi{10.1109/98.626984}.
+
+\bibitem[Chang et~al.(2006)Chang, Dean, Ghemawat, Hsieh, Wallach, Burrows,
+  Chandra, Fikes, and Gruber]{Chang:2006}
+Fay Chang, Jeffrey Dean, Sanjay Ghemawat, Wilson~C. Hsieh, Deborah~A. Wallach,
+  Mike Burrows, Tushar Chandra, Andrew Fikes, and Robert~E. Gruber.
+\newblock Bigtable: a distributed storage system for structured data.
+\newblock In \emph{Proceedings of the 7th USENIX Symposium on Operating Systems
+  Design and Implementation - Volume 7}, OSDI '06, pages 15--15, Berkeley, CA,
+  USA, 2006. USENIX Association.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=1267308.1267323}.
 
 \bibitem[Cisco()]{cisco1}
 Cisco.
@@ -124,6 +151,31 @@ Thomas~R. Gruber.
 \newblock \emph{Knowledge Acquisition}, 5\penalty0 (2):\penalty0 199--220,
   1993.
 \newblock URL \url{http://tomgruber.org/writing/ontolingua-kaj-1993.pdf}.
+
+\bibitem[Havey(2005)]{books/daglib/0013993}
+Michael Havey.
+\newblock \emph{Essential business process modeling.}
+\newblock O'Reilly, 2005.
+\newblock ISBN 978-0-596-00843-7.
+
+\bibitem[Hecht and Jablonski(2011)]{Hecht:2011}
+Robin Hecht and Stefan Jablonski.
+\newblock Nosql evaluation: A use case oriented survey.
+\newblock In \emph{Proceedings of the 2011 International Conference on Cloud
+  and Service Computing}, CSC '11, pages 336--341, Washington, DC, USA, 2011.
+  IEEE Computer Society.
+\newblock ISBN 978-1-4577-1635-5.
+\newblock \doi{10.1109/CSC.2011.6138544}.
+\newblock URL \url{http://dx.doi.org/10.1109/CSC.2011.6138544}.
+
+\bibitem[Lakshman and Malik(2010)]{Lakshman:2010}
+Avinash Lakshman and Prashant Malik.
+\newblock Cassandra: a decentralized structured storage system.
+\newblock \emph{SIGOPS Oper. Syst. Rev.}, 44\penalty0 (2):\penalty0 35--40,
+  April 2010.
+\newblock ISSN 0163-5980.
+\newblock \doi{10.1145/1773912.1773922}.
+\newblock URL \url{http://doi.acm.org/10.1145/1773912.1773922}.
 
 \bibitem[Mccarthy(1993)]{McCarthy1993Notes}
 John Mccarthy.
