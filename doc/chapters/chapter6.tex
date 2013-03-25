@@ -2,8 +2,52 @@
 
 
 \section{Test Environment\label{sec:eval_te_en}}
+Normally in case of a concrete application there is no need to show in details how to install and configure the application but the output of this thesis is a framework which consist of many components. In order to make it easier for developers who need to deploy this framework, this section provide a details information on how to install and configure each component. Each component will be installed on a Linux machine running in the \ac{AWS} platform. Each of these machines has 7 GB RAM and 20 \ac{EC2} Compute Units (8 virtual cores with 2.5 \ac{EC2} Compute Units each) and running Ubuntu 12.04. The name of this machine within \ac{AWS} platform is \textit{High-CPU Extra Large Instance/c1.xlarge}. In order to have these machines in the same private network, these machines are created within the Amazon \ac{VPC}. 
 
-%\subsection{MongoDb Installation\label{sec:eval_te_en_mongo}}
+Amazon \ac{VPC} enables provisioning of a logically isolated section of the AWS Cloud where one can launch AWS resources in a virtual network. One have complete control over the virtual networking environment, including selection of the IP address range, creation of subnets, and configuration of route tables.
+
+Table \ref{tbl:ap_addresses} shows the IP address of each component. Thereby only the components, the app management and the content distribution have a private as well as a public IP address because these components as seen in figure \ref{fig:arch_overview} are the only components that the developer can interact with. 
+
+\begin{table}[htb]
+\begin{tabular}{|c|c|c|}
+\hline 
+Name & IP address \\ 
+\hline 
+App Management & $\begin{array}{l} \textbf{public:107.23.121.185} \\ \textbf{private:10.0.0.130}  \end{array}$ \\ 
+\hline 
+Repository & \textbf{10.0.0.135} \\ 
+\hline 
+Search Engine & \textbf{10.0.0.136} \\ 
+\hline
+Message Broker & \textbf{10.0.0.137} \\ 
+\hline
+Content Adaptation & \textbf{10.0.0.138} \\ 
+\hline
+Content Distribution & $\begin{array}{l} \textbf{public:107.23.180.173} \\ \textbf{private:10.0.0.139}  \end{array}$ \\ 
+\hline
+\end{tabular} 
+\caption{IP address of each component}
+\label{tbl:ap_addresses}
+\end{table} 
+
+The source code along with the documentation of the entire framework can be obtained from the following GitHub link: \url{https://github.com/abdul7383/cccd} .
+
+\subsection{App Management\label{sec:eval_te_en_app}}
+In order to deploy the app management component, one needs first to install and configure the following softwares:
+
+\begin{itemize}
+\item{\ac{JDK} 7:} Installing  \ac{JDK} 7 on Ubuntu is just easy as typing the command in listing \ref{}.
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+sudo apt-get install mongodb-10gen
+\end{minted}
+\caption{Installing MongoDB on Ubuntu}
+\label{lst:mongdb_installation}
+\end{code}
+\end{itemize}
+bla bla
+
+\subsection{App Managment\label{sec:eval_te_en_mongo}}
 %The installation of MongoDB on Ubuntu is described in listing \ref{lst:mongdb_installation}, see this reference for more details \cite{MongoDb:installation}.
 %\begin{code}
 %\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}

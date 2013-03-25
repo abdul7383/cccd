@@ -5,7 +5,7 @@ Against the background of the requirements described previously in chapter \ref{
 
 
 \section{Architecture Overview\label{sec:des_ar_ov}}
-Figure \ref{fig:arch_overview} shows an architecture overview of the framework, which consists mainly of six components. The components with three dots(...) in them mean that the framework can be later extended with new components for adding new services to the framework like SUBSCRIBE/NOTIFICATION or context enrichment through \ac{M2M} etc.
+Figure \ref{fig:arch_overview} shows an architecture overview of the framework, which consists mainly of six components. The components with three dots(...) in them means that the framework can be later extended with new components for adding new services to the framework like SUBSCRIBE/NOTIFICATION or context enrichment through \ac{M2M} etc.
 
 \begin{figure}[htb]
   \centering
@@ -29,7 +29,7 @@ Figure \ref{fig:arch_overview} shows an architecture overview of the framework, 
 %\end{itemize}
 
 \section{Framework Components\label{sec:des_com}}
-The app management component is the main entry for each developer to interact with the framework. These developers needs to authenticate them self in order to use the framework and therefore an appropriate user management is needed. Furthermore the repository/media store is needed in order to store the data an the multimedia files. For efficient data discovery, the search engine component  is required. The task of the content adaptation component is to convert the stored files to other formats and then upload these converted files to the content distribution component which then serve them to various devices.
+The app management component is the main entry for each developer to interact with the framework. These developers needs to authenticate them self in order to use the framework and therefore an appropriate user management is needed. Furthermore the repository/media store is needed in order to store the data and the multimedia files. For efficient data discovery, the search engine component  is required. The task of the content adaptation component is to convert the stored files to other formats and then upload these converted files to the content distribution component which then serve them to various devices.
 
 Those components are described in more details in the next subsections.
  
@@ -38,14 +38,14 @@ Those components are described in more details in the next subsections.
 The app management component is the core of the entire framework and it interacts with almost all components in the framework. The following subsections describe the design decision that have been made for implementing this component.
 
 \subsubsection{JSON}
-The data format to interact with the framework is \ac{JSON}. It has been chosen due its low-overhead comparing with XML and it is also the data format for many of the known \ac{NoSQL} systems, which one of them will be used in the framework.
+The data format to interact with the framework is \ac{JSON}. It has been chosen due its low-overhead comparing with \ac{XML} and it is also the data format for many of the known \ac{NoSQL} systems, which one of them will be used in the framework.
  
 \subsubsection{User Management \label{sec:des_user_man}}
 In order to allow only registered developers to use the framework, a user management design concept is described in the following.
 
 The user management component provides two levels of management. The first one is to provide a role based user management for using the entire framework. The role can be either an admin or a normal user - which here means a developer who use the framework. Both admin and user are allowed to use the framework i.e. creating new applications, modeling the app and storing, getting or deleting contents etc. Only admins can add a new admin or user.
 
-The second level of the user management component provides a mechanism for managing who can modify an existing app or store/get contents from this app. The user who created the app is theoretically the owner of it and he is the only one who is allowed to add other users for using his app. Thereby he can add users with the same rights as his rights, meaning they can modify the whole app, deleting contents etc., or add other users, who only allowed to store/get/search contents. For example this is useful for a developer, who has deployed/configured a new app and then lets a service provider to use his app by only storing, getting, searching the contents in this app. 
+The second level of the user management component provides a mechanism for managing who can modify an existing app or store/get contents from this app. The user who created the app is theoretically the owner of it and he is the only one who is allowed to add other users for using his app. Thereby he can add users with the same rights as his rights, meaning they can modify the whole app, deleting contents etc., or add other users, who only allowed to store/get/search contents. For example this is useful for a developer, who has deployed/configured a new app and then lets a service provider to use his app by only storing, getting,  or searching the contents in this app. 
 
 \subsubsection{REST Interfaces \label{sec:des_rest_api}} For interacting with the outside world, a standard and well defined interface is needed. The decision for choosing \ac{REST} as an \ac{API} interface is due to its flexibility, simplicity, less bandwidth usage and very easy way to scale for large deployment, see section \ref{sec:back_soap_vs_rest} for more detailed comparison.
 
@@ -140,14 +140,14 @@ GET https://user1:pass@107.23.121.185:8080/cccd/app/vod1
 
 \item \textbf{Update(PUT):}  This method \textit{updateApp} is for updating/adding the configuration parameters of the app. i.e changing the secret word or adding new configuration parameters which can be needed from other components, i.e. adding the user credentials for a Justin.TV account in order to stream a video to it.
 
-\item \textbf{Delete(DELETE):} This method \textit{deleteApp} delete the app along with its related contents which might be in the Repository, Media Store or in the Content Distributor component.
+\item \textbf{Delete(DELETE):} This method \textit{deleteApp} delete the app along with its related contents which might be in the repository, media store or in the content distributor component.
 
 \end{itemize}
 
 \paragraph{App User Management Interface /app/{appName}/users :} This interface provide the second level user management described in \ref{sec:des_user_man}. The users table is saved on the repository within the app. In order to add a user to an app with WRITE or only READ rights, he must be already registered in the framework as a valid user.
 
 \begin{itemize}
-\item \textbf{Create:} The method \textit{addUser} takes following parameters, \textit{appName}, \textit{username} which needs to be added to the app and which rights will it has \textit{readonly}. The \textit{username} and \textit{readonly} parameters are passed through URI parameters, see following example.
+\item \textbf{Create:} The method \textit{addUser} takes following parameters, \textit{appName}, \textit{username} which needs to be added to the app and which rights will it has \textit{readonly}. The \textit{username} and \textit{readonly} parameters are passed through \ac{URI} parameters, see following example.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -192,7 +192,7 @@ Response:
 \label{lst:listing_coll}
 \end{code}
 
-\item \textbf{Delete:} Deleting a collection would delete the entire data in it and also delete its index in the Search Engine. Furthermore the data/files which are in the Content Distribution component, which belong to this collection will be deleted too.
+\item \textbf{Delete:} Deleting a collection would delete the entire data in it and also delete its index in the search engine. Furthermore the data/files which are in the content distribution component, which belong to this collection will be deleted too.
 \end{itemize}
 
 \paragraph{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :\label{sec:des_rest_api_mapping}} Before adding data to any collection, fields should be mapped to a proper object, i.e. string, integer, date, array or geo\_point. 
@@ -417,7 +417,7 @@ The repository/media store is accessible through the \ac{REST} interfaces descri
 
 \item {Distribution:} While replication provide basic protection against single-instance failure, when all of the members of a replication group are in a single facility, the replication is still susceptible to some classes of errors in that facility including power outages, networking distortions, and natural disasters. To protect against these classes of failures, the repository/media store component should be easy to distribute in a geographically distinct facility or data center.
 
-\item {Media Store:} In order to store or retrieve contents, a file server is needed. This file server can be either as a component within the repository itself or as a separated component. In order to ensure the correlation between the content stored in the media store and its metadata within the repository, the URI of the content in the media store is embedded in its metadata in the repository.
+\item {Media Store:} In order to store or retrieve contents, a file server is needed. This file server can be either as a component within the repository itself or as a separated component. In order to ensure the correlation between the content stored in the media store and its metadata within the repository, the \ac{URI} of the content in the media store is embedded in its metadata in the repository.
 \end{itemize}
  
 \subsection{Search Engine\label{sec:des_se_en}}
@@ -431,9 +431,9 @@ The main idea behind message broker is to avoid doing a resource-intensive task 
 
 
 \subsection{Content Adaptation\label{sec:des_con_ad}}
-The Content Adaptation component is a process, which listens for new tasks from the message broker. This component is responsible for transcoding or scaling videos. Furthermore it splits the transcoded/scaled videos into segments compatible to the Apple HLS. %Then the video chunks will be uploaded to the Content Distribution component. After that the metadata of the original video. 
+The content adaptation component is a process, which listens for new tasks from the message broker. This component is responsible for transcoding or scaling videos. Furthermore it splits the transcoded/scaled videos into segments compatible to the Apple \ac{HLS}. %Then the video chunks will be uploaded to the Content Distribution component. After that the metadata of the original video. 
 
-Figure \ref{fig:content_adaptation_overview} illustrates how this component works internally. As soon as it receives a message notification from the message broker component, which tells that a new video has been stored and it needs further processing i.e. transcoding or scaling, it fetches the video file from the media store and and then provides this file as an input for the media encoder. The media encoder transcodes and scales this video and returns a MPEG-2 transport stream which is used by the stream segmenter as an input, The stream segmenter brokes this stream into segments and saves these segments as a series of one or more .ts media files. The segmenter also creates an index file which contains a list of media files and metadata. This index file is saved as an .M3U8 playlist. The index file along with the .ts media files are uploaded then to the proper path in the Content Distribution component.
+Figure \ref{fig:content_adaptation_overview} illustrates how this component works internally. As soon as it receives a message notification from the message broker component, which tells that a new video has been stored and it needs further processing i.e. transcoding or scaling, it fetches the video file from the media store and and then provides this file as an input for the media encoder. The media encoder transcodes and scales this video and returns a MPEG-2 transport stream which is used by the stream segmenter as an input, The stream segmenter brakes this stream into segments and saves these segments as a series of one or more .ts media files. The segmenter also creates an index file which contains a list of media files and metadata. This index file is saved as an .M3U8 playlist. The index file along with the .ts media files are uploaded then to the proper path in the content distribution component.
 
 %original on http://developer.apple.com/library/ios/#documentation/networkinginternet/conceptual/streamingmediaguide/HTTPStreamingArchitecture/HTTPStreamingArchitecture.html
 
@@ -447,7 +447,7 @@ Figure \ref{fig:content_adaptation_overview} illustrates how this component work
 \pagebreak
 
 \subsection{Content Distribution\label{sec:des_cdn}}
-The Content Distribution component consists internally of two components. The first one is an \ac{HTTP} server to serve contents to consumers, see figure \ref{fig:content_distribution}. The second one is a worker process, which listens for messages notifications from the message broker component. These messages tells when a new app is created or deleted. In case of a new created app, the worker process creates a new dictionary within the \ac{HTTP} server and secures it with a secret word to grants access only to this app. And in case of a deleted app, the worker process deletes the dictionary for this app along with its entire contents.
+The content distribution component consists internally of two components. The first one is an \ac{HTTP} server to serve contents to consumers, see figure \ref{fig:content_distribution}. The second one is a worker process, which listens for messages notifications from the message broker component. These messages tells when a new app is created or deleted. In case of a new created app, the worker process creates a new dictionary within the \ac{HTTP} server and secures it with a secret word to grants access only to this app. And in case of a deleted app, the worker process deletes the dictionary for this app along with its entire contents.
 
 \begin{figure}[htb]
   \centering

@@ -1,23 +1,23 @@
 \select@language {english}
 \select@language {english}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Overall Architecture\relax }}{3}{figure.caption.4}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Inputs \& Outputs\relax }}{5}{figure.caption.5}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Overall Architecture\relax }}{3}{figure.caption.7}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Inputs \& Outputs\relax }}{5}{figure.caption.11}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces SOAP Envelop\relax }}{12}{figure.caption.8}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces CouchDB replication\relax }}{20}{figure.caption.32}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces MongoDB replication\relax }}{21}{figure.caption.34}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Embedded vs. Server deployment of Neo4J\relax }}{24}{figure.caption.40}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces RabbitMQ Components\relax }}{25}{figure.caption.42}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Direct exchange routing\relax }}{26}{figure.caption.43}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Fanout exchange routing\relax }}{27}{figure.caption.44}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Overview of the Spring Framework\relax }}{29}{figure.caption.49}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \ac {SOAP} Envelop\relax }}{12}{figure.caption.22}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces CouchDB replication\relax }}{20}{figure.caption.56}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces MongoDB replication\relax }}{21}{figure.caption.59}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Embedded vs. Server deployment of Neo4J\relax }}{24}{figure.caption.65}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces RabbitMQ Components\relax }}{25}{figure.caption.68}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Direct exchange routing\relax }}{26}{figure.caption.69}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Fanout exchange routing\relax }}{27}{figure.caption.70}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Overview of the Spring Framework\relax }}{29}{figure.caption.79}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Architecture Overview\relax }}{35}{figure.caption.58}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Content Adaptation Overview\relax }}{46}{figure.caption.91}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Content Distribution\relax }}{47}{figure.caption.92}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Architecture Overview\relax }}{35}{figure.caption.89}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Content Adaptation Overview\relax }}{46}{figure.caption.124}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Content Distribution\relax }}{47}{figure.caption.125}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Eclipse Project Structure\relax }}{52}{figure.caption.105}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Eclipse Project Structure\relax }}{52}{figure.caption.139}
 \addvspace {10\p@ }
 \addvspace {10\p@ }

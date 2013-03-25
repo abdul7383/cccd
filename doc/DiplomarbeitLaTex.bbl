@@ -19,6 +19,12 @@ Introduction to bson, 2013.
 \newblock URL \url{http://bsonspec.org/}.
 \newblock [Online; accessed 13.03.2013].
 
+\bibitem[hlv(2013)]{hlvssad}
+Http live video stream segmenter and distributor, 2013.
+\newblock URL
+  \url{https://github.com/carsonmcdonald/HTTP-Live-Video-Stream-Segmenter-and-Distributor}.
+\newblock [Online; accessed 18.01.2013].
+
 \bibitem[spr(2013)]{spring-framework-reference}
 Spring framework reference, 2013.
 \newblock URL
@@ -31,22 +37,15 @@ Welcome to solr, 2013.
   \url{https://svn.apache.org/repos/asf/lucene/dev/branches/lucene3622/solr/site/index.pdf}.
 \newblock [Online; accessed 13.01.2013].
 
-\bibitem[10gen(2013{\natexlab{a}})]{MongoDb:installation}
+\bibitem[10gen(2013{\natexlab{a}})]{mongodb_intro}
 Inc. 10gen.
-\newblock Install mongodb on ubuntu, 2013{\natexlab{a}}.
-\newblock URL
-  \url{http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/}.
-\newblock [Online; accessed 12.03.2013].
-
-\bibitem[10gen(2013{\natexlab{b}})]{mongodb_intro}
-Inc. 10gen.
-\newblock Introduction to mongodb, 2013{\natexlab{b}}.
+\newblock Introduction to mongodb, 2013{\natexlab{a}}.
 \newblock URL \url{http://www.mongodb.org/about/introduction/}.
 \newblock [Online; accessed 13.03.2013].
 
-\bibitem[10gen(2013{\natexlab{c}})]{mongodb_replication}
+\bibitem[10gen(2013{\natexlab{b}})]{mongodb_replication}
 Inc. 10gen.
-\newblock Introduction to mongodb, 2013{\natexlab{c}}.
+\newblock Introduction to mongodb, 2013{\natexlab{b}}.
 \newblock URL
   \url{http://wiki.10gen.com/pages/viewpage.action?pageId=21270635}.
 \newblock [Online; accessed 13.03.2013].
@@ -184,6 +183,13 @@ John Mccarthy.
   Kaumann.
 \newblock URL \url{http://dblp.uni-trier.de/rec/bibtex/conf/ijcai/McCarthy93}.
 
+\bibitem[pSkills consortium(2012)]{pSkills:Object-oriented_modeling}
+pSkills consortium.
+\newblock Object-oriented modeling, 2012.
+\newblock URL
+  \url{http://pskills.ced.tuc.gr/Restricted/WP3/Scripts_for_training_material_development/17._Modelling_and_Data_Management/02._Object-oriented_modelling}.
+\newblock [Online; accessed 01.02.2013].
+
 \bibitem[Riva(2004)]{Riva04}
 Oriana Riva.
 \newblock A conceptual model for structuring context-aware applications.
@@ -244,12 +250,6 @@ Roy Want, Andy Hopper, Veronica Falcao, and Jonathan Gibbons.
   1992.
 \newblock URL
   \url{http://dblp.uni-trier.de/db/journals/tois/tois10.html#WantHFG92}.
-
-\bibitem[Wikipedia(2012)]{wiki:Object-oriented_modeling}
-Wikipedia.
-\newblock Object-oriented modeling, 2012.
-\newblock URL \url{http://en.wikipedia.org/wiki/Object-oriented_modeling}.
-\newblock [Online; accessed 01.02.2013].
 
 \bibitem[Youtube()]{youtube1}
 Youtube.
