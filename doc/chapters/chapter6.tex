@@ -77,7 +77,7 @@ sudo apt-get install openjdk-7-jdk
 To start the Tomcat server from any location in Linux one also needs to add the \textit{bin} directory to the Linux PATH. The following examples updates the PATH variable for Maven and Tomcat assuming that the home directory of the user is \textit{ubuntu} and both Maven and Tomcat have been extracted to the home directory:
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
-export PATH=/home/ubuntu/apache-maven-3.0.5/bin:/home/ubuntu/apache-tomcat-7.0.37/bin:\$PATH
+export PATH=/home/ubuntu/apache-maven-3.0.5/bin:/home/ubuntu/apache-tomcat-7.0.37/bin:$PATH
 \end{minted}
 \end{code}
 
@@ -115,7 +115,7 @@ mvn exec:java -Dexec.mainClass="de.fhg.fokus.ngni.cccd.services.AddAdmin"
 \end{minted}
 \end{code}
 
-This command will add the admin user information in a new collection called \textit{user} within a new database called \textit{users}.  After having at least one admin then the RESTful framework user management Interface \textit{/users} described in \ref{\label{sec:des_rest_api}} can be used for adding new admins or users.
+This command will add the admin user information in a new collection called \textit{user} within a new database called \textit{users}.  After having at least one admin then the RESTful framework user management Interface \textit{/users} described in \ref{sec:des_rest_api} can be used for adding new admins or users.
 
 \subsection{Repository/Media Store\label{sec:eval_te_en_mongo}}
 The installation of MongoDB on Ubuntu is described in listing \ref{lst:mongdb_installation}, see this reference for more details \cite{MongoDb:installation}. Thereby the second command must be run in one line.  
@@ -160,6 +160,145 @@ bin/elasticsearch -f  -Xmx4g -Xms4g -Des.index.storage.type=memory
 
 Further configuration parameters can be seen in the setup documentation of Elasticsearch here \cite{elastic_setup}.
 
+\subsection{Message Broker\label{sec:eval_te_mb}}
+The installation of the last release of RabbitMQ is shown in the following steps:
+
+\begin{itemize}
+
+\item One needs to add the following line to the file \textit{/etc/apt/sources.list}:
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+deb http://www.rabbitmq.com/debian/ testing main
+\end{minted}
+\end{code}
+
+\item To avoid warnings about unsigned packages, add the public key of RabbitMQ to the trusted key list using apt-key:
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+wget http://www.rabbitmq.com/rabbitmq-signing-key-public.asc
+sudo apt-key add rabbitmq-signing-key-public.asc
+\end{minted}
+\end{code}
+
+\item And then install the package as usual, for instance:
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+sudo apt-get update
+sudo apt-get install rabbitmq-server
+\end{minted}
+\end{code}
+
+\end{itemize} 
+
+To start or stop the server or check its status, etc., one can use the script rabbitmqctl as an administrator. 
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+sudo rabbitmqctl status
+sudo rabbitmqctl stop
+sudo rabbitmqctl start
+\end{minted}
+\end{code}
+
+\subsection{Content Adaptation\label{sec:eval_te_mb}}
+As described in \ref{}, this components 
+
+The following steps are for installing FFmpeg along with some needed libraries. Some of the libraries are in the Ubuntu multiverse repository. So, one need to edit \textit{/etc/apt/sources.list} to include the multiverse repository as well.
+
+\begin{itemize}
+\item First of all, the following command install some of the dependencies needed by FFmpeg
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+sudo apt-get update
+sudo apt-get install autoconf automake build-essential checkinstall \
+  git libass-dev libfaac-dev libgpac-dev libmp3lame-dev \
+  libopencore-amrnb-dev libopencore-amrwb-dev librtmp-dev libspeex-dev \
+  libtheora-dev libtool libvorbis-dev pkg-config texi2html zlib1g-dev
+\end{minted}
+\end{code}
+
+\item{\textbf{Yasm}:} Yasm is an assembler and is recommended for x264 and FFmpeg
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd
+wget http://www.tortall.net/projects/yasm/releases/yasm-1.2.0.tar.gz
+tar xzvf yasm-1.2.0.tar.gz
+cd yasm-1.2.0
+./configure
+make
+sudo checkinstall --pkgname=yasm --pkgversion="1.2.0" \
+  --backup=no --deldoc=yes --fstrans=no --default
+\end{minted}
+\end{code}
+
+\item{\textbf{x264}:} H.264 video encoder. The following commands will get the current source files, compile, and install x264.
+ 
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd
+git clone --depth 1 git://git.videolan.org/x264.git
+cd x264
+./configure --enable-shared
+make
+sudo checkinstall --pkgname=x264 \
+  --pkgversion="3:$(./version.sh | awk -F'[" ]' '/POINT/{print $4"+git"$5}')" \
+  --backup=no --deldoc=yes --fstrans=no --default
+\end{minted}
+\end{code}
+
+\item{\textbf{fdk-aac:}} AAC audio encoder.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd
+git clone --depth 1 git://github.com/mstorsjo/fdk-aac.git
+cd fdk-aac
+autoreconf -fiv
+./configure --disable-shared
+make
+sudo checkinstall --pkgname=fdk-aac --pkgversion="$(date +%Y%m%d%H%M)-git" \
+ --backup=no --deldoc=yes --fstrans=no --default
+\end{minted}
+\end{code}
+
+\item{\textbf{libvpx:}} VP8 video encoder and decoder.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd
+git clone --depth 1 http://git.chromium.org/webm/libvpx.git
+cd libvpx
+./configure --disable-examples --disable-unit-tests
+make
+sudo checkinstall --pkgname=libvpx --pkgversion="1:$(date +%Y%m%d%H%M)-git" \
+  --backup=no --deldoc=yes --fstrans=no --default  
+\end{minted}
+\end{code}
+
+\item{\textbf{FFmpeg:}}
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd
+wget http://ffmpeg.org/releases/ffmpeg-0.9.2.tar.bz2
+tar -xvvf ffmpeg-0.9.2.tar.bz2 
+cd ffmpeg-0.9.2
+
+./configure --enable-gpl --enable-libass --enable-libfaac \
+  --enable-libmp3lame --enable-libopencore-amrnb --enable-libopencore-amrwb \
+  --enable-libspeex --enable-librtmp --enable-libtheora --enable-libvorbis \
+  --enable-libvpx --enable-libx264 --enable-nonfree --enable-version3
+make
+sudo checkinstall --pkgname=ffmpeg --pkgversion="0.9.2" \
+  --backup=no --deldoc=yes --fstrans=no --default
+
+\end{minted}
+\end{code}
+
+\end{itemize}
 \section{Test Scenarios\label{sec:eval__te_sc}}
 	\subsection{Usability\label{seq:eval_usab}}
 	
