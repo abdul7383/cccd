@@ -30,37 +30,136 @@ Content Distribution & $\begin{array}{l} \textbf{public:107.23.180.173} \\ \text
 \label{tbl:ap_addresses}
 \end{table} 
 
-The source code along with the documentation of the entire framework can be obtained from the following GitHub link: \url{https://github.com/abdul7383/cccd} .
+The source code along with the documentation of the entire framework can be obtained from the following GitHub link: \url{https://github.com/abdul7383/cccd}.
 
 \subsection{App Management\label{sec:eval_te_en_app}}
 The source could of the app management component can be obtained with following command:
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+git clone git://github.com/abdul7383/cccd.git
+\end{minted}
+\end{code}
 
-In order to deploy the app management component, one needs first to install and configure the following softwares:
+In order to deploy the app management component, one needs first to install and configure the following software:
 
 \begin{itemize}
-\item{\ac{JDK} 7:} Installing  \ac{JDK} 7 on Ubuntu is just easy as typing the command in listing \ref{lst:jdk_installation}.
+\item{\textbf{\ac{JDK} 7:}} Installing  \ac{JDK} 7 on Ubuntu is just easy as typing the following command.% in listing \ref{lst:jdk_installation}.
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 sudo apt-get install openjdk-7-jdk
 \end{minted}
-\caption{Installing \ac{JDK} 7 on Ubuntu}
-\label{lst:jdk_installation}
+%\caption{Installing \ac{JDK} 7 on Ubuntu}
+%\label{lst:jdk_installation}
 \end{code}
-\end{itemize}
-bla bla
 
-\subsection{App Managment\label{sec:eval_te_en_mongo}}
-%The installation of MongoDB on Ubuntu is described in listing \ref{lst:mongdb_installation}, see this reference for more details \cite{MongoDb:installation}.
-%\begin{code}
-%\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
-%sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-%sudo echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" >> /etc/apt/sources.list.d/10gen.list
-%sudo apt-get update
-%sudo apt-get install mongodb-10gen
-%\end{minted}
-%\caption{Installing MongoDB on Ubuntu}
-%\label{lst:mongdb_installation}
-%\end{code}
+\item{\textbf{Maven 3:}}  After downloading and extracting Maven, one needs to add the \textit{bin} directory of Maven to the Linux PATH variable. Further more one need to add the following tag within the \textit{servers} tag to the setting file of Maven \textit{apache-maven-3.0.5/conf/settings.xml}.
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
+<server>
+	<id>tomcat7</id>
+	<username>tomcat</username>
+	<password>tomcat</password>
+</server>
+\end{minted}
+\end{code}
+
+\item{\textbf{Tomcat 7:}} After downloading and extracting the Apache Tomcat, one need to modify the file \textit{apache-tomcat-7.0.37/conf/tomcat-users.xml} as follow in order to enable Maven to directly deploy the project into it. 
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
+<?xml version='1.0' encoding='utf-8'?>
+<tomcat-users>
+	<role rolename="manager-script"/>
+	<user username="tomcat" password="tomcat" roles="manager-script"/>
+</tomcat-users>
+\end{minted}
+\end{code}
+
+To start the Tomcat server from any location in Linux one also needs to add the \textit{bin} directory to the Linux PATH. The following examples updates the PATH variable for Maven and Tomcat assuming that the home directory of the user is \textit{ubuntu} and both Maven and Tomcat have been extracted to the home directory:
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+export PATH=/home/ubuntu/apache-maven-3.0.5/bin:/home/ubuntu/apache-tomcat-7.0.37/bin:\$PATH
+\end{minted}
+\end{code}
+
+This sets the PATH variable only for the current Linux session but in order to have this configuration valid also for each new Linux sessions, one need to add the export line above to the end of the file \textit{/home/ubuntu/.bashrc} .
+
+Furthermore the SSL support of Tomcat needs to be enabled and this is shown in details in the official documentation of Apache Tomcat here \cite{tomcat_ssl}.
+
+\end{itemize}
+
+After having all installed and configured as described above, the Tomcat server can be started with the following command:
+\textit{ubuntu} and both Maven and Tomcat have been extracted to the home directory:
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+catalina.sh start
+\end{minted}
+\end{code} 
+
+All debug messages of the Tomcat server can be seen in the log file \textit{apache-tomcat-7.0.37/logs/catalina.out}. 
+
+Before deploying the app management component, one needs first to install and start all other components and then to update the IP addresses of these components in the \textit{pom.xml} file of the project as described in \ref{sec:impl_repo}, \ref{sec:impl_se_en} and \ref{sec:impl_mb}. The following command will then deploy the app management component to the Tomcat server:
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd cccd/cccdAppManagement/
+mvn tomcat:deploy
+\end{minted}
+\end{code}
+
+It will take sometime for the first run as Maven will download and compile all needed libraries and classes.
+
+At this point there is no user or admin for the framework and to add the first admin to the framework, one need to run the following Maven command:
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+mvn exec:java -Dexec.mainClass="de.fhg.fokus.ngni.cccd.services.AddAdmin"
+\end{minted}
+\end{code}
+
+This command will add the admin user information in a new collection called \textit{user} within a new database called \textit{users}.  After having at least one admin then the RESTful framework user management Interface \textit{/users} described in \ref{\label{sec:des_rest_api}} can be used for adding new admins or users.
+
+\subsection{Repository/Media Store\label{sec:eval_te_en_mongo}}
+The installation of MongoDB on Ubuntu is described in listing \ref{lst:mongdb_installation}, see this reference for more details \cite{MongoDb:installation}. Thereby the second command must be run in one line.  
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
+echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart 
+	dist 10gen" | sudo tee /etc/apt/sources.list.d/10gen.list
+sudo apt-get update
+sudo apt-get install mongodb-10gen
+\end{minted}
+\caption{Installing MongoDB on Ubuntu}
+\label{lst:mongdb_installation}
+\end{code}
+
+Deploying a replication set of three MongoDB instances in order to provide a sufficient capacity for many distributed read operations can be seen in the official documentation of MongoDB here \cite{mongodb_replica_set}.
+
+%In order to add the first admin for the framework, one need to create a database called \textit{users} and then create a new collection called \textit{user}
+\subsection{Search Engine\label{sec:eval_te_se}}
+After downloading  and extracting the version 0.20.4 of Elasticsearch, it can be started using:
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+bin/elasticsearch
+\end{minted}
+\end{code}
+
+ElasticSearch is built using Java, and requires at least Java 6 in order to run. Therefore one needs to install the \ac{JDK} as described in subsection \ref{sec:eval_te_en_app}.
+
+Under Unix system, the command will start the process in the background. To run it in the foreground, one need to add the -f switch to it:
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+bin/elasticsearch -f
+\end{minted}
+\end{code}
+
+The most important setting for the script is the -Xmx to control the maximum allowed memory for the process, and -Xms to control the minimum allocated memory for the process. The following command starts Elasticsearch in the foreground and sets the max/min memory to 4GB and stores the index in the memory. 
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+bin/elasticsearch -f  -Xmx4g -Xms4g -Des.index.storage.type=memory
+\end{minted}
+\end{code}
+
+Further configuration parameters can be seen in the setup documentation of Elasticsearch here \cite{elastic_setup}.
+
 \section{Test Scenarios\label{sec:eval__te_sc}}
 	\subsection{Usability\label{seq:eval_usab}}
 	

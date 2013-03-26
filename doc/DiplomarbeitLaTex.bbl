@@ -1,4 +1,4 @@
-\begin{thebibliography}{37}
+\begin{thebibliography}{41}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -31,21 +31,40 @@ Spring framework reference, 2013.
   \url{http://static.springsource.org/spring/docs/3.2.x/spring-framework-reference/pdf/spring-framework-reference.pdf}.
 \newblock [Online; accessed 18.01.2013].
 
+\bibitem[tom(2013)]{tomcat_ssl}
+Apache tomcat ssl configuration how-to, 2013.
+\newblock URL \url{http://tomcat.apache.org/tomcat-7.0-doc/ssl-howto.html}.
+\newblock [Online; accessed 20.03.2013].
+
 \bibitem[wel(2013)]{welcome_to_solr}
 Welcome to solr, 2013.
 \newblock URL
   \url{https://svn.apache.org/repos/asf/lucene/dev/branches/lucene3622/solr/site/index.pdf}.
 \newblock [Online; accessed 13.01.2013].
 
-\bibitem[10gen(2013{\natexlab{a}})]{mongodb_intro}
+\bibitem[10gen(2013{\natexlab{a}})]{MongoDb:installation}
 Inc. 10gen.
-\newblock Introduction to mongodb, 2013{\natexlab{a}}.
+\newblock Install mongodb on ubuntu, 2013{\natexlab{a}}.
+\newblock URL
+  \url{http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/}.
+\newblock [Online; accessed 12.03.2013].
+
+\bibitem[10gen(2013{\natexlab{b}})]{mongodb_intro}
+Inc. 10gen.
+\newblock Introduction to mongodb, 2013{\natexlab{b}}.
 \newblock URL \url{http://www.mongodb.org/about/introduction/}.
 \newblock [Online; accessed 13.03.2013].
 
-\bibitem[10gen(2013{\natexlab{b}})]{mongodb_replication}
+\bibitem[10gen(2013{\natexlab{c}})]{mongodb_replica_set}
 Inc. 10gen.
-\newblock Introduction to mongodb, 2013{\natexlab{b}}.
+\newblock Deploy a replica set, 2013{\natexlab{c}}.
+\newblock URL
+  \url{http://docs.mongodb.org/manual/tutorial/deploy-replica-set/}.
+\newblock [Online; accessed 15.03.2013].
+
+\bibitem[10gen(2013{\natexlab{d}})]{mongodb_replication}
+Inc. 10gen.
+\newblock Mongodb replication, 2013{\natexlab{d}}.
 \newblock URL
   \url{http://wiki.10gen.com/pages/viewpage.action?pageId=21270635}.
 \newblock [Online; accessed 13.03.2013].
@@ -166,6 +185,13 @@ Robin Hecht and Stefan Jablonski.
 \newblock ISBN 978-1-4577-1635-5.
 \newblock \doi{10.1109/CSC.2011.6138544}.
 \newblock URL \url{http://dx.doi.org/10.1109/CSC.2011.6138544}.
+
+\bibitem[Inc.(2013)]{elastic_setup}
+Elasticsearch Inc.
+\newblock Installation of elasticsearch, 2013.
+\newblock URL
+  \url{http://www.elasticsearch.org/guide/reference/setup/installation.html}.
+\newblock [Online; accessed 20.03.2013].
 
 \bibitem[Lakshman and Malik(2010)]{Lakshman:2010}
 Avinash Lakshman and Prashant Malik.

@@ -232,7 +232,7 @@ By default the read and writes operations are done in the primary node but in or
 
 The installation and configuration of MongoDB on Ubuntu is described in section \ref{sec:eval_te_en_mongo}.
 
-\subsection{Search Engine\label{sec:des_se_en}}
+\subsection{Search Engine\label{sec:impl_se_en}}
 As an open source solution for the search engine, the Elasticsearch project is used. Listing \ref{lst:elasticsearch_driver} shows how to configure the Java driver in the configuration file \textit{cccd-config.xml}.
 
 \begin{code}
@@ -256,9 +256,9 @@ As an open source solution for the search engine, the Elasticsearch project is u
 \label{lst:elasticsearch_driver}
 \end{code}
 
-The installation and configuration of Elasticsearch on Ubuntu is described in section \ref{sec:eval_te_en_elasic}.
+The installation and configuration of Elasticsearch on Ubuntu is described in section \ref{sec:eval_te_se}.
 
-\subsection{Message Broker\label{sec:des_wq}}
+\subsection{Message Broker\label{sec:impl_mb}}
 The open source project RabittMQ is used as a message broker. Listing \ref{st:rabbitmq_driver}  shows how to configure the framework for using RabittMQ as a message broker. The default username/password for RabbitMQ are \textit{guest}/\textit{guest}.
 
 \begin{code}

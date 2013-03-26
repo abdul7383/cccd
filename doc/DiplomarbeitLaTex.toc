@@ -109,9 +109,10 @@
 \contentsline {chapter}{\numberline {6}Evaluation}{61}{chapter.6}
 \contentsline {section}{\numberline {6.1}Test Environment}{61}{section.6.1}
 \contentsline {subsection}{\numberline {6.1.1}App Management}{62}{subsection.6.1.1}
-\contentsline {subsection}{\numberline {6.1.2}App Managment}{62}{subsection.6.1.2}
-\contentsline {section}{\numberline {6.2}Test Scenarios}{62}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Usability}{62}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Performance}{62}{subsection.6.2.2}
-\contentsline {chapter}{\numberline {7}Conclusion}{63}{chapter.7}
-\contentsline {chapter}{Bibliography}{65}{chapter*.160}
+\contentsline {subsection}{\numberline {6.1.2}Repository/Media Store}{64}{subsection.6.1.2}
+\contentsline {subsection}{\numberline {6.1.3}Search Engine}{64}{subsection.6.1.3}
+\contentsline {section}{\numberline {6.2}Test Scenarios}{65}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Usability}{65}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Performance}{65}{subsection.6.2.2}
+\contentsline {chapter}{\numberline {7}Conclusion}{67}{chapter.7}
+\contentsline {chapter}{Bibliography}{69}{chapter*.172}

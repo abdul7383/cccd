@@ -13,49 +13,50 @@ Warning--to sort, need author or key in amqp-concepts
 Warning--to sort, need author or key in welcome_to_solr
 Warning--to sort, need author or key in spring-framework-reference
 Warning--to sort, need author or key in hlvssad
+Warning--to sort, need author or key in tomcat_ssl
 Warning--empty year in W3C
 Warning--empty year in cisco1
 Warning--empty year in ec1
 Warning--empty year in youtube1
-You've used 37 entries,
+You've used 41 entries,
             2773 wiz_defined-function locations,
-            837 strings with 11690 characters,
-and the built_in function-call counts, 14941 in all, are:
-= -- 1426
-> -- 592
-< -- 33
-+ -- 215
-- -- 177
-* -- 1027
-:= -- 2156
-add.period$ -- 150
-call.type$ -- 37
-change.case$ -- 166
-chr.to.int$ -- 36
-cite$ -- 90
-duplicate$ -- 756
-empty$ -- 1411
-format.name$ -- 224
-if$ -- 3304
-int.to.chr$ -- 2
+            853 strings with 12197 characters,
+and the built_in function-call counts, 16113 in all, are:
+= -- 1536
+> -- 622
+< -- 36
++ -- 230
+- -- 186
+* -- 1092
+:= -- 2317
+add.period$ -- 165
+call.type$ -- 41
+change.case$ -- 181
+chr.to.int$ -- 38
+cite$ -- 100
+duplicate$ -- 816
+empty$ -- 1542
+format.name$ -- 236
+if$ -- 3564
+int.to.chr$ -- 4
 int.to.str$ -- 1
 missing$ -- 21
-newline$ -- 226
-num.names$ -- 126
-pop$ -- 426
+newline$ -- 249
+num.names$ -- 138
+pop$ -- 475
 preamble$ -- 1
-purify$ -- 132
+purify$ -- 143
 quote$ -- 0
-skip$ -- 593
+skip$ -- 643
 stack$ -- 0
-substring$ -- 416
-swap$ -- 116
+substring$ -- 425
+swap$ -- 122
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 397
-warning$ -- 10
-while$ -- 123
+type$ -- 441
+warning$ -- 11
+while$ -- 132
 width$ -- 0
-write$ -- 543
-(There were 12 warnings)
+write$ -- 597
+(There were 13 warnings)
