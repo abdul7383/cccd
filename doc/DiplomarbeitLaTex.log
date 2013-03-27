@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  26 MAR 2013 20:07
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  27 MAR 2013 21:49
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -2020,15 +2020,12 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
-
-
-LaTeX Warning: Reference `' on page 65 undefined on input line 206.
-
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
 runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
 ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
 pyg DiplomarbeitLaTex.pyg)...executed.
+
 
 (./DiplomarbeitLaTex.out.pyg)
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
@@ -2092,12 +2089,61 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
-)
-(./chapters/chapter7.tex [67] [68
+\openout3 = `DiplomarbeitLaTex.pyg'.
 
-]
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+
+
+LaTeX Warning: Reference `' on page 67 undefined on input line 334.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+) (./chapters/chapter7.tex [67] [68]
 Chapter 7.
-) [69] [70
+) [69
+
+] [70
 
 
 ] (./DiplomarbeitLaTex.bbl
@@ -2199,9 +2245,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 82.
  (./DiplomarbeitLaTex.aux (./misc/titlepage.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 82.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 82.
-Package rerunfilecheck Info: File `DiplomarbeitLaTex.out' has not changed.
-(rerunfilecheck)             Checksum: 8D1E90339C7037D6E6D2AC27825E7024;3640.
 
+
+Package rerunfilecheck Warning: File `DiplomarbeitLaTex.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `DiplomarbeitLaTex.out':
+(rerunfilecheck)             Before: 8D1E90339C7037D6E6D2AC27825E7024;3640
+(rerunfilecheck)             After:  FDBDD915AE8DBB3A0C0523747B4372A9;3640.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -2214,27 +2266,30 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 82.
  ) 
 Here is how much of TeX's memory you used:
- 13334 strings out of 493488
- 202973 string characters out of 3141326
+ 13347 strings out of 493488
+ 203269 string characters out of 3141326
  342184 words of memory out of 3000000
  15861 multiletter control sequences out of 15000+200000
  10274 words of font info for 37 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
- 50i,17n,54p,1584b,750s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
-/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on DiplomarbeitLaTex.pdf (83 pages, 1623612 bytes).
+ 50i,17n,54p,1584b,748s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{chapter*.182} has been referenced but does not ex
+ist, replaced by a fixed one
+
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
+sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/l
+ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
+cal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on DiplomarbeitLaTex.pdf (83 pages, 1625506 bytes).
 PDF statistics:
- 1523 PDF objects out of 1728 (max. 8388607)
- 1392 compressed objects within 14 object streams
- 401 named destinations out of 1000 (max. 500000)
+ 1530 PDF objects out of 1728 (max. 8388607)
+ 1399 compressed objects within 14 object streams
+ 406 named destinations out of 1000 (max. 500000)
  532 words of extra memory for PDF output out of 10000 (max. 10000000)
 
