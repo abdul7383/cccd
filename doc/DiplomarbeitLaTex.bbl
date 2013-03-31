@@ -1,4 +1,4 @@
-\begin{thebibliography}{41}
+\begin{thebibliography}{43}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -18,6 +18,11 @@ Amqp concepts, 2013.
 Introduction to bson, 2013.
 \newblock URL \url{http://bsonspec.org/}.
 \newblock [Online; accessed 13.03.2013].
+
+\bibitem[ffm(2013)]{ffmpeg_compile}
+Compile ffmpeg on ubuntu, 2013.
+\newblock URL \url{https://ffmpeg.org/trac/ffmpeg/wiki/UbuntuCompilationGuide}.
+\newblock [Online; accessed 20.03.2013].
 
 \bibitem[hlv(2013)]{hlvssad}
 Http live video stream segmenter and distributor, 2013.
@@ -186,9 +191,15 @@ Robin Hecht and Stefan Jablonski.
 \newblock \doi{10.1109/CSC.2011.6138544}.
 \newblock URL \url{http://dx.doi.org/10.1109/CSC.2011.6138544}.
 
-\bibitem[Inc.(2013)]{elastic_setup}
+\bibitem[Inc.(2013{\natexlab{a}})]{elastic_mapping}
 Elasticsearch Inc.
-\newblock Installation of elasticsearch, 2013.
+\newblock Elasticsearch mapping, 2013{\natexlab{a}}.
+\newblock URL \url{http://www.elasticsearch.org/guide/reference/mapping/}.
+\newblock [Online; accessed 20.01.2013].
+
+\bibitem[Inc.(2013{\natexlab{b}})]{elastic_setup}
+Elasticsearch Inc.
+\newblock Installation of elasticsearch, 2013{\natexlab{b}}.
 \newblock URL
   \url{http://www.elasticsearch.org/guide/reference/setup/installation.html}.
 \newblock [Online; accessed 20.03.2013].

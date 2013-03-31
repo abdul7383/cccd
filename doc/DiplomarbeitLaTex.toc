@@ -49,7 +49,7 @@
 \contentsline {paragraph}{Mobile capturing of live event}{31}{section*.80}
 \contentsline {paragraph}{Restaurant guide}{31}{section*.81}
 \contentsline {section}{\numberline {3.2}Functional requirements}{32}{section.3.2}
-\contentsline {paragraph}{R1 User Management}{32}{section*.82}
+\contentsline {paragraph}{User Management}{32}{section*.82}
 \contentsline {paragraph}{Applications Management}{32}{section*.83}
 \contentsline {paragraph}{Content \& Context Data Store}{32}{section*.84}
 \contentsline {paragraph}{Content Discovery}{32}{section*.85}
@@ -113,8 +113,9 @@
 \contentsline {subsection}{\numberline {6.1.3}Search Engine}{64}{subsection.6.1.3}
 \contentsline {subsection}{\numberline {6.1.4}Message Broker}{65}{subsection.6.1.4}
 \contentsline {subsection}{\numberline {6.1.5}Content Adaptation}{65}{subsection.6.1.5}
-\contentsline {section}{\numberline {6.2}Test Scenarios}{68}{section.6.2}
-\contentsline {subsection}{\numberline {6.2.1}Usability}{68}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Performance}{68}{subsection.6.2.2}
-\contentsline {chapter}{\numberline {7}Conclusion}{69}{chapter.7}
-\contentsline {chapter}{Bibliography}{71}{chapter*.186}
+\contentsline {subsection}{\numberline {6.1.6}Content Distribution}{68}{subsection.6.1.6}
+\contentsline {section}{\numberline {6.2}Test Scenarios}{69}{section.6.2}
+\contentsline {subsection}{\numberline {6.2.1}Usability}{69}{subsection.6.2.1}
+\contentsline {subsection}{\numberline {6.2.2}Performance}{74}{subsection.6.2.2}
+\contentsline {chapter}{\numberline {7}Conclusion}{75}{chapter.7}
+\contentsline {chapter}{Bibliography}{77}{chapter*.202}

@@ -20,6 +20,7 @@ from pymongo.objectid import ObjectId
 import gridfs
 
 conf_file="./cccdMM.conf"
+message_broker_ip="10.0.0.140"
 
 #Setting for the logger
 logger_setting={

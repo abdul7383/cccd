@@ -58,7 +58,7 @@ Following paragraphs describes the various interfaces needed in order to be able
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-POST https://user1:pass@107.23.121.185:8080/cccd/
+POST https://user1:pass@107.23.121.185:8443/cccd/
 /users?username=frank&password=pass2&firstname=frank&
 lastname=schulz&email=frank21@yahoo.de&role=1
 \end{minted}
@@ -68,7 +68,7 @@ lastname=schulz&email=frank21@yahoo.de&role=1
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-DELETE https://user1:pass@107.23.121.185:8080/cccd/
+DELETE https://user1:pass@107.23.121.185:8443/cccd/
 /users?username=frank
 \end{minted}
 \end{code}
@@ -79,17 +79,17 @@ DELETE https://user1:pass@107.23.121.185:8080/cccd/
 \paragraph{App interface \textit{/app/} :} This interface provides the four \ac{CRUD} operation, which described bellow, to allow developers to interact with there apps.
 
 \begin{itemize}
-\item \textbf{Create(POST):} This method \textit{createApp} creates a new app and it requires a name and global configuration parameters for the app. These configuration parameters can be for example a mandatory secret word to be later used for securing the contents which belongs to this app or a list of video formats, which will be then used to transcode each uploaded video within this app in order to support various devices i.e. iPad, iPhone, PC and etc. Listing \ref{lst:new_app_json} shows a \ac{JSON} example for creating a new app with \textbf{vod1} as a name.
+\item \textbf{Create(POST):} This method \textit{createApp} creates a new app and it requires a name and global configuration parameters for the app. These configuration parameters can be for example a mandatory secret word to be later used for securing the contents which belongs to this app or a list of encoding profiles, which will be then used to transcode each uploaded video within this app in order to support various devices i.e. iPad, iPhone, PC and etc. Listing \ref{lst:new_app_json} shows a \ac{JSON} example for creating a new app with \textbf{vod1} as a name.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-POST https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+POST https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 \end{minted}
 Payload:
 \begin{minted}[frame=single]{json}
 {
 "secret":"pass123",
-"video_formats":"cell_4x3_150k,wifi_4x3_640k,wifi_4x3_1240k"
+"profiles":["cell_4x3_150k","wifi_4x3_640k","wifi_4x3_1240k"]
 }
 \end{minted}
 Response:
@@ -107,7 +107,7 @@ Response:
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-GET https://user1:pass@107.23.121.185:8080/cccd/app
+GET https://user1:pass@107.23.121.185:8443/cccd/app
 \end{minted}
 Response:
 \begin{minted}[frame=single]{json}
@@ -125,7 +125,7 @@ The second method \textit{checkAppStatus} returns data that reflects the amount 
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-GET https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+GET https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 \end{minted}
 %Response:
 %\begin{minted}[frame=single]{json}
@@ -147,11 +147,11 @@ GET https://user1:pass@107.23.121.185:8080/cccd/app/vod1
 \paragraph{App User Management Interface /app/{appName}/users :} This interface provide the second level user management described in \ref{sec:des_user_man}. The users table is saved on the repository within the app. In order to add a user to an app with WRITE or only READ rights, he must be already registered in the framework as a valid user.
 
 \begin{itemize}
-\item \textbf{Create:} The method \textit{addUser} takes following parameters, \textit{appName}, \textit{username} which needs to be added to the app and which rights will it has \textit{readonly}. The \textit{username} and \textit{readonly} parameters are passed through \ac{URI} parameters, see following example.
+\item \textbf{Update:} The method \textit{addUser} takes following parameters, \textit{appName}, \textit{username} which needs to be added to the app and which rights will it has \textit{readonly}. The \textit{username} and \textit{readonly} parameters are passed through \ac{URI} parameters, see following example.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-POST https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+PUT https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /users?username=frank&readonly=true
 \end{minted}
 \end{code}
@@ -160,7 +160,7 @@ POST https://user1:pass@107.23.121.185:8080/cccd/app/vod1
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-DELETE https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+DELETE https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /users?username=frank
 \end{minted}
 \end{code}
@@ -178,7 +178,7 @@ DELETE https://user1:pass@107.23.121.185:8080/cccd/app/vod1
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-GET https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+GET https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /collections
 \end{minted}
 Response:
@@ -206,25 +206,23 @@ Mapping is the process of defining how a document should be mapped to the Search
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-GET https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+GET https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/mapping
 \end{minted}
 Payload:
 \begin{minted}[frame=single]{json}
 {
 "data": {
-	"sourceAsMap": {
-		"properties": {
-			"date": {
-				"type": "date",
-				"format": "dateOptionalTime"
-				},
-			"name": {
-				"type": "string"
+	"properties": {
+		"date": {
+			"type": "date",
+			"format": "dateOptionalTime"
 			},
-			"owner": {
-				"type": "string"
-			}
+		"name": {
+			"type": "string"
+		},
+		"owner": {
+			"type": "string"
 		}
 	}
 },
@@ -238,7 +236,7 @@ Payload:
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-PUT https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+PUT https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/mapping
 \end{minted}
 Payload:
@@ -263,7 +261,7 @@ Payload:
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-POST http://abdul:abdul@107.23.121.185:8080/cccd/app/vod1
+POST http://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/doc
 \end{minted}
 Payload:
@@ -281,7 +279,7 @@ Payload:
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-GET http://abdul:abdul@107.23.121.185:8080/cccd/app/vod1
+GET http://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/doc/512d3258e4b0acc3647858f2
 \end{minted}
 Response:
@@ -307,12 +305,12 @@ Response:
 \item \textbf{Update:} The method \textit{updateDocument} requires the \textit{appName}, \textit{collectionName}, \textit{objectID} and the \ac{JSON} formatted payload \textit{body}. The body contains  the fields, which needs to be updated within a document.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
-POST http://abdul:abdul@107.23.121.185:8080/cccd/app/vod1
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+POST http://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/doc/512d3258e4b0acc3647858f2
 \end{minted}
 Payload:
-\begin{minted}[frame=single]{json}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "name":"video in Potsdam"
 }
@@ -322,8 +320,8 @@ Payload:
 \item \textbf{Delete:} The method \textit{deleteDocument} deletes the specific document from the repository and from the search engine too.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
-DELETE http://abdul:abdul@107.23.121.185:8080/cccd/app/vod1
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+DELETE http://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/doc/512d3258e4b0acc3647858f2
 \end{minted}
 \end{code}
@@ -335,8 +333,8 @@ DELETE http://abdul:abdul@107.23.121.185:8080/cccd/app/vod1
 \item \textbf{Create:} The method \textit{createBucket} requires two parameters, namely the app name and the bucket name and it creates a bucket within an app. The following example is for creating a bucket name \textit{bucket1} within the app \textit{vod1}.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
-POST https://user1:pass@107.23.121.185:8080/cccd/app/vod1
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+POST https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /buckets/bucket1
 \end{minted}
 \end{code}
@@ -345,8 +343,8 @@ POST https://user1:pass@107.23.121.185:8080/cccd/app/vod1
 \item \textbf{Read:} Within buckets interface there are two methods, which can be consumed through a \ac{HTTP} GET. The first method \textit{listBuckets} lists all buckets which belong to a specific app. 
 
 \begin{code}
-\begin{minted}[frame=single]{console}
-GET https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+GET https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 /buckets
 \end{minted}
 \end{code}
@@ -354,8 +352,8 @@ GET https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
 The second method \textit{listAllFilesInBucket} takes as parameters the \textit{appName} and the \textit{bucketName} and lists all the files which are in bucket \textit{bucketName}.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
-GET https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+GET https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 /buckets/books
 \end{minted}
 \end{code}
@@ -364,8 +362,8 @@ GET https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
 \item \textbf{Delete:} The method \textit{deleteBucket} deletes a bucket along with its files from an app 
 
 \begin{code}
-\begin{minted}[frame=single]{console}
-DELETE https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+DELETE https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 /buckets/books
 \end{minted}
 \end{code}
@@ -380,16 +378,16 @@ DELETE https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
 \item {Read:} The method \textit{getFileFromBucket} allows to get a file from a bucket and it requires also the parameters \textit{appName}, \textit{bucketName} and \textit{filename}.  An example for downloading a file named \textit{test.pdf} from the bucket \textit{books} and app \textit{bookstore} is listed below.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
-GET https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+GET https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 /buckets/books/test.pdf
 \end{minted}
 \end{code}
 
 \item {Update:} The method \textit{updateFileInBucket} allows to update a file within a bucket and it requires also the parameters \textit{appName}, \textit{bucketName}, \textit{filename} and the file its self.  The update here is theoretically removing the old file and then adding the new one.
 \begin{code}
-\begin{minted}[frame=single]{console}
-PUT https://user1:pass@107.23.121.185:8080/cccd/app/bookstore
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+PUT https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 /buckets/books/test.pdf
 \end{minted}
 \end{code}

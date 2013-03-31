@@ -14,49 +14,50 @@ Warning--to sort, need author or key in welcome_to_solr
 Warning--to sort, need author or key in spring-framework-reference
 Warning--to sort, need author or key in hlvssad
 Warning--to sort, need author or key in tomcat_ssl
+Warning--to sort, need author or key in ffmpeg_compile
 Warning--empty year in W3C
 Warning--empty year in cisco1
 Warning--empty year in ec1
 Warning--empty year in youtube1
-You've used 41 entries,
+You've used 43 entries,
             2773 wiz_defined-function locations,
-            853 strings with 12197 characters,
-and the built_in function-call counts, 16113 in all, are:
-= -- 1536
-> -- 622
-< -- 36
-+ -- 230
-- -- 186
-* -- 1092
-:= -- 2317
-add.period$ -- 165
-call.type$ -- 41
-change.case$ -- 181
-chr.to.int$ -- 38
-cite$ -- 100
-duplicate$ -- 816
-empty$ -- 1542
-format.name$ -- 236
-if$ -- 3564
-int.to.chr$ -- 4
+            860 strings with 12411 characters,
+and the built_in function-call counts, 16673 in all, are:
+= -- 1590
+> -- 632
+< -- 37
++ -- 236
+- -- 189
+* -- 1127
+:= -- 2386
+add.period$ -- 172
+call.type$ -- 43
+change.case$ -- 188
+chr.to.int$ -- 39
+cite$ -- 106
+duplicate$ -- 846
+empty$ -- 1609
+format.name$ -- 240
+if$ -- 3692
+int.to.chr$ -- 5
 int.to.str$ -- 1
 missing$ -- 21
-newline$ -- 249
-num.names$ -- 138
-pop$ -- 475
+newline$ -- 260
+num.names$ -- 142
+pop$ -- 500
 preamble$ -- 1
-purify$ -- 143
+purify$ -- 148
 quote$ -- 0
-skip$ -- 643
+skip$ -- 666
 stack$ -- 0
-substring$ -- 425
-swap$ -- 122
+substring$ -- 430
+swap$ -- 126
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 441
-warning$ -- 11
-while$ -- 132
+type$ -- 463
+warning$ -- 12
+while$ -- 135
 width$ -- 0
-write$ -- 597
-(There were 13 warnings)
+write$ -- 623
+(There were 14 warnings)

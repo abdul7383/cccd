@@ -1,5 +1,6 @@
 package de.fhg.fokus.ngni.cccd.rest;
 
+import java.io.IOException;
 import java.security.Principal;
 import java.util.LinkedList;
 import java.util.List;
@@ -74,12 +75,37 @@ public class CollectionsCtrl extends BaseCtrl {
 	}
 
 	// add a new mapping
-	@RequestMapping(value = "/{collName}/_mapping", method = RequestMethod.PUT)
+	@RequestMapping(value = "/{collName}/mapping", method = RequestMethod.PUT)
 	public ModelAndView updateMapping(@PathVariable String appName,
 			@PathVariable String collName, Principal principal,
 			@RequestBody String body) {
-		// TODO PUT _mapping not implemented yet!
-		return response(true, null, "not implemented yet!");
+		if (!canWrite(appName, principal.getName())) {
+			if (!mongoDb.getDatabaseNames().contains(appName))
+				return response(false, null, "app: " + appName
+						+ " is not found");
+			return response(false, null, "you don't have Write permission");
+		}
+		logger_c.debug("/app/" + appName + "/collections/" + collName
+				+ "/mapping" + " : doPUT()");
+
+		if (!checkCollectionExist(appName, collName))
+			return response(false, null, "collection: " + collName
+					+ " not found in app: " + appName);
+
+		try {
+			esClient.admin().indices() 
+	        .preparePutMapping(appName+"_"+collName) 
+	        .setType(collName) 
+	        .setSource(body) 
+	        .execute().actionGet(); 
+		} catch (Exception ex) {
+			return response(
+					false,
+					null,
+					"error while updating the mapping of the collection"
+							+ ex.getMessage());
+		}
+		return response(true, null, "collection: mapping of " + collName + " updated");
 	}
 
 	// get the index mapping for a collection
@@ -120,7 +146,7 @@ public class CollectionsCtrl extends BaseCtrl {
 	// get the index mapping for a collection
 	@RequestMapping(value = "/{collName}/mapping", method = RequestMethod.GET)
 	public ModelAndView getMapping(@PathVariable String appName,
-			@PathVariable String collName, Principal principal) {
+			@PathVariable String collName, Principal principal) throws IOException {
 
 		/*Message msg = new Message("test".getBytes(), null);
 		int i = 10;
@@ -157,7 +183,7 @@ public class CollectionsCtrl extends BaseCtrl {
 		
 		if (mdd == null)
 			return response(false, null, "no mapping found");
-		return response(true, mdd, null);
+		return response(true, mdd.getSourceAsMap(), null);
 	}
 
 	// delete collection

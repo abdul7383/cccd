@@ -13,13 +13,13 @@ Table \ref{tbl:ap_addresses} shows the IP address of each component. Thereby onl
 \hline 
 Name & IP address \\ 
 \hline 
-App Management & $\begin{array}{l} \textbf{public:107.23.121.185} \\ \textbf{private:10.0.0.130}  \end{array}$ \\ 
+App Management & $\begin{array}{l} \textbf{public:107.23.121.185} \\ \textbf{private:10.0.0.91}  \end{array}$ \\ 
 \hline 
-Repository & \textbf{10.0.0.135} \\ 
+Repository & \textbf{10.0.0.136} \\ 
 \hline 
-Search Engine & \textbf{10.0.0.136} \\ 
+Search Engine & \textbf{10.0.0.249} \\ 
 \hline
-Message Broker & \textbf{10.0.0.137} \\ 
+Message Broker & \textbf{10.0.0.235} \\ 
 \hline
 Content Adaptation & \textbf{10.0.0.138} \\ 
 \hline
@@ -33,9 +33,10 @@ Content Distribution & $\begin{array}{l} \textbf{public:107.23.180.173} \\ \text
 The source code along with the documentation of the entire framework can be obtained from the following GitHub link: \url{https://github.com/abdul7383/cccd}.
 
 \subsection{App Management\label{sec:eval_te_en_app}}
-The source code of the app management component can be obtained with following command:
+The source code of the app management component can be obtained with the following command:
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd
 git clone git://github.com/abdul7383/cccd.git
 \end{minted}
 \end{code}
@@ -98,7 +99,7 @@ catalina.sh start
 
 All debug messages of the Tomcat server can be seen in the log file \textit{apache-tomcat-7.0.37/logs/catalina.out}. 
 
-Before deploying the app management component, one needs first to install and start all other components and then to update the IP addresses of these components in the \textit{pom.xml} file of the project as described in \ref{sec:impl_repo}, \ref{sec:impl_se_en} and \ref{sec:impl_mb}. The following command will then deploy the app management component to the Tomcat server:
+Before deploying the app management component, one needs first to install and start all other components and then to update the IP addresses of these components in the \textit{cccd-config.xml} file of the project as described in \ref{sec:impl_repo}, \ref{sec:impl_se_en} and \ref{sec:impl_mb}. The following command will then deploy the app management component to the Tomcat server:
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 cd cccd/cccdAppManagement/
@@ -116,7 +117,7 @@ mvn exec:java -Dexec.mainClass="de.fhg.fokus.ngni.cccd.services.AddAdmin"
 \end{minted}
 \end{code}
 
-This command will add the admin user information in a new collection called \textit{user} within a new database called \textit{users}.  After having at least one admin then the RESTful framework user management Interface \textit{/users} described in \ref{sec:des_rest_api} can be used for adding new admins or users.
+This program will ask for a username and a password and then will add these user information in a new collection called \textit{user} within a new database called \textit{users}.  After having at least one admin then the RESTful framework user management Interface \textit{/users} described in \ref{sec:des_rest_api} can be used for adding new admins or users.
 
 \subsection{Repository/Media Store\label{sec:eval_te_en_mongo}}
 The installation of MongoDB on Ubuntu is described in listing \ref{lst:mongdb_installation}, see this reference for more details \cite{MongoDb:installation}. Thereby the second command must be run in one line.  
@@ -206,7 +207,7 @@ sudo rabbitmqctl start
 \subsection{Content Adaptation\label{sec:eval_te_ca}}
 As described in \ref{sec:des_ar_ov}, this components consist internally of the media encoder, the media segmenter and a python script called \textit{cccdCA.py}. How to install and configure these components is described below.  
 
-The following steps are for installing FFmpeg (media encoder) along with some needed libraries. Some of the libraries are in the Ubuntu multiverse repository. So, one need to edit \textit{/etc/apt/sources.list} to include the multiverse repository as well.
+The following steps are for installing FFmpeg (media encoder) along with some needed libraries \cite{ffmpeg_compile}. Some of the libraries are in the Ubuntu multiverse repository. So, one need to edit \textit{/etc/apt/sources.list} to include the multiverse repository as well.
 
 \begin{itemize}
 \item First of all, the following command install some of the dependencies needed by FFmpeg
@@ -308,15 +309,16 @@ The following steps describes how to compile the media segmenter/distributor.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd
 git clone git://github.com/abdul7383/cccd.git
 \end{minted}
 \end{code}
 
-\item The following command install some of the dependencies needed by the media segmenter/distributor.
+\item The following command install some of the dependencies needed by the media segmenter/distributor and the python script \textit{cccdCA.py}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
-sudo apt-get install ruby rubygems
+sudo apt-get install ruby rubygem python-pika
 \end{minted}
 \end{code}
 
@@ -337,6 +339,7 @@ The python script \textit{cccdCA.py} and its configuration \textit{cccdCA.conf} 
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 [ 'cell_16x9_150k', 'cell_16x9_240k', 'wifi_16x9_440k', 'wifi_16x9_640k' , 'cell_4x3_150k', 'cell_4x3_240k', 'wifi_4x3_440k', 'wifi_4x3_640']
 \end{minted}
+\label{lst:encoding_profiles}
 \end{code}
 
 Finally to start the content adaptation component, one need simply to run the following commands.
@@ -344,13 +347,272 @@ Finally to start the content adaptation component, one need simply to run the fo
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 cd ~/cccd/cccdContentAdaption
-./cccdCA.py
+sudo ./cccdCA.py
 \end{minted}
 \end{code}
 
+Before running the python script, the parameter \textit{message\_broker\_ip} needs to be set to the IP address of the message broker component.
+
 \subsection{Content Distribution\label{sec:eval_te_cd}}
-As described in \ref{sec:impl_cdn}, the content distribution component consists internally of two components, which are a python script called \textit{cccdCD.py} and the open source project NginX as a \ac{HTTP} server.
+As described in \ref{sec:impl_cdn}, the content distribution component consists internally of two components, which are a python script called \textit{cccdCD.py} and the open source project NginX as a \ac{HTTP} server. The installation of the NginX server is described below.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd
+wget http://nginx.org/download/nginx-1.2.7.tar.gz
+tar -xvvf nginx-1.2.7.tar.gz 
+cd nginx-1.2.7/
+sudo apt-get update
+sudo apt-get install gcc make
+./configure --with-http_secure_link_module \
+  --without-http_rewrite_module --without-http_gzip_module
+make
+sudo make install
+\end{minted}
+\end{code}
+
+The following command starts Nginx in the background.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+sudo /usr/local/nginx/sbin/nginx
+\end{minted}
+\end{code}
+
+The following commands are for installing and running the python script \textit{cccdCD.py}.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd
+wget https://raw.github.com/abdul7383/cccd/master/cccdContentDistribution/cccdCDN.py
+chmod +x cccdCDN.py
+sudo apt-get install python-pika
+sudo ./cccdCDN.py
+\end{minted}
+\end{code}
+
+Before running the python script, the parameter \textit{message\_broker\_ip} needs to be set to the IP address of the message broker component.
+
 \section{Test Scenarios\label{sec:eval__te_sc}}
-	\subsection{Usability\label{seq:eval_usab}}
-	
-	\subsection{Performance\label{seq:eval_perf}}
+For evaluating the framework, the next two subsections provide a usability test in which a deployment scenario of a specific application is described and a performance test in which the \ac{CRUD} operations of the document REST interface \textit{/app/{appName}/collections/{collectionName}/doc} are tested.
+
+\subsection{Usability\label{seq:eval_usab}}
+As a usability test, the first scenario mentioned in section \ref{sec:req_sce} will be deployed and configured in the framework. Thereby this test will only show how the \ac{JSON} requests and its responses looks like and also how is the the interaction between the components.
+
+For sending custom \ac{HTTP} requests and showing their responses, the Advance Rest Client described here \ref{sec:impl_advanced_rest_cl} is used.
+
+After creating the first admin user as described at the end of this subsection \ref{sec:eval_te_en_app}, the admin user creates a new user without admin rights with the following request.
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+POST https://admin:pass@107.23.121.185:8443/cccd/users?username=user1
+  &password=pass1&email=user1@email.com&role=2
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"ok": "1",
+"debug": "user: user1 created"
+}
+\end{minted}
+\end{code}
+
+From now on, the created user \textit{user1} will be used for all following requests.
+
+The following request is for creating a new application named \textit{vod}. Thereby it contains as a payload a secret word \textit{secret1} and a list of video encoding profiles so that each uploaded video will be available in these profiles. Listing \ref{lst:encoding_profiles} lists all encoding profiles.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+POST https://user1:pass1@107.23.121.185:8443/cccd/app/vod
+\end{minted}
+Payload:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"secret":"secret1",
+"profiles":["cell_4x3_150k","wifi_4x3_640k"]
+}
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"ok": "1",
+"debug": "app: vod created"
+}
+\end{minted}
+\end{code}
+ 
+Figure \ref{fig:newApp} shows how the request is processed. A new database within the repository is created. Thereby a new table called \textit{user} is created, which contains the users along with their rights, and also another table called \textit{conf} which contains all configuration parameters that belongs to this app.
+
+Furthermore a notification message is sent to the message broker component to forward this message to the content distribution component. This message notifies the content distribution component about the new created app so that it creates a new directory for this new app within the HTTP server and secures it with the secure word provided by the user while creating the app.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.6]{flows/newAppFlow.png}\\
+  \caption{Creating a new app}
+  \label{fig:newApp}
+\end{figure}
+
+For checking if the app \textit{vod} was created successfully, the following request lists all apps that belongs to the user \textit{user1}.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+GET https://user1:pass1@107.23.121.185:8443/cccd/app/
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"data": [
+	"vod"
+],
+"ok": "1"
+}
+\end{minted}
+\end{code}
+ 
+For uploading files, i.e. videos or images, to the new created app, one needs first to create a bucket, which will hold these files, within this app. The following request creates a new bucket called \textit{bucket1}.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+POST https://user1:pass1@107.23.121.185:8443/cccd/app/vod/buckets/bucket1
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"ok": "1",
+"debug": "bucket: bucket1 created"
+}
+\end{minted}
+\end{code}
+
+Listing all buckets within an app can be done with the following request.
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+GET https://user1:pass1@107.23.121.185:8443/cccd/app/vod/buckets
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"data": [
+	"bucket1"
+],
+"ok": "1"
+}
+\end{minted}
+\end{code}
+
+Now the bucket \textit{bucket1} is created but before uploading files to it, one needs to create a collection within the app \textit{vod} to hold the context/metadata of the file. The following request creates a new collection called \textit{videos}. Thereby an empty index is automatically created in the search engine component. Figure \ref{fig:newCollection} illustrate how the request is processed internally in the framework.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+POST https://user1:pass1@107.23.121.185:8443/cccd/app/vod/collections/videos
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"ok": "1",
+"debug": "collection: videos and an empty index created"
+}
+\end{minted}
+\end{code}
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.6]{flows/newCollectionFlow.png}\\
+  \caption{Creating a new collection}
+  \label{fig:newCollection}
+\end{figure}
+
+Before adding data to the collection \textit{videos}, the data fields should be mapped to a proper object, i.e. string, integer, date, array or geo\_point and also one can specify if a specific field will be indexed or stored in the search engine. At the beginning, the mapping of the created collection is empty, which can be seen with the following request.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+GET https://user1:pass1@107.23.121.185:8443/cccd/app/vod/collections/videos/mapping
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"ok": "0",
+"debug": "no mapping found"
+}
+\end{minted}
+\end{code}
+
+As soon as any data get inserted to the collection, the mapping get updated automatically but it can not be updated anymore, i.e. setting a specific filed to be indexed or stored in the search engine. Therefore the mapping for each field should be set before adding any data to the collection, see the official documentation of the search engine Elasticsearch for further information on the mapping interface \cite{elastic_mapping}. The following request updates the mapping of the collection \textit{videos}.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+PUT https://user1:pass1@107.23.121.185:8443/cccd/app/vod/collections/videos/mapping
+\end{minted}
+Payload:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+    "videos" : {
+        "properties" : {
+            "user" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
+            "titel" : {"type" : "string", "store" : "yes"},
+            "description" : {"type" : "string", "store" : "yes"},
+            "tags" : {"type" : "string", "store" : "yes"},
+            "uploadTime" : {"type" : "date", "store" : "yes"},
+            "location" : {"type" : "geo_point", "store" : "yes"}
+        }
+    }
+}
+\end{minted}
+\end{code}
+
+Now listing the mapping of the collection \textit{video} will show all fields withe their respective types, see following request.
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+GET https://user1:pass1@107.23.121.185:8443/cccd/app/vod/collections/videos/mapping
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"data": {
+	"properties": {
+		"description": {
+			"type": "string",
+			"store": "yes"
+		},
+		"location": {
+			"type": "geo_point",
+			"store": "yes"
+		},
+		"tags": {
+			"type": "string",
+			"store": "yes"
+		},
+		"titel": {
+			"type": "string",
+			"store": "yes"
+		},
+		"uploadTime": {
+			"type": "date",
+			"store": "yes",
+			"format": "dateOptionalTime"
+		},
+		"user": {
+			"type": "string",
+			"index": "not_analyzed",
+			"store": "yes",
+			"omit_norms": true,
+			"index_options": "docs"
+		}
+	}
+},
+"ok": "1"
+}
+\end{minted}
+\end{code}
+
+Now the bucket, the collection and its mapping are ready, one can now upload the videos and their related context. For having users, who are developers that need to use the created app for only uploading, searching, downloading, or streaming videos, the following request add a read only user to the created app \textit{vod}.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+PUT https://user1:pass1@107.23.121.185:8443/cccd/app/vod
+  /users?username=user2&readonly=true
+\end{minted}
+\end{code}
+
+
+\subsection{Performance\label{seq:eval_perf}}
+bla

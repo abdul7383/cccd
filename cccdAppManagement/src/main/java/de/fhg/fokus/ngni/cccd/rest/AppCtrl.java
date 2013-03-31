@@ -21,7 +21,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
-import com.mongodb.DBObject;
 
 import de.fhg.fokus.ngni.cccd.model.AppEvent;
 
@@ -88,9 +87,7 @@ public class AppCtrl extends BaseCtrl {
 			@PathVariable String appName,
 			Principal principal,
 			@RequestBody String body,
-			@RequestParam(value = "op", required = true) String op,
-			@RequestParam(value = "username", required = false) String username,
-			@RequestParam(value = "readOnly", required = false) boolean readOnly) {
+			@RequestParam(value = "op", required = true) String op) {
 		logger_c.debug("/app/" + appName + " : doPUT()");
 
 		if (!mongoDb.getDatabaseNames().contains(appName))
@@ -98,56 +95,7 @@ public class AppCtrl extends BaseCtrl {
 					+ " not found, please create it first with POST");
 		if (!canWrite(appName, principal.getName()))
 			return response(false, null, "you don't have WRITE permission");
-		DB db = mongoDb.getDB(appName);
 		switch (op) {
-		case "addUser":
-			if (username == null)
-				return response(
-						false,
-						null,
-						"please spicify username to add, i.e. ?op=addUser&username=testuser&readOnly=false");
-			if (customUserDetailsService.getUserDetail(username) == null)
-				return response(
-						false,
-						null,
-						"username: "
-								+ username
-								+ " is not created yet, please create it first thru API cccd/users");
-			BasicDBObject user = new BasicDBObject("username", username)
-					.append("readOnly", readOnly);
-			db.getCollection("users").save(user);
-			return response(true, null, "username: " + username + " added");
-		case "deleteUser":
-			if (username == null)
-				return response(false, null,
-						"please spicify username to delete, i.e. ?op=deleteUser&username=testuser");
-			DBObject dbO = db.getCollection("users").findOne(
-					new BasicDBObject("username", username));
-			// check if username the last one who has write permission
-			if (!(boolean) dbO.get("readOnly")){
-				// the username has write access
-				if (db.getCollection("users").count(
-						new BasicDBObject("readOnly", false)) == 1){
-					// last one
-					return response(
-							false,
-							null,
-							"username: "
-									+ username
-									+ " can not be deleted because it is the last one who has write access");
-					}
-				else{
-					db.getCollection("users").remove(
-							new BasicDBObject("username", username));
-				}
-			}else{
-				// the username has only read access
-				db.getCollection("users").remove(
-						new BasicDBObject("username", username));
-			}
-			db.getCollection("users").remove(
-					new BasicDBObject("username", username));
-			return response(true, null, "username: " + username + " deleted");
 		case "updateConf":
 		default:
 			break;
@@ -159,7 +107,7 @@ public class AppCtrl extends BaseCtrl {
 		 * BasicDBObject doc = new BasicDBObject(jsonBody);
 		 * db.getCollection("conf").drop(); db.createCollection("conf", doc);
 		 */
-		return response(true, null, "app: " + appName + " created");
+		return response(true, null, "app: PUT not implemented yet");
 	}
 
 	// create App with setting

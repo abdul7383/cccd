@@ -16,7 +16,7 @@ import simplejson as json
 import logging
 import logging.handlers
 
-
+message_broker_ip="10.0.0.140"
 locations_dir="/usr/local/nginx/locations/"
 www_dir="/usr/local/nginx/html/"
 nginx_bin="/usr/local/sbin/nginx"

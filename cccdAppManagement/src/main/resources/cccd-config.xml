@@ -104,7 +104,7 @@
         <constructor-arg index="0">
             <list value-type="com.mongodb.ServerAddress">
                 <bean class="com.mongodb.ServerAddress">
-                    <constructor-arg index="0" value="10.0.0.73"/>
+                    <constructor-arg index="0" value="10.0.0.136"/>
                     <constructor-arg index="1" value="27017"/>
                 </bean>
                 <!--bean class="com.mongodb.ServerAddress">
@@ -136,7 +136,7 @@
 		<property name="arguments"> 
 			<list value-type="org.elasticsearch.common.transport.InetSocketTransportAddress">
 				<bean class="org.elasticsearch.common.transport.InetSocketTransportAddress">
-					<constructor-arg index="0" value="10.0.0.186"/>
+					<constructor-arg index="0" value="10.0.0.249"/>
 					<constructor-arg index="1" value="9300"/>
 				</bean>
 				<!-- bean class="org.elasticsearch.common.transport.InetSocketTransportAddress">
@@ -152,7 +152,7 @@
 	</bean>
 	
 	<bean id="connectionFactory" class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
-	    <constructor-arg value="10.0.0.140" />
+	    <constructor-arg value="10.0.0.235" />
 		<property name="username" value="guest" />
 	    <property name="password" value="guest"/>
 	</bean>

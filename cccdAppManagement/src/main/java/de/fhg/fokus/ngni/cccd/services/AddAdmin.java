@@ -5,9 +5,8 @@ import java.io.IOException;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.security.authentication.encoding.PasswordEncoder;
-
-import com.mongodb.Mongo;
 
 import de.fhg.fokus.ngni.cccd.model.User;
 
@@ -28,13 +27,12 @@ public class AddAdmin {
 		String encodedPassword = passwordEncoder.encodePassword(enteredPassword,
 				enteredUsername);
 		System.out.println(encodedPassword);
-		User user = new User("cccd1",encodedPassword,"Abdul","Hamood");
+		User user = new User(enteredUsername,encodedPassword,"Abdul","Hamood");
 		user.setRole(1);
 		ApplicationContext context= new ClassPathXmlApplicationContext("cccd-config.xml");
-		Mongo mongoDb = (Mongo) context.getBean("mongoDb");
-		System.out.println(mongoDb);
+		MongoTemplate mongoTemplate  = (MongoTemplate) context.getBean("mongoTemplate");
+		mongoTemplate.save(user);
 		System.exit(0);
-		//mongoTemplate.save(user);
 //		TransportClient esClient = new 
 //				TransportClient().addTransportAddress(new 
 //				InetSocketTransportAddress("localhost", 9300));
