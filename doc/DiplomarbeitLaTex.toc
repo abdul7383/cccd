@@ -73,7 +73,7 @@
 \contentsline {paragraph}{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :}{40}{section*.106}
 \contentsline {paragraph}{Document Interface /app/{appName}/collections/{collectionName}/doc :}{41}{section*.109}
 \contentsline {paragraph}{Buckets Interface /app/{appName}/buckets :}{43}{section*.114}
-\contentsline {paragraph}{Files Interface /app/{appName}/buckets/{bucketName}/{filename} :}{44}{section*.119}
+\contentsline {paragraph}{Files Interface /app/{appName}/buckets/{bucketName}/files :}{44}{section*.119}
 \contentsline {subsubsection}{Informative Response:}{44}{section*.122}
 \contentsline {subsection}{\numberline {4.2.2}Repository/Media Store }{45}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Search Engine}{45}{subsection.4.2.3}
@@ -116,6 +116,6 @@
 \contentsline {subsection}{\numberline {6.1.6}Content Distribution}{68}{subsection.6.1.6}
 \contentsline {section}{\numberline {6.2}Test Scenarios}{69}{section.6.2}
 \contentsline {subsection}{\numberline {6.2.1}Usability}{69}{subsection.6.2.1}
-\contentsline {subsection}{\numberline {6.2.2}Performance}{74}{subsection.6.2.2}
-\contentsline {chapter}{\numberline {7}Conclusion}{75}{chapter.7}
-\contentsline {chapter}{Bibliography}{77}{chapter*.202}
+\contentsline {subsection}{\numberline {6.2.2}Performance}{80}{subsection.6.2.2}
+\contentsline {chapter}{\numberline {7}Conclusion}{81}{chapter.7}
+\contentsline {chapter}{Bibliography}{83}{chapter*.209}

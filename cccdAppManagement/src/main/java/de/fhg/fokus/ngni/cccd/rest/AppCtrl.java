@@ -86,28 +86,28 @@ public class AppCtrl extends BaseCtrl {
 	public ModelAndView updateApp(
 			@PathVariable String appName,
 			Principal principal,
-			@RequestBody String body,
-			@RequestParam(value = "op", required = true) String op) {
+			@RequestBody String body) {
+		if (!canWrite(appName, principal.getName())) {
+			if (!mongoDb.getDatabaseNames().contains(appName))
+				return response(false, null, "app: " + appName
+						+ " is not found");
+			return response(false, null, "you don't have WRITE permission");
+		}
 		logger_c.debug("/app/" + appName + " : doPUT()");
 
-		if (!mongoDb.getDatabaseNames().contains(appName))
-			return response(false, null, "app: " + appName
-					+ " not found, please create it first with POST");
-		if (!canWrite(appName, principal.getName()))
-			return response(false, null, "you don't have WRITE permission");
-		switch (op) {
-		case "updateConf":
-		default:
-			break;
-		}
-		/*
-		 * DB db = mongoDb.getDB(appName); HashMap<String, Object> jsonBody; try
-		 * { jsonBody = new ObjectMapper().readValue(body, HashMap.class); }
-		 * catch (Exception e) { return response(false, null, e.getMessage()); }
-		 * BasicDBObject doc = new BasicDBObject(jsonBody);
-		 * db.getCollection("conf").drop(); db.createCollection("conf", doc);
-		 */
-		return response(true, null, "app: PUT not implemented yet");
+		
+		 DB db = mongoDb.getDB(appName); 
+		 HashMap<String, Object> jsonBody;
+		 try{ 
+			 jsonBody = new ObjectMapper().readValue(body, HashMap.class);
+		 }
+		 catch (Exception e) { 
+			 return response(false, null, e.getMessage());
+		 }
+		 BasicDBObject doc = new BasicDBObject("$set",jsonBody);
+		 // TODO update the secret in content distribution if needed!!
+		 db.getCollection("conf").update(new BasicDBObject(), doc, true, false);
+		return response(true, null, "app: updated succecfully");
 	}
 
 	// create App with setting
@@ -141,30 +141,31 @@ public class AppCtrl extends BaseCtrl {
 		return response(true, arr, null);
 	}
 
-	// list collections OR check app status
+	// list configuration OR check app status
 	@RequestMapping(value = "/app/{appName}", method = RequestMethod.GET)
 	public ModelAndView checkAppStatus(@PathVariable String appName,
+			Principal principal,
 			@RequestParam(value = "op", required = false) String op) {
-		if (!isAuthorized())
-			return response(false, null, "Invalid username or password");
-		logger_c.debug("/app/" + appName + " : doGet()");
-
-		if (!mongoDb.getDatabaseNames().contains(appName))
-			return response(false, null, "app: " + appName + " is not found");
-
+		
+		if (!canWrite(appName, principal.getName())) {
+			if (!mongoDb.getDatabaseNames().contains(appName))
+				return response(false, null, "app: " + appName
+						+ " is not found");
+			return response(false, null, "you don't have permission");
+		}
+		
 		DB db = mongoDb.getDB(appName);
 
-		/*// list collections
+		// list config
 		if (op == null){
-			Set<String> list = db.getCollectionNames();
-			list.remove("system.indexes");
-			return response(true, list, null);
-		}*/
-		// check app status
-		/*if (op.compareTo("stats") != 0)
-			return response(false, null, "op: " + op + " is not supported");
-		else*/
-		return response(true, db.getStats(), null);
+			//DBObject bdo = db.getCollection("conf").findOne();
+			return response(true, db.getCollection("conf").findOne(new BasicDBObject(), new BasicDBObject("_id",0)), null);
+		}else{
+			// check app status
+			if (op.compareTo("stats") != 0)
+				return response(false, null, "op: " + op + " is not supported");
+			return response(true, db.getStats(), null);
+		}
 	}
 
 	// drop app

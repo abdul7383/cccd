@@ -3,6 +3,8 @@ package de.fhg.fokus.ngni.cccd.rest;
 import java.security.Principal;
 
 import org.apache.log4j.Logger;
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.elasticsearch.action.search.SearchRequest;
 import org.elasticsearch.action.search.SearchResponse;
 import org.elasticsearch.common.xcontent.ToXContent;
@@ -74,7 +76,9 @@ public class SearchCtrl extends BaseCtrl {
 //			logger_c.debug("builder1: "+builder.toString());
 //			logger_c.debug("builder2: "+builder.prettyPrint());
 //			logger_c.debug("builder3: "+builder.string());
-			return response(true, builder.string(), null);
+			ObjectMapper mapper = new ObjectMapper();
+			JsonNode jsonResp = mapper.readTree(builder.string());
+			return response(true, jsonResp, null);
 			//prepareIndex(appName + "_" + collName, collName,
 			//		bdo.getObjectId("_id").toString()).setSource(jsonBody)
 			//		.execute().actionGet();

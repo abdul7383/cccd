@@ -370,35 +370,37 @@ DELETE https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 
 \end{itemize}
 
-\paragraph{Files Interface /app/{appName}/buckets/{bucketName}/{filename} :}  This interface manages files within a buckets.
+\paragraph{Files Interface /app/{appName}/buckets/{bucketName}/files :}  This interface manages files within a buckets.
 
 \begin{itemize}
-\item {Create:} The method \textit{addFileToBucket} allows to upload a file to a bucket and it requires the parameters \textit{appName}, \textit{bucketName} and \textit{filename} along with the file its self.
+\item {Create:} The method \textit{addFileToBucket} allows to upload a file to a bucket and it requires the parameters \textit{appName} and \textit{bucketName} along with the file its self. Thereby the name of the uploaded file (not the original name of the file) must be set to \textit{file} in the upload form(\textit{file}=@./testDoc.txt). 
 
-\item {Read:} The method \textit{getFileFromBucket} allows to get a file from a bucket and it requires also the parameters \textit{appName}, \textit{bucketName} and \textit{filename}.  An example for downloading a file named \textit{test.pdf} from the bucket \textit{books} and app \textit{bookstore} is listed below.
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+curl -F "file=@./testDoc.txt" http://user1:pass1@107.23.121.185:8080/cccd
+  /app/vod/buckets/bucket1/files
+\end{code}
+
+\item {Read:} The method \textit{getFileFromBucket} allows to get a file from a bucket and it requires also the parameters \textit{appName}, \textit{bucketName} and \textit{objectid}.  An example for downloading a file named \textit{test.pdf} from the bucket \textit{books} and app \textit{bookstore} is listed below.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 GET https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
-/buckets/books/test.pdf
+  /buckets/books/files?objectid=515ae2dee4b0997c69141cad
 \end{minted}
 \end{code}
 
-\item {Update:} The method \textit{updateFileInBucket} allows to update a file within a bucket and it requires also the parameters \textit{appName}, \textit{bucketName}, \textit{filename} and the file its self.  The update here is theoretically removing the old file and then adding the new one.
+\item {Update:} The method \textit{updateFileInBucket} allows to update a file within a bucket and it requires also the parameters \textit{appName}, \textit{bucketName}, \textit{objectid} and the file its self.  The update here is theoretically removing the old file and then adding the new one.
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 PUT https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
-/buckets/books/test.pdf
+/buckets/books/files?objectid=515ae2dee4b0997c69141cad
 \end{minted}
 \end{code}
 
 \item {Remove:} The method \textit{deleteFileFromBucket} deletes a file from a bucket.
 
 \end{itemize}
-
-
-
-
 
 \subsubsection{Informative Response:} In order to know if a request to the framework succeeded or failed, the \ac{API} should always send a tag in each response which shows either the request processed successfully or not, i.e. {"ok":1} in case of success or {"ok":0} in case of failure. Furthermore a configuration parameter will be implemented to enable more debug information, i.e. while creating a new app, if its name exist already, then the response include the error as a string i.e. {"ok":0,"debug":"app name exist already"}.
 

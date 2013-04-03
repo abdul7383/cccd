@@ -1,6 +1,8 @@
 package de.fhg.fokus.ngni.cccd.rest;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -12,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
+import com.mongodb.DBCursor;
 import com.mongodb.DBObject;
 
 /**
@@ -23,6 +26,27 @@ public class AppUserCtrl extends BaseCtrl {
 
 	protected static final Logger logger_c = Logger
 			.getLogger(AppUserCtrl.class);
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public ModelAndView listUsers(
+			@PathVariable String appName,
+			Principal principal) {
+		logger_c.debug("/app/" + appName + "/" + "users : doGET()");
+		if (!canWrite(appName, principal.getName())) {
+			if (!mongoDb.getDatabaseNames().contains(appName))
+				return response(false, null, "app: " + appName
+						+ " is not found");
+			return response(false, null, "you don't have WRITE permission");
+		}
+		DB db = mongoDb.getDB(appName);
+		//BasicDBObject keys = new BasicDBObject("id","0");
+		DBCursor cursor = db.getCollection("users").find(new BasicDBObject(), new BasicDBObject("_id",0));
+		List<DBObject> docs = new ArrayList<DBObject>();
+		while (cursor.hasNext()) {
+			docs.add(cursor.next());
+		}
+		return response(true, docs, null);
+	}
 
 	// add a user to an app
 	@RequestMapping(method = RequestMethod.PUT)
@@ -30,7 +54,7 @@ public class AppUserCtrl extends BaseCtrl {
 			@PathVariable String appName,
 			Principal principal,
 			@RequestParam(value = "username", required = false) String username,
-			@RequestParam(value = "readOnly", required = false) boolean readOnly) {
+			@RequestParam(value = "readonly", required = false) boolean readonly) {
 		logger_c.debug("/app/" + appName + "/" + "users : doPUT()");
 		if (!canWrite(appName, principal.getName())) {
 			if (!mongoDb.getDatabaseNames().contains(appName))
@@ -49,8 +73,11 @@ public class AppUserCtrl extends BaseCtrl {
 					"username: "
 							+ username
 							+ " is not created yet, please create it first thru API cccd/users");
+		if(db.getCollection("users").find(new BasicDBObject("username",username)).hasNext())
+			return response(false, null,
+					"username: "+username+ " is already in the app user list");
 		BasicDBObject user = new BasicDBObject("username", username).append(
-				"readOnly", readOnly);
+				"readOnly", readonly);
 		db.getCollection("users").save(user);
 		return response(true, null, "username: " + username + " added");
 	}

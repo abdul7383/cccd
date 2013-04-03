@@ -30,7 +30,7 @@ public class UserCtrl extends BaseCtrl {
 			@RequestParam(value = "firstName", required = false) String firstName,
 			@RequestParam(value = "lastName", required = false) String lastName,
 			@RequestParam(value = "email", required = true) String email,
-			@RequestParam(value = "role", required = false) int role) {
+			@RequestParam(value = "role", required = true) int role) {
 
 		logger_c.debug("/addUser" + " : doPOST()");
 		

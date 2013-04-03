@@ -428,7 +428,8 @@ Payload:
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "secret":"secret1",
-"profiles":["cell_4x3_150k","wifi_4x3_640k"]
+"profiles":["cell_16x9_150k","wifi_16x9_640k"],
+
 }
 \end{minted}
 Response:
@@ -521,6 +522,44 @@ Response:
   \label{fig:newCollection}
 \end{figure}
 
+To configure the app \textit{vod} to send a new message notification to a queue called \textit{contetnt\_adaptation} for each new inserted document to the collection \textit{videos}, the following request is needed. Thereby one can configure the app to send the message notification to more than one queue for supporting more services like M2M context enrichment or Subscribe/Notification.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+POST https://user1:pass1@107.23.121.185:8443/cccd/app/vod
+\end{minted}
+Payload:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"videos" : ["contetnt_adaptation"]
+}
+\end{minted}
+\end{code}
+
+The following request list all configurations for the app \textit{vod}.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+GET https://user1:pass1@107.23.121.185:8443/cccd/app/vod
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"data": {
+	"profiles": [
+		"cell_16x9_150k",
+		"wifi_16x9_640k"
+	],
+	"secret": "secret1",
+	"videos": [
+		"contetnt_adaptation"
+	]
+},
+"ok": "1"
+}
+\end{minted}
+\end{code}
+
 Before adding data to the collection \textit{videos}, the data fields should be mapped to a proper object, i.e. string, integer, date, array or geo\_point and also one can specify if a specific field will be indexed or stored in the search engine. At the beginning, the mapping of the created collection is empty, which can be seen with the following request.
 
 \begin{code}
@@ -552,7 +591,15 @@ Payload:
             "description" : {"type" : "string", "store" : "yes"},
             "tags" : {"type" : "string", "store" : "yes"},
             "uploadTime" : {"type" : "date", "store" : "yes"},
-            "location" : {"type" : "geo_point", "store" : "yes"}
+            "location" : {"type" : "geo_point", "store" : "yes"},
+            "fileLink" : {
+                "type" : "object",
+                "properties" : {
+                    "app" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
+                    "bucket" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
+                    "objectid" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"}
+                }
+            }
         }
     }
 }
@@ -572,6 +619,31 @@ Response:
 		"description": {
 			"type": "string",
 			"store": "yes"
+		},
+		"fileLink": {
+			"properties": {
+				"app": {
+					"type": "string",
+					"index": "not_analyzed",
+					"store": "yes",
+					"omit_norms": true,
+					"index_options": "docs"
+				},
+				"bucket": {
+					"type": "string",
+					"index": "not_analyzed",
+					"store": "yes",
+					"omit_norms": true,
+					"index_options": "docs"
+				},
+				"objectid": {
+					"type": "string",
+					"index": "not_analyzed",
+					"store": "yes",
+					"omit_norms": true,
+					"index_options": "docs"
+				}
+			}
 		},
 		"location": {
 			"type": "geo_point",
@@ -604,7 +676,7 @@ Response:
 \end{minted}
 \end{code}
 
-Now the bucket, the collection and its mapping are ready, one can now upload the videos and their related context. For having users, who are developers that need to use the created app for only uploading, searching, downloading, or streaming videos, the following request add a read only user to the created app \textit{vod}.
+Now the bucket, the collection and its mapping are ready, one can now upload the videos and their related context. For having users, who are developers that need to use the created app for only uploading, searching, downloading, or streaming videos, the following request add a read-only user to the created app \textit{vod}. Thereby the user to be added to the app user list must be already a registered user in the framework (already created through \textit{/cccd/users}).
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -612,6 +684,211 @@ PUT https://user1:pass1@107.23.121.185:8443/cccd/app/vod
   /users?username=user2&readonly=true
 \end{minted}
 \end{code}
+
+To check if the user has been added successfully to the user list of the app \textit{vod}, the following request is needed.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+GET https://user1:pass1@107.23.121.185:8443/cccd/app/vod
+  /users
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"data": [
+	{
+		"username": "user1",
+		"readOnly": false
+	},
+	{
+		"username": "user2",
+		"readOnly": true
+	}
+],
+"ok": "1"
+}
+\end{minted}
+\end{code}
+
+Now uploading a video to the new created app is done in two steps, one need first to upload the video file to a bucket within the app. The bucket \textit{bucket1}, which is created above, will be used in the following request. Thereby the \textit{objectid} of the uploaded file is returned in the response, which will be then used for ensuring the correlation between the video file and its context/metadata.
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+POST https://user1:pass1@107.23.121.185:8443/cccd/app/vod
+  /buckets/bucket1/files
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"data": {
+	"app": "appName",
+	"bucket": "bucket1",
+	"objectid": "515b2e2ae4b0da706f84c1a7"
+	},
+"ok": "1"
+}
+\end{minted}
+\end{code}
+
+The video file is now saved within the bucket \textit{bucket1}. The second step is to upload the context/metadata of the video file along with the file-link within the app \textit{vod}. These two steps are needed for uploading videos and in the same way two other videos have been uploaded, which has been recorded in Berlin Tempelhof and in Frankfurt am Main Bahnhofsviertel. 
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+POST https://user1:pass1@107.23.121.185:8443/cccd/app/vod
+  /collections/videos/doc
+\end{minted}
+Payload:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+	"title" : "Brandenburger Tor New year 2013 ",
+	"description" : "Berlin Brandenburger Tor - New year 2013",
+	"tags" : "Berlin,Brandenburger Tor,new year 2013,fireworks",
+	"uploadTime" : "2013-01-15T14:12:12",
+	"location" : "52.516275,13.377227",
+	"user" : "abdul",
+	"fileLink" : {
+		"app" : "vod",
+		"bucket" : "bucket1", 
+		"objectid" : "515b2e2ae4b0da706f84c1a7"
+	}
+}
+\end{minted}
+\end{code}
+
+These two steps are needed for uploading videos and in the same way two other videos have been uploaded, which has been recorded in Berlin Tempelhof and in Frankfurt am Main Bahnhofsviertel. 
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+	"title": "Happy New Year 2013 Berlin Tempelhof ",
+	"location": "52.469635,13.385658",
+	"description": "New Year 2013 Silvester in Berlin Tempelhof",
+	"fileLink": {
+		"app": "vod",
+		"bucket": "bucket1",
+		"objectid": "515b0a99e4b0262de3bb2c7d"
+	},
+	"uploadTime": "2013-01-02T14:12:12",
+	"tags": "Berlin,Tempelhof, new year 2013,firework",
+	"user": "tom"
+}
+{
+	"title": "Frankfurt Germany Fireworks New Years 2013",
+	"location": "50.108806,8.664432",
+	"description": "From our balcony the fireworks for 2013",
+	"fileLink": {
+		"app": "vod",
+		"bucket": "bucket1",
+		"objectid": "515ad4afe4b08cc9e8560330"
+	},
+	"uploadTime": "2013-01-05T14:12:12",
+	"tags": "frankfurt,,new year 2013,firework",
+	"user": "frank"
+}
+\end{minted}
+\end{code}
+
+After a short time, depending of how big the video files are, the framework will update the context/metadata of each uploaded video file with the links for each \ac{HLS} encoded videos based on the encoding profiles which have been set while creating the app (\textit{cell\_16x9\_150k,wifi\_16x9\_640k}).
+
+The following request is for searching all videos which hast been captured within a maximum distance of 10 km from Potsdamer Platz(lat,lon: 52.509693,13.376218) in Berlin. Thereby the response must be ordered by the distance.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+POST https://user1:pass1@107.23.121.185:8443/cccd/app/vod
+  /collections/videos/search
+\end{minted}
+Payload:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+    "sort" : [
+        {
+            "_geo_distance" : {
+                "location" : "52.509693,13.376218",
+                "order" : "asc",
+                "unit" : "km"
+            }
+        }
+    ],
+    "query": {
+        "filtered" : {
+            "query" : {
+                "match_all" : {}
+            },
+            "filter" : {
+                "geo_distance" : {
+                    "distance" : "10km",
+                    "location" : "52.509693,13.376218"
+                }
+            }
+        }
+    }
+}
+\end{minted}
+Response:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"data": {
+	"hits": {
+		"total": 2,
+		"max_score": null,
+		"hits": [
+			{
+				"_index": "vod_videos",
+				"_type": "videos",
+				"_id": "515b4008e4b0da706f84c1a9",
+				"_score": null,
+				"_source": {
+					"title": "Brandenburger Tor New year 2013 ",
+					"location": "52.516275,13.377227",
+					"description": "Berlin Brandenburger Tor - New year 2013",
+					"fileLink": {
+						"app": "vod",
+						"bucket": "bucket1",
+						"objectid": "515b2e2ae4b0da706f84c1a7"
+					},
+					"uploadTime": "2013-01-15T14:12:12",
+					"tags": "Berlin,Brandenburger Tor, new year 2013,firework",
+					"user": "abdul"
+				},
+				"sort": [
+					0.7350631627891678
+				]
+			},
+			{
+				"_index": "vod_videos",
+				"_type": "videos",
+				"_id": "515b429ce4b0da706f84c1aa",
+				"_score": null,
+				"_source": {
+					"title": "Happy New Year 2013 Berlin Tempelhof ",
+					"location": "52.469635,13.385658",
+					"description": "New Year 2013 Silvester in Berlin Tempelhof",
+					"fileLink": {
+						"app": "vod",
+						"bucket": "bucket1",
+						"objectid": "515b0a99e4b0262de3bb2c7d"
+					},
+					"uploadTime": "2013-01-02T14:12:12",
+					"tags": "Berlin,Tempelhof, new year 2013,firework",
+					"user": "tom",
+					"hls_videos": {
+						"cell_16x9_150k":
+							"http://107.23.180.173/vod/515b4008e4b0da706f84c1a9/cell_16x9_150k.m3u8",
+						"wifi_16x9_640k":
+							"http://107.23.180.173/vod/515b4008e4b0da706f84c1a9/wifi_16x9_640k.m3u8",
+						"multi_rate":
+							"http://107.23.180.173/vod/515b4008e4b0da706f84c1a9/multi.m3u8"
+					}
+				},
+				"sort": [
+					4.499869967538772
+				]
+			}	
+		]
+	}
+},
+"ok": "1"
+}
+\end{minted}
+\end{code}
+For each matched video in the response above, a \textit{sort} tag that contains the distance of the matched video from the searched location is returned. Furthermore the matched videos above contain a new tag \textit{hls\_videos} and they can be used to start streaming the video file directly on a mobile device, i.e. iPad, iPhone and etc.
 
 
 \subsection{Performance\label{seq:eval_perf}}

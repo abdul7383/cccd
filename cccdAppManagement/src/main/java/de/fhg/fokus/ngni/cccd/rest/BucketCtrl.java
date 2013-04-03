@@ -1,6 +1,7 @@
 package de.fhg.fokus.ngni.cccd.rest;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCursor;
 import com.mongodb.gridfs.GridFS;
@@ -54,10 +56,7 @@ public class BucketCtrl extends BaseCtrl {
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView listBuckets(@PathVariable String appName,
 			Principal principal) {
-		if (!isAuthorized())
-			return response(false, null, "Invalid username or password");
-		
-		if (!canWrite(appName, principal.getName())) {
+		if (!canRead(appName, principal.getName())) {
 			if (!mongoDb.getDatabaseNames().contains(appName))
 				return response(false, null, "app: " + appName
 						+ " is not found");
@@ -83,11 +82,11 @@ public class BucketCtrl extends BaseCtrl {
 			@PathVariable String bucketName, Principal principal) {
 		if (!isAuthorized())
 			return response(false, null, "Invalid username or password");
-		if (!canWrite(appName, principal.getName())) {
+		if (!canRead(appName, principal.getName())) {
 			if (!mongoDb.getDatabaseNames().contains(appName))
 				return response(false, null, "app: " + appName
 						+ " is not found");
-			return response(false, null, "you don't have WRITE permission");
+			return response(false, null, "you don't have permission");
 		}
 		logger_c.debug("/app/" + appName + "/buckets/" + bucketName + " : doGet()");
 		
@@ -96,14 +95,20 @@ public class BucketCtrl extends BaseCtrl {
 		if(!db.getCollectionNames().contains(bucketName+".chunks"))
 			return response(false, null, "bucket: " + bucketName
 					+ " does not exist in app: " + appName);
+		BasicDBObject fields = new BasicDBObject();
+		fields.append("_id",0);
+		fields.append("length",0);
+		fields.append("md5",0);
+		fields.append("aliases",0);
+		fields.append("chunkSize",0);
+		//DBCursor cursor = db.getCollection(bucketName+".files").find(new BasicDBObject(), fields).toArray();
 		GridFS gfs = new GridFS(db, bucketName);
-		List<String> fl = new LinkedList<String>();
+		List<String> fi = new ArrayList<String>();
 		DBCursor dbc = gfs.getFileList();
-		
 		while(dbc.hasNext()){
-			fl.add(dbc.next().get("filename").toString());
+			fi.add(dbc.next().get("filename").toString());
 		}
-		return response(true, fl, null);
+		return response(true, fi, null);
 	}
 	
 	// delete a bucket
