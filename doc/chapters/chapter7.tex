@@ -7,7 +7,7 @@ The framework prototype is implemented in chapter \ref{cha:chapter5} for the pur
 
 For evaluating the implemented framework prototype, chapter \ref{cha:chapter6} provides two test scenarios, a usability and a performance test.
 
-One of the task of this thesis is also to implement an application on a mobile device that evaluates the implemented framework but this task could not be done due to the lack of time.
+One of the task of this thesis is to implement an application on a mobile device that evaluates the implemented framework but this task could not be done due to the lack of time.
  
 \section{Problems Encountered}
 The development of frameworks is not trivial. Compared to concrete conventional applications, frameworks are much more complex. The objective by developing a framework is to identify abstractions with a bottom-up approach, meaning that one needs first to provide some concrete applications, which will be used as use cases. These use cases can be used to better illustrate the functional assets of the framework and facilitate a deduction of its requirements.
@@ -15,7 +15,7 @@ The development of frameworks is not trivial. Compared to concrete conventional 
 Another problem faced in this thesis that the original approach was to use a ready open source content management system and try to build the framework on it. This task was not easy at all as most of theses system have fixed-schema data model and to provide a generic framework that enables user to easily updates or extends the data model, there was no other option as starting to develop the framework from the ground based on schema-less databases. 
 
 \section{Outlook}
-It was and is not the purpose of this thesis to implement a market-ready product. Nevertheless most of the components within the prototype implementation of the framework are based on technologies, i.e. Spring framework, MongoDB, Elasticsearch or Nginx, that are widely used in production environments. The component which needs more improvements or even complete replacement is the content adaptation. This component was developed only to provide a proof of concept of a one use case scenario which needs a content transcoding service. The problem of this component that is run FFmpeg as a terminal command and it is not easy to determine if the command is processed successfully. A better solution is to use the C API of the FFmpeg platform for transcoding videos.
+It was and is not the purpose of this thesis to implement a market-ready product. Nevertheless most of the components within the prototype implementation of the framework are based on technologies, i.e. Spring framework, MongoDB, Elasticsearch or Nginx, that are widely used in production environments. The component which needs more improvements or even complete replacement is the content adaptation. This component was developed only to provide a proof of concept of a one use case scenario which needs a content transcoding service. The problem of this component that is run FFmpeg as a terminal command and it is not easy to determine if the command is processed successfully. A better solution is to use the C API of the FFmpeg platform for transcoding and segmenting videos.
 
 Furthermore the REST interfaces for the repository and the search engine should be extended to support their wide features.
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{43}
+\begin{thebibliography}{44}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -126,6 +126,12 @@ Nginx Community.
 \newblock Httpsecurelinkmodule, 2013.
 \newblock URL \url{http://wiki.nginx.org/HttpSecureLinkModule}.
 \newblock [Online; accessed 12.03.2013].
+
+\bibitem[Company()]{mobile-media-report}
+The~Nielsen Company.
+\newblock State of the media: The mobile media report.
+\newblock
+  http://www.nielsen.com/content/dam/corporate/us/en/reports-downloads/2011-Reports/state-of-mobile-Q3-2011.pdf.
 
 \bibitem[Corporation(2013)]{oracle_soap}
 Oracle Corporation.

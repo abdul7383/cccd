@@ -2,10 +2,14 @@ This is BibTeX, Version 0.99d (TeX Live 2012)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: DiplomarbeitLaTex.aux
 A level-1 auxiliary file: ./misc/titlepage.aux
+A level-1 auxiliary file: ./misc/thanx.aux
+A level-1 auxiliary file: ./misc/self-assertion.aux
+A level-1 auxiliary file: ./misc/abstract.aux
+A level-1 auxiliary file: ./misc/abstract_de.aux
 The style file: plainnat.bst
 Database file #1: ./bib/references.bib
 Warning--entry type for "W3C" isn't style-file defined
---line 151 of file ./bib/references.bib
+--line 156 of file ./bib/references.bib
 Warning--I didn't find a database entry for "books/daglib/0024051"
 Warning--to sort, need author or key in W3C
 Warning--to sort, need author or key in bson_intro
@@ -17,47 +21,48 @@ Warning--to sort, need author or key in tomcat_ssl
 Warning--to sort, need author or key in ffmpeg_compile
 Warning--empty year in W3C
 Warning--empty year in cisco1
+Warning--empty year in mobile-media-report
 Warning--empty year in ec1
 Warning--empty year in youtube1
-You've used 43 entries,
+You've used 44 entries,
             2773 wiz_defined-function locations,
-            860 strings with 12411 characters,
-and the built_in function-call counts, 16673 in all, are:
-= -- 1590
-> -- 632
-< -- 37
-+ -- 236
-- -- 189
-* -- 1127
-:= -- 2386
-add.period$ -- 172
-call.type$ -- 43
-change.case$ -- 188
-chr.to.int$ -- 39
-cite$ -- 106
-duplicate$ -- 846
-empty$ -- 1609
-format.name$ -- 240
-if$ -- 3692
+            868 strings with 12683 characters,
+and the built_in function-call counts, 16966 in all, are:
+= -- 1615
+> -- 642
+< -- 38
++ -- 240
+- -- 192
+* -- 1140
+:= -- 2430
+add.period$ -- 175
+call.type$ -- 44
+change.case$ -- 192
+chr.to.int$ -- 40
+cite$ -- 109
+duplicate$ -- 861
+empty$ -- 1641
+format.name$ -- 244
+if$ -- 3755
 int.to.chr$ -- 5
 int.to.str$ -- 1
 missing$ -- 21
-newline$ -- 260
-num.names$ -- 142
-pop$ -- 500
+newline$ -- 265
+num.names$ -- 146
+pop$ -- 514
 preamble$ -- 1
-purify$ -- 148
+purify$ -- 151
 quote$ -- 0
-skip$ -- 666
+skip$ -- 678
 stack$ -- 0
-substring$ -- 430
-swap$ -- 126
+substring$ -- 432
+swap$ -- 127
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 463
-warning$ -- 12
-while$ -- 135
+type$ -- 474
+warning$ -- 13
+while$ -- 138
 width$ -- 0
-write$ -- 623
-(There were 14 warnings)
+write$ -- 634
+(There were 15 warnings)

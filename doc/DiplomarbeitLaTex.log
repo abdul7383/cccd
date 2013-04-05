@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  5 APR 2013 03:19
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  5 APR 2013 21:04
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -863,7 +863,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--54
  <./img/fokuspng.png>]
 \openout2 = `./misc/self-assertion.aux'.
 
- (./misc/self-assertion.tex) [3
+ (./misc/self-assertion.tex
+Overfull \hbox (30.46977pt too wide) in paragraph at lines 18--22
+| \OT1/cmr/m/it/14.4 (Sig-na-ture Ab-dul-rah-man Hamood) 
+ []
+
+) [3
 
 
 
@@ -873,28 +878,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 21--54
 ]
 \openout2 = `./misc/abstract.aux'.
 
-
-(./misc/abstract.tex)
-Underfull \hbox (badness 10000) in paragraph at lines 10--63
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--63
+ (./misc/abstract.tex
+Underfull \hbox (badness 10000) in paragraph at lines 10--18
 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--63
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--63
-
- []
-
-[5
+) [5
 
 ] [6
 
@@ -902,7 +891,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--63
 ]
 \openout2 = `./misc/abstract_de.aux'.
 
- (./misc/abstract_de.tex) [7
+ (./misc/abstract_de.tex
+Overfull \hbox (3.75029pt too wide) in paragraph at lines 10--12
+\OT1/cmr/m/n/12 Kontextbasierte Sys-teme k^^?onnen Men-schen in vie-len Bere-ic
+hen des t^^?aglichen Lebens
+ []
+
+
+Overfull \hbox (26.14449pt too wide) in paragraph at lines 13--16
+\OT1/cmr/m/n/12 work nicht auf bes-timmte Kon-tex-tin-for-ma-tio-nen oder An-we
+n-dungs-dom^^?anen beschr^^?ankt,
+ []
+
+) [7
 
 ] [8
 
@@ -918,8 +919,7 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 \tf@toc=\write6
 \openout6 = `DiplomarbeitLaTex.toc'.
 
- [10]
-(./DiplomarbeitLaTex.lof
+ [10] (./DiplomarbeitLaTex.lof
 Package acronym Info: Label `acro:SOAP' newly defined as it shall be overridden
 
 although it is yet undefined on input line 7.
@@ -929,7 +929,8 @@ although it is yet undefined on input line 7.
 
  [11
 
-] [12
+]
+[12
 
 
 ] (./chapters/chapter1.tex
@@ -951,7 +952,7 @@ although it is yet undefined on input line 7.
 ]
 Package acronym Info: Label `acro:GPS' newly defined as it shall be overridden
 although it is yet undefined on input line 9.
- [2] <DA-OverallArchitecture.jpg, id=441, 697.8572pt x 371.13657pt>
+ [2] <DA-OverallArchitecture.jpg, id=445, 697.8572pt x 371.13657pt>
 File: DA-OverallArchitecture.jpg Graphic file (type jpg)
 
 <use DA-OverallArchitecture.jpg>
@@ -972,7 +973,7 @@ although it is yet undefined on input line 53.
 Underfull \vbox (badness 7397) has occurred while \output is active []
 
  [4]
-<Inp_Out.jpg, id=457, 942.52126pt x 259.7203pt>
+<Inp_Out.jpg, id=461, 942.52126pt x 259.7203pt>
 File: Inp_Out.jpg Graphic file (type jpg)
  <use Inp_Out.jpg>
 Package pdftex.def Info: Inp_Out.jpg used on input line 67.
@@ -1017,7 +1018,7 @@ although it is yet undefined on input line 127.
 Package acronym Info: Label `acro:SMTP' newly defined as it shall be overridden
 
 although it is yet undefined on input line 135.
- <soap_envelope.jpg, id=573, 292.09125pt x 327.2225pt>
+ <soap_envelope.jpg, id=577, 292.09125pt x 327.2225pt>
 File: soap_envelope.jpg Graphic file (type jpg)
 
 <use soap_envelope.jpg>
@@ -1195,7 +1196,7 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 Package natbib Warning: Citation `books/daglib/0024051' on page 19 undefined on
  input line 372.
 
-[19] <couchdb_repl.png, id=783, 200.4288pt x 127.1952pt>
+[19] <couchdb_repl.png, id=787, 200.4288pt x 127.1952pt>
 File: couchdb_repl.png Graphic file (type png)
 
 <use couchdb_repl.png>
@@ -1209,14 +1210,14 @@ Package natbib Warning: Citation `books/daglib/0024051' on page 20 undefined on
 Package acronym Info: Label `acro:BSON' newly defined as it shall be overridden
 
 although it is yet undefined on input line 389.
-<mongodb_repl.png, id=794, 345.54094pt x 195.73125pt>
+<mongodb_repl.png, id=798, 345.54094pt x 195.73125pt>
 File: mongodb_repl.png Graphic file (type png)
  <use mongodb_repl.png>
 Package pdftex.def Info: mongodb_repl.png used on input line 397.
 (pdftex.def)             Requested size: 345.54008pt x 195.73076pt.
 
 [20 <./couchdb_repl.png>] [21 <./mongodb_repl.png>] [22]
-<neo4j_n.png, id=835, 798.985pt x 305.14pt>
+<neo4j_n.png, id=839, 798.985pt x 305.14pt>
 File: neo4j_n.png Graphic file (type png)
  <use neo4j_n.png>
 Package pdftex.def Info: neo4j_n.png used on input line 460.
@@ -1226,7 +1227,7 @@ Package acronym Info: Label `acro:AMQP' newly defined as it shall be overridden
 
 although it is yet undefined on input line 470.
 
-<rabbit_mq.png, id=847, 702.625pt x 295.1025pt>
+<rabbit_mq.png, id=851, 702.625pt x 295.1025pt>
 File: rabbit_mq.png Graphic file (type png)
  <use rabbit_mq.png>
 Package pdftex.def Info: rabbit_mq.png used on input line 475.
@@ -1236,14 +1237,14 @@ Overfull \hbox (3.32457pt too wide) in paragraph at lines 475--475
  [][] 
  []
 
-<rabbit_mq_direct.png, id=852, 611.28375pt x 407.5225pt>
+<rabbit_mq_direct.png, id=856, 611.28375pt x 407.5225pt>
 File: rabbit_mq_direct.png Graphic file (type png)
 
 <use rabbit_mq_direct.png>
 Package pdftex.def Info: rabbit_mq_direct.png used on input line 488.
 (pdftex.def)             Requested size: 366.77307pt x 244.51538pt.
  [24 <./neo4j_n.png>]
-<rabbit_mq_fanout.png, id=867, 420.57124pt x 326.21875pt>
+<rabbit_mq_fanout.png, id=871, 420.57124pt x 326.21875pt>
 File: rabbit_mq_fanout.png Graphic file (type png)
 
 <use rabbit_mq_fanout.png>
@@ -1272,7 +1273,7 @@ although it is yet undefined on input line 570.
 Package acronym Info: Label `acro:AOP' newly defined as it shall be overridden
 although it is yet undefined on input line 570.
 
-<spring_architecture.png, id=910, 420.57124pt x 388.45125pt>
+<spring_architecture.png, id=914, 420.57124pt x 388.45125pt>
 File: spring_architecture.png Graphic file (type png)
 
 <use spring_architecture.png>
@@ -1287,7 +1288,7 @@ Package acronym Info: Label `acro:GUI' newly defined as it shall be overridden
 although it is yet undefined on input line 51.
 ) (./chapters/chapter4.tex [33] [34]
 Chapter 4.
-<./img/arch_overview.png, id=970, 457.71pt x 333.245pt>
+<./img/arch_overview.png, id=974, 457.71pt x 333.245pt>
 File: ./img/arch_overview.png Graphic file (type png)
 
 <use ./img/arch_overview.png>
@@ -1660,7 +1661,7 @@ LaTeX Warning: Reference `ec:des_cdn' on page 45 undefined on input line 430.
 [45]
 Package acronym Info: Label `acro:HLS' newly defined as it shall be overridden
 although it is yet undefined on input line 434.
- <img/content_adaptation_overview.png, id=1087, 772.8875pt x 550.055pt>
+ <img/content_adaptation_overview.png, id=1091, 772.8875pt x 550.055pt>
 File: img/content_adaptation_overview.png Graphic file (type png)
 
 <use img/content_adaptation_overview.png>
@@ -1668,7 +1669,7 @@ Package pdftex.def Info: img/content_adaptation_overview.png used on input line
  442.
 (pdftex.def)             Requested size: 231.86803pt x 165.01776pt.
  [46 <./img/content_adaptation_overview.png>] <img/content_distribution.png, id
-=1098, 381.425pt x 319.1925pt>
+=1102, 381.425pt x 319.1925pt>
 File: img/content_distribution.png Graphic file (type png)
 
 <use img/content_distribution.png>
@@ -1697,7 +1698,7 @@ Overfull \hbox (42.74463pt too wide) in paragraph at lines 53--54
 ngni.cccd.services\OT1/cmr/m/n/12 ,
  []
 
-<./img/eclipse_project.png, id=1137, 296.10625pt x 409.53pt>
+<./img/eclipse_project.png, id=1141, 296.10625pt x 409.53pt>
 File: ./img/eclipse_project.png Graphic file (type png)
 
 <use ./img/eclipse_project.png>
@@ -2303,7 +2304,7 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 
-<flows/newAppFlow.png, id=1348, 490.83376pt x 249.93375pt>
+<flows/newAppFlow.png, id=1352, 490.83376pt x 249.93375pt>
 File: flows/newAppFlow.png Graphic file (type png)
 
 <use flows/newAppFlow.png>
@@ -2403,7 +2404,7 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 
-<flows/newCollectionFlow.png, id=1355, 373.395pt x 248.93pt>
+<flows/newCollectionFlow.png, id=1359, 373.395pt x 248.93pt>
 File: flows/newCollectionFlow.png Graphic file (type png)
 
 <use flows/newCollectionFlow.png>
@@ -2663,7 +2664,7 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 
-<img/Without_LoadBalancer_100_70_50_GET.pdf, id=1415, 849.1725pt x 596.2275pt>
+<img/Without_LoadBalancer_100_70_50_GET.pdf, id=1419, 849.1725pt x 596.2275pt>
 File: img/Without_LoadBalancer_100_70_50_GET.pdf Graphic file (type pdf)
 
 <use img/Without_LoadBalancer_100_70_50_GET.pdf>
@@ -2671,7 +2672,7 @@ Package pdftex.def Info: img/Without_LoadBalancer_100_70_50_GET.pdf used on inp
 ut line 915.
 (pdftex.def)             Requested size: 339.66298pt x 238.48677pt.
 
-<img/With_LoadBalancer_200_250_300_400_GET.pdf, id=1417, 849.1725pt x 596.2275p
+<img/With_LoadBalancer_200_250_300_400_GET.pdf, id=1421, 849.1725pt x 596.2275p
 t>
 File: img/With_LoadBalancer_200_250_300_400_GET.pdf Graphic file (type pdf)
  <use img/With_LoadBalancer_200_250_300_400_GET.pdf>
@@ -2702,14 +2703,14 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
  [81 <./img/Without_LoadBalancer_100_70_50_GET.pdf>]
-<img/Without_LoadBalancer_100_70_50_POST.pdf, id=1438, 849.1725pt x 596.2275pt>
+<img/Without_LoadBalancer_100_70_50_POST.pdf, id=1442, 849.1725pt x 596.2275pt>
 File: img/Without_LoadBalancer_100_70_50_POST.pdf Graphic file (type pdf)
 <use img/Without_LoadBalancer_100_70_50_POST.pdf>
 Package pdftex.def Info: img/Without_LoadBalancer_100_70_50_POST.pdf used on in
 put line 962.
 (pdftex.def)             Requested size: 339.66298pt x 238.48677pt.
 
-<img/With_LoadBalancer_200_250_300_POST.pdf, id=1440, 849.1725pt x 596.2275pt>
+<img/With_LoadBalancer_200_250_300_POST.pdf, id=1444, 849.1725pt x 596.2275pt>
 File: img/With_LoadBalancer_200_250_300_POST.pdf Graphic file (type pdf)
 
 <use img/With_LoadBalancer_200_250_300_POST.pdf>
@@ -2769,53 +2770,58 @@ od-ol-ogy,
  []
 
 
-Underfull \hbox (badness 1540) in paragraph at lines 131--136
+Underfull \hbox (badness 5302) in paragraph at lines 131--135
+[]\OT1/cmr/m/n/12 The Nielsen Com-pany.  State of the me-dia: The mo-bile me-
+ []
+
+
+Underfull \hbox (badness 1540) in paragraph at lines 137--142
 []\OT1/cmr/m/n/12 Oracle Cor-po-ra-tion.  Web ser-vices and the sun one de-vel-
 oper plat-
  []
 
 [88]
-Underfull \hbox (badness 3803) in paragraph at lines 159--163
+Underfull \hbox (badness 3803) in paragraph at lines 165--169
 []\OT1/cmr/m/n/12 Apache Soft-ware Foun-da-tion.  Even-tual con-sis-tency, 2013
 .  URL
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--170
+Underfull \hbox (badness 10000) in paragraph at lines 171--176
 []\OT1/cmr/m/n/12 EC FI-Arch Group.  Fun-da-men-tal lim-i-ta-tions of cur-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--170
+Underfull \hbox (badness 10000) in paragraph at lines 171--176
 \OT1/cmr/m/n/12 rent in-ter-net and the path to fu-ture in-ter-net.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 165--170
+Underfull \hbox (badness 10000) in paragraph at lines 171--176
 \OT1/cmr/m/n/12 http://ec.europa.eu/information[]society/activities/foi/docs/ c
 ur-
  []
 
 
-Underfull \hbox (badness 4899) in paragraph at lines 195--199
+Underfull \hbox (badness 4899) in paragraph at lines 201--205
 []\OT1/cmr/m/n/12 Elasticsearch Inc.  Elas-tic-search map-ping, 2013.  URL []$\
 OT1/cmtt/m/n/12 http : / /
  []
 
 [89]
-Underfull \hbox (badness 2913) in paragraph at lines 224--229
+Underfull \hbox (badness 2913) in paragraph at lines 230--235
 []\OT1/cmr/m/n/12 pSkills con-sor-tium.  Object-oriented mod-el-ing, 2012.  URL
  []$\OT1/cmtt/m/n/12 http :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--229
+Underfull \hbox (badness 10000) in paragraph at lines 230--235
 \OT1/cmtt/m/n/12 / / pskills . ced . tuc . gr / Restricted / WP3 / Scripts _ fo
 r _ training _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 224--229
+Underfull \hbox (badness 10000) in paragraph at lines 230--235
 \OT1/cmtt/m/n/12 material _ development / 17 . _Modelling _ and _ Data _ Manage
 ment / 02 .
  []
@@ -2850,10 +2856,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 99.
  ) 
 Here is how much of TeX's memory you used:
- 13585 strings out of 493488
- 208867 string characters out of 3141326
- 346063 words of memory out of 3000000
- 15924 multiletter control sequences out of 15000+200000
+ 13589 strings out of 493488
+ 208972 string characters out of 3141326
+ 346086 words of memory out of 3000000
+ 15927 multiletter control sequences out of 15000+200000
  10621 words of font info for 38 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
  50i,17n,54p,1584b,754s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2867,10 +2873,10 @@ sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
 r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
 /local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
 local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on DiplomarbeitLaTex.pdf (106 pages, 2008869 bytes).
+Output written on DiplomarbeitLaTex.pdf (106 pages, 2010758 bytes).
 PDF statistics:
- 1749 PDF objects out of 2073 (max. 8388607)
- 1581 compressed objects within 16 object streams
- 462 named destinations out of 1000 (max. 500000)
+ 1754 PDF objects out of 2073 (max. 8388607)
+ 1586 compressed objects within 16 object streams
+ 463 named destinations out of 1000 (max. 500000)
  591 words of extra memory for PDF output out of 10000 (max. 10000000)
 
