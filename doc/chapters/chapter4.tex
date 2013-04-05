@@ -261,7 +261,7 @@ Payload:
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-POST http://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
+POST https://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/doc
 \end{minted}
 Payload:
@@ -279,7 +279,7 @@ Payload:
 
 \begin{code}
 \begin{minted}[frame=single]{console}
-GET http://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
+GET https://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/doc/512d3258e4b0acc3647858f2
 \end{minted}
 Response:
@@ -306,7 +306,7 @@ Response:
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
-POST http://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
+POST https://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/doc/512d3258e4b0acc3647858f2
 \end{minted}
 Payload:
@@ -321,7 +321,7 @@ Payload:
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
-DELETE http://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
+DELETE https://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/doc/512d3258e4b0acc3647858f2
 \end{minted}
 \end{code}
@@ -377,7 +377,7 @@ DELETE https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
-curl -F "file=@./testDoc.txt" http://user1:pass1@107.23.121.185:8080/cccd
+curl -F "file=@./testDoc.txt" https://user1:pass1@107.23.121.185:8080/cccd
   /app/vod/buckets/bucket1/files
 \end{code}
 

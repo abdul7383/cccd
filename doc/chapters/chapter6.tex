@@ -394,7 +394,7 @@ sudo ./cccdCDN.py
 Before running the python script, the parameter \textit{message\_broker\_ip} needs to be set to the IP address of the message broker component.
 
 \section{Test Scenarios\label{sec:eval__te_sc}}
-For evaluating the framework, the next two subsections provide a usability test in which a deployment scenario of a specific application is described and a performance test in which the \ac{CRUD} operations of the document REST interface \textit{/app/{appName}/collections/{collectionName}/doc} are tested.
+For evaluating the framework, the next two subsections provide a usability test in which a deployment scenario of a specific application is described and a performance test in which the document REST interface \textit{/app/{appName}/collections/{collectionName}/doc} is tested.
 
 \subsection{Usability\label{seq:eval_usab}}
 As a usability test, the first scenario mentioned in section \ref{sec:req_sce} will be deployed and configured in the framework. Thereby this test will only show how the \ac{JSON} requests and its responses looks like and also how is the the interaction between the components.
@@ -888,8 +888,88 @@ Response:
 }
 \end{minted}
 \end{code}
-For each matched video in the response above, a \textit{sort} tag that contains the distance of the matched video from the searched location is returned. Furthermore the matched videos above contain a new tag \textit{hls\_videos} and they can be used to start streaming the video file directly on a mobile device, i.e. iPad, iPhone and etc.
-
+For each matched video in the response above, a \textit{sort} tag that contains the distance of the matched video from the searched location is returned. Furthermore the matched videos above contain a new tag \textit{hls\_videos} and they can be used to start streaming the video file directly on a mobile device, i.e. iPad, iPhone and etc. These video links are secured and can be only accessed through a security token and how to generate this token is shown here \cite{nginx:securelink}. Thereby the secret word is the secret word provided while creating the app.
 
 \subsection{Performance\label{seq:eval_perf}}
-bla
+The performance evaluation can not be done easily for the entire framework, therefore only one REST interface is tested, which has interactions with more components. The interface to be tested is the document interface the \textit{/app/appName/collections/collectionName/doc}. It has interactions with the repository, search engine and the message broker component.%been chosed some components of the framework will be tested. The components app management, repository and the search engine will be tested. Thereby the interfaces to be tested are the \textit{/app/appName/collections/collectionName/doc} and the \textit{/app/appName/collections/collectionName/search}. 
+
+The used tool for testing the interface is the open source tool Apache ab and for drawing the graphs the open source tool Gnuplot. 
+
+The Tests is done in two scenarios, the first one with only one instance of the app management component and the second one is with two instances of the app management and also an \ac{AWS} load balancer to distribute the incoming traffic across both app management instances. Only the operations CREATE(POST) and READ(GET) are tested.
+
+\paragraph{GET}
+The following Apache ab command is used for testing the interface, where the -n option is the number of requests to perform and the -c option is the number of multiple requests to make(concurrency level). The -n option is set always to 10000 requests in the following tests and the -c option is changed in every test.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+ab -A user1:pass1 -n 10000 -c 50 -g doc_50.dat 
+ http://10.0.0.91:8080/cccd/app/vod/collections/videos/doc/515b4008e4b0da706f84c1a9
+\end{minted}
+\end{code}
+
+\begin{itemize}
+\item{\textbf{Without load balancer:}} Figure \ref{fig:get_without_load} shows three tests with the -c option set to 50, 70 and 100. Thereby only the test with the concurrency level set to 50 is succeed without any failed requests. By setting the -c option to 70 there were total of 4996 failed requests and by setting it to 100 total of 7722 failed requests.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.4]{img/Without_LoadBalancer_100_70_50_GET}\\
+  \caption{GET tests without load balancer}
+  \label{fig:get_without_load}
+\end{figure}
+
+\item{\textbf{With load balancer:}} Figure \ref{fig:get_with_load} shows four tests with the -c option set to 200, 250, 300 and 400. The expected result was that both instances would be capable to serve the double traffic as the test above(-c 50) with one instance without failed requests, namely concurrency level set to 100. But the two instances with the load balancer are unexpectedly capable to serve up to a concurrency level of 400 without a noticeable failed requests(less than 100 requests).
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.4]{img/With_LoadBalancer_200_250_300_400_GET}\\
+  \caption{GET tests with load balancer}
+  \label{fig:get_with_load}
+\end{figure}
+\end{itemize}
+
+\paragraph{POST}
+The following Apache ab command is used for testing the CREATE operation. The payload of the POST request is saved in a file called \textit{post.json}. 
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+ab -A user1:pass1 -T "application/json" -p post.json -n 10000 -c 50 -g doc_50.dat 
+ http://10.0.0.91:8080/cccd/app/vod/collections/videos/doc
+\end{minted}
+\end{code}
+The file \textit{post.json} contains:
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+	"title": "Happy New Year 2013 Berlin Tempelhof ",
+	"location": "52.469635,13.385658",
+	"description": "New Year 2013 Silvester in Berlin Tempelhof",
+	"fileLink": {
+		"app": "vod",
+		"bucket": "bucket1",
+		"objectid": "515b0a99e4b0262de3bb2c7d"
+	},
+	"uploadTime": "2013-01-02T14:12:12",
+	"tags": "Berlin,Tempelhof, new year 2013,firework",
+	"user": "tom"
+}
+\end{minted}
+\end{code}
+
+\begin{itemize}
+\item{\textbf{Without load balancer:}} Figure \ref{fig:post_without_load} shows three tests with the -c option set to 50, 70 and 100. Thereby only the test with the concurrency level set to 50 is succeed without any failed requests. By setting the -c option to 70 there were total of 5167 failed requests and by setting it to 100 total of 9040 failed requests.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.4]{img/Without_LoadBalancer_100_70_50_POST}\\
+  \caption{POST tests without load balancer}
+  \label{fig:post_without_load}
+\end{figure}
+
+\item{\textbf{With load balancer:}} Figure \ref{fig:get_with_load} shows three tests with the -c option set to 200, 250 and 300. The  failed requests by the concurrency level 200 and 250 are less than 100 requests and by the concurrency level 300 the failed requests are 213.
+
+\begin{figure}[htb]
+  \centering
+  \includegraphics[scale=0.4]{img/With_LoadBalancer_200_250_300_POST}\\
+  \caption{GET tests with load balancer}
+  \label{fig:get_with_load}
+\end{figure}
+\end{itemize}

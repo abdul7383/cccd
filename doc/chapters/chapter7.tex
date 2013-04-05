@@ -1,1 +1,22 @@
 \chapter{Conclusion\label{cha:chapter7}}
+The objective of this thesis is to develop a contextual content management framework that supports the correlation and synchronization of context information and multimedia content. The framework facilitates the development of applications that needs transcoding of contents, easy scaled and distributed repository and also a powerful, ready for the cloud search engine for discovering the data. 
+
+For developing the desired framework, this thesis discussed in chapter \ref{cha:chapter2} the general background of the different related technologies that are or might be involved. In the subsequent chapter \ref{cha:chapter3}, the requirements for the framework to be developed, are defined.
+
+The framework prototype is implemented in chapter \ref{cha:chapter5} for the purpose of evaluating the design architecture presented in chapter \ref{cha:chapter4}. The design is characterized mainly by its high scalability. Thereby each component can scale independently, i.e. one can have two or more instances of the app management component that can be managed by a load balancer for distributing the incoming traffics across theses instances or one can have more instances of the repository, the search engine or the content distribution component for providing applications that are highly available and protected against single-instance failure.
+
+For evaluating the implemented framework prototype, chapter \ref{cha:chapter6} provides two test scenarios, a usability and a performance test.
+
+One of the task of this thesis is also to implement an application on a mobile device that evaluates the implemented framework but this task could not be done due to the lack of time.
+ 
+\section{Problems Encountered}
+The development of frameworks is not trivial. Compared to concrete conventional applications, frameworks are much more complex. The objective by developing a framework is to identify abstractions with a bottom-up approach, meaning that one needs first to provide some concrete applications, which will be used as use cases. These use cases can be used to better illustrate the functional assets of the framework and facilitate a deduction of its requirements.
+
+Another problem faced in this thesis that the original approach was to use a ready open source content management system and try to build the framework on it. This task was not easy at all as most of theses system have fixed-schema data model and to provide a generic framework that enables user to easily updates or extends the data model, there was no other option as starting to develop the framework from the ground based on schema-less databases. 
+
+\section{Outlook}
+It was and is not the purpose of this thesis to implement a market-ready product. Nevertheless most of the components within the prototype implementation of the framework are based on technologies, i.e. Spring framework, MongoDB, Elasticsearch or Nginx, that are widely used in production environments. The component which needs more improvements or even complete replacement is the content adaptation. This component was developed only to provide a proof of concept of a one use case scenario which needs a content transcoding service. The problem of this component that is run FFmpeg as a terminal command and it is not easy to determine if the command is processed successfully. A better solution is to use the C API of the FFmpeg platform for transcoding videos.
+
+Furthermore the REST interfaces for the repository and the search engine should be extended to support their wide features.
+
+This thesis is intentionally did not make use of Ontologies or RDF in order not to unnecessarily increase the complexity of the solution. But in works that will based on the results of this thesis, it would be still interesting to examine how the use of Ontologies or RDF could enhance the power of the solution.

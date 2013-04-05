@@ -1,0 +1,41 @@
+\chapter*{Framework Deployment\label{cha:chapter7}}
+
+\section{Content Distribution\label{sec:eval_te_cd}}
+As described in \ref{sec:impl_cdn}, the content distribution component consists internally of two components, which are a python script called \textit{cccdCD.py} and the open source project NginX as a \ac{HTTP} server. The installation of the NginX server is described below.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd
+wget http://nginx.org/download/nginx-1.2.7.tar.gz
+tar -xvvf nginx-1.2.7.tar.gz 
+cd nginx-1.2.7/
+sudo apt-get update
+sudo apt-get install gcc make
+./configure --with-http_secure_link_module \
+  --without-http_rewrite_module --without-http_gzip_module
+make
+sudo make install
+\end{minted}
+\end{code}
+
+The following command starts Nginx in the background.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+sudo /usr/local/nginx/sbin/nginx
+\end{minted}
+\end{code}
+
+The following commands are for installing and running the python script \textit{cccdCD.py}.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+cd
+wget https://raw.github.com/abdul7383/cccd/master/cccdContentDistribution/cccdCDN.py
+chmod +x cccdCDN.py
+sudo apt-get install python-pika
+sudo ./cccdCDN.py
+\end{minted}
+\end{code}
+
+Before running the python script, the parameter \textit{message\_broker\_ip} needs to be set to the IP address of the message broker component.

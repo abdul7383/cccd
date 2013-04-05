@@ -2,24 +2,28 @@
 \select@language {english}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Overall Architecture\relax }}{3}{figure.caption.7}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Inputs \& Outputs\relax }}{5}{figure.caption.11}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Inputs \& Outputs\relax }}{5}{figure.caption.9}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces \ac {SOAP} Envelop\relax }}{12}{figure.caption.22}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces CouchDB replication\relax }}{20}{figure.caption.56}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces MongoDB replication\relax }}{21}{figure.caption.59}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Embedded vs. Server deployment of Neo4J\relax }}{24}{figure.caption.65}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces RabbitMQ Components\relax }}{25}{figure.caption.68}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Direct exchange routing\relax }}{26}{figure.caption.69}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Fanout exchange routing\relax }}{27}{figure.caption.70}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Overview of the Spring Framework\relax }}{29}{figure.caption.79}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces \ac {SOAP} Envelop\relax }}{12}{figure.caption.20}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces CouchDB replication\relax }}{20}{figure.caption.54}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces MongoDB replication\relax }}{21}{figure.caption.57}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Embedded vs. Server deployment of Neo4J\relax }}{24}{figure.caption.63}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces RabbitMQ Components\relax }}{25}{figure.caption.66}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Direct exchange routing\relax }}{26}{figure.caption.67}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Fanout exchange routing\relax }}{27}{figure.caption.68}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Overview of the Spring Framework\relax }}{29}{figure.caption.77}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Architecture Overview\relax }}{35}{figure.caption.89}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Content Adaptation Overview\relax }}{46}{figure.caption.124}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Content Distribution\relax }}{47}{figure.caption.125}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Architecture Overview\relax }}{35}{figure.caption.87}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Content Adaptation Overview\relax }}{46}{figure.caption.122}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Content Distribution\relax }}{47}{figure.caption.123}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Eclipse Project Structure\relax }}{52}{figure.caption.139}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Eclipse Project Structure\relax }}{52}{figure.caption.137}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Creating a new app\relax }}{70}{figure.caption.192}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Creating a new collection\relax }}{72}{figure.caption.197}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Creating a new app\relax }}{70}{figure.caption.190}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Creating a new collection\relax }}{72}{figure.caption.195}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces GET tests without load balancer\relax }}{81}{figure.caption.209}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces GET tests with load balancer\relax }}{82}{figure.caption.210}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces POST tests without load balancer\relax }}{83}{figure.caption.214}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces GET tests with load balancer\relax }}{83}{figure.caption.215}
 \addvspace {10\p@ }
