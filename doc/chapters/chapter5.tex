@@ -1,42 +1,42 @@
 \chapter{Implementation\label{cha:chapter5}}
-This chapter deals with the implementation of the design presented in chapter \ref{cha:chapter4}. It was and is not the purpose of this work to implement a market-ready product. The focus is clearly on the conceptual part. To demonstrate the general realization of the proposed design, the implementation is done therefore only in the form of a prototype.
+This chapter deals with the implementation of the design presented in chapter \ref{cha:chapter4}. It is not the purpose of this work to implement a market-ready product. The focus is clearly on the conceptual part. Therefore, in order to demonstrate the general realization of the proposed design, the implementation is only done in the form of a prototype.
 
 
 %\section{Development Environment\label{sec:impl_ecl}}	
 
 \section{Tools \& Technologies\label{sec:impl_tools_tech}}	
-This section gives an overview on the tools and technologies that have been used to simplify the implementation. The programming languages, which have been used to implement the framework, are Java and Python.
+This section gives an overview of the tools and technologies that have been used to simplify the implementation. The programming languages, which have been used to implement the framework, are Java and Python.
 
 \subsection{Tools\label{sec:impl_tools}}
 The following tools have been used to simplify, organize and test the implementation.
 
-\paragraph{Eclipse Juno 4.2 IDE:\label{sec:impl_eclipse}} Eclipse is one of the widely used IDE for Java. It makes it easier to develop Java applications. 
+\paragraph{Eclipse Juno 4.2 IDE:\label{sec:impl_eclipse}} Eclipse is one of the most widely used IDE for Java. This tool makes it easier to develop Java applications. 
 
-\paragraph{Maven 3:\label{sec:impl_maven}} Maven is an open source build automation tool developed by the Apache Software Foundation. It uses an \ac{XML} file called \textit{pom.xml} to describe the software project being built, its dependencies, the build order, directories, and required plug-ins. It comes with predefined targets for performing certain well-defined tasks such as compilation of code, its packaging and how and where to deploy the project.
+\paragraph{Maven 3:\label{sec:impl_maven}} Maven is an open source build automation tool developed by the Apache Software Foundation. It uses an \ac{XML} file called \textit{pom.xml} to describe the software project being built, its dependencies, the build order, directories, and the required plug-ins. It comes with predefined targets for performing certain well-defined tasks such as the compilation of code, its packaging and how and where to deploy the project.
 
 
-\paragraph{Advanced REST client:\label{sec:impl_advanced_rest_cl}} Advanced \ac{REST} client is a plugin within the Chrome browser and can help developers to create and test custom \ac{HTTP} requests. It has been used mainly to test the different \ac{REST} API, which have been developed within the framework.
+\paragraph{Advanced REST client:\label{sec:impl_advanced_rest_cl}} Advanced \ac{REST} client is a plugin within the Chrome browser and can help developers create and test custom \ac{HTTP} requests. It has been mainly used to test the different \ac{REST} \ac{API}s, which have been developed within the framework.
 
 \subsection{Technologies\label{sec:impl_technologies}}
-In order to not reinvent the wheel again, most of the components in the framework are based on existing open source technologies. 
+So that the wheel is not reinvented again, most of the components in the framework are based on existing open source technologies. 
 
-\paragraph{Spring Framework 3.1.1:\label{sec:impl_spring}} As described in \ref{sec:back_sp_fr}, the Spring framework is a lightweight solution and a very good base for building enterprise-ready applications. It provides an incredibly powerful and flexible collection of technologies and projects to improve enterprise Java application development. The following are some projects from the Spring framework, which have been used in developing the framework.
+\paragraph{Spring Framework 3.1.1:\label{sec:impl_spring}} As described in \ref{sec:back_sp_fr}, the Spring framework is a lightweight solution and a good base for building enterprise-ready applications. It provides an incredibly powerful and flexible collection of technologies and projects to improve enterprise Java application development. The following are some projects from the Spring framework, which have been used in developing the framework.
 
 \subparagraph{Spring Security 3.1.1:\label{sec:impl_spring_sec}} Spring Security is a powerful and highly customizable authentication and access-control framework. It is the de-facto standard for securing Spring-based applications.
 
-\subparagraph{Spring Data MongoDB 1.1.0:\label{sec:impl_spring_data}} Spring Data for MongoDB is part of the umbrella Spring Data project which aims to provide a familiar and consistent Spring-based programming model for for new datastores while retaining store-specific features and capabilities. The Spring Data MongoDB project provides integration with the MongoDB document database.
+\subparagraph{Spring Data MongoDB 1.2.0:\label{sec:impl_spring_data}} Spring Data for MongoDB is part of the umbrella Spring Data project which aims to provide a familiar and consistent Spring-based programming model for new datastores while retaining store-specific features and capabilities. The Spring Data MongoDB project provides integration with the MongoDB document database.
 
-\subparagraph{Spring AMQP 1.1.3:\label{sec:impl_spring_amqp}} The Spring AMQP project applies core Spring concepts to the development of AMQP-based messaging solutions. It provide a "template" as a high-level abstraction for sending and receiving messages.
+\subparagraph{Spring AMQP 1.1.3:\label{sec:impl_spring_amqp}} The Spring AMQP project applies core Spring concepts to the development of AMQP-based messaging solutions. It provides a template as a high-level abstraction for sending and receiving messages.
 
-\paragraph{MongoDB 2.2.3:\label{sec:impl_mongo}} As described in \ref{sec:back_mongo}, MongoDB is a free and open-source document-oriented database and is completely schema-free and manages \ac{JSON}-style documents.
+\paragraph{MongoDB 2.2.3:\label{sec:impl_mongo}} As described in \ref{sec:back_mongo}, MongoDB is a free and open-source document-oriented database which is completely schema-free and manages \ac{JSON}-style documents.
 
-\paragraph{Elasticsearch 0.20.4:} Elasticsearch is an open-source, distributed, RESTful, search engine built on top of Apache Lucene.Its data model roots lie with schema-free and document-oriented databases, and as shown by the NoSQL movement, this model proves very effective for building applications.
+\paragraph{Elasticsearch 0.20.6:} Elasticsearch is an open-source, distributed, RESTful, search engine built on top of Apache Lucene. Its data model roots lie with schema-free and document-oriented databases, and as shown by the NoSQL movement, this model proves very effective for building applications.
 
 \paragraph{RabbitMQ 3.0.4:} RabbitMQ is an open-source message broker, which implements the AMQP standard. It provides  robust messaging services for applications and is reliable and highly scalable.
 
-\paragraph{NginX 1.2.6:} Nginx- engine-x pronounced - is a free, open-source, high-performance \ac{HTTP} server. Unlike traditional servers, Nginx does not rely on threads to handle requests. Instead it uses a much more scalable event-driven (asynchronous) architecture. This architecture uses small, but more importantly, predictable amounts of memory under load.
+\paragraph{NginX 1.2.6:} Nginx- engine-x pronounced - is a free, open-source, high-performance \ac{HTTP} server. Unlike traditional servers, Nginx does not rely on threads to handle requests. Instead, it uses more scalable event-driven (asynchronous) architecture. This architecture uses small, but more importantly, predictable amounts of memory under load.
 
-\paragraph{FFmpeg 0.9.2:} FFmpeg is the leading multimedia framework, able to decode, encode, transcode, mux, demux, stream, filter and play pretty much anything that humans and machines have created. It is an open source project licensed under LGPL version 2.1.
+\paragraph{FFmpeg 0.9.2:} FFmpeg is the leading multimedia framework, able to decode, encode, transcode, mux, demux, stream, filter and play most things that humans and machines have created. It is an open source project licensed under LGPL version 2.1.
 
 \paragraph{Tomcat 7.0.37:} Apache Tomcat is an open source software implementation of the Java Servlet and JavaServer Pages technologies. It powers numerous large-scale, mission-critical web applications across a diverse range of industries and organizations.
 
@@ -45,12 +45,12 @@ In order to not reinvent the wheel again, most of the components in the framewor
 
 %\section{Used Open Source Tools\label{sec:impl_used_op_sr}}
 \section{Framework Components\label{sec:impl_used_op_sr}}
-This section describes how each component in the framework got implemented and realized.
+This section describes how each component in the framework has been implemented and realized.
 
 \subsection{App Managment\label{sec:impl_app_man}}
-The app management component is developed completely in Java and it is based on the Spring framework. Figure \ref{fig:eclipse_project} shows the project structure of this component withing the Eclipse IDE.
+The app management component is developed completely in Java and it is based on the Spring framework. Figure \ref{fig:eclipse_project} shows the project structure of this component within the Eclipse IDE.
 
-As shown in figure \ref{fig:eclipse_project}, the project consist of three java packages, namely \textit{de.fhg.fokus.ngni.cccd.model}, \textit{de.fhg.fokus.ngni.cccd.rest} and \textit{de.fhg.fokus.ngni.cccd.services}, and also four configurations file, which are, the maven configuration file \textit{pom.xml}, the \textit{web.xml} file, the logging configuration file \textit{log4j.xml} and the Spring configuration file \textit{cccd-config.xml}.
+As shown in figure \ref{fig:eclipse_project}, the project consists of three java packages, namely \textit{de.fhg.fokus.ngni.cccd.model}, \textit{de.fhg.fokus.ngni.cccd.rest} and \textit{de.fhg.fokus.ngni.cccd.services}, and also four configuration files, which are, the maven configuration file \textit{pom.xml}, the \textit{web.xml} file, the logging configuration file \textit{log4j.xml} and the Spring configuration file \textit{cccd-config.xml}.
 
 \begin{figure}[htb]
   \centering
@@ -63,7 +63,7 @@ As shown in figure \ref{fig:eclipse_project}, the project consist of three java 
 
 The maven configuration file \textit{pom.xml} contains information about the project and configuration details used by Maven to build the project and also manages the dependencies which are needed for building the project.
 
-Within the \textit{web.xml} file, one can set how to map a specific \ac{URL} to a particular servlet and Spring provides this in the form as in listing \ref{lst:web_xml}.
+Within the \textit{web.xml} file, one can set how to map a specific \ac{URL} to a particular servlet and Spring provides this in the form as in the listing \ref{lst:web_xml}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2]{xml}
@@ -92,16 +92,16 @@ Within the \textit{web.xml} file, one can set how to map a specific \ac{URL} to 
 \label{lst:web_xml}
 \end{code}
 
-In the above example at the servlet-mapping tag, this says that all URL("/") being requests should be handled by the \textit{cccd} servlet.  And what is the \textit{cccd} servlet and where to find it is declared in the servlet tag which tells Tomcat which Java class it should resolve this \textit{cccd} servlet to. Normally in none Spring applications one could just directly specify a class which inherits from the HttpServlet class. In Spring, however, this is where it actually enter the Spring Framework.  Instead of defining the class, which needs to be executed for this servlet directly, one need to specify only the class \textit{org.springframework.web.servlet.DispatcherServlet}. From this point onwards, the request and response are known by the Spring framework, so that one can apply Spring pre-processing and post-processing with special Spring modules, i.e. Security, Aspect Oriented Programming and so on.
+The above example at the servlet-mapping tag says that all URL("/") which are requested should be handled by the \textit{cccd} servlet. The servlet tag tells Tomcat which Java class the \textit{cccd} servlet should be resolved to. In other applications, one could just directly specify a class which inherits from the HttpServlet class. However, in Spring, the servlet tag actually enters the Spring Framework. Instead of defining the class, which needs to be executed for this servlet directly, one needs to specify only the class \textit{org.springframework.web.servlet.DispatcherServlet}. From this point onwards, the requests and responses are known by the Spring framework, so that one can apply Spring pre-processing and post-processing with special Spring modules, i.e. Security, Aspect Oriented Programming and so on.
 
-The Spring configuration file \textit{cccd-config.xml} contains all of the Spring Web MVC-specific components (beans). In order to let the Spring framework detects all \textit{@Controller} beans, which provide all \ac{REST} interfaces, one need to set the tag \textit{context:component-scan} as follow:
+The Spring configuration file \textit{cccd-config.xml} contains all of the Spring Web MVC-specific components (beans). In order sor the Spring framework to detect all \textit{@Controller} beans, which provide all \ac{REST} interfaces, one needs to set the tag \textit{context:component-scan} as follows:
 \begin{code}
 \begin{minted}[frame=single,tabsize=2]{xml}
 <context:component-scan base-package="de.fhg.fokus.ngni.cccd.rest" />
 \end{minted}
 \end{code}
 
-\paragraph{User Management:} For securing all \ac{REST} interfaces, the Spring Security project is used. Listing \ref{lst:cccd_security} is an excerpt from the configuration file \textit{cccd-config.xml} shows how to secure specific URI's with a specific role.
+\paragraph{User Management:} The Spring Security project is used for securing all \ac{REST} interfaces. Listing \ref{lst:cccd_security} is an excerpt from the configuration file \textit{cccd-config.xml}  and it shows how to secure specific URI's with a specific role.
 \begin{code}
 \begin{minted}[frame=single,tabsize=2]{xml}
 <sec:http create-session="stateless">
@@ -114,9 +114,9 @@ The Spring configuration file \textit{cccd-config.xml} contains all of the Sprin
 \label{lst:cccd_security}
 \end{code}
 
-The parameter \textit{create-session="stateless"} in listing \ref{lst:cccd_security} forces re-authentication with each request, in order to make it easier for load balancer as then request can go to any server machine, making location of server machine completely transparent and this leads to better scalability. The authentication mechanism is set through the tag \textit{sec:http-basic} in listing \ref{lst:cccd_security} and it enables the \ac{HTTP} Basic Auth, which should be used over \ac{HTTPS} of course, as it do not require a particularly complex negotiation.
+The parameter \textit{create-session="stateless"} in the listing \ref{lst:cccd_security} forces re-authentication with each request, in order to make it easier for load balancer as then the request can go to any server machines, making the location of the server machines completely transparent and this leads to better scalability. The authentication mechanism is set through the tag \textit{sec:http-basic} in the listing \ref{lst:cccd_security} and it enables the \ac{HTTP} Basic Auth, which should be used over \ac{HTTPS} of course, as it does not require a particular complex negotiation.
 
-By default in Spring, the user information are added to the application context file but in order to provide a more scalable source of user information, another authentication provider is implemented. This authentication provider is implemented in the class \textit{de.fhg.fokus.ngni.cccd.services.CustomUserDetailsService}, which implements the class  \textit{org.springframework.security.core.userdetails.UserDetailsService}. To configure the framework to use the implemented authentication provider, listing \ref{lst:cccd_auth} shows how it should be set withing the configuration file \textit{cccd-config.xml}.
+By default in Spring, the user information is added to the application context file. However, in order to provide a more scalable source of user information, another authentication provider is implemented. This authentication provider is implemented in the class \textit{de.fhg.fokus.ngni.cccd.services.CustomUserDetailsService}, which implements the class  \textit{org.springframework.security.core.userdetails.UserDetailsService}. In order to configure the framework to use the implemented authentication provider, the listing \ref{lst:cccd_auth} shows how it should be set within the configuration file \textit{cccd-config.xml}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
@@ -145,9 +145,10 @@ By default in Spring, the user information are added to the application context 
 \label{lst:cccd_auth}
 \end{code}
 
-The class \textit{CustomUserDetailsService} saves the user information in the repository. Thereby it does not save the password of the user as it is in a plain format within the repository, rather it merges the password first with a salt, which is the username here, see the tag \textit{<sec:password-encoder ref="passwordEncoder">} in listing \ref{lst:cccd_auth}, and then encodes it with an MD5 algorithm, which is provided through the class\textit{org.springframework.security.authentication.encoding.Md5PasswordEncoder}.
+The class \textit{CustomUserDetailsService} saves the user information in the repository. Thus it does not save the password of the user as it is in a plain format within the repository, rather it merges the password first with a salt, which is the username here, see the tag \textit{<sec:password-encoder ref="passwordEncoder">} in the listing \ref{lst:cccd_auth}, and then encodes it with an MD5 algorithm, which is provided through the class\textit{org.springframework.security.authentication.encoding.Md5PasswordEncoder}.
 
-Where to save the user information exactly within the repository it is shown in the following excerpt from the configuration file \textit{cccd-config.xml}.
+The following excerpt from the configuration file \textit{cccd-config.xml} shows where to save the user information exactly within the repository.
+
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
@@ -157,7 +158,7 @@ Where to save the user information exactly within the repository it is shown in 
 \end{minted}
 \end{code}
 
-\paragraph{REST Interfaces:} All \ac{REST} interfaces are extending the class \textit{BaseCtrl.java}, which contains the Java driver instances for some components used in the \ac{REST} interfaces, like the repository, the search engine and the message broker, see listing \ref{lst:drivers_baseCtrl}, which is an excerpt from the class \textit{BaseCtrl.java}. The \textit{@Autowired} annotation will tell Spring to search within the configuration file \textit{cccd-config.xml} for a Spring bean which implements the required interface and place it automatically into the specified object, see listing \ref{lst:inj_baseCtrl}. How those Java driver instances are configured is shown in the next subsections.
+\paragraph{REST Interfaces:} All \ac{REST} interfaces extend the class \textit{BaseCtrl.java}, which contains the Java driver instances for some components used in the \ac{REST} interfaces, such as the repository, the search engine and the message broker, see the listing \ref{lst:drivers_baseCtrl}, which is an excerpt from the class \textit{BaseCtrl.java}. The \textit{@Autowired} annotation will tell Spring to search within the configuration file \textit{cccd-config.xml} for a Spring bean which implements the required interface and place it automatically into the specified object, see the listing \ref{lst:inj_baseCtrl}. The next subsections will show how those Java driver instances are configured.
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{java}
 	/* MongoDB Java Driver */
@@ -190,13 +191,13 @@ Where to save the user information exactly within the repository it is shown in 
 \label{lst:inj_baseCtrl}
 \end{code}
 
-The class \textit{BaseCtrl.java} also contains two methods, namely \textit{canRead} and \textit{canWrite}. These methods provide the second level of the user management described in subsection \ref{sec:des_user_man}.
+The class \textit{BaseCtrl.java} also contains two methods, namely \textit{canRead} and \textit{canWrite}. These methods provide the second level of the user management described in the subsection \ref{sec:des_user_man}.
 
 \subsection{Repository/Media Store\label{sec:impl_repo}}
 
 The open source solution MongoDB is used as a repository within the framework. The specification GridFS, which is implemented in almost each MongoDB driver, is for storing and retrieving files within MongoDB. The GridFS is used as a media store for the framework.
 
-How to configure the framework for using MongoDB is shown in listing \ref{lst:mongdb_driver}. Thereby a replication set of three MongoDB nodes are configured. 
+The listing \ref{lst:mongdb_driver} shows how to configure the framework for using MongoDB. Thereby a replication set of three MongoDB nodes are configured. 
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
@@ -223,7 +224,8 @@ How to configure the framework for using MongoDB is shown in listing \ref{lst:mo
 \label{lst:mongdb_driver}
 \end{code}
 
-By default the read and writes operations are done in the primary node but in order to enable read operations from secondary nodes, within the method \textit{setMongoDb} in Java class \textit{BaseCtrl.java} this following method is called. \textit{}
+By default, the read and write operations are done in the primary node. However, in order to enable read operations from secondary nodes, within the method \textit{setMongoDb} in Java class \textit{BaseCtrl.java} the following method is used.
+
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{java}
 	mongoDb.setReadPreference(ReadPreference.secondaryPreferred());
@@ -233,7 +235,7 @@ By default the read and writes operations are done in the primary node but in or
 The installation and configuration of MongoDB on Ubuntu is described in section \ref{sec:eval_te_en_mongo}.
 
 \subsection{Search Engine\label{sec:impl_se_en}}
-As an open source solution for the search engine, the Elasticsearch project is used. Listing \ref{lst:elasticsearch_driver} shows how to configure the Java driver in the configuration file \textit{cccd-config.xml}.
+The Elasticsearch project is used as an open source solution for the search engine. Listing \ref{lst:elasticsearch_driver} shows how to configure the Java driver in the configuration file \textit{cccd-config.xml}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
@@ -259,7 +261,7 @@ As an open source solution for the search engine, the Elasticsearch project is u
 The installation and configuration of Elasticsearch on Ubuntu is described in section \ref{sec:eval_te_se}.
 
 \subsection{Message Broker\label{sec:impl_mb}}
-The open source project RabittMQ is used as a message broker. Listing \ref{st:rabbitmq_driver}  shows how to configure the framework for using RabittMQ as a message broker. The default username/password for RabbitMQ are \textit{guest}/\textit{guest}.
+The open source project RabittMQ is used as a message broker. Listing \ref{st:rabbitmq_driver}  shows how to configure the framework for using RabittMQ as a message broker. The default username/password for RabbitMQ is \textit{guest}/\textit{guest}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
@@ -278,15 +280,15 @@ The open source project RabittMQ is used as a message broker. Listing \ref{st:ra
 The installation and configuration of RabittMQ on Ubuntu is described in section \ref{sec:eval_te_en_rabittmq}.
 
 \subsection{Content Adaptation\label{sec:des_ar_ov}}
-As shown in figure \ref{fig:content_adaptation_overview} in the design chapter, the content adaptation components consists internally of two components, namely the media encoder and the media segmenter. 
+As shown in figure \ref{fig:content_adaptation_overview} in the design chapter, the content adaptation component consists internally of two components, namely the media encoder and the media segmenter. 
 
 For the media encoder, the open source project FFmpeg is used. 
 
 As a media segmenter, this open source media segmenter/distributor \cite{hlvssad} is used. This project makes it easier to set up a live streaming server using Apple's \ac{HTTP} streaming protocol. The project includes ruby scripts and a C program that use FFMpeg to encode and segment an input video stream in the correct format for use with the \ac{HTTP} streaming protocol.
 
-For consuming messages from the message broker and process them, the python script cccdCA.py is implemented. This script is started automatically with Linux and listens for new messages from a queue called \textit{newMMfiles} within the message broker. %The message format is shown in listing \ref{}. 
+In order to consume messages from the message broker and process them, the python script \textit{cccdCA.py} is implemented. This script is started automatically with Linux and listens for new messages from the message broker. %The message format is shown in listing \ref{}. 
 
-After receiving a message from the message broker, which contain the \textit{ObjectId} of the video file and the app name \textit{appName}, the python script downloads the video file which needs to be processed from the GridFS media store to the \textit{/tmp/} directory. The file is then passed to the media segmenter/distributor a long with the directory name within the content distribution component where to upload the output files to. This directory name is basically build from \textit{appName/ObjectId}. The segmenter/distributor uploads the output files via FTP, which needs to be already configured on the content distribution component. If the message is successfully processed, the python script updates the metadata of the video file in the repository and adds a new tag which points to the index file of the transcoded/scaled video.
+After receiving a message from the message broker, which contains the \textit{ObjectId} of the video file,the app name \textit{appName} and the bucket name \textit{bucketName} the python script downloads the video file which needs to be processed from the GridFS media store to the \textit{/tmp/} directory. The file is then passed to the media segmenter/distributor along with the directory name within the content distribution component where to upload the output files to. This directory name is basically built from \textit{appName/ObjectId}. The segmenter/distributor uploads the output files via FTP, which need to be already configured on the content distribution component. If the message is successfully processed, the python script updates the metadata of the video file in the repository and adds a new tag which points to the index file of the transcoded/scaled video.
 
 The installation and configuration of this component on Ubuntu is described in section \ref{sec:eval_te_ca}.
 %The python script process the message in the following order:
@@ -301,10 +303,10 @@ The content distribution component consists internally of two components, which 
 
 In order to secure the video file link within the content distribution component, the \textit{HttpSecureLinkModule} from NginX is used. This module is not compiled by default and must be enabled while compiling the source code of NginX.
 
-For consuming messages from the message broker and process them, the python script \textit{cccdCD.py} is implemented. This script is started automatically with Linux and listens for new messages from either a queue called \textit{AppEvents} or a queue called \textit{DocDelete} within the message broker. %A message notification will be sent to the queue \textit{AppEvents} either by  creating or deleting apps so that there respective directorys within the content distribution component can be created or deleted. Another message notification will be sent to the queue \textit{DocDelete} by deleting a document from an app so that its related contents within the content distribution component can be deleted.
+In order to consume messages from the message broker and process them, the python script \textit{cccdCD.py} is implemented. This script is started automatically with Linux and listens for new messages from either a queue called \textit{AppEvents} or a queue called \textit{DocDelete} within the message broker. %A message notification will be sent to the queue \textit{AppEvents} either by  creating or deleting apps so that there respective directorys within the content distribution component can be created or deleted. Another message notification will be sent to the queue \textit{DocDelete} by deleting a document from an app so that its related contents within the content distribution component can be deleted.
 %The message format is shown in listing \ref{} and listing \ref{} respectively.
 
-Listing \ref{lst:cccdCD} shows a method from the script \textit{cccdCD.py} which process a message coming from the queue \textit{AppEvents}. The message can be either a notification of a new created app(\textit{status==created}) or a notification of a deleted app(\textit{status==deleted}). In case of a creation of a new app the python script creates a configuration file for the NginX server and also creates a directory with the same name as the \textit{appName} within the WWW directory of the NginX server. In case of a deletion of an app, the python script deletes the app directory along with its contents.
+Listing \ref{lst:cccdCD} shows a method from the script \textit{cccdCD.py} which process a message coming from the queue \textit{AppEvents}. The message can either be a notification of a newly created app(\textit{status==created}) or a notification of a deleted app(\textit{status==deleted}). In the case of the creation of a new app, the python script creates a configuration file for the NginX server and also creates a directory with the same name as the \textit{appName} within the WWW directory of the NginX server. In the case of a deletion of an app, the python script deletes the app directory along with all of its contents.
 \pagebreak
 
 \begin{code}
@@ -330,9 +332,9 @@ if(jsonBody['status']=="created"):
 \label{lst:cccdCD}
 \end{code}
 
-Another message notification will be sent to the queue \textit{DocDelete} by deleting a document from an app so that its related contents within the content distribution component can be deleted.
+Another message notification will be sent to the queue \textit{DocDelete} by deleting a document from an app so that its related contents within the content distribution component will be deleted.
 
-Listing \ref{lst:locations_nginx} shows an example of a created configuration file for a new app called \textit{app1} with \textit{pass123} as a secret word. From now on each request to the URI \textit{/app1/} must have the MD5 hash as a parmeter, which is built from the secret word, the URI(the path of the requested file) and the expiration time. How this MD5 hash calculated is shown on the documentation site of NginX \cite{nginx:securelink}.
+Listing \ref{lst:locations_nginx} shows an example of a created configuration file for a new app called \textit{app1} with \textit{pass123} as a secret word. From now on, each request to the URI \textit{/app1/} must have the MD5 hash as a parmeter, which is built from the secret word, the URI(the path of the requested file) and the expiration time. The documentation site of NginX \cite{nginx:securelink} shows how this MD5 hash can be calculated.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{php}

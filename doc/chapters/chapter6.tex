@@ -2,11 +2,11 @@
 
 
 \section{Test Environment\label{sec:eval_te_en}}
-Normally in case of a concrete application there is no need to show in details how to install and configure the application but the output of this thesis is a framework which consist of many components. In order to make it easier for developers who need to deploy this framework, this section provide a details information on how to install and configure each component. Each component will be installed on a Linux machine running in the \ac{AWS} platform. Each of these machines has 7 GB RAM and 20 \ac{EC2} Compute Units (8 virtual cores with 2.5 \ac{EC2} Compute Units each) and running Ubuntu 12.04. The name of this machine within \ac{AWS} platform is \textit{High-CPU Extra Large Instance/c1.xlarge}. In order to have these machines in the same private network, these machines are created within the Amazon \ac{VPC}. 
+Normally, in the case of a concrete application there is no need to show in detail how to install and configure the application. However the result of this thesis is a framework which consists of many components. In order to make it easier for developers who need to deploy this framework, this section provides detailed information on how to install and configure each component. Each component will be installed on a Linux machine running in the \ac{AWS} platform. Each of these machines has 7 GB RAM and 20 \ac{EC2} Compute Units (8 virtual cores with 2.5 \ac{EC2} Compute Units each) and running Ubuntu 12.04. The name of this machine within \ac{AWS} platform is \textit{High-CPU Extra Large Instance/c1.xlarge}. In order to have these machines in the same private network, these machines are created within the Amazon \ac{VPC}. 
 
-Amazon \ac{VPC} enables provisioning of a logically isolated section of the AWS Cloud where one can launch AWS resources in a virtual network. One have complete control over the virtual networking environment, including selection of the IP address range, creation of subnets, and configuration of route tables.
+Amazon \ac{VPC} enables provisioning of a logically isolated section of the AWS Cloud where one can launch AWS resources in a virtual network. One can have complete control over the virtual networking environment, including the selection of the IP address range, creation of subnets, and configuration of route tables.
 
-Table \ref{tbl:ap_addresses} shows the IP address of each component. Thereby only the components, the app management and the content distribution have a private as well as a public IP address because these components as seen in figure \ref{fig:arch_overview} are the only components that the developer can interact with. 
+Table \ref{tbl:ap_addresses} shows the IP address of each component. Thereby, only the components, the app management and the content distribution have a private as well as a public IP address because these components as seen in figure \ref{fig:arch_overview} are the only components that the developer can interact with. 
 
 \begin{table}[htb]
 \begin{tabular}{|c|c|c|}
@@ -41,7 +41,7 @@ git clone git://github.com/abdul7383/cccd.git
 \end{minted}
 \end{code}
 
-In order to deploy the app management component, one needs first to install and configure the following software:
+In order to deploy the app management component, one needs firstly to install and configure the following software:
 
 \begin{itemize}
 \item{\textbf{\ac{JDK} 7:}} Installing  \ac{JDK} 7 on Ubuntu is just easy as typing the following command.% in listing \ref{lst:jdk_installation}.
@@ -53,7 +53,7 @@ sudo apt-get install openjdk-7-jdk
 %\label{lst:jdk_installation}
 \end{code}
 
-\item{\textbf{Maven 3:}}  After downloading and extracting Maven, one needs to add the \textit{bin} directory of Maven to the Linux PATH variable. Further more one need to add the following tag within the \textit{servers} tag to the setting file of Maven \textit{apache-maven-3.0.5/conf/settings.xml}.
+\item{\textbf{Maven 3:}}  After downloading and extracting Maven, one needs to add the \textit{bin} directory of Maven to the Linux PATH variable. Furthermore one needs to add the following tag within the \textit{servers} tag to the setting file of Maven \textit{apache-maven-3.0.5/conf/settings.xml}.
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
 <server>
@@ -64,7 +64,7 @@ sudo apt-get install openjdk-7-jdk
 \end{minted}
 \end{code}
 
-\item{\textbf{Tomcat 7:}} After downloading and extracting the Apache Tomcat, one need to modify the file \textit{apache-tomcat-7.0.37/conf/tomcat-users.xml} as follow in order to enable Maven to directly deploy the project into it. 
+\item{\textbf{Tomcat 7:}} After downloading and extracting the Apache Tomcat, one needs to modify the file \textit{apache-tomcat-7.0.37/conf/tomcat-users.xml} as follows in order to enable Maven to directly deploy the project into it. 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
 <?xml version='1.0' encoding='utf-8'?>
@@ -75,22 +75,21 @@ sudo apt-get install openjdk-7-jdk
 \end{minted}
 \end{code}
 
-To start the Tomcat server from any location in Linux one also needs to add the \textit{bin} directory to the Linux PATH. The following examples updates the PATH variable for Maven and Tomcat assuming that the home directory of the user is \textit{ubuntu} and both Maven and Tomcat have been extracted to the home directory:
-TODO TODO delete backslash
+To start the Tomcat server from any location in Linux, one also needs to add the \textit{bin} directory to the Linux PATH. The following example updates the PATH variable for Maven and Tomcat assuming that the home directory of the user is \textit{ubuntu} and both Maven and Tomcat have been extracted to the home directory:
+
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
-export PATH=/home/ubuntu/apache-maven-3.0.5/bin:/home/ubuntu/apache-tomcat-7.0.37/bin:\$PATH
+export PATH=/home/ubuntu/apache-maven-3.0.5/bin:/home/ubuntu/apache-tomcat-7.0.37/bin:$PATH
 \end{minted}
 \end{code}
 
-This sets the PATH variable only for the current Linux session but in order to have this configuration valid also for each new Linux sessions, one need to add the export line above to the end of the file \textit{/home/ubuntu/.bashrc} .
+This sets the PATH variable only for the current Linux session, however, in order to have this configuration valid for each new Linux sessions, one needs to add the export line above at the end of the file \textit{/home/ubuntu/.bashrc} .
 
-Furthermore the SSL support of Tomcat needs to be enabled and this is shown in details in the official documentation of Apache Tomcat here \cite{tomcat_ssl}.
+Furthermore, the SSL support of Tomcat needs to be enabled and this is shown in detail in the official documentation of Apache Tomcat here \cite{tomcat_ssl}.
 
 \end{itemize}
 
-After having all installed and configured as described above, the Tomcat server can be started with the following command:
-\textit{ubuntu} and both Maven and Tomcat have been extracted to the home directory:
+After having installed and configured everything as described above, the Tomcat server can be started with the following command:
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 catalina.sh start
@@ -99,7 +98,7 @@ catalina.sh start
 
 All debug messages of the Tomcat server can be seen in the log file \textit{apache-tomcat-7.0.37/logs/catalina.out}. 
 
-Before deploying the app management component, one needs first to install and start all other components and then to update the IP addresses of these components in the \textit{cccd-config.xml} file of the project as described in \ref{sec:impl_repo}, \ref{sec:impl_se_en} and \ref{sec:impl_mb}. The following command will then deploy the app management component to the Tomcat server:
+Before deploying the app management component, one needs firstly to install and start all other components and then to update the IP addresses of these components in the \textit{cccd-config.xml} file of the project as described in \ref{sec:impl_repo}, \ref{sec:impl_se_en} and \ref{sec:impl_mb}. The following command will then deploy the app management component to the Tomcat server:
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 cd cccd/cccdAppManagement/
@@ -107,9 +106,9 @@ mvn tomcat:deploy
 \end{minted}
 \end{code}
 
-It will take sometime for the first run as Maven will download and compile all needed libraries and classes.
+It will take sometime for the first run, as Maven will download and compile all needed libraries and classes.
 
-At this point there is no user or admin for the framework and to add the first admin to the framework, one need to run the following Maven command:
+At this point, there is no user or administrator for the framework and in order to add the first administrator to the framework, one needs to run the following Maven command:
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -117,14 +116,14 @@ mvn exec:java -Dexec.mainClass="de.fhg.fokus.ngni.cccd.services.AddAdmin"
 \end{minted}
 \end{code}
 
-This program will ask for a username and a password and then will add these user information in a new collection called \textit{user} within a new database called \textit{users}.  After having at least one admin then the RESTful framework user management Interface \textit{/users} described in \ref{sec:des_rest_api} can be used for adding new admins or users.
+This program will ask for a username and password and then will add this user information in a new collection called \textit{user} within a new database called \textit{users}.  After having at least one administrator then the RESTful framework user management interface \textit{/users} described in \ref{sec:des_rest_api} can be used for adding new administrators or users.
 
 \subsection{Repository/Media Store\label{sec:eval_te_en_mongo}}
-The installation of MongoDB on Ubuntu is described in listing \ref{lst:mongdb_installation}, see this reference for more details \cite{MongoDb:installation}. Thereby the second command must be run in one line.  
+The installation of MongoDB on Ubuntu is described in the listing \ref{lst:mongdb_installation}, see this reference for more details \cite{MongoDb:installation}.  
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10
-echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart 
+echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart \
 	dist 10gen" | sudo tee /etc/apt/sources.list.d/10gen.list
 sudo apt-get update
 sudo apt-get install mongodb-10gen
@@ -133,18 +132,18 @@ sudo apt-get install mongodb-10gen
 \label{lst:mongdb_installation}
 \end{code}
 
-Deploying a replication set of three MongoDB instances in order to provide a sufficient capacity for many distributed read operations can be seen in the official documentation of MongoDB here \cite{mongodb_replica_set}.
+In order to provide a sufficient capacity for many distributed read operations, a replication set of three MongoDB instances needs to be deployed. This can be seen in the official documentation of MongoDB here \cite{mongodb_replica_set}.
 
 %In order to add the first admin for the framework, one need to create a database called \textit{users} and then create a new collection called \textit{user}
 \subsection{Search Engine\label{sec:eval_te_se}}
-After downloading  and extracting the version 0.20.4 of Elasticsearch, it can be started using:
+After downloading  and extracting the version 0.20.6 of Elasticsearch, it can be started using:
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 bin/elasticsearch
 \end{minted}
 \end{code}
 
-ElasticSearch is built using Java, and requires at least Java 6 in order to run. Therefore one needs to install the \ac{JDK} as described in subsection \ref{sec:eval_te_en_app}.
+ElasticSearch is built using Java, and requires at least Java 6 in order to run. Therefore, one needs to install the \ac{JDK} as described in subsection \ref{sec:eval_te_en_app}.
 
 Under Unix system, the command will start the process in the background. To run it in the foreground, one need to add the -f switch to it:
 \begin{code}
@@ -153,7 +152,7 @@ bin/elasticsearch -f
 \end{minted}
 \end{code}
 
-The most important setting for the script is the -Xmx to control the maximum allowed memory for the process, and -Xms to control the minimum allocated memory for the process. The following command starts Elasticsearch in the foreground and sets the max/min memory to 4GB and stores the index in the memory. 
+The most important setting for the script is the -Xmx to control the maximum allowed memory for the process and -Xms to control the minimum allocated memory for the process. The following command starts Elasticsearch in the foreground and sets the max/min memory to 4GB and stores the index in the memory. 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 bin/elasticsearch -f  -Xmx4g -Xms4g -Des.index.storage.type=memory
@@ -184,7 +183,7 @@ sudo apt-key add rabbitmq-signing-key-public.asc
 \end{minted}
 \end{code}
 
-\item And then install the package as usual, for instance:
+\item Next install the package as usual, for instance:
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -205,12 +204,12 @@ sudo rabbitmqctl start
 \end{code}
 
 \subsection{Content Adaptation\label{sec:eval_te_ca}}
-As described in \ref{sec:des_ar_ov}, this components consist internally of the media encoder, the media segmenter and a python script called \textit{cccdCA.py}. How to install and configure these components is described below.  
+As described in \ref{sec:des_ar_ov}, this component consists internally of the media encoder, the media segmenter and a python script called \textit{cccdCA.py}. The following describes how to install and configure these components.  
 
-The following steps are for installing FFmpeg (media encoder) along with some needed libraries \cite{ffmpeg_compile}. Some of the libraries are in the Ubuntu multiverse repository. So, one need to edit \textit{/etc/apt/sources.list} to include the multiverse repository as well.
+The following steps are for installing FFmpeg (media encoder) along with some essential libraries \cite{ffmpeg_compile}. Some of the libraries are in the Ubuntu multiverse repository. Therfore, one needs to edit \textit{/etc/apt/sources.list} to include the multiverse repository as well.
 
 \begin{itemize}
-\item First of all, the following command install some of the dependencies needed by FFmpeg
+\item First of all, the following command will install some of the dependencies needed by FFmpeg
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -281,7 +280,7 @@ sudo checkinstall --pkgname=libvpx --pkgversion="1:$(date +%Y%m%d%H%M)-git" \
 \end{minted}
 \end{code}
 
-\item{\textbf{FFmpeg:}} TODO TODO delete Dolar
+\item{\textbf{FFmpeg:}}
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 cd
@@ -296,12 +295,12 @@ cd ffmpeg-0.9.2
 make
 sudo checkinstall --pkgname=ffmpeg --pkgversion="0.9.2" \
   --backup=no --deldoc=yes --fstrans=no --default
-sudo ldconfig $
+sudo ldconfig 
 \end{minted}
 \end{code}
 \end{itemize}
 
-The following steps describes how to compile the media segmenter/distributor.
+The following steps describe how to compile the media segmenter/distributor.
 
 \begin{itemize}
 
@@ -314,7 +313,7 @@ git clone git://github.com/abdul7383/cccd.git
 \end{minted}
 \end{code}
 
-\item The following command install some of the dependencies needed by the media segmenter/distributor and the python script \textit{cccdCA.py}.
+\item The following command will install some of the dependencies needed by the media segmenter/distributor and the python script \textit{cccdCA.py}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -322,7 +321,7 @@ sudo apt-get install ruby rubygem python-pika
 \end{minted}
 \end{code}
 
-\item For compiling the media segmenter/distributor, the following commands are needed.
+\item In order to compile the media segmenter/distributor, the following commands are needed.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -333,7 +332,7 @@ make
 
 \end{itemize} 
 
-The python script \textit{cccdCA.py} and its configuration \textit{cccdCA.conf} are located in the directory \textit{~/cccd/cccdContentAdaption}. Most important configuration in \textit{ cccdCA.conf}  is the FTP transfer profile. One need to set the IP address and the user credentials of the FTP server, which is installed on the content distribution component \ref{sec:eval_te_cd}. The default configuration contains 8 encoding profiles shown below. These encoding profiles are for devices with 16x9 or 4x3 screen resolution and they are in four different streams bitrate.
+The python script \textit{cccdCA.py} and its configuration \textit{cccdCA.conf} are located in the directory \textit{~/cccd/cccdContentAdaption}. The most important configuration in \textit{ cccdCA.conf}  is the FTP transfer profile. One needs to set the IP address and the user credentials of the FTP server, which is installed on the content distribution component \ref{sec:eval_te_cd}. The default configuration contains 8 encoding profiles shown below. These encoding profiles are for devices with 16x9 or 4x3 screen resolution and they are in four different streams bitrate.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -342,7 +341,7 @@ The python script \textit{cccdCA.py} and its configuration \textit{cccdCA.conf} 
 \label{lst:encoding_profiles}
 \end{code}
 
-Finally to start the content adaptation component, one need simply to run the following commands.
+Finally, to start the content adaptation component, one needs simply to run the following commands.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -379,7 +378,7 @@ sudo /usr/local/nginx/sbin/nginx
 \end{minted}
 \end{code}
 
-The following commands are for installing and running the python script \textit{cccdCD.py}.
+The following commands are for the installing and the running of the python script \textit{cccdCD.py}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -394,14 +393,14 @@ sudo ./cccdCDN.py
 Before running the python script, the parameter \textit{message\_broker\_ip} needs to be set to the IP address of the message broker component.
 
 \section{Test Scenarios\label{sec:eval__te_sc}}
-For evaluating the framework, the next two subsections provide a usability test in which a deployment scenario of a specific application is described and a performance test in which the document REST interface \textit{/app/{appName}/collections/{collectionName}/doc} is tested.
+In order to evaluate the framework, the next two subsections provide a usability test in which a deployment scenario of a specific application is described and a performance test in which the document REST interface \textit{/app/{appName}/collections/{collectionName}/doc} is tested.
 
 \subsection{Usability\label{seq:eval_usab}}
-As a usability test, the first scenario mentioned in section \ref{sec:req_sce} will be deployed and configured in the framework. Thereby this test will only show how the \ac{JSON} requests and its responses looks like and also how is the the interaction between the components.
+As a usability test, the first scenario mentioned in section \ref{sec:req_sce} will be deployed and configured in the framework. Thereby, this test will only show how the \ac{JSON} requests and what its responses look like. It also shows the interaction between the components.
 
-For sending custom \ac{HTTP} requests and showing their responses, the Advance Rest Client described here \ref{sec:impl_advanced_rest_cl} is used.
+In order to send custom \ac{HTTP} requests and show their responses, the Advance Rest Client described here \ref{sec:impl_advanced_rest_cl} is used.
 
-After creating the first admin user as described at the end of this subsection \ref{sec:eval_te_en_app}, the admin user creates a new user without admin rights with the following request.
+After creating the first administrator as described at the end of this subsection \ref{sec:eval_te_en_app}, the administrator creates a new user without administration rights with the following request.
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 POST https://admin:pass@107.23.121.185:8443/cccd/users?username=user1
@@ -418,7 +417,7 @@ Response:
 
 From now on, the created user \textit{user1} will be used for all following requests.
 
-The following request is for creating a new application named \textit{vod}. Thereby it contains as a payload a secret word \textit{secret1} and a list of video encoding profiles so that each uploaded video will be available in these profiles. Listing \ref{lst:encoding_profiles} lists all encoding profiles.
+The following request is for creating a new application named \textit{vod}. Within the payload will be contained, a secret word \textit{secret1} and a list of video encoding profiles, so that each uploaded video will be available in these profiles. Listing \ref{lst:encoding_profiles} lists all encoding profiles.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -441,9 +440,9 @@ Response:
 \end{minted}
 \end{code}
  
-Figure \ref{fig:newApp} shows how the request is processed. A new database within the repository is created. Thereby a new table called \textit{user} is created, which contains the users along with their rights, and also another table called \textit{conf} which contains all configuration parameters that belongs to this app.
+Figure \ref{fig:newApp} shows how the request is processed. A new database within the repository is created. Thereby, a new table called \textit{user} is created, which contains all the users and their rights, and also another table called \textit{conf} which contains all configuration parameters that belongs to this app.
 
-Furthermore a notification message is sent to the message broker component to forward this message to the content distribution component. This message notifies the content distribution component about the new created app so that it creates a new directory for this new app within the HTTP server and secures it with the secure word provided by the user while creating the app.
+Furthermore, a notification message is sent to the message broker component to forward this message to the content distribution component. This message notifies the content distribution component about the newly created app, so that it creates a new directory for this new app within the HTTP server and secures it with the secure word provided by the user while creating the app.
 
 \begin{figure}[htb]
   \centering
@@ -469,7 +468,7 @@ Response:
 \end{minted}
 \end{code}
  
-For uploading files, i.e. videos or images, to the new created app, one needs first to create a bucket, which will hold these files, within this app. The following request creates a new bucket called \textit{bucket1}.
+In order to upload files, i.e. videos or images, to the newly created app, one needs firstly to create a bucket, which will hold these files, within this app. The following request creates a new bucket called \textit{bucket1}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -500,7 +499,7 @@ Response:
 \end{minted}
 \end{code}
 
-Now the bucket \textit{bucket1} is created but before uploading files to it, one needs to create a collection within the app \textit{vod} to hold the context/metadata of the file. The following request creates a new collection called \textit{videos}. Thereby an empty index is automatically created in the search engine component. Figure \ref{fig:newCollection} illustrate how the request is processed internally in the framework.
+Now the bucket \textit{bucket1} is created. However, before uploading files to it, one needs to create a collection within the app \textit{vod} to hold the context/metadata of the file. The following request creates a new collection called \textit{videos}. Thereby, an empty index is automatically created in the search engine component. Figure \ref{fig:newCollection} illustrates how the request is processed internally in the framework.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -522,7 +521,7 @@ Response:
   \label{fig:newCollection}
 \end{figure}
 
-To configure the app \textit{vod} to send a new message notification to a queue called \textit{contetnt\_adaptation} for each new inserted document to the collection \textit{videos}, the following request is needed. Thereby one can configure the app to send the message notification to more than one queue for supporting more services like M2M context enrichment or Subscribe/Notification.
+In order to configure the app \textit{vod} to send a new message notification to a queue called \textit{contetnt\_adaptation} for each new inserted document to the collection \textit{videos}, the following request is needed. Thereby, one can configure the app to send the message notification to more than one queue for supporting more services like M2M context enrichment or Subscribe/Notification.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -536,7 +535,7 @@ Payload:
 \end{minted}
 \end{code}
 
-The following request list all configurations for the app \textit{vod}.
+The following request lists all configurations for the app \textit{vod}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -560,7 +559,7 @@ Response:
 \end{minted}
 \end{code}
 
-Before adding data to the collection \textit{videos}, the data fields should be mapped to a proper object, i.e. string, integer, date, array or geo\_point and also one can specify if a specific field will be indexed or stored in the search engine. At the beginning, the mapping of the created collection is empty, which can be seen with the following request.
+Before adding data to the collection \textit{videos}, the data fields should be mapped to a proper object, i.e. string, integer, date, array or geo\_point. One can also specify if a specific field will be indexed or stored in the search engine. At first, the mapping of the created collection is empty, which can be seen with the following request.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -575,7 +574,7 @@ Response:
 \end{minted}
 \end{code}
 
-As soon as any data get inserted to the collection, the mapping get updated automatically but it can not be updated anymore, i.e. setting a specific filed to be indexed or stored in the search engine. Therefore the mapping for each field should be set before adding any data to the collection, see the official documentation of the search engine Elasticsearch for further information on the mapping interface \cite{elastic_mapping}. The following request updates the mapping of the collection \textit{videos}.
+As soon as some data is inserted into the collection, the mapping is automatically updated, however it can not be updated anymore, i.e. setting a specific filed to be indexed or stored in the search engine. Therefore, the mapping for each field should be set before adding any data to the collection, see the official documentation of the search engine Elasticsearch for further information on the mapping interface \cite{elastic_mapping}. The following request updates the mapping of the collection \textit{videos}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -606,7 +605,7 @@ Payload:
 \end{minted}
 \end{code}
 
-Now listing the mapping of the collection \textit{video} will show all fields withe their respective types, see following request.
+Now listing the mapping of the collection \textit{video} will show all fields with their respective types, see the following request.
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 GET https://user1:pass1@107.23.121.185:8443/cccd/app/vod/collections/videos/mapping
@@ -676,7 +675,7 @@ Response:
 \end{minted}
 \end{code}
 
-Now the bucket, the collection and its mapping are ready, one can now upload the videos and their related context. For having users, who are developers that need to use the created app for only uploading, searching, downloading, or streaming videos, the following request add a read-only user to the created app \textit{vod}. Thereby the user to be added to the app user list must be already a registered user in the framework (already created through \textit{/cccd/users}).
+Now the bucket, the collection and its mapping are all ready and one can now upload the videos and their related context. In order to have users who are developers that need to use the created app for only uploading, searching, downloading, or streaming videos, the following request adds a read-only user to the created app \textit{vod}. Thereby, the user to be added to the app user list must already be  a registered user in the framework (previously created through \textit{/cccd/users}).
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -710,7 +709,7 @@ Response:
 \end{minted}
 \end{code}
 
-Now uploading a video to the new created app is done in two steps, one need first to upload the video file to a bucket within the app. The bucket \textit{bucket1}, which is created above, will be used in the following request. Thereby the \textit{objectid} of the uploaded file is returned in the response, which will be then used for ensuring the correlation between the video file and its context/metadata.
+Next, uploading a video to the new created app can be done in two steps. Firstly one needs to upload the video file to a bucket within the app. The bucket \textit{bucket1}, which is created above, will be used in the following request. Thereby ,the \textit{objectid} of the uploaded file is returned in the response, which will be then used for ensuring the correlation between the video file and its context/metadata.
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 POST https://user1:pass1@107.23.121.185:8443/cccd/app/vod
@@ -729,7 +728,7 @@ Response:
 \end{minted}
 \end{code}
 
-The video file is now saved within the bucket \textit{bucket1}. The second step is to upload the context/metadata of the video file along with the file-link within the app \textit{vod}. These two steps are needed for uploading videos and in the same way two other videos have been uploaded, which has been recorded in Berlin Tempelhof and in Frankfurt am Main Bahnhofsviertel. 
+The video file is now saved within the bucket \textit{bucket1}. The second step is to upload the context/metadata of the video file along with the file-link within the app \textit{vod}. These two steps are needed for uploading videos. 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 POST https://user1:pass1@107.23.121.185:8443/cccd/app/vod
@@ -753,7 +752,7 @@ Payload:
 \end{minted}
 \end{code}
 
-These two steps are needed for uploading videos and in the same way two other videos have been uploaded, which has been recorded in Berlin Tempelhof and in Frankfurt am Main Bahnhofsviertel. 
+These two steps are needed for uploading videos and in the same way two other videos have been uploaded, which have been recorded in Berlin Tempelhof and Frankfurt am Main Bahnhofsviertel. 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
@@ -787,7 +786,7 @@ These two steps are needed for uploading videos and in the same way two other vi
 
 After a short time, depending of how big the video files are, the framework will update the context/metadata of each uploaded video file with the links for each \ac{HLS} encoded videos based on the encoding profiles which have been set while creating the app (\textit{cell\_16x9\_150k,wifi\_16x9\_640k}).
 
-The following request is for searching all videos which hast been captured within a maximum distance of 10 km from Potsdamer Platz(lat,lon: 52.509693,13.376218) in Berlin. Thereby the response must be ordered by the distance.
+The following request is for searching for all videos which have been captured within a maximum distance of 10 km from Potsdamer Platz(lat,lon: 52.509693,13.376218) in Berlin. Thereby, the response must be ordered by the distance.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -888,14 +887,14 @@ Response:
 }
 \end{minted}
 \end{code}
-For each matched video in the response above, a \textit{sort} tag that contains the distance of the matched video from the searched location is returned. Furthermore the matched videos above contain a new tag \textit{hls\_videos} and they can be used to start streaming the video file directly on a mobile device, i.e. iPad, iPhone and etc. These video links are secured and can be only accessed through a security token and how to generate this token is shown here \cite{nginx:securelink}. Thereby the secret word is the secret word provided while creating the app.
+For each matched video in the response above, a \textit{sort} tag that contains the distance of the matched video from the searched location is returned. Furthermore, the matched videos above contain a new tag \textit{hls\_videos} and they can be used to start streaming the video file directly on a mobile device, i.e. iPad, iPhone and etc. These video links are secured and can be only accessed through a security token and the generation of this token is shown here \cite{nginx:securelink}. Thereby the secret word is the secret word provided while creating the app.
 
 \subsection{Performance\label{seq:eval_perf}}
-The performance evaluation can not be done easily for the entire framework, therefore only one REST interface is tested, which has interactions with more components. The interface to be tested is the document interface the \textit{/app/appName/collections/collectionName/doc}. It has interactions with the repository, search engine and the message broker component.%been chosed some components of the framework will be tested. The components app management, repository and the search engine will be tested. Thereby the interfaces to be tested are the \textit{/app/appName/collections/collectionName/doc} and the \textit{/app/appName/collections/collectionName/search}. 
+I is not easy to do a performance evaluation for the entire framework, therefore, only one REST interface is tested, which has interactions with more components. The interface to be tested is the document interface \textit{/app/appName/collections/collectionName/doc}. This interface has interactions with the repository, search engine and the message broker component.%been chosed some components of the framework will be tested. The components app management, repository and the search engine will be tested. Thereby the interfaces to be tested are the \textit{/app/appName/collections/collectionName/doc} and the \textit{/app/appName/collections/collectionName/search}. 
 
-The used tool for testing the interface is the open source tool Apache ab and for drawing the graphs the open source tool Gnuplot. 
+The tool used for testing the interface is the open source tool Apache ab and for drawing the graphs the open source tool Gnuplot. 
 
-The Tests is done in two scenarios, the first one with only one instance of the app management component and the second one is with two instances of the app management and also an \ac{AWS} load balancer to distribute the incoming traffic across both app management instances. Only the operations CREATE(POST) and READ(GET) are tested.
+The tests are done in two scenarios, the first one with only one instance of the app management component and the second one  with two instances of the app management and also an \ac{AWS} load balancer to distribute the incoming traffic across both app management instances. Only the operations CREATE(POST) and READ(GET) are tested.
 
 \paragraph{GET}
 The following Apache ab command is used for testing the interface, where the -n option is the number of requests to perform and the -c option is the number of multiple requests to make(concurrency level). The -n option is set always to 10000 requests in the following tests and the -c option is changed in every test.
@@ -908,7 +907,7 @@ ab -A user1:pass1 -n 10000 -c 50 -g doc_50.dat
 \end{code}
 
 \begin{itemize}
-\item{\textbf{Without load balancer:}} Figure \ref{fig:get_without_load} shows three tests with the -c option set to 50, 70 and 100. Thereby only the test with the concurrency level set to 50 is succeed without any failed requests. By setting the -c option to 70 there were total of 4996 failed requests and by setting it to 100 total of 7722 failed requests.
+\item{\textbf{Without load balancer:}} Figure \ref{fig:get_without_load} shows three tests with the -c option set to 50, 70 and 100. Thereby, only the test with the concurrency level set to 50 was successful without any failed requests. By setting the -c option to 70 there were a total of 4996 failed requests and by setting it to 100 a total of 7722 failed requests.
 
 \begin{figure}[htb]
   \centering
@@ -917,7 +916,7 @@ ab -A user1:pass1 -n 10000 -c 50 -g doc_50.dat
   \label{fig:get_without_load}
 \end{figure}
 
-\item{\textbf{With load balancer:}} Figure \ref{fig:get_with_load} shows four tests with the -c option set to 200, 250, 300 and 400. The expected result was that both instances would be capable to serve the double traffic as the test above(-c 50) with one instance without failed requests, namely concurrency level set to 100. But the two instances with the load balancer are unexpectedly capable to serve up to a concurrency level of 400 without a noticeable failed requests(less than 100 requests).
+\item{\textbf{With load balancer:}} Figure \ref{fig:get_with_load} shows four tests with the -c option set to 200, 250, 300 and 400. The expected result was that both instances were capable of serving double traffic as the test above(-c 50) with one instance, without a failed request, with the concurrency level set to 100. However, the two instances with the load balancer were unexpectedly capable of serving up to a concurrency level of 400 without noticeable failed requests(less than 100 requests).
 
 \begin{figure}[htb]
   \centering
@@ -928,7 +927,7 @@ ab -A user1:pass1 -n 10000 -c 50 -g doc_50.dat
 \end{itemize}
 
 \paragraph{POST}
-The following Apache ab command is used for testing the CREATE operation. The payload of the POST request is saved in a file called \textit{post.json}. 
+The following Apache ab command is used for testing the CREATE operation. The payload of the POST request is saved in the file called \textit{post.json}. 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 ab -A user1:pass1 -T "application/json" -p post.json -n 10000 -c 50 -g doc_50.dat 
@@ -955,7 +954,7 @@ The file \textit{post.json} contains:
 \end{code}
 
 \begin{itemize}
-\item{\textbf{Without load balancer:}} Figure \ref{fig:post_without_load} shows three tests with the -c option set to 50, 70 and 100. Thereby only the test with the concurrency level set to 50 is succeed without any failed requests. By setting the -c option to 70 there were total of 5167 failed requests and by setting it to 100 total of 9040 failed requests.
+\item{\textbf{Without load balancer:}} Figure \ref{fig:post_without_load} shows three tests with the -c option set to 50, 70 and 100. Thereby only the test with the concurrency level set to 50 was successful without any failed requests. By setting the -c option to 70 there were a total of 5167 failed requests and by setting it to 100 a total of 9040 failed requests.
 
 \begin{figure}[htb]
   \centering
@@ -964,7 +963,7 @@ The file \textit{post.json} contains:
   \label{fig:post_without_load}
 \end{figure}
 
-\item{\textbf{With load balancer:}} Figure \ref{fig:get_with_load} shows three tests with the -c option set to 200, 250 and 300. The  failed requests by the concurrency level 200 and 250 are less than 100 requests and by the concurrency level 300 the failed requests are 213.
+\item{\textbf{With load balancer:}} Figure \ref{fig:get_with_load} shows three tests with the -c option set to 200, 250 and 300. The  failed requests within the concurrency level 200 and 250 were less than 100 requests and within the concurrency level 300 the failed requests were 213.
 
 \begin{figure}[htb]
   \centering

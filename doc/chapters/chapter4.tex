@@ -1,11 +1,8 @@
 \chapter{Design\label{cha:chapter4}}
-Against the background of the requirements described previously in chapter \ref{cha:chapter3}, this chapter provides a design concept for the framework. Section \ref{sec:des_ar_ov} will describe a basic architectural concept of the framework to be refined in section \ref{sec:des_com} which provide a more detailed description of the framework's components and their interactions. 
-%The final section reviews the parity between the requirements from chapter 3 and the corresponding architectural components. 
-        
-
+Against the background of the requirements described previously in chapter \ref{cha:chapter3}, this chapter provides a design concept for the framework. Section \ref{sec:des_ar_ov} will describe a basic architectural concept of the framework to be refined in section \ref{sec:des_com} which will provide a more detailed description of the framework's components and their interactions. 
 
 \section{Architecture Overview\label{sec:des_ar_ov}}
-Figure \ref{fig:arch_overview} shows an architecture overview of the framework, which consists mainly of six components. The components with three dots(...) in them means that the framework can be later extended with new components for adding new services to the framework like SUBSCRIBE/NOTIFICATION or context enrichment through \ac{M2M} etc.
+Figure \ref{fig:arch_overview} shows an architecture overview of the framework, which consists mainly of six components. The components with three dots(...) means that the framework can later be extended with new components for adding new services to the framework such as Subscribe/Notification or context enrichment through \ac{M2M} etc.
 
 \begin{figure}[htb]
   \centering
@@ -14,47 +11,33 @@ Figure \ref{fig:arch_overview} shows an architecture overview of the framework, 
   \label{fig:arch_overview}
 \end{figure}
 
-%Before diving into the details of each component, the following subsections illustrate some work flows that have to be processed in order to process a request, i.e. creating a new application, adding a new content or searching for a content.
-%
-%\subsection{Create App-Work Flow}
-%As illustrated in figure bla, these steps are needed for creating a new application:
-%
-%\begin{itemize}
-%\item developer sends a request for creating a new app to the App Management API along with his credentials and containing the name for the new app and a secret to be later used to get the stored contents
-%\item App Management checks if the credentials are correct
-%\item App Management checks if the new app name already exist
-%\item AppM creates a database in the repository with the given app name and sets its owner to the developer who created it.
-%\item AppM send a message to the Worker Queue and thereby announce the creation of a new app with the given name and the secret
-%\item Content Distribution servers which listens to the Worker Queue create a virtual space for the new app and securing it with the secret word provided while creation the new app
-%\end{itemize}
-
 \section{Framework Components\label{sec:des_com}}
-The app management component is the main entry for each developer to interact with the framework. These developers needs to authenticate them self in order to use the framework and therefore an appropriate user management is needed. Furthermore the repository/media store is needed in order to store the data and the multimedia files. For efficient data discovery, the search engine component  is required. The task of the content adaptation component is to convert the stored files to other formats and then upload these converted files to the content distribution component which then serve them to various devices.
+The app management component is the main entry for each developer to interact with the framework. These developers need to authenticate themselves in order to use the framework and therefore an appropriate user management is needed. Furthermore, the repository/media store is needed in order to store the data and the multimedia files. For efficient data discovery, the search engine component  is required. The task of the content adaptation component is to convert the stored files to other formats and then upload these converted files to the content distribution component which will then serve them to various devices.
 
-Those components are described in more details in the next subsections.
+Those components are described in more detail in the next subsections.
  
 \subsection{App Management\label{sec:des_app_man}}
 
 The app management component is the core of the entire framework and it interacts with almost all components in the framework. The following subsections describe the design decision that have been made for implementing this component.
 
 \subsubsection{JSON}
-The data format to interact with the framework is \ac{JSON}. It has been chosen due its low-overhead comparing with \ac{XML} and it is also the data format for many of the known \ac{NoSQL} systems, which one of them will be used in the framework.
+The data format to interact with the framework is \ac{JSON}. It has been chosen due its low-overhead compared with \ac{XML} and it is also the data format for many of the known \ac{NoSQL} systems, one of which will be used in the framework.
  
 \subsubsection{User Management \label{sec:des_user_man}}
 In order to allow only registered developers to use the framework, a user management design concept is described in the following.
 
-The user management component provides two levels of management. The first one is to provide a role based user management for using the entire framework. The role can be either an admin or a normal user - which here means a developer who use the framework. Both admin and user are allowed to use the framework i.e. creating new applications, modeling the app and storing, getting or deleting contents etc. Only admins can add a new admin or user.
+The user management component provides two levels of management. The first one is to provide a role based user management for using the entire framework. The role can be either an administrator or a normal user - which here means a developer who uses the framework. Both admin and user are allowed to use the framework i.e. creating new applications, modeling the app and storing, obtaining or deleting content etc. Only administrators can add a new administrator or user.
 
-The second level of the user management component provides a mechanism for managing who can modify an existing app or store/get contents from this app. The user who created the app is theoretically the owner of it and he is the only one who is allowed to add other users for using his app. Thereby he can add users with the same rights as his rights, meaning they can modify the whole app, deleting contents etc., or add other users, who only allowed to store/get/search contents. For example this is useful for a developer, who has deployed/configured a new app and then lets a service provider to use his app by only storing, getting,  or searching the contents in this app. 
+The second level of the user management component provides a mechanism for managing who can modify an existing app or store/get contents from this app. The user who created the app is theoretically the owner of it and he is the only one allowed to add other users for using his app. Thereby, he can add users with the same rights as his own rights, meaning they can modify the whole app, deleting content etc., or add other users, who only allowed to store/get/search content. For example, this is useful for a developer, who has deployed/configured a new app and then lets a service provider use his app by only storing, obtaining,  or searching the contents in this app. 
 
-\subsubsection{REST Interfaces \label{sec:des_rest_api}} For interacting with the outside world, a standard and well defined interface is needed. The decision for choosing \ac{REST} as an \ac{API} interface is due to its flexibility, simplicity, less bandwidth usage and very easy way to scale for large deployment, see section \ref{sec:back_soap_vs_rest} for more detailed comparison.
+\subsubsection{REST Interfaces \label{sec:des_rest_api}} For interacting with the outside world, a standard and well defined interface is needed. The decision for choosing \ac{REST} as an \ac{API} interface is due to its flexibility, simplicity, less bandwidth usage and easy way to scale for large deployment, see section \ref{sec:back_soap_vs_rest} for more detailed comparison.
 
-Following paragraphs describes the various interfaces needed in order to be able to use the framework:
+The following paragraphs describe the various interfaces needed in order to use the framework:
 
-\paragraph{Framework User Management Interface /users :} This interface provide the first level of user management described in \ref{sec:des_user_man}. Only admins are allowed to use this interface for managing users.
+\paragraph{Framework User Management Interface /users :} This interface provides the first level of user management described in \ref{sec:des_user_man}. Only administrators are allowed to use this interface for managing users.
 
 \begin{itemize}
-\item \textbf{Create:} The method \textit{addUser} requires following parameters, \textit{username}, \textit{password}, \textit{firstname}, \textit{lastname}, \textit{email} and \textit{role}.  The role parameter is an integer and specify if the user has ADMIN - 1 - or USER - 2 - role. These parameters is passed through an \ac{URI} parameters, see following example for adding a new admin.
+\item \textbf{Create:} The method \textit{addUser} requires the following parameters, \textit{username}, \textit{password}, \textit{firstname}, \textit{lastname}, \textit{email} and \textit{role}.  The role parameter is an integer and specifies if the user has ADMIN - 1 - or USER - 2 - rights. These parameters are passed through \ac{URI} parameters, see the following example for adding a new administrator.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -64,7 +47,7 @@ lastname=schulz&email=frank21@yahoo.de&role=1
 \end{minted}
 \end{code}
 
-\item \textbf{Delete:} The method \textit{deleteUser} requires only \textit{username} as a parameter. It is not allowed to delete the \textit{username} if he is the last admin in the framework, else no one can admin it.
+\item \textbf{Delete:} The method \textit{deleteUser} requires only a \textit{username} as a parameter. It does not allow one to delete the \textit{username} if he is the last administrator in the framework, otherwise no one can administrate the app.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -76,10 +59,10 @@ DELETE https://user1:pass@107.23.121.185:8443/cccd/
 \end{itemize}
 
 
-\paragraph{App interface \textit{/app/} :} This interface provides the four \ac{CRUD} operation, which described bellow, to allow developers to interact with there apps.
+\paragraph{App interface \textit{/app/} :} This interface provides the four \ac{CRUD} operations described below, which allow developers to interact with their apps.
 
 \begin{itemize}
-\item \textbf{Create(POST):} This method \textit{createApp} creates a new app and it requires a name and global configuration parameters for the app. These configuration parameters can be for example a mandatory secret word to be later used for securing the contents which belongs to this app or a list of encoding profiles, which will be then used to transcode each uploaded video within this app in order to support various devices i.e. iPad, iPhone, PC and etc. Listing \ref{lst:new_app_json} shows a \ac{JSON} example for creating a new app with \textbf{vod1} as a name.
+\item \textbf{Create(POST):} This method \textit{createApp} creates a new app and it requires a name and global configuration parameters for the app. For example, these configuration parameters can be a mandatory secret word to be used later for securing the contents which belongs to this app or a list of encoding profiles, which will be then used to transcode each uploaded video within this app in order to support various devices i.e. iPad, iPhone, PC and etc. Listing \ref{lst:new_app_json} shows a \ac{JSON} example for creating a new app with \textbf{vod1} as a name.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -103,7 +86,7 @@ Response:
 \label{lst:new_app_json}
 \end{code}
 
-\item \textbf{Read(GET):} There are two methods in this app interface, which can be consumed through a \ac{HTTP} GET, first one \textit{listApps} is for listing all apps which belongs to the user, see listing \ref{lst:listing_apps} as an example. 
+\item \textbf{Read(GET):} There are two methods in this app interface, which can be consumed through a \ac{HTTP} GET. The first one \textit{listApps} is for listing all apps which belongs to the user, see listing \ref{lst:listing_apps} as an example. 
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -121,7 +104,7 @@ Response:
 \end{code}
 
 
-The second method \textit{checkAppStatus} returns data that reflects the amount of storage used and data contained in a specific app, as well as object, collection, and index counters. This data can be used to check and track the state and storage of a specific app, the example below will returns these data for an app called \textit{vod1}.
+The second method \textit{checkAppStatus} returns data that reflects the amount of storage used and data contained in a specific app, as well as object, collection, and index counters. This data can be used to check and track the state and storage of a specific app. The example below will return this data for an app called \textit{vod1}.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -138,16 +121,16 @@ GET https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 %\label{lst:listing_apps}
 \end{code}
 
-\item \textbf{Update(PUT):}  This method \textit{updateApp} is for updating/adding the configuration parameters of the app. i.e changing the secret word or adding new configuration parameters which can be needed from other components, i.e. adding the user credentials for a Justin.TV account in order to stream a video to it.
+\item \textbf{Update(PUT):}  This method \textit{updateApp} is for updating/adding the configuration parameters of the app. i.e changing the secret word or adding new configuration parameters which could be needed from other components, i.e. adding the user credentials for a Justin.TV account in order to stream a video to it.
 
-\item \textbf{Delete(DELETE):} This method \textit{deleteApp} delete the app along with its related contents which might be in the repository, media store or in the content distributor component.
+\item \textbf{Delete(DELETE):} This method \textit{deleteApp} deletes the app along with its related contents which might be in the repository, media store or in the content distributor component.
 
 \end{itemize}
 
-\paragraph{App User Management Interface /app/{appName}/users :} This interface provide the second level user management described in \ref{sec:des_user_man}. The users table is saved on the repository within the app. In order to add a user to an app with WRITE or only READ rights, he must be already registered in the framework as a valid user.
+\paragraph{App User Management Interface /app/{appName}/users :} This interface provides the second level of user management described in \ref{sec:des_user_man}. The users table is saved on the repository within the app. In order to add a user to the app with WRITE or READ only rights, the user must be already registered in the framework as a valid user.
 
 \begin{itemize}
-\item \textbf{Update:} The method \textit{addUser} takes following parameters, \textit{appName}, \textit{username} which needs to be added to the app and which rights will it has \textit{readonly}. The \textit{username} and \textit{readonly} parameters are passed through \ac{URI} parameters, see following example.
+\item \textbf{Update:} The method \textit{addUser} takes the following parameters, \textit{appName}, \textit{username} which needs to be added to the app and the parameter \textit{readonly} that states which rights the user will have. The \textit{username} and \textit{readonly} parameters are passed through \ac{URI} parameters, see the following example.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -156,7 +139,7 @@ PUT https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 \end{minted}
 \end{code}
 
-\item \textbf{Delete:} The method \textit{deleteUser} takes two parameters, namely \textit{appName} and the name of the user \textit{username} which needs to be deleted from the app. It is not allowed to delete the \textit{username} if he is the last user who has WRITE rights, else no one else can admin the app.
+\item \textbf{Delete:} The method \textit{deleteUser} takes two parameters, namely \textit{appName} and the name of the user \textit{username} which needs to be deleted from the app. It does not allow the deletion of the \textit{username} if this user is the last user who has WRITE rights, otherwise no one else can administrate the app.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -167,12 +150,12 @@ DELETE https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 
 \end{itemize}
 
-\paragraph{Collection Interface /app/{appName}/collections/ :} The collection within an app can be compared with tables in SQL systems and it contains the real data, i.e. the metadata for a content. This interface provide only Create, Read, and Delete operations. 
+\paragraph{Collection Interface /app/{appName}/collections/ :} The collection within an app can be compared with tables in SQL systems and it contains the real data, i.e. the metadata for content. This interface provides only Create, Read, and Delete operations. 
 
 %There is two types of collections interface within an app, namely \textit{/collections/} and \textit{/acollections/}. This interface \textit{/collections/} is for managing data, which does not require any kind of transcoding/transforming for contents, i.e. a collection which contain the friend list of an end user.
 
 \begin{itemize}
-\item \textbf{Create:} The method \textit{createCollection} requires two argument, namely the app name and the name of the new collection. This method creates automatically an empty index in the search engine, which can be later used for searching within this collection. The name of the created index is based on the name of the app combined with '\_' and the name of the collection, i.e if the name of the app is \textit{vod1} and the name of the collection is \textit{collection1}, the created index name would be \textit{vod1\_collection1}.
+\item \textbf{Create:} The method \textit{createCollection} requires two argument, the \textit{appName} and the name of the new collection \textit{collName}. This method automatically creates an empty index in the search engine, which can later be used for searching within this collection. The name of the created index is based on the name of the app combined with '\_' and the name of the collection, i.e if the name of the app is \textit{vod1} and the name of the collection is \textit{collection1}, the created index name would be \textit{vod1\_collection1}.
 
 \item \textbf{Read:} The method \textit{listCollections} is for listing all collections within an app, see listing \ref{lst:listing_coll} for an example.
 
@@ -192,17 +175,17 @@ Response:
 \label{lst:listing_coll}
 \end{code}
 
-\item \textbf{Delete:} Deleting a collection would delete the entire data in it and also delete its index in the search engine. Furthermore the data/files which are in the content distribution component, which belong to this collection will be deleted too.
+\item \textbf{Delete:} Deleting a collection would delete the entire data in it and also delete its index in the search engine. Furthermore the data/files which are in the content distribution component, belonging to this collection will be deleted too.
 \end{itemize}
 
-\paragraph{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :\label{sec:des_rest_api_mapping}} Before adding data to any collection, fields should be mapped to a proper object, i.e. string, integer, date, array or geo\_point. 
+\paragraph{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :\label{sec:des_rest_api_mapping}} Before adding data to any collection, the fields should be mapped to a proper object, i.e. string, integer, date, array or geo\_point. 
 
 %cite http://www.elasticsearch.org/guide/reference/mapping/
-Mapping is the process of defining how a document should be mapped to the Search Engine, including its searchable characteristics such as which fields are searchable and if/how they are tokenized.  By default, there is no need to define an explicit mapping, since one is automatically created and registered when a new type or new field is introduced and have sensible defaults. Only when the defaults need to be overridden must a mapping definition be provided. Only Get and Update are provided through this interface.
+Mapping is the process of defining how a document should be mapped to the search engine, including its searchable characteristics such as which fields are searchable and if/how they are tokenized.  By default, there is no need to define explicit mapping, since one is automatically created and registered when a new type or new field is introduced and has sensible defaults. A mapping definition only needs to be provided when the defaults need to be overridden. Only Get and Update operations are provided through this interface.
  
 \begin{itemize}
 
-\item \textbf{Read:} The method \textit{listAllMappings} takes as parameters the \textit{appName} and the \textit{collectionName} and returns the entire mapping list for this collection.
+\item \textbf{Read:} The method \textit{listAllMappings} takes as parameters the \textit{appName} and the \textit{collName} and returns the entire mapping list for this collection.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -232,7 +215,7 @@ Payload:
 \end{minted}
 \end{code}
 
-\item \textbf{Update:} The method \textit{updateMapping} takes as parameters the \textit{appName}, the \textit{collectionName} and the mapping description \textit{body} as payload in \ac{JSON} format and allows to register specific mapping definition for a specific collection.
+\item \textbf{Update:} The method \textit{updateMapping} takes as parameters the \textit{appName}, the \textit{collName} and the mapping description \textit{body} as a payload in \ac{JSON} format and allows one to register a specific mapping definition for a specific collection.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -254,10 +237,10 @@ Payload:
 \end{itemize}
 
 
-\paragraph{Document Interface /app/{appName}/collections/{collectionName}/doc :} The repository of the framework is a document-based database system, and as a result, all records, or data, in it are documents. Documents are the default representation of most user accessible data structures in the repository.
+\paragraph{Document Interface /app/{appName}/collections/{collectionName}/doc :} The repository of the framework is a document-based database, and as a result, all records, or data are documents. Documents are the default representation of most user accessible data structures in the repository.
 
 \begin{itemize}
-\item \textbf{Create:} The method \textit{createDocument} takes as parameters  the \textit{appName}, \textit{collectionName} and  the document it self as payload in \ac{JSON} format \textit{body} and saves this document in the repository and also in the search engine in order to make the document searchable.  
+\item \textbf{Create:} The method \textit{createDocument} takes as parameters  the \textit{appName}, \textit{collName} and  the document itself as a payload in \ac{JSON} format \textit{body} and saves this document in the repository and also in the search engine in order to make the document searchable.  
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -275,7 +258,7 @@ Payload:
 \end{code}
 
 
-\item \textbf{Read:} The method \textit{getDocument} requires the \textit{appName}, \textit{collectionName} and an \textit{objectId} and returns the correspondent document. The example below shows how to get the document with the \textit{objectId} 512d3258e4b0acc3647858f2.
+\item \textbf{Read:} The method \textit{getDocument} requires the \textit{appName}, \textit{collName} and an \textit{objectId} and returns the corresponding document. The example below shows how to obtain the document with the \textit{objectId} 512d3258e4b0acc3647858f2.
 
 \begin{code}
 \begin{minted}[frame=single]{console}
@@ -302,7 +285,7 @@ Response:
 \end{minted}
 \end{code}
 
-\item \textbf{Update:} The method \textit{updateDocument} requires the \textit{appName}, \textit{collectionName}, \textit{objectID} and the \ac{JSON} formatted payload \textit{body}. The body contains  the fields, which needs to be updated within a document.
+\item \textbf{Update:} The method \textit{updateDocument} requires the \textit{appName}, \textit{collName}, \textit{objectid} and the \ac{JSON} formatted payload \textit{body}. The body contains  the fields, which need to be updated within a document.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -317,7 +300,7 @@ Payload:
 \end{minted}
 \end{code}
 
-\item \textbf{Delete:} The method \textit{deleteDocument} deletes the specific document from the repository and from the search engine too.
+\item \textbf{Delete:} The method \textit{deleteDocument} deletes the specific document from the repository and also from the search engine.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -327,10 +310,10 @@ DELETE https://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
 \end{code}
  
 \end{itemize}
-\paragraph{Buckets Interface /app/{appName}/buckets :} Just like a bucket holds water, buckets - known in Amazon Web Services - are a container for files. The name of the bucket must be unique within an app. The four \ac{CRUD} operations are described below.
+\paragraph{Buckets Interface /app/{appName}/buckets :} Just as a bucket holds water, buckets - known in Amazon Web Services - are containers for files. The name of the bucket must be unique within an app. The four \ac{CRUD} operations are described below.
 
 \begin{itemize}
-\item \textbf{Create:} The method \textit{createBucket} requires two parameters, namely the app name and the bucket name and it creates a bucket within an app. The following example is for creating a bucket name \textit{bucket1} within the app \textit{vod1}.
+\item \textbf{Create:} The method \textit{createBucket} requires two parameters, namely the \textit{appName} and the bucket name \textit{bucketName} and it creates a bucket within an app. The following example is for creating a bucket name \textit{bucket1} within the app \textit{vod1}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -340,7 +323,7 @@ POST https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 \end{code}
 
 
-\item \textbf{Read:} Within buckets interface there are two methods, which can be consumed through a \ac{HTTP} GET. The first method \textit{listBuckets} lists all buckets which belong to a specific app. 
+\item \textbf{Read:} Within this interface there are two methods, which can be consumed through a \ac{HTTP} GET. The first method \textit{listBuckets} lists all buckets which belong to a specific app. 
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -349,7 +332,7 @@ GET https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 \end{minted}
 \end{code}
 
-The second method \textit{listAllFilesInBucket} takes as parameters the \textit{appName} and the \textit{bucketName} and lists all the files which are in bucket \textit{bucketName}.
+The second method \textit{listAllFilesInBucket} takes as parameters the \textit{appName} and the \textit{bucketName} and lists all the files which are in the bucket \textit{bucketName}.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -370,10 +353,10 @@ DELETE https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 
 \end{itemize}
 
-\paragraph{Files Interface /app/{appName}/buckets/{bucketName}/files :}  This interface manages files within a buckets.
+\paragraph{Files Interface /app/{appName}/buckets/{bucketName}/files :}  This interface manages files within a bucket.
 
 \begin{itemize}
-\item {Create:} The method \textit{addFileToBucket} allows to upload a file to a bucket and it requires the parameters \textit{appName} and \textit{bucketName} along with the file its self. Thereby the name of the uploaded file (not the original name of the file) must be set to \textit{file} in the upload form(\textit{file}=@./testDoc.txt). 
+\item {Create:} The method \textit{addFileToBucket} allow one to upload a file to a bucket and it requires the parameters \textit{appName} and \textit{bucketName} along with the file itself. Thereby, the name of the uploaded file (not the original name of the file) must be set to \textit{file} in the uploaded form(\textit{file}=@./testDoc.txt). 
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -381,7 +364,7 @@ curl -F "file=@./testDoc.txt" https://user1:pass1@107.23.121.185:8080/cccd
   /app/vod/buckets/bucket1/files
 \end{code}
 
-\item {Read:} The method \textit{getFileFromBucket} allows to get a file from a bucket and it requires also the parameters \textit{appName}, \textit{bucketName} and \textit{objectid}.  An example for downloading a file named \textit{test.pdf} from the bucket \textit{books} and app \textit{bookstore} is listed below.
+\item {Read:} The method \textit{getFileFromBucket} allows one to obtain a file from a bucket and it requires the parameters \textit{appName}, \textit{bucketName} and \textit{objectid}.  An example for downloading a file with the \textit{objectid}  \textit{515ae2dee4b0997c69141cad} from the bucket \textit{books} and app \textit{bookstore} is listed below.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -390,7 +373,7 @@ GET https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 \end{minted}
 \end{code}
 
-\item {Update:} The method \textit{updateFileInBucket} allows to update a file within a bucket and it requires also the parameters \textit{appName}, \textit{bucketName}, \textit{objectid} and the file its self.  The update here is theoretically removing the old file and then adding the new one.
+\item {Update:} The method \textit{updateFileInBucket} allows one to update a file within a bucket and it requires the parameters \textit{appName}, \textit{bucketName}, \textit{objectid} and the file itself.  The update here is theoretically removes the old file and  adds the new one.
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 PUT https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
@@ -402,38 +385,35 @@ PUT https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 
 \end{itemize}
 
-\subsubsection{Informative Response:} In order to know if a request to the framework succeeded or failed, the \ac{API} should always send a tag in each response which shows either the request processed successfully or not, i.e. {"ok":1} in case of success or {"ok":0} in case of failure. Furthermore a configuration parameter will be implemented to enable more debug information, i.e. while creating a new app, if its name exist already, then the response include the error as a string i.e. {"ok":0,"debug":"app name exist already"}.
+\subsubsection{Informative Response:} In order to know if a request to the framework has succeeded or failed, the \ac{API} should always send a tag in each response which shows whether the request was processed successfully or not, i.e. {"ok":1} in case of success or {"ok":0} in case of failure. Furthermore, a configuration parameter will be implemented to enable more debug information, i.e. when creating a new app, if its name exist already, then the response includes the error as a string i.e. {"ok":0,"debug":"app name exist already"}.
 
 \subsection{Repository/Media Store \label{sec:des_repo}}
 
 The repository/media store is accessible through the \ac{REST} interfaces described above. The design decisions for this component are listed below.
 
 \begin{itemize}
-\item {JSON data format:} As described in section \ref{sec:des_rest_api}, the \ac{REST} \ac{API} data format is \ac{JSON} and therefor the repository should be based on \ac{JSON} format too in order to avoid unnecessarily data conversations.
+\item {JSON data format:} As described in section \ref{sec:des_rest_api}, the \ac{REST} \ac{API} data format is \ac{JSON} and therefor the repository should be based on \ac{JSON} format too in order to avoid unnecessary data conversations.
 
-\item {Schema-less:} The framework is generic and should support wide variety of applications and therefore the repository should be based on schema less solutions in order to allow the application developer to store schema-less data.
+\item {Schema-less:} The framework is generic and should support a wide variety of applications and therefore the repository should be based on schema-less solutions in order to allow the application developer to store schema-less data.
 
 \item {Replication:} Data replication ensures redundancy, backup, and automatic failover.
 
-\item {Distribution:} While replication provide basic protection against single-instance failure, when all of the members of a replication group are in a single facility, the replication is still susceptible to some classes of errors in that facility including power outages, networking distortions, and natural disasters. To protect against these classes of failures, the repository/media store component should be easy to distribute in a geographically distinct facility or data center.
+\item {Distribution:} While replication provides basic protection against single-instance failure, when all of the members of a replication group are in a single facility, the replication is still susceptible to some errors in that facility including power outages, networking distortions, and natural disasters. As protection against these failures, the repository/media store component should be easy to distribute in a geographically distinct facility or data center.
 
-\item {Media Store:} In order to store or retrieve contents, a file server is needed. This file server can be either as a component within the repository itself or as a separated component. In order to ensure the correlation between the content stored in the media store and its metadata within the repository, the \ac{URI} of the content in the media store is embedded in its metadata in the repository.
+\item {Media Store:} In order to store or retrieve content, a file server is needed. This file server can either be a component within the repository itself or a separated component. In order to ensure the correlation between the content stored in the media store and its metadata within the repository, the \ac{URI} of the content in the media store is embedded in its metadata in the repository.
 \end{itemize}
  
 \subsection{Search Engine\label{sec:des_se_en}}
-The search engine is accessible through following \ac{REST} interfaces, \textit{search} and \textit{mapping}. The first one is for searching withing a collection. The later is for configuring the mapping of fields within a collection. The design decisions for this component are mostly like the repository/media store component described in \ref{sec:des_repo} like \ac{JSON} data format, schema-less, easy to replicate and distribute.% In additional, the following decisions should be considered while choosing a proper search engine.
-%\begin{itemize}
-%\item{Schema Mapping:}
-%\end{itemize}
+The search engine is accessible through following \ac{REST} interfaces, \textit{search} and \textit{mapping}. The first one is for searching withing a collection. The later is for configuring the mapping of fields within a collection. The design decisions for this component are mostly similar to the repository/media store component described in \ref{sec:des_repo} such as \ac{JSON} data format, schema-less and easy to replicate and distribute content.
 
 \subsection{Message Broker\label{sec:des_worker_queue}}
-The main idea behind message broker is to avoid doing a resource-intensive task immediately and having to wait for it to complete. Instead the task will be scheduled to be done later. The task get encapsulated as a message and  get sent to a queue. A worker process running in other components like \ref{sec:des_con_ad} or \ref{ec:des_cdn} will pop the tasks and eventually execute the job. When there is many of the same worker the tasks will be shared between them.
+The main idea behind the message broker is to avoid doing a resource-intensive task immediately and having to wait for its completion. Instead, the task will be scheduled to be done later. The task is encapsulated as a message and  will be sent to a queue. A worker process running in other components such as \ref{sec:des_con_ad} or \ref{ec:des_cdn} will pop the tasks from the queue and eventually execute the job. When there are a few more of the same worker processes, the tasks will be shared between them.
 
 
 \subsection{Content Adaptation\label{sec:des_con_ad}}
-The content adaptation component is a process, which listens for new tasks from the message broker. This component is responsible for transcoding or scaling videos. Furthermore it splits the transcoded/scaled videos into segments compatible to the Apple \ac{HLS}. %Then the video chunks will be uploaded to the Content Distribution component. After that the metadata of the original video. 
+The content adaptation component is a process, which listens for new tasks from the message broker. This component is responsible for transcoding or scaling videos. Furthermore, it splits the transcoded/scaled videos into segments compatible with  Apple \ac{HLS}. %Then the video chunks will be uploaded to the Content Distribution component. After that the metadata of the original video. 
 
-Figure \ref{fig:content_adaptation_overview} illustrates how this component works internally. As soon as it receives a message notification from the message broker component, which tells that a new video has been stored and it needs further processing i.e. transcoding or scaling, it fetches the video file from the media store and and then provides this file as an input for the media encoder. The media encoder transcodes and scales this video and returns a MPEG-2 transport stream which is used by the stream segmenter as an input, The stream segmenter brakes this stream into segments and saves these segments as a series of one or more .ts media files. The segmenter also creates an index file which contains a list of media files and metadata. This index file is saved as an .M3U8 playlist. The index file along with the .ts media files are uploaded then to the proper path in the content distribution component.
+Figure \ref{fig:content_adaptation_overview} illustrates how this component works internally. As soon as it receives a message notification from the message broker component, which tells that a new video has been stored and needs further processing i.e. transcoding or scaling, it fetches the video file from the media store and provides this file as an input for the media encoder. The media encoder transcodes and scales this video and returns a MPEG-2 transport stream which is used by the stream segmenter as an input, The stream segmenter breaks this stream into segments and saves these segments as a series of one or more \textit{.ts} media files. The segmenter also creates an index file which contains a list of media files and metadata. This index file is saved as an \textit{.m3u8} playlist. The index file along with the \textit{.ts} media files are then uploaded to the proper path in the content distribution component.
 
 %original on http://developer.apple.com/library/ios/#documentation/networkinginternet/conceptual/streamingmediaguide/HTTPStreamingArchitecture/HTTPStreamingArchitecture.html
 
@@ -447,7 +427,7 @@ Figure \ref{fig:content_adaptation_overview} illustrates how this component work
 \pagebreak
 
 \subsection{Content Distribution\label{sec:des_cdn}}
-The content distribution component consists internally of two components. The first one is an \ac{HTTP} server to serve contents to consumers, see figure \ref{fig:content_distribution}. The second one is a worker process, which listens for messages notifications from the message broker component. These messages tells when a new app is created or deleted. In case of a new created app, the worker process creates a new dictionary within the \ac{HTTP} server and secures it with a secret word to grants access only to this app. And in case of a deleted app, the worker process deletes the dictionary for this app along with its entire contents.
+The content distribution component consists internally of two components. The first one is an \ac{HTTP} server to serve contents to consumers, see figure \ref{fig:content_distribution}. The second one is a worker process, which listens for message notifications from the message broker component. These messages tell when a new app is created or deleted. In case of a newly created app, the worker process creates a new dictionary within the \ac{HTTP} server and secures it with a secret word to grant access only to this app. In the case of a deleted app, the worker process deletes the dictionary for this app along with its entire contents.
 
 \begin{figure}[htb]
   \centering

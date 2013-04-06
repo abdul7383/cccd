@@ -1,5 +1,5 @@
 \chapter{Requirements\label{cha:chapter3}}
-As described in section \ref{sec:objective}, the objective of this thesis is to design and develop a generic contextual content management framework, which supports the correlation of context information and multimedia content, content discovery and content distribution. In the following sections, two instructive use cases are provided. These use cases illustrates the functional assets of the framework and facilitate a deduction of its functional and non-functional requirements.
+As described in section \ref{sec:objective}, the objective of this thesis is to design and develop a generic contextual content management framework, which supports the correlation of context information and multimedia content, content discovery and content distribution. In the following sections, two instructive use cases are provided. These use cases illustrate the functional assets of the framework and facilitate a deduction of its functional and non-functional requirements.
  
 %\section{Problem Statement\label{sec:req_pro_st}}
 %
@@ -10,13 +10,13 @@ As described in section \ref{sec:objective}, the objective of this thesis is to 
  
 \section{Scenarios\label{sec:req_sce}}
 
-For better comprehension of the functionality of the proposed platform, two examples are given in this section as use case scenarios.
+For better comprehension of the functionality of the proposed framework, two examples are given in this section as use case scenarios.
 
 \paragraph{Mobile capturing of live event}
 
-A user - as a content provider - captures a live event (e.g. demonstration, car race, marathon, Tour de France, etc.) using an application on a \ac{GPS} capable smart phone. While filming, the application also collects context information (e.g. location, acceleration, temperature, time, etc.). Later the user uploads the captured content with its context information to the platform.
+A user - as a content provider - captures a live event (e.g. demonstration, car race, marathon, Tour de France, etc.) using an application on a \ac{GPS} capable smart phone. While filming, the application also collects context information (e.g. location, acceleration, temperature, time, etc.). Later, the user uploads the captured content with its context information to the framework.
 
-Let's consider a video of the Tour de France as an example for the uploaded content. Any consumer, who is interested in a specific uploaded video that has been taken in a specific place on the road of the tour (e.g. Les Essarts: town which is located in western France), searches for the video by specifying some related information such as time range, location and "Tour de France" as search string. The platform will then give the user a list of all videos that match the specified criteria. The user can select any of the listed videos and begin streaming.
+Let's consider a video of Tour de France as an example of the uploaded content. Any consumer, who is interested in a specific uploaded video that has been taken in a specific place on the road of the tour (e.g. Les Essarts: town which is located in western France), searches for the video by specifying some related information such as time range, location and "Tour de France" as a search string. The framework will then give the user a list of all videos that match the specified criteria. The user can select any of the listed videos and begin streaming.
 
 \paragraph{Restaurant guide}
 
@@ -24,38 +24,38 @@ Another approach would be a domain oriented search (e.g. restaurants, gas-statio
 
 \section{Functional requirements\label{sec:req_f_req}}
 
-In 'normal' applications, the functional requirements serve the purpose of describing what the system should do. This applies to both internal processes, and the interaction of the system with its environment. These requirements are derived commonly from use cases. Frameworks are different, identifying functional requirements is more difficult. Frameworks usually do not address specific use cases but are supposed to be open for varied scenarios. The functional requirements of the framework are therefore rather abstract.
+In 'normal' applications, the functional requirements serve the purpose of describing what the system should do. This applies to both internal processes, and the interaction of the system with its environment. These requirements are derived commonly from use cases. Frameworks are different, thereby making the identification of functional requirements more difficult. Frameworks usually do not address specific use cases, but are supposed to be open for varied scenarios. The functional requirements of the framework are therefore rather abstract.
 
 \paragraph{User Management}
-Administrators of the framework can grant access to other administrators or providers, thereby ensuring a simple user management. Once a provider has been registered, he can administrate the flow and accessibility of multimedia content via his respective applications.
+Administrators of the framework can grant access to other administrators or providers, thereby ensuring a simple user management. Once a developer has been registered, he can administrate the flow and accessibility of the multimedia content via his respective applications.
 
 \paragraph{Applications Management}
-The framework should provide an easy mechanism for creating and deleting applications. When a provider wishes to create a new application he sends a request including global configurations. A provider may also grant access to other providers to use his applications. This access either grants full administrative control over the applications or can be limited to uploading/downloading and searching activities. 
+The framework should provide an easy mechanism for creating and deleting applications. When a developer wishes to create a new application, he sends a request including global configurations. A developer may also grant access to other developers to use his applications. This access either grants full administrative control over the applications or can be limited to uploading/downloading and searching activities. 
 
 \paragraph{Content \& Context Data Store}
-The framework should furthermore provide a mechanism for creating data stores for multimedia contents and their related context. In order to ensure legitimate context-based search results, the framework facilitates the correlation between content and its related context. 
+Furthermore, the framework should provide a mechanism for creating data stores for multimedia contents and their related context. In order to ensure legitimate context-based search results, the framework facilitates the correlation between content and its related context. 
 
 \paragraph{Content Discovery}
-In order for the provider to discover context-based contents, an adjustable search engine is required. To this end, the provider defines the parameters relevant to potential search requests. The provider can respond to new challenges and refine search options as time goes on by adding new parameters to the original set.      
+In order for the developer to discover context-based contents, an adjustable search engine is required. To this end, the developer defines the parameters relevant to potential search requests. The developer can respond to new challenges and refine search options as time goes on by adding new parameters to the original set.      
 
 \paragraph{Content Adaptation}
 Based on the global configuration of the application, the framework should support content transcoding. Transcoding refers to optimizing processes, e.g. quality adjustments for efficient use in varying networks (mobile, Wifi), size adjustment for individual displays in the area of video contents or Word to PDF conversions for textual contents.
   
 \paragraph{Content Distribution}
-The framework should support content delivery to most widespread internet-able devices. It should also optimize delivery by streaming contents from the nearest available server, thereby minimizing the network latency and reducing bandwidth costs.   
+The framework should support content delivery to most widespread internet devices. It should also optimize delivery by streaming contents from the nearest available server, thereby minimizing the network latency and reducing bandwidth costs.   
 
 \section{Non functional requirements\label{sec:req_nf_req}}
-Non-functional requirements are mainly related to quality aspects of a system. As a implementation of the design presented in Chapter 4, which is considered in this work as a prototype, the non-functional requirements play a subordinate role. However, some non-functional requirements have quite an influence on fundamental architectural decisions. So it is nevertheless important to analyze these requirements. The following section outlines the non-functional requirements for the development of the framework.
+Non-functional requirements are mainly related to the quality aspects of a system. As the implementation of the design presented in \ref{cha:chapter3} is considered in this work as a prototype, the non-functional requirements play a subordinate role. However, some non-functional requirements have quite an influence on fundamental architectural decisions. Nevertheless, it is important to analyze these requirements. The following section outlines the non-functional requirements for the development of the framework.
 
 \subsection{Usability}
-Since this thesis concerns the development of a framework and not a concrete application or \ac{GUI} this quality feature's applicability is limited. However there are certain ease-of-use requirements constituting the degree of effort needed to comprehended, evaluate and effectively use the software that are relevant.  
+Since this thesis is concerned with the development of a framework and not a concrete application or \ac{GUI}, this requirement is limited. However there are certain ease-of-use requirements  that are relevant, constituting the degree of effort needed to comprehend, evaluate and effectively use the software.  
 
 
-All functionalities of the framework shall be accessible in a simple way. From a developer's point of view, who in a sense represent the "user" of the framework, it can be said that a good structure and readability of the source code is desirable. Changes and enhancements to the framework shall always be restricted to as few logical components as possible. More importantly, however, the standard use of the framework shall not require deep knowledge of the internal structure of the framework's components. Creating a new application for instance, shall be possible without further knowledge of the framework via the external interface of the framework.
+All functionalities of the framework shall be accessible in a simple way. From a developer's point of view, who in a sense represents the "user" of the framework, it can be said that a good structure and readability of the source code is desirable. Changes and enhancements to the framework shall always be restricted to as few logical components as possible. More importantly however, the standard use of the framework shall not require deep knowledge of the internal structure of the framework's components. Creating a new application for instance, shall be possible without further knowledge of the framework via the external interface of the framework.
 
 
 \subsection{Efficiency}
-The efficiency describes the response time for inquiries, as well as the consumption of resources. The framework shall be capable to serve multiple applications simultaneously. The creation of an additional application shall affect the performance of the overall system only marginally.
+Efficiency describes the response time for inquiries, as well as the consumption of resources. The framework shall be capable of serving multiple applications simultaneously. The creation of an additional application shall only marginally affect the performance of the overall system.
 
 \subsection{Scalability}
-The framework shall be able to scale easily. Thereby it shall provide a mechanism to either add or remove resources, which are individual machines, at any time in order to support a growing data set or perhaps in order to satisfy an increasing amount of requests and to improve the performance of the desired solution.
+The framework shall be scaled easily. Thereby, it shall provide a mechanism to either add or remove resources at any time, which are individual machines, in order to support a growing data set or perhaps satisfy an increasing amount of requests and improve the performance of the desired solution.
