@@ -1,60 +1,63 @@
 \BOOKMARK [0][-]{chapter*.2}{List of Figures}{}% 1
-\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 2
-\BOOKMARK [1][-]{section.1.1}{Motivation}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Objective}{chapter.1}% 4
-\BOOKMARK [1][-]{section.1.3}{Scope}{chapter.1}% 5
-\BOOKMARK [1][-]{section.1.4}{Outline}{chapter.1}% 6
-\BOOKMARK [0][-]{chapter.2}{Background}{}% 7
-\BOOKMARK [1][-]{section.2.1}{Context-awareness}{chapter.2}% 8
-\BOOKMARK [2][-]{subsection.2.1.1}{What is Context?}{section.2.1}% 9
-\BOOKMARK [2][-]{subsection.2.1.2}{Context-aware Computing}{section.2.1}% 10
-\BOOKMARK [2][-]{subsection.2.1.3}{Context Examples}{section.2.1}% 11
-\BOOKMARK [1][-]{section.2.2}{Context Description}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.3}{Related Technologies}{chapter.2}% 13
-\BOOKMARK [2][-]{subsection.2.3.1}{Web Services}{section.2.3}% 14
-\BOOKMARK [2][-]{subsection.2.3.2}{NoSQL Databases }{section.2.3}% 15
-\BOOKMARK [2][-]{subsection.2.3.3}{Message broker}{section.2.3}% 16
-\BOOKMARK [2][-]{subsection.2.3.4}{Search Platforms }{section.2.3}% 17
-\BOOKMARK [2][-]{subsection.2.3.5}{Spring Framework}{section.2.3}% 18
-\BOOKMARK [0][-]{chapter.3}{Requirements}{}% 19
-\BOOKMARK [1][-]{section.3.1}{Scenarios}{chapter.3}% 20
-\BOOKMARK [1][-]{section.3.2}{Functional requirements}{chapter.3}% 21
-\BOOKMARK [1][-]{section.3.3}{Non functional requirements}{chapter.3}% 22
-\BOOKMARK [2][-]{subsection.3.3.1}{Usability}{section.3.3}% 23
-\BOOKMARK [2][-]{subsection.3.3.2}{Efficiency}{section.3.3}% 24
-\BOOKMARK [2][-]{subsection.3.3.3}{Scalability}{section.3.3}% 25
-\BOOKMARK [0][-]{chapter.4}{Design}{}% 26
-\BOOKMARK [1][-]{section.4.1}{Architecture Overview}{chapter.4}% 27
-\BOOKMARK [1][-]{section.4.2}{Framework Components}{chapter.4}% 28
-\BOOKMARK [2][-]{subsection.4.2.1}{App Management}{section.4.2}% 29
-\BOOKMARK [2][-]{subsection.4.2.2}{Repository/Media Store }{section.4.2}% 30
-\BOOKMARK [2][-]{subsection.4.2.3}{Search Engine}{section.4.2}% 31
-\BOOKMARK [2][-]{subsection.4.2.4}{Message Broker}{section.4.2}% 32
-\BOOKMARK [2][-]{subsection.4.2.5}{Content Adaptation}{section.4.2}% 33
-\BOOKMARK [2][-]{subsection.4.2.6}{Content Distribution}{section.4.2}% 34
-\BOOKMARK [0][-]{chapter.5}{Implementation}{}% 35
-\BOOKMARK [1][-]{section.5.1}{Tools \046 Technologies}{chapter.5}% 36
-\BOOKMARK [2][-]{subsection.5.1.1}{Tools}{section.5.1}% 37
-\BOOKMARK [2][-]{subsection.5.1.2}{Technologies}{section.5.1}% 38
-\BOOKMARK [1][-]{section.5.2}{Framework Components}{chapter.5}% 39
-\BOOKMARK [2][-]{subsection.5.2.1}{App Managment}{section.5.2}% 40
-\BOOKMARK [2][-]{subsection.5.2.2}{Repository/Media Store}{section.5.2}% 41
-\BOOKMARK [2][-]{subsection.5.2.3}{Search Engine}{section.5.2}% 42
-\BOOKMARK [2][-]{subsection.5.2.4}{Message Broker}{section.5.2}% 43
-\BOOKMARK [2][-]{subsection.5.2.5}{Content Adaptation}{section.5.2}% 44
-\BOOKMARK [2][-]{subsection.5.2.6}{Content Distribution}{section.5.2}% 45
-\BOOKMARK [0][-]{chapter.6}{Evaluation}{}% 46
-\BOOKMARK [1][-]{section.6.1}{Test Environment}{chapter.6}% 47
-\BOOKMARK [2][-]{subsection.6.1.1}{App Management}{section.6.1}% 48
-\BOOKMARK [2][-]{subsection.6.1.2}{Repository/Media Store}{section.6.1}% 49
-\BOOKMARK [2][-]{subsection.6.1.3}{Search Engine}{section.6.1}% 50
-\BOOKMARK [2][-]{subsection.6.1.4}{Message Broker}{section.6.1}% 51
-\BOOKMARK [2][-]{subsection.6.1.5}{Content Adaptation}{section.6.1}% 52
-\BOOKMARK [2][-]{subsection.6.1.6}{Content Distribution}{section.6.1}% 53
-\BOOKMARK [1][-]{section.6.2}{Test Scenarios}{chapter.6}% 54
-\BOOKMARK [2][-]{subsection.6.2.1}{Usability}{section.6.2}% 55
-\BOOKMARK [2][-]{subsection.6.2.2}{Performance}{section.6.2}% 56
-\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 57
-\BOOKMARK [1][-]{section.7.1}{Problems Encountered}{chapter.7}% 58
-\BOOKMARK [1][-]{section.7.2}{Outlook}{chapter.7}% 59
-\BOOKMARK [0][-]{chapter*.216}{Bibliography}{}% 60
+\BOOKMARK [0][-]{chapter*.4}{List of Tables}{}% 2
+\BOOKMARK [0][-]{chapter.1}{Introduction}{}% 3
+\BOOKMARK [1][-]{section.1.1}{Motivation}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Objective}{chapter.1}% 5
+\BOOKMARK [1][-]{section.1.3}{Scope}{chapter.1}% 6
+\BOOKMARK [1][-]{section.1.4}{Outline}{chapter.1}% 7
+\BOOKMARK [0][-]{chapter.2}{Background}{}% 8
+\BOOKMARK [1][-]{section.2.1}{Context-awareness}{chapter.2}% 9
+\BOOKMARK [2][-]{subsection.2.1.1}{What is Context?}{section.2.1}% 10
+\BOOKMARK [2][-]{subsection.2.1.2}{Context-aware Computing}{section.2.1}% 11
+\BOOKMARK [2][-]{subsection.2.1.3}{Context Examples}{section.2.1}% 12
+\BOOKMARK [1][-]{section.2.2}{Context Description}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.3}{Related Technologies}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.3.1}{Web Services}{section.2.3}% 15
+\BOOKMARK [2][-]{subsection.2.3.2}{NoSQL Databases }{section.2.3}% 16
+\BOOKMARK [2][-]{subsection.2.3.3}{Message broker}{section.2.3}% 17
+\BOOKMARK [2][-]{subsection.2.3.4}{Search Platforms }{section.2.3}% 18
+\BOOKMARK [2][-]{subsection.2.3.5}{Spring Framework}{section.2.3}% 19
+\BOOKMARK [0][-]{chapter.3}{Requirements}{}% 20
+\BOOKMARK [1][-]{section.3.1}{Scenarios}{chapter.3}% 21
+\BOOKMARK [1][-]{section.3.2}{Functional requirements}{chapter.3}% 22
+\BOOKMARK [1][-]{section.3.3}{Non functional requirements}{chapter.3}% 23
+\BOOKMARK [2][-]{subsection.3.3.1}{Usability}{section.3.3}% 24
+\BOOKMARK [2][-]{subsection.3.3.2}{Efficiency}{section.3.3}% 25
+\BOOKMARK [2][-]{subsection.3.3.3}{Scalability}{section.3.3}% 26
+\BOOKMARK [0][-]{chapter.4}{Design}{}% 27
+\BOOKMARK [1][-]{section.4.1}{Architecture Overview}{chapter.4}% 28
+\BOOKMARK [1][-]{section.4.2}{Framework Components}{chapter.4}% 29
+\BOOKMARK [2][-]{subsection.4.2.1}{App Management}{section.4.2}% 30
+\BOOKMARK [2][-]{subsection.4.2.2}{Repository/Media Store }{section.4.2}% 31
+\BOOKMARK [2][-]{subsection.4.2.3}{Search Engine}{section.4.2}% 32
+\BOOKMARK [2][-]{subsection.4.2.4}{Message Broker}{section.4.2}% 33
+\BOOKMARK [2][-]{subsection.4.2.5}{Content Adaptation}{section.4.2}% 34
+\BOOKMARK [2][-]{subsection.4.2.6}{Content Distribution}{section.4.2}% 35
+\BOOKMARK [0][-]{chapter.5}{Implementation}{}% 36
+\BOOKMARK [1][-]{section.5.1}{Tools \046 Technologies}{chapter.5}% 37
+\BOOKMARK [2][-]{subsection.5.1.1}{Tools}{section.5.1}% 38
+\BOOKMARK [2][-]{subsection.5.1.2}{Technologies}{section.5.1}% 39
+\BOOKMARK [1][-]{section.5.2}{Framework Components}{chapter.5}% 40
+\BOOKMARK [2][-]{subsection.5.2.1}{App Managment}{section.5.2}% 41
+\BOOKMARK [2][-]{subsection.5.2.2}{Repository/Media Store}{section.5.2}% 42
+\BOOKMARK [2][-]{subsection.5.2.3}{Search Engine}{section.5.2}% 43
+\BOOKMARK [2][-]{subsection.5.2.4}{Message Broker}{section.5.2}% 44
+\BOOKMARK [2][-]{subsection.5.2.5}{Content Adaptation}{section.5.2}% 45
+\BOOKMARK [2][-]{subsection.5.2.6}{Content Distribution}{section.5.2}% 46
+\BOOKMARK [0][-]{chapter.6}{Evaluation}{}% 47
+\BOOKMARK [1][-]{section.6.1}{Test Environment}{chapter.6}% 48
+\BOOKMARK [2][-]{subsection.6.1.1}{App Management}{section.6.1}% 49
+\BOOKMARK [2][-]{subsection.6.1.2}{Repository/Media Store}{section.6.1}% 50
+\BOOKMARK [2][-]{subsection.6.1.3}{Search Engine}{section.6.1}% 51
+\BOOKMARK [2][-]{subsection.6.1.4}{Message Broker}{section.6.1}% 52
+\BOOKMARK [2][-]{subsection.6.1.5}{Content Adaptation}{section.6.1}% 53
+\BOOKMARK [2][-]{subsection.6.1.6}{Content Distribution}{section.6.1}% 54
+\BOOKMARK [1][-]{section.6.2}{Test Scenarios}{chapter.6}% 55
+\BOOKMARK [2][-]{subsection.6.2.1}{Usability}{section.6.2}% 56
+\BOOKMARK [2][-]{subsection.6.2.2}{Performance}{section.6.2}% 57
+\BOOKMARK [0][-]{chapter.7}{Conclusion}{}% 58
+\BOOKMARK [1][-]{section.7.1}{Problems encountered}{chapter.7}% 59
+\BOOKMARK [1][-]{section.7.2}{Outlook}{chapter.7}% 60
+\BOOKMARK [0][-]{chapter*.220}{List of Acronyms}{}% 61
+\BOOKMARK [0][-]{chapter*.221}{Bibliography}{}% 62
+\BOOKMARK [0][-]{chapter*.222}{Annex}{}% 63

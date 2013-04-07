@@ -2,79 +2,483 @@
 
 \begin{appendix}
 
-\lstset{language=,caption=Sourcecode Listing,captionpos=b,
-label=yahoowidgetkon,showstringspaces=false,
-basicstyle={\fontfamily{pcr}\selectfont\footnotesize}}
-\begin{lstlisting}
-<?xml version="1.0" encoding="UTF-8"?>
-<widget>
-	 <debug>off</debug>
-	 <window name="myWindow" title="Hello Widget" visible="true">
-		 <height>120</height>
-		 <width>320</width>
-		 <image src="Resources/orangebg.png">
-			<name>orangebg</name>
-			<hOffset>0</hOffset>
-			<vOffset>0</vOffset>
-		</image>
-		 <text>
-			 <name>myText</name>
-			 <data>Hello Widget</data>
-			 <color>#000000</color>
-			 <size>20</size>
-			 <vOffset>50</vOffset>
-			 <hOffset>120</hOffset>
-		 </text>
-	</window>
-</widget>
-\end{lstlisting}
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+							 http://maven.apache.org/maven-v4_0_0.xsd">
+	<artifactId>cccd</artifactId>
+	<modelVersion>4.0.0</modelVersion>
+	<inceptionYear>2012</inceptionYear>
+	<packaging>war</packaging>
+	<groupId>de.fhg.fokus.ngni</groupId>
+	<version>1.0</version>
+	<properties>
+		<releaseCandidate>1</releaseCandidate>
+		<spring.version>3.1.3.RELEASE</spring.version>
+		<spring.amqp.version>1.1.3.RELEASE</spring.amqp.version>
+		<java.version>1.6</java.version>
+		<jackson.mapper.version>1.5.6</jackson.mapper.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<maven.javadoc.reporting.version>2.7</maven.javadoc.reporting.version>
+		<commons.logging.version>1.1.1</commons.logging.version>
+		<log4j.version>1.2.16</log4j.version>
+		<context.path>cccd</context.path>
+		<jackson.mapper.version>1.5.6</jackson.mapper.version>
+	</properties>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>tomcat-maven-plugin</artifactId>
+				<configuration>
+					<warFile>target/cccd.war</warFile>
+					<server>tomcat7</server>
+					<url>http://localhost:8080/manager/text</url>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					<warName>${context.path}</warName>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-asm</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-expression</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.jackson</groupId>
+			<artifactId>jackson-mapper-asl</artifactId>
+			<version>${jackson.mapper.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<!-- Abdul -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-mongodb</artifactId>
+			<version>1.2.0.RELEASE</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+			<version>1.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.elasticsearch</groupId>
+			<artifactId>elasticsearch</artifactId>
+			<version>0.20.6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-amqp</artifactId>
+			<version>${spring.amqp.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
+			<version>${spring.amqp.version}</version>
+		</dependency>
+	</dependencies>
+</project>
+\end{minted}
+\caption{pom.xml}
+\label{lst:pom.xml}
+\end{code}
 
 \newpage
 
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+		http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
 
-\lstset{caption=SIP request and response packet\cite{SIPBook},
-captionpos=b,label=sippacket,showstringspaces=false,
-basicstyle={\fontfamily{pcr}\selectfont\footnotesize}}
-\begin{lstlisting}
-INVITE sip:bob@network.org SIP/2.0
-Via: SIP/2.0/UDP 100.101.102.103:5060;branch=z9hG4bKmp17a
-Max-Forwards: 70
-To: Bob <sip:bob@network.org>
-From: Alice <sip:alice@ims-network.org>;tag=42
-Call-ID: 10@100.101.102.103
-CSeq: 1 INVITE
-Subject: How are you?
-Contact: <sip:xyz@network.org>
-Content-Type: application/sdp
-Content-Length: 159
-v=0
-o=alice 2890844526 2890844526 IN IP4 100.101.102.103
-s=Phone Call
-t=0 0
-c=IN IP4 100.101.102.103
-m=audio 49170 RTP/AVP 0
-a=rtpmap:0 PCMU/8000
+	<display-name>Contextual and Conditional Content Distribution</display-name>
 
-SIP/2.0 200 OK
-Via: SIP/2.0/UDP proxy.network.org:5060;branch=z9hG4bK83842.1
-;received=100.101.102.105
-Via: SIP/2.0/UDP 100.101.102.103:5060;branch=z9hG4bKmp17a
-To: Bob <sip:bob@network.org>;tag=314159
-From: Alice <sip:alice@network.org>;tag=42
-Call-ID: 10@100.101.102.103
-CSeq: 1 INVITE
-Contact: <sip:foo@network.org>
-Content-Type: application/sdp
-Content-Length: 159
-v=0
-o=bob 2890844526 2890844526 IN IP4 200.201.202.203
-s=Phone Call
-c=IN IP4 200.201.202.203
-t=0 0
-m=audio 49172 RTP/AVP 0
-a=rtpmap:0 PCMU/8000
-\end{lstlisting}
+	<!-- Main configuration file for this Spring web application. -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:cccd-config.xml
+		</param-value>
+	</context-param>
 
+	<!-- Loads the Spring web application context using the config file defined 
+		above. -->
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+
+	<!-- Define the Spring Dispatcher Servlet for the REST services. 
+		The 'contextConfiguration' param with an empty value means 
+		that the Spring Context won't try to load a default file 
+		called cccd-servlet.xml -->
+	<servlet>
+		<servlet-name>cccd</servlet-name>
+		<servlet-class>
+			org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value></param-value>
+		</init-param>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- This Servlet mapping means that this Servlet will handle all incoming 
+		requests -->
+	<servlet-mapping>
+		<servlet-name>cccd</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>
+			org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+</web-app>
+\end{minted}
+\caption{web.xml}
+\label{lst:web.xml}
+\end{code}
+
+\newpage
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+	<!-- Appenders -->
+	<appender name="console" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" 
+				value="%-5p: [%d{MMM-dd HH:mm:ss,SSS}] %c{3} - %m%n" />
+		</layout>
+	</appender>
+
+	<!-- File Appender -->
+	<appender name="file" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="rest-sample.log" />
+		<param name="MaxFileSize" value="10000KB" />
+		<param name="MaxBackupIndex" value="20" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" 
+				value="%-5p: [%d{MMM-dd HH:mm:ss,SSS}] %c{3} - %m%n" />
+		</layout>
+	</appender>
+
+	<logger name="org.springframework.beans">
+		<level value="debug" />
+	</logger>
+
+	<logger name="org.springframework.web">
+		<level value="debug" />
+	</logger>
+
+	<logger name="org.codehaus.jackson">
+		<level value="debug" />
+	</logger>
+
+	<logger name="de.fhg.fokus.ngni.cccd">
+		<level value="debug" />
+	</logger>
+	<!-- Root Logger -->
+	<root>
+		<priority value="info" />
+		<appender-ref ref="console" />
+	</root>
+</log4j:configuration>
+\end{minted}
+\caption{log4j.xml}
+\label{lst:log4j.xml}
+\end{code}
+
+\newpage
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{xml}
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:oxm="http://www.springframework.org/schema/oxm"
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:sec="http://www.springframework.org/schema/security"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/mvc 
+		http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/context 
+		http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/oxm
+		http://www.springframework.org/schema/oxm/spring-oxm-3.1.xsd
+		http://www.springframework.org/schema/util
+  		http://www.springframework.org/schema/util/spring-util-3.1.xsd
+  		http://www.springframework.org/schema/security
+  		http://www.springframework.org/schema/security/spring-security-3.1.xsd
+  		http://www.springframework.org/schema/rabbit
+  		http://www.springframework.org/schema/rabbit/spring-rabbit-1.1.xsd">
+
+
+	<!-- Enables automatic mapping of fund objects to and from JSON -->
+	<mvc:annotation-driven />
+
+	<!-- Setup spring to pull in @Controller, @RequestMapping, etc Configuration 
+		scans specified packages for classes configured as Spring managed beans and 
+		automatically sets up objects annotated with @Controller, @Service etc. -->
+	<context:component-scan base-package="de.fhg.fokus.ngni.cccd.rest" />
+	<context:component-scan base-package="de.fhg.fokus.ngni.cccd.services" />
+
+	<sec:http create-session="stateless">
+		<sec:intercept-url pattern="/app/**" access="ROLE_USER" />
+		<sec:intercept-url pattern="/users/**" access="ROLE_ADMIN" />
+		<sec:http-basic />
+	</sec:http>
+
+	<bean id="customUserDetailsService"
+		class="de.fhg.fokus.ngni.cccd.services.CustomUserDetailsService" />
+
+	<bean id="saltSource"
+		class="org.springframework.security.authentication.dao.ReflectionSaltSource">
+		<property name="userPropertyToUse" value="username" />
+	</bean>
+
+	<bean id="passwordEncoder"
+		class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+
+	<sec:authentication-manager alias="authenticationManager"
+		erase-credentials="false">
+		<sec:authentication-provider
+			user-service-ref="customUserDetailsService">
+			<sec:password-encoder ref="passwordEncoder">
+				<sec:salt-source ref="saltSource" />
+			</sec:password-encoder>
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+
+	<!-- Configures view for returning JSON to the client -->
+	<bean
+		class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+		<property name="contentType" value="application/json" />
+	</bean>
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	</bean>
+
+	<!-- TODO -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<util:list id="beanList">
+				<ref bean="jsonMessageConverter" />
+			</util:list>
+		</property>
+	</bean>
+
+	<!-- Converts JSON to POJO and vice versa -->
+	<bean id="jsonMessageConverter"
+		class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter" />
+
+	<!-- Abdul -->
+	<bean id="mongoDb" class="com.mongodb.Mongo">
+		<constructor-arg index="0">
+			<list value-type="com.mongodb.ServerAddress">
+				<bean class="com.mongodb.ServerAddress">
+					<constructor-arg index="0" value="10.0.0.136" />
+					<constructor-arg index="1" value="27017" />
+				</bean>
+				<!--bean class="com.mongodb.ServerAddress"> 
+					<constructor-arg index="0" value="10.0.0.170"/> 
+					<constructor-arg index="1" value="27017"/> 
+				</bean> 
+				<bean class="com.mongodb.ServerAddress"> 
+					<constructor-arg index="0" value="10.0.0.208"/> 
+					<constructor-arg index="1" value="27017"/> 
+				</bean -->
+			</list>
+		</constructor-arg>
+	</bean>
+
+	<bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+		<constructor-arg ref="mongoDb" />
+		<constructor-arg name="databaseName" value="users" />
+	</bean>
+
+	<bean id="debugResponse" class="java.lang.Boolean">
+		<constructor-arg index="0" value="true" />
+	</bean>
+
+	<bean id="esClient" class="org.elasticsearch.client.transport.TransportClient" />
+
+	<bean
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject">
+			<ref local="esClient" />
+		</property>
+		<property name="targetMethod">
+			<value>addTransportAddresses</value>
+		</property>
+		<property name="arguments">
+			<list value-type="org.elasticsearch.common.transport.InetSocketTransportAddress">
+				<bean
+					class="org.elasticsearch.common.transport.InetSocketTransportAddress">
+					<constructor-arg index="0" value="10.0.0.249" />
+					<constructor-arg index="1" value="9300" />
+				</bean>
+				<!-- bean class="org.elasticsearch.common.transport.InetSocketTransportAddress"> 
+					<constructor-arg index="0" value="10.0.0.187"/>
+					<constructor-arg index="1" value="9300"/> 
+				</bean> 
+				<bean class="org.elasticsearch.common.transport.InetSocketTransportAddress"> 
+					<constructor-arg index="0" value="10.0.0.188"/> 
+					<constructor-arg index="1" value="9300"/> 
+				</bean -->
+			</list>
+		</property>
+	</bean>
+
+	<bean id="connectionFactory"
+		class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
+		<constructor-arg value="10.0.0.235" />
+		<property name="username" value="guest" />
+		<property name="password" value="guest" />
+	</bean>
+
+	<rabbit:template id="amqpTemplate" connection-factory="connectionFactory" />
+
+	<rabbit:admin connection-factory="connectionFactory" />
+
+	<rabbit:queue name="cccdApp" durable="true" />
+	<rabbit:queue name="cccdNewDocument" durable="true" />
+
+	<bean id="baseCtrl" class="de.fhg.fokus.ngni.cccd.rest.BaseCtrl">
+		<property name="mongoDb" ref="mongoDb" />
+		<property name="esClient" ref="esClient" />
+		<property name="debugResponse" ref="debugResponse" />
+		<property name="customUserDetailsService" ref="customUserDetailsService" />
+		<property name="amqpTemplate" ref="amqpTemplate" />
+	</bean>
+
+</beans>
+\end{minted}
+\caption{cccd-config.xml}
+\label{lst:cccd-config.xml}
+\end{code}
 
 \end{appendix}
 

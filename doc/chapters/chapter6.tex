@@ -1,5 +1,5 @@
 \chapter{Evaluation\label{cha:chapter6}}
-
+The evaluation of the implemented prototype of the framework will be explained in this chapter. Thereby section \ref{sec:eval_te_en}  provides an overview of the test environment along with a detail information on how to install and configure each component and section \ref{sec:eval__te_sc} evaluates the framework by means of two test scenarios which are a usability and performance test.
 
 \section{Test Environment\label{sec:eval_te_en}}
 Normally, in the case of a concrete application there is no need to show in detail how to install and configure the application. However the result of this thesis is a framework which consists of many components. In order to make it easier for developers who need to deploy this framework, this section provides detailed information on how to install and configure each component. Each component will be installed on a Linux machine running in the \ac{AWS} platform. Each of these machines has 7 GB RAM and 20 \ac{EC2} Compute Units (8 virtual cores with 2.5 \ac{EC2} Compute Units each) and running Ubuntu 12.04. The name of this machine within \ac{AWS} platform is \textit{High-CPU Extra Large Instance/c1.xlarge}. In order to have these machines in the same private network, these machines are created within the Amazon \ac{VPC}. 
@@ -26,7 +26,7 @@ Content Adaptation & \textbf{10.0.0.138} \\
 Content Distribution & $\begin{array}{l} \textbf{public:107.23.180.173} \\ \textbf{private:10.0.0.139}  \end{array}$ \\ 
 \hline
 \end{tabular} 
-\caption{IP address of each component}
+\caption{IP addresses of test machines}
 \label{tbl:ap_addresses}
 \end{table} 
 
@@ -317,7 +317,8 @@ git clone git://github.com/abdul7383/cccd.git
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
-sudo apt-get install ruby rubygem python-pika
+sudo apt-get install ruby rubygem python-pika python-pip python-dev build-essential
+sudo pip install pymongo
 \end{minted}
 \end{code}
 
@@ -336,8 +337,10 @@ The python script \textit{cccdCA.py} and its configuration \textit{cccdCA.conf} 
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
-[ 'cell_16x9_150k', 'cell_16x9_240k', 'wifi_16x9_440k', 'wifi_16x9_640k' , 'cell_4x3_150k', 'cell_4x3_240k', 'wifi_4x3_440k', 'wifi_4x3_640']
+[ 'cell_16x9_150k', 'cell_16x9_240k', 'wifi_16x9_440k', 'wifi_16x9_640k' ,
+   'cell_4x3_150k', 'cell_4x3_240k', 'wifi_4x3_440k', 'wifi_4x3_640']
 \end{minted}
+\caption{List of supported encoding profiles}
 \label{lst:encoding_profiles}
 \end{code}
 
@@ -583,24 +586,24 @@ PUT https://user1:pass1@107.23.121.185:8443/cccd/app/vod/collections/videos/mapp
 Payload:
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
-    "videos" : {
-        "properties" : {
-            "user" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
-            "titel" : {"type" : "string", "store" : "yes"},
-            "description" : {"type" : "string", "store" : "yes"},
-            "tags" : {"type" : "string", "store" : "yes"},
-            "uploadTime" : {"type" : "date", "store" : "yes"},
-            "location" : {"type" : "geo_point", "store" : "yes"},
-            "fileLink" : {
-                "type" : "object",
-                "properties" : {
-                    "app" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
-                    "bucket" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
-                    "objectid" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"}
-                }
-            }
-        }
-    }
+"videos" : {
+	"properties" : {
+		"user" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
+		"titel" : {"type" : "string", "store" : "yes"},
+		"description" : {"type" : "string", "store" : "yes"},
+		"tags" : {"type" : "string", "store" : "yes"},
+		"uploadTime" : {"type" : "date", "store" : "yes"},
+		"location" : {"type" : "geo_point", "store" : "yes"},
+		"fileLink" : {
+			"type" : "object",
+			"properties" : {
+				"app" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
+				"bucket" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
+				"objectid" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"}
+			}
+		}
+	}
+}
 }
 \end{minted}
 \end{code}
@@ -675,7 +678,7 @@ Response:
 \end{minted}
 \end{code}
 
-Now the bucket, the collection and its mapping are all ready and one can now upload the videos and their related context. In order to have users who are developers that need to use the created app for only uploading, searching, downloading, or streaming videos, the following request adds a read-only user to the created app \textit{vod}. Thereby, the user to be added to the app user list must already be  a registered user in the framework (previously created through \textit{/cccd/users}).
+Now the bucket, the collection and its mapping are all ready and one can now upload the videos and their related context. In order to have users who are developers or service providers that need to use the created app for only uploading, searching, downloading, or streaming videos, the following request adds a read-only user to the created app \textit{vod}. Thereby, the user to be added to the app user list must already be  a registered user in the framework (previously created through \textit{/cccd/users}).
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -688,8 +691,7 @@ To check if the user has been added successfully to the user list of the app \te
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
-GET https://user1:pass1@107.23.121.185:8443/cccd/app/vod
-  /users
+GET https://user1:pass1@107.23.121.185:8443/cccd/app/vod/users
 \end{minted}
 Response:
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
@@ -719,16 +721,16 @@ Response:
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "data": {
-	"app": "appName",
+	"app": "vod",
 	"bucket": "bucket1",
 	"objectid": "515b2e2ae4b0da706f84c1a7"
-	},
+},
 "ok": "1"
 }
 \end{minted}
 \end{code}
 
-The video file is now saved within the bucket \textit{bucket1}. The second step is to upload the context/metadata of the video file along with the file-link within the app \textit{vod}. These two steps are needed for uploading videos. 
+The video file is now saved within the bucket \textit{bucket1}. The second step is to upload the context/metadata of the video file along with the file-link within the app \textit{vod}.
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 POST https://user1:pass1@107.23.121.185:8443/cccd/app/vod
@@ -872,8 +874,8 @@ Response:
 							"http://107.23.180.173/vod/515b4008e4b0da706f84c1a9/cell_16x9_150k.m3u8",
 						"wifi_16x9_640k":
 							"http://107.23.180.173/vod/515b4008e4b0da706f84c1a9/wifi_16x9_640k.m3u8",
-						"multi_rate":
-							"http://107.23.180.173/vod/515b4008e4b0da706f84c1a9/multi.m3u8"
+						"multi_rate_16x9":
+							"http://107.23.180.173/vod/515b4008e4b0da706f84c1a9/multi_16x9.m3u8"
 					}
 				},
 				"sort": [
@@ -890,7 +892,7 @@ Response:
 For each matched video in the response above, a \textit{sort} tag that contains the distance of the matched video from the searched location is returned. Furthermore, the matched videos above contain a new tag \textit{hls\_videos} and they can be used to start streaming the video file directly on a mobile device, i.e. iPad, iPhone and etc. These video links are secured and can be only accessed through a security token and the generation of this token is shown here \cite{nginx:securelink}. Thereby the secret word is the secret word provided while creating the app.
 
 \subsection{Performance\label{seq:eval_perf}}
-I is not easy to do a performance evaluation for the entire framework, therefore, only one REST interface is tested, which has interactions with more components. The interface to be tested is the document interface \textit{/app/appName/collections/collectionName/doc}. This interface has interactions with the repository, search engine and the message broker component.%been chosed some components of the framework will be tested. The components app management, repository and the search engine will be tested. Thereby the interfaces to be tested are the \textit{/app/appName/collections/collectionName/doc} and the \textit{/app/appName/collections/collectionName/search}. 
+It is not easy to do a performance evaluation for the entire framework, therefore, only one REST interface is tested, which has interactions with more components. The interface to be tested is the document interface \textit{/app/appName/collections/collectionName/doc}. This interface has interactions with the repository, search engine and the message broker component.%been chosed some components of the framework will be tested. The components app management, repository and the search engine will be tested. Thereby the interfaces to be tested are the \textit{/app/appName/collections/collectionName/doc} and the \textit{/app/appName/collections/collectionName/search}. 
 
 The tool used for testing the interface is the open source tool Apache ab and for drawing the graphs the open source tool Gnuplot. 
 
@@ -968,7 +970,7 @@ The file \textit{post.json} contains:
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.4]{img/With_LoadBalancer_200_250_300_POST}\\
-  \caption{GET tests with load balancer}
+  \caption{POST tests with load balancer}
   \label{fig:get_with_load}
 \end{figure}
 \end{itemize}

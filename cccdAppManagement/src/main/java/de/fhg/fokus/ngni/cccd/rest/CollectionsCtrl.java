@@ -1,6 +1,5 @@
 package de.fhg.fokus.ngni.cccd.rest;
 
-import java.io.IOException;
 import java.security.Principal;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,9 +8,6 @@ import java.util.Set;
 import org.apache.log4j.Logger;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
-import org.elasticsearch.cluster.ClusterState;
-import org.elasticsearch.cluster.metadata.IndexMetaData;
-import org.elasticsearch.cluster.metadata.MappingMetaData;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -74,41 +70,7 @@ public class CollectionsCtrl extends BaseCtrl {
 
 	}
 
-	// add a new mapping
-	@RequestMapping(value = "/{collName}/mapping", method = RequestMethod.PUT)
-	public ModelAndView updateMapping(@PathVariable String appName,
-			@PathVariable String collName, Principal principal,
-			@RequestBody String body) {
-		if (!canWrite(appName, principal.getName())) {
-			if (!mongoDb.getDatabaseNames().contains(appName))
-				return response(false, null, "app: " + appName
-						+ " is not found");
-			return response(false, null, "you don't have Write permission");
-		}
-		logger_c.debug("/app/" + appName + "/collections/" + collName
-				+ "/mapping" + " : doPUT()");
-
-		if (!checkCollectionExist(appName, collName))
-			return response(false, null, "collection: " + collName
-					+ " not found in app: " + appName);
-
-		try {
-			esClient.admin().indices() 
-	        .preparePutMapping(appName+"_"+collName) 
-	        .setType(collName) 
-	        .setSource(body) 
-	        .execute().actionGet(); 
-		} catch (Exception ex) {
-			return response(
-					false,
-					null,
-					"error while updating the mapping of the collection"
-							+ ex.getMessage());
-		}
-		return response(true, null, "collection: mapping of " + collName + " updated");
-	}
-
-	// get the index mapping for a collection
+	// list all collections within an app
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView listCollections(@PathVariable String appName,
 			Principal principal) {
@@ -141,49 +103,6 @@ public class CollectionsCtrl extends BaseCtrl {
 		for (String b:buckets)
 			list.remove(b);
 		return response(true, list, null);
-	}
-
-	// get the index mapping for a collection
-	@RequestMapping(value = "/{collName}/mapping", method = RequestMethod.GET)
-	public ModelAndView getMapping(@PathVariable String appName,
-			@PathVariable String collName, Principal principal) throws IOException {
-
-		/*Message msg = new Message("test".getBytes(), null);
-		int i = 10;
-		while (i > 0) {
-			amqpTemplate.convertAndSend("cccdQueue4", "test: " + i);
-			try {
-				Thread.sleep(20);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			i--;
-		}*/
-		if (!canRead(appName, principal.getName())) {
-			if (!mongoDb.getDatabaseNames().contains(appName))
-				return response(false, null, "app: " + appName
-						+ " is not found");
-			return response(false, null, "you don't have READ permission");
-		}
-		logger_c.debug("/app/" + appName + "/collections/" + collName
-				+ "/mapping" + " : doGET()");
-
-		if (!checkCollectionExist(appName, collName))
-			return response(false, null, "collection: " + collName
-					+ " not found in app: " + appName);
-
-		ClusterState cs = esClient.admin().cluster().prepareState()
-				.setFilterIndices(appName + "_" + collName).execute()
-				.actionGet().getState();
-		IndexMetaData imd = cs.getMetaData().index(appName + "_" + collName);
-		if (imd == null)
-			return response(false, null, "no mapping found");
-		MappingMetaData mdd = imd.mapping(collName);
-		
-		if (mdd == null)
-			return response(false, null, "no mapping found");
-		return response(true, mdd.getSourceAsMap(), null);
 	}
 
 	// delete collection

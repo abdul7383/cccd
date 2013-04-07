@@ -1,6 +1,7 @@
 \select@language {english}
 \select@language {english}
 \contentsline {chapter}{List of Figures}{xi}{chapter*.2}
+\contentsline {chapter}{List of Tables}{xiii}{chapter*.4}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Motivation}{2}{section.1.1}
 \contentsline {section}{\numberline {1.2}Objective}{3}{section.1.2}
@@ -14,47 +15,47 @@
 \contentsline {section}{\numberline {2.2}Context Description}{9}{section.2.2}
 \contentsline {section}{\numberline {2.3}Related Technologies}{11}{section.2.3}
 \contentsline {subsection}{\numberline {2.3.1}Web Services}{11}{subsection.2.3.1}
-\contentsline {subsubsection}{SOAP}{12}{section*.18}
-\contentsline {paragraph}{\ac {SOAP} Message Example:}{12}{section*.21}
-\contentsline {subsubsection}{\ac {REST}}{13}{section*.23}
-\contentsline {paragraph}{REST Example:}{13}{section*.24}
-\contentsline {subsubsection}{SOAP vs. REST}{14}{section*.29}
-\contentsline {paragraph}{API Flexibility \& Simplicity}{14}{section*.30}
-\contentsline {paragraph}{Bandwidth Usage}{15}{section*.32}
-\contentsline {paragraph}{Security}{15}{section*.33}
-\contentsline {paragraph}{Type Handling}{15}{section*.37}
-\contentsline {paragraph}{Client-side Complexity}{16}{section*.39}
-\contentsline {paragraph}{Testing and Troubleshooting}{16}{section*.40}
-\contentsline {paragraph}{Server-side Complexity}{16}{section*.41}
-\contentsline {paragraph}{Caching}{16}{section*.42}
+\contentsline {subsubsection}{SOAP}{12}{section*.19}
+\contentsline {paragraph}{\ac {SOAP} Message Example:}{12}{section*.22}
+\contentsline {subsubsection}{\ac {REST}}{13}{section*.24}
+\contentsline {paragraph}{REST Example:}{13}{section*.25}
+\contentsline {subsubsection}{SOAP vs. REST}{14}{section*.30}
+\contentsline {paragraph}{API Flexibility \& Simplicity}{14}{section*.31}
+\contentsline {paragraph}{Bandwidth Usage}{15}{section*.33}
+\contentsline {paragraph}{Security}{15}{section*.34}
+\contentsline {paragraph}{Type Handling}{15}{section*.38}
+\contentsline {paragraph}{Client-side Complexity}{16}{section*.40}
+\contentsline {paragraph}{Testing and Troubleshooting}{16}{section*.41}
+\contentsline {paragraph}{Server-side Complexity}{16}{section*.42}
+\contentsline {paragraph}{Caching}{16}{section*.43}
 \contentsline {subsection}{\numberline {2.3.2}NoSQL Databases }{16}{subsection.2.3.2}
-\contentsline {subsubsection}{Key Value Stores}{17}{section*.46}
-\contentsline {paragraph}{Riak:}{18}{section*.47}
-\contentsline {subsubsection}{Document Stores}{18}{section*.50}
-\contentsline {paragraph}{CouchDB:}{19}{section*.51}
-\contentsline {paragraph}{MongoDB:}{20}{section*.55}
-\contentsline {subsubsection}{Column Stores}{21}{section*.58}
-\contentsline {paragraph}{Cassandra}{21}{section*.59}
-\contentsline {subsubsection}{Graph Databases:}{22}{section*.61}
-\contentsline {paragraph}{Neo4J}{23}{section*.62}
+\contentsline {subsubsection}{Key Value Stores}{18}{section*.47}
+\contentsline {paragraph}{Riak:}{18}{section*.48}
+\contentsline {subsubsection}{Document Stores}{18}{section*.51}
+\contentsline {paragraph}{CouchDB:}{19}{section*.52}
+\contentsline {paragraph}{MongoDB:}{20}{section*.56}
+\contentsline {subsubsection}{Column Stores}{21}{section*.59}
+\contentsline {paragraph}{Cassandra:}{21}{section*.60}
+\contentsline {subsubsection}{Graph Databases}{23}{section*.62}
+\contentsline {paragraph}{Neo4J:}{23}{section*.63}
 \contentsline {subsection}{\numberline {2.3.3}Message broker}{24}{subsection.2.3.3}
-\contentsline {paragraph}{RabbitMQ}{24}{section*.64}
-\contentsline {paragraph}{ActiveMQ}{25}{section*.69}
+\contentsline {paragraph}{RabbitMQ}{24}{section*.65}
+\contentsline {paragraph}{ActiveMQ}{25}{section*.70}
 \contentsline {subsection}{\numberline {2.3.4}Search Platforms }{25}{subsection.2.3.4}
-\contentsline {subsubsection}{Apache Solr }{26}{section*.70}
-\contentsline {subsubsection}{Elasticsearch }{26}{section*.71}
+\contentsline {subsubsection}{Apache Solr }{26}{section*.71}
+\contentsline {subsubsection}{Elasticsearch }{26}{section*.72}
 \contentsline {subsection}{\numberline {2.3.5}Spring Framework}{28}{subsection.2.3.5}
 \contentsline {chapter}{\numberline {3}Requirements}{31}{chapter.3}
 \contentsline {section}{\numberline {3.1}Scenarios}{31}{section.3.1}
-\contentsline {paragraph}{Mobile capturing of live event}{31}{section*.78}
-\contentsline {paragraph}{Restaurant guide}{31}{section*.79}
+\contentsline {paragraph}{Mobile capturing of live event}{31}{section*.79}
+\contentsline {paragraph}{Restaurant guide}{31}{section*.80}
 \contentsline {section}{\numberline {3.2}Functional requirements}{32}{section.3.2}
-\contentsline {paragraph}{User Management}{32}{section*.80}
-\contentsline {paragraph}{Applications Management}{32}{section*.81}
-\contentsline {paragraph}{Content \& Context Data Store}{32}{section*.82}
-\contentsline {paragraph}{Content Discovery}{32}{section*.83}
-\contentsline {paragraph}{Content Adaptation}{32}{section*.84}
-\contentsline {paragraph}{Content Distribution}{33}{section*.85}
+\contentsline {paragraph}{User Management}{32}{section*.81}
+\contentsline {paragraph}{Applications Management}{32}{section*.82}
+\contentsline {paragraph}{Content \& Context Data Store}{32}{section*.83}
+\contentsline {paragraph}{Content Discovery}{32}{section*.84}
+\contentsline {paragraph}{Content Adaptation}{32}{section*.85}
+\contentsline {paragraph}{Content Distribution}{33}{section*.86}
 \contentsline {section}{\numberline {3.3}Non functional requirements}{33}{section.3.3}
 \contentsline {subsection}{\numberline {3.3.1}Usability}{33}{subsection.3.3.1}
 \contentsline {subsection}{\numberline {3.3.2}Efficiency}{33}{subsection.3.3.2}
@@ -63,45 +64,45 @@
 \contentsline {section}{\numberline {4.1}Architecture Overview}{35}{section.4.1}
 \contentsline {section}{\numberline {4.2}Framework Components}{36}{section.4.2}
 \contentsline {subsection}{\numberline {4.2.1}App Management}{36}{subsection.4.2.1}
-\contentsline {subsubsection}{JSON}{36}{section*.88}
-\contentsline {subsubsection}{User Management }{36}{section*.89}
-\contentsline {subsubsection}{REST Interfaces }{37}{section*.90}
-\contentsline {paragraph}{Framework User Management Interface /users :}{37}{section*.91}
-\contentsline {paragraph}{App interface \textit {/app/} :}{37}{section*.94}
-\contentsline {paragraph}{App User Management Interface /app/{appName}/users :}{39}{section*.99}
-\contentsline {paragraph}{Collection Interface /app/{appName}/collections/ :}{39}{section*.102}
-\contentsline {paragraph}{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :}{40}{section*.104}
-\contentsline {paragraph}{Document Interface /app/{appName}/collections/{collectionName}/doc :}{41}{section*.107}
-\contentsline {paragraph}{Buckets Interface /app/{appName}/buckets :}{43}{section*.112}
-\contentsline {paragraph}{Files Interface /app/{appName}/buckets/{bucketName}/files :}{44}{section*.117}
-\contentsline {subsubsection}{Informative Response:}{44}{section*.120}
+\contentsline {subsubsection}{JSON}{36}{section*.89}
+\contentsline {subsubsection}{User Management }{36}{section*.90}
+\contentsline {subsubsection}{REST Interfaces }{37}{section*.91}
+\contentsline {paragraph}{Framework User Management Interface /users/ :}{37}{section*.92}
+\contentsline {paragraph}{App interface \textit {/app/} :}{37}{section*.95}
+\contentsline {paragraph}{App User Management Interface /app/appName/users :}{39}{section*.101}
+\contentsline {paragraph}{Collection Interface /app/{appName}/collections/ :}{40}{section*.105}
+\contentsline {paragraph}{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :}{40}{section*.107}
+\contentsline {paragraph}{Document Interface /app/{appName}/collections/{collectionName}/doc :}{41}{section*.110}
+\contentsline {paragraph}{Buckets Interface /app/{appName}/buckets :}{43}{section*.115}
+\contentsline {paragraph}{Files Interface /app/{appName}/buckets/{bucketName}/files :}{44}{section*.120}
+\contentsline {subsubsection}{Informative Response:}{44}{section*.124}
 \contentsline {subsection}{\numberline {4.2.2}Repository/Media Store }{45}{subsection.4.2.2}
 \contentsline {subsection}{\numberline {4.2.3}Search Engine}{45}{subsection.4.2.3}
-\contentsline {subsection}{\numberline {4.2.4}Message Broker}{46}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.4}Message Broker}{45}{subsection.4.2.4}
 \contentsline {subsection}{\numberline {4.2.5}Content Adaptation}{46}{subsection.4.2.5}
 \contentsline {subsection}{\numberline {4.2.6}Content Distribution}{47}{subsection.4.2.6}
 \contentsline {chapter}{\numberline {5}Implementation}{49}{chapter.5}
 \contentsline {section}{\numberline {5.1}Tools \& Technologies}{49}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Tools}{49}{subsection.5.1.1}
-\contentsline {paragraph}{Eclipse Juno 4.2 IDE:}{49}{section*.124}
-\contentsline {paragraph}{Maven 3:}{49}{section*.125}
-\contentsline {paragraph}{Advanced REST client:}{49}{section*.126}
+\contentsline {paragraph}{Eclipse Juno 4.2 IDE:}{49}{section*.128}
+\contentsline {paragraph}{Maven 3:}{49}{section*.129}
+\contentsline {paragraph}{Advanced REST client:}{49}{section*.130}
 \contentsline {subsection}{\numberline {5.1.2}Technologies}{50}{subsection.5.1.2}
-\contentsline {paragraph}{Spring Framework 3.1.1:}{50}{section*.127}
-\contentsline {subparagraph}{Spring Security 3.1.1:}{50}{section*.128}
-\contentsline {subparagraph}{Spring Data MongoDB 1.1.0:}{50}{section*.129}
-\contentsline {subparagraph}{Spring AMQP 1.1.3:}{50}{section*.130}
-\contentsline {paragraph}{MongoDB 2.2.3:}{50}{section*.131}
-\contentsline {paragraph}{Elasticsearch 0.20.4:}{50}{section*.132}
-\contentsline {paragraph}{RabbitMQ 3.0.4:}{50}{section*.133}
-\contentsline {paragraph}{NginX 1.2.6:}{51}{section*.134}
-\contentsline {paragraph}{FFmpeg 0.9.2:}{51}{section*.135}
-\contentsline {paragraph}{Tomcat 7.0.37:}{51}{section*.136}
+\contentsline {paragraph}{Spring Framework 3.1.3:}{50}{section*.131}
+\contentsline {subparagraph}{Spring Security 3.1.3:}{50}{section*.132}
+\contentsline {subparagraph}{Spring Data MongoDB 1.2.0:}{50}{section*.133}
+\contentsline {subparagraph}{Spring AMQP 1.1.3:}{50}{section*.134}
+\contentsline {paragraph}{MongoDB 2.4.1:}{50}{section*.135}
+\contentsline {paragraph}{Elasticsearch 0.20.6:}{50}{section*.136}
+\contentsline {paragraph}{RabbitMQ 3.0.4:}{50}{section*.137}
+\contentsline {paragraph}{NginX 1.2.7:}{51}{section*.138}
+\contentsline {paragraph}{FFmpeg 0.9.2:}{51}{section*.139}
+\contentsline {paragraph}{Tomcat 7.0.37:}{51}{section*.140}
 \contentsline {section}{\numberline {5.2}Framework Components}{51}{section.5.2}
 \contentsline {subsection}{\numberline {5.2.1}App Managment}{51}{subsection.5.2.1}
-\contentsline {paragraph}{User Management:}{53}{section*.140}
-\contentsline {paragraph}{REST Interfaces:}{55}{section*.144}
-\contentsline {subsection}{\numberline {5.2.2}Repository/Media Store}{56}{subsection.5.2.2}
+\contentsline {paragraph}{User Management:}{53}{section*.144}
+\contentsline {paragraph}{REST Interfaces:}{55}{section*.148}
+\contentsline {subsection}{\numberline {5.2.2}Repository/Media Store}{55}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}Search Engine}{56}{subsection.5.2.3}
 \contentsline {subsection}{\numberline {5.2.4}Message Broker}{57}{subsection.5.2.4}
 \contentsline {subsection}{\numberline {5.2.5}Content Adaptation}{57}{subsection.5.2.5}
@@ -117,9 +118,11 @@
 \contentsline {section}{\numberline {6.2}Test Scenarios}{69}{section.6.2}
 \contentsline {subsection}{\numberline {6.2.1}Usability}{69}{subsection.6.2.1}
 \contentsline {subsection}{\numberline {6.2.2}Performance}{80}{subsection.6.2.2}
-\contentsline {paragraph}{GET}{80}{section*.207}
-\contentsline {paragraph}{POST}{81}{section*.211}
+\contentsline {paragraph}{GET}{80}{section*.211}
+\contentsline {paragraph}{POST}{81}{section*.215}
 \contentsline {chapter}{\numberline {7}Conclusion}{85}{chapter.7}
-\contentsline {section}{\numberline {7.1}Problems Encountered}{85}{section.7.1}
+\contentsline {section}{\numberline {7.1}Problems encountered}{85}{section.7.1}
 \contentsline {section}{\numberline {7.2}Outlook}{86}{section.7.2}
-\contentsline {chapter}{Bibliography}{87}{chapter*.216}
+\contentsline {chapter}{List of Acronyms}{87}{chapter*.220}
+\contentsline {chapter}{Bibliography}{91}{chapter*.221}
+\contentsline {chapter}{Annex}{97}{chapter*.222}

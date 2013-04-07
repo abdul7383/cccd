@@ -26,7 +26,7 @@ The data format to interact with the framework is \ac{JSON}. It has been chosen 
 \subsubsection{User Management \label{sec:des_user_man}}
 In order to allow only registered developers to use the framework, a user management design concept is described in the following.
 
-The user management component provides two levels of management. The first one is to provide a role based user management for using the entire framework. The role can be either an administrator or a normal user - which here means a developer who uses the framework. Both admin and user are allowed to use the framework i.e. creating new applications, modeling the app and storing, obtaining or deleting content etc. Only administrators can add a new administrator or user.
+The user management component provides two levels of management. The first one is to provide a role based user management for using the entire framework. The role can be either an administrator or a normal user - which here means a developer who uses the framework. Both administrator and user are allowed to use the framework i.e. creating new applications, modeling the app and storing, obtaining or deleting content etc. Only administrators can add a new administrator or user.
 
 The second level of the user management component provides a mechanism for managing who can modify an existing app or store/get contents from this app. The user who created the app is theoretically the owner of it and he is the only one allowed to add other users for using his app. Thereby, he can add users with the same rights as his own rights, meaning they can modify the whole app, deleting content etc., or add other users, who only allowed to store/get/search content. For example, this is useful for a developer, who has deployed/configured a new app and then lets a service provider use his app by only storing, obtaining,  or searching the contents in this app. 
 
@@ -34,23 +34,23 @@ The second level of the user management component provides a mechanism for manag
 
 The following paragraphs describe the various interfaces needed in order to use the framework:
 
-\paragraph{Framework User Management Interface /users :} This interface provides the first level of user management described in \ref{sec:des_user_man}. Only administrators are allowed to use this interface for managing users.
+\paragraph{Framework User Management Interface /users/ :} This interface provides the first level of user management described in \ref{sec:des_user_man}. Only administrators are allowed to use this interface for managing users.
 
 \begin{itemize}
 \item \textbf{Create:} The method \textit{addUser} requires the following parameters, \textit{username}, \textit{password}, \textit{firstname}, \textit{lastname}, \textit{email} and \textit{role}.  The role parameter is an integer and specifies if the user has ADMIN - 1 - or USER - 2 - rights. These parameters are passed through \ac{URI} parameters, see the following example for adding a new administrator.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 POST https://user1:pass@107.23.121.185:8443/cccd/
 /users?username=frank&password=pass2&firstname=frank&
 lastname=schulz&email=frank21@yahoo.de&role=1
 \end{minted}
 \end{code}
 
-\item \textbf{Delete:} The method \textit{deleteUser} requires only a \textit{username} as a parameter. It does not allow one to delete the \textit{username} if he is the last administrator in the framework, otherwise no one can administrate the app.
+\item \textbf{Delete:} The method \textit{deleteUser} requires only a \textit{username} as a parameter. It does not allow one to delete the \textit{username} if he is the last administrator in the framework, otherwise no one can administrate the framework.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 DELETE https://user1:pass@107.23.121.185:8443/cccd/
 /users?username=frank
 \end{minted}
@@ -65,18 +65,18 @@ DELETE https://user1:pass@107.23.121.185:8443/cccd/
 \item \textbf{Create(POST):} This method \textit{createApp} creates a new app and it requires a name and global configuration parameters for the app. For example, these configuration parameters can be a mandatory secret word to be used later for securing the contents which belongs to this app or a list of encoding profiles, which will be then used to transcode each uploaded video within this app in order to support various devices i.e. iPad, iPhone, PC and etc. Listing \ref{lst:new_app_json} shows a \ac{JSON} example for creating a new app with \textbf{vod1} as a name.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 POST https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 \end{minted}
 Payload:
-\begin{minted}[frame=single]{json}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "secret":"pass123",
 "profiles":["cell_4x3_150k","wifi_4x3_640k","wifi_4x3_1240k"]
 }
 \end{minted}
 Response:
-\begin{minted}[frame=single]{json}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "ok": "1",
 "debug": "app: vod1 created"
@@ -89,11 +89,11 @@ Response:
 \item \textbf{Read(GET):} There are two methods in this app interface, which can be consumed through a \ac{HTTP} GET. The first one \textit{listApps} is for listing all apps which belongs to the user, see listing \ref{lst:listing_apps} as an example. 
 
 \begin{code}
-\begin{minted}[frame=single]{console}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 GET https://user1:pass@107.23.121.185:8443/cccd/app
 \end{minted}
 Response:
-\begin{minted}[frame=single]{json}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "data":["app3","vod","vod1","app1"],
 "ok":"1"
@@ -104,14 +104,15 @@ Response:
 \end{code}
 
 
-The second method \textit{checkAppStatus} returns data that reflects the amount of storage used and data contained in a specific app, as well as object, collection, and index counters. This data can be used to check and track the state and storage of a specific app. The example below will return this data for an app called \textit{vod1}.
+The second method \textit{checkApp} returns either the configuration of the specified app, or the data that reflects the amount of storage used and data contained in a specific app, as well as object, collection, and index counters. This data can be used to check and track the state and storage of a specific app. The example below will return this data for an app called \textit{vod1}.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 GET https://user1:pass@107.23.121.185:8443/cccd/app/vod1
+GET https://user1:pass@107.23.121.185:8443/cccd/app/vod1?op=stats
 \end{minted}
 %Response:
-%\begin{minted}[frame=single]{json}
+%\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 %{
 %"data":["app3","vod","vod1","app1"],
 %"ok":"1"
@@ -122,18 +123,37 @@ GET https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 \end{code}
 
 \item \textbf{Update(PUT):}  This method \textit{updateApp} is for updating/adding the configuration parameters of the app. i.e changing the secret word or adding new configuration parameters which could be needed from other components, i.e. adding the user credentials for a Justin.TV account in order to stream a video to it.
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+PUT https://user1:pass@107.23.121.185:8443/cccd/app/vod1
+\end{minted}
+Payload:
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
+{
+"secret":"secret2"
+}
+\end{minted}
+\end{code}
 
 \item \textbf{Delete(DELETE):} This method \textit{deleteApp} deletes the app along with its related contents which might be in the repository, media store or in the content distributor component.
 
 \end{itemize}
 
-\paragraph{App User Management Interface /app/{appName}/users :} This interface provides the second level of user management described in \ref{sec:des_user_man}. The users table is saved on the repository within the app. In order to add a user to the app with WRITE or READ only rights, the user must be already registered in the framework as a valid user.
+\paragraph{App User Management Interface /app/appName/users :} This interface provides the second level of user management described in \ref{sec:des_user_man}. The users table is saved on the repository within the app. In order to add a user to the app with WRITE or READ only rights, the user must be already registered in the framework as a valid user.
 
 \begin{itemize}
+\item \textbf{Read:} The method \textit{listUsers} takes only the \textit{appName} as a parameter and returns a list of all users who have READ or WRITE rights to this app.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+GET https://user1:pass@107.23.121.185:8443/cccd/app/vod1/users
+\end{minted}
+\end{code}
+
 \item \textbf{Update:} The method \textit{addUser} takes the following parameters, \textit{appName}, \textit{username} which needs to be added to the app and the parameter \textit{readonly} that states which rights the user will have. The \textit{username} and \textit{readonly} parameters are passed through \ac{URI} parameters, see the following example.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 PUT https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /users?username=frank&readonly=true
 \end{minted}
@@ -142,7 +162,7 @@ PUT https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 \item \textbf{Delete:} The method \textit{deleteUser} takes two parameters, namely \textit{appName} and the name of the user \textit{username} which needs to be deleted from the app. It does not allow the deletion of the \textit{username} if this user is the last user who has WRITE rights, otherwise no one else can administrate the app.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 DELETE https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /users?username=frank
 \end{minted}
@@ -160,12 +180,12 @@ DELETE https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 \item \textbf{Read:} The method \textit{listCollections} is for listing all collections within an app, see listing \ref{lst:listing_coll} for an example.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 GET https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /collections
 \end{minted}
 Response:
-\begin{minted}[frame=single]{json}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "data":["collection1","collection2"],
 "ok":"1"
@@ -175,25 +195,25 @@ Response:
 \label{lst:listing_coll}
 \end{code}
 
-\item \textbf{Delete:} Deleting a collection would delete the entire data in it and also delete its index in the search engine. Furthermore the data/files which are in the content distribution component, belonging to this collection will be deleted too.
+\item \textbf{Delete:} Deleting a collection would delete the entire data in it and also delete its index in the search engine. %Furthermore the data/files which are in the content distribution component, belonging to this collection will be deleted too.
 \end{itemize}
 
 \paragraph{Mapping Interface /app/{appName}/collections/{collectionName}/mapping :\label{sec:des_rest_api_mapping}} Before adding data to any collection, the fields should be mapped to a proper object, i.e. string, integer, date, array or geo\_point. 
 
 %cite http://www.elasticsearch.org/guide/reference/mapping/
-Mapping is the process of defining how a document should be mapped to the search engine, including its searchable characteristics such as which fields are searchable and if/how they are tokenized.  By default, there is no need to define explicit mapping, since one is automatically created and registered when a new type or new field is introduced and has sensible defaults. A mapping definition only needs to be provided when the defaults need to be overridden. Only Get and Update operations are provided through this interface.
+Mapping is the process of defining how a document should be mapped to the search engine, including its searchable characteristics such as which fields are searchable and if/how they are tokenized.  By default, there is no need to define explicit mapping, since one is automatically created and registered when a new type or new field is introduced and has sensible defaults. A mapping definition only needs to be provided when the defaults need to be overridden \cite{elastic_mapping}. Only Get and Update operations are provided through this interface.
  
 \begin{itemize}
 
 \item \textbf{Read:} The method \textit{listAllMappings} takes as parameters the \textit{appName} and the \textit{collName} and returns the entire mapping list for this collection.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 GET https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/mapping
 \end{minted}
 Payload:
-\begin{minted}[frame=single]{json}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "data": {
 	"properties": {
@@ -218,12 +238,12 @@ Payload:
 \item \textbf{Update:} The method \textit{updateMapping} takes as parameters the \textit{appName}, the \textit{collName} and the mapping description \textit{body} as a payload in \ac{JSON} format and allows one to register a specific mapping definition for a specific collection.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 PUT https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/mapping
 \end{minted}
 Payload:
-\begin{minted}[frame=single]{json}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 	"collection1" : {
 		"properties" : {
@@ -243,12 +263,12 @@ Payload:
 \item \textbf{Create:} The method \textit{createDocument} takes as parameters  the \textit{appName}, \textit{collName} and  the document itself as a payload in \ac{JSON} format \textit{body} and saves this document in the repository and also in the search engine in order to make the document searchable.  
 
 \begin{code}
-\begin{minted}[frame=single]{console}
-POST https://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+POST https://user1:pass@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/doc
 \end{minted}
 Payload:
-\begin{minted}[frame=single]{json}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "name":"video in Berlin",
 "date":"2013-01-01T01:12:12",
@@ -261,12 +281,12 @@ Payload:
 \item \textbf{Read:} The method \textit{getDocument} requires the \textit{appName}, \textit{collName} and an \textit{objectId} and returns the corresponding document. The example below shows how to obtain the document with the \textit{objectId} 512d3258e4b0acc3647858f2.
 
 \begin{code}
-\begin{minted}[frame=single]{console}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 GET https://abdul:abdul@107.23.121.185:8443/cccd/app/vod1
 /collections/collection1/doc/512d3258e4b0acc3647858f2
 \end{minted}
 Response:
-\begin{minted}[frame=single]{json}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "data":{
 	"_id":{
@@ -356,15 +376,16 @@ DELETE https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 \paragraph{Files Interface /app/{appName}/buckets/{bucketName}/files :}  This interface manages files within a bucket.
 
 \begin{itemize}
-\item {Create:} The method \textit{addFileToBucket} allow one to upload a file to a bucket and it requires the parameters \textit{appName} and \textit{bucketName} along with the file itself. Thereby, the name of the uploaded file (not the original name of the file) must be set to \textit{file} in the uploaded form(\textit{file}=@./testDoc.txt). 
+\item {\textbf{Create:}} The method \textit{addFileToBucket} allow one to upload a file to a bucket and it requires the parameters \textit{appName} and \textit{bucketName} along with the file itself. Thereby, the name of the uploaded file (not the original name of the file) must be set to \textit{file} in the uploaded form(\textit{file}=@./testDoc.txt). This method returns the \textit{objectid} of the newly created file.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 curl -F "file=@./testDoc.txt" https://user1:pass1@107.23.121.185:8080/cccd
   /app/vod/buckets/bucket1/files
+\end{minted}
 \end{code}
 
-\item {Read:} The method \textit{getFileFromBucket} allows one to obtain a file from a bucket and it requires the parameters \textit{appName}, \textit{bucketName} and \textit{objectid}.  An example for downloading a file with the \textit{objectid}  \textit{515ae2dee4b0997c69141cad} from the bucket \textit{books} and app \textit{bookstore} is listed below.
+\item {\textbf{Read:}} The method \textit{getFileFromBucket} allows one to obtain a file from a bucket and it requires the parameters \textit{appName}, \textit{bucketName} and \textit{objectid}.  An example for downloading a file with the \textit{objectid}  \textit{515ae2dee4b0997c69141cad} from the bucket \textit{books} and app \textit{bookstore} is listed below.
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
@@ -373,7 +394,7 @@ GET https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 \end{minted}
 \end{code}
 
-\item {Update:} The method \textit{updateFileInBucket} allows one to update a file within a bucket and it requires the parameters \textit{appName}, \textit{bucketName}, \textit{objectid} and the file itself.  The update here is theoretically removes the old file and  adds the new one.
+\item {\textbf{Update:}} The method \textit{updateFileInBucket} allows one to update a file within a bucket and it requires the parameters \textit{appName}, \textit{bucketName}, \textit{objectid} and the file itself.  The update here is theoretically removes the old file and  adds the new one.
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 PUT https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
@@ -381,7 +402,7 @@ PUT https://user1:pass@107.23.121.185:8443/cccd/app/bookstore
 \end{minted}
 \end{code}
 
-\item {Remove:} The method \textit{deleteFileFromBucket} deletes a file from a bucket.
+\item {\textbf{Remove:}} The method \textit{deleteFileFromBucket} deletes a file from a bucket.
 
 \end{itemize}
 
@@ -407,7 +428,7 @@ The repository/media store is accessible through the \ac{REST} interfaces descri
 The search engine is accessible through following \ac{REST} interfaces, \textit{search} and \textit{mapping}. The first one is for searching withing a collection. The later is for configuring the mapping of fields within a collection. The design decisions for this component are mostly similar to the repository/media store component described in \ref{sec:des_repo} such as \ac{JSON} data format, schema-less and easy to replicate and distribute content.
 
 \subsection{Message Broker\label{sec:des_worker_queue}}
-The main idea behind the message broker is to avoid doing a resource-intensive task immediately and having to wait for its completion. Instead, the task will be scheduled to be done later. The task is encapsulated as a message and  will be sent to a queue. A worker process running in other components such as \ref{sec:des_con_ad} or \ref{ec:des_cdn} will pop the tasks from the queue and eventually execute the job. When there are a few more of the same worker processes, the tasks will be shared between them.
+The main idea behind the message broker is to avoid doing a resource-intensive task immediately and having to wait for its completion. Instead, the task will be scheduled to be done later. The task is encapsulated as a message and  will be sent to a queue. A worker process running in other components such as \ref{sec:des_con_ad} or \ref{sec:des_cdn} will pop the tasks from the queue and eventually execute the job. When there are a few more of the same worker processes, the tasks will be shared between them.
 
 
 \subsection{Content Adaptation\label{sec:des_con_ad}}

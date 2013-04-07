@@ -1,12 +1,12 @@
 \chapter{Background\label{cha:chapter2}}
-As the main objective of this thesis is to develop a framework that manages the correlation between the content and its context, this chapter gives an overview of the context and how it can be described in order to efficiently use these context data. Furthermore, this chapter deals with related technologies, which could be a part of the developed framework.
+As the main objective of this thesis is to develop a framework that manages the correlation between the content and its context and also to provide an efficient and scaleable discovery and distribution mechanism, this chapter gives an overview of the context and how it can be described in order to efficiently use these context data. Furthermore, this chapter deals with related technologies, which could be a part of the developed framework.
 
 \section{Context-awareness\label{sec:back_con_aw}}
 In this section, the terms \textit{context} and \textit{context-aware computing} are discussed in more detail. Furthermore, the application possibilities of context awareness is demonstrated.
 
 In order for computers to assist users in their everyday tasks, they should adapt themselves to the current user's situation, and then respond according to this. 
 
-Humans are quite successful at conveying ideas to each other and reacting appropriately. This is due to many factors including the richness of the language they use, the common understanding of how the world works, and an implicit understanding of every-day situations. When humans talk with each other, they are able to use implicit situational information, or context, to increase the conversational bandwidth. Unfortunately, this ability to convey ideas does not transfer well to humans interacting with computers.\citeauthor{Dey2000b}
+Humans are quite successful at conveying ideas to each other and reacting appropriately. This is due to many factors including the richness of the language they use, the common understanding of how the world works, and an implicit understanding of every-day situations. When humans talk with each other, they are able to use implicit situational information, or context, to increase the conversational bandwidth. Unfortunately, this ability to convey ideas does not transfer well to humans interacting with computers \cite{Dey2000b}.
 
 \subsection{What is Context?}
 
@@ -16,7 +16,7 @@ A recent definition of context-awareness is described by [\citeauthor{Dey2000b}]
 
 This way, it is easier for an application developer to enumerate the context for a given application scenario. If a piece of information can be used to characterize the situation of a participant in an interaction, then that information is regarded as context.
 
-After the term \textit{context} has been defined the term \textit{context-aware computing}' is discussed in the following subsection.
+After the term \textit{context} has been defined the term \textit{context-aware computing} is discussed in the following subsection.
 
 \subsection{Context-aware Computing}
 Context-aware computing was first described by [\citeauthor{ieee313011}] in 1994 to be software, that adapts itself according to the location of use, the collection of nearby people and objects, as well as changes to those objects over time. However, it is commonly agreed, that context-aware computing was first investigated in 1992 by [\citeauthor{WantHFG92}]. 
@@ -31,26 +31,26 @@ The orientation of the screen of a tablet computer is automatically changed, map
 These are examples of computers that are aware of their environment and their contextual use. However, such functions were not common 10 years ago and only existed on prototype devices in research labs which researched context-aware computing.
 \\
 
-Below are some examples of context awareness in mobile and non-mobile environments. Although non-mobile environments for this thesis are not relevant, they are interesting at this point in order to show the diverse application areas which illustrate the usage Context-Awareness systems.
+Below are some examples of context awareness in mobile and non-mobile environments. Although non-mobile environments for this thesis are not relevant, they are interesting at this point in order to show the diverse application areas which illustrate the usage context-awareness of systems.
 
 \begin{itemize}
 \item identity
 \item spatial information\\
-e.g. location, orientation, speed, and acceleration
+e.g. location, orientation, speed and acceleration
 \item temporal information\\
-e.g. time of the day, date, and season of the year
+e.g. time of the day, date and season of the year
 \item environmental information\\
-e.g. temperature, air quality, and light or noise level
+e.g. temperature, air quality and light or noise level
 \item social situation\\
 e.g. who you are with, and people nearby
 \item resources that are nearby\\
 e.g. accessible devices, and hosts
 \item availability of resources\\
-e.g. battery, display, network, and bandwidth
+e.g. battery, display, network and bandwidth
 \item physiological measurements\\
-e.g. blood pressure, heart rate,respiration rate,muscle activity, and tone of voice
+e.g. blood pressure, heart rate, respiration rate, muscle activity and tone of voice
 \item activity\\
-e.g. talking, reading, walking, and running
+e.g. talking, reading, walking and running
 \end{itemize}
 
 \section{Context Description\label{sec:back_con_de}}
@@ -60,7 +60,7 @@ In order to efficiently use the context data after acquisition, it needs to be r
 \item \textbf{Key-value model:}  This modeling technique represents contextual information with key-value pairs which is one of the most simple data structures for modeling contextual information. This model was already used in 1994 by \citeauthor{ieee512740} to present the context by providing the value of context information (e.g. location information) to an application as an environment variable. Distributed service frameworks  frequently use the key-value modeling approach. Although key-value pairs lack the capability for sophisticated structuring to enable efficient context retrieval algorithms, they are easy to manage.
 
 \item \textbf{Logic based model: } %This model is based on facts, expressions and rules. [10] A logic based system manipulates with the elemental items of this model and infers higher level logic by utilizing the already defined rules to deduce new facts.
-Logic-based models have a high degree of formality. Typically, facts, expressions and rules are used to define a context model. \cite{BaldaufDustdarRosenberg07ijahuc}
+Logic-based models have a high degree of formality. Typically, facts, expressions and rules are used to define a context model \cite{BaldaufDustdarRosenberg07ijahuc}.
 
 
 
@@ -68,7 +68,7 @@ Logic-based models have a high degree of formality. Typically, facts, expression
 
 %One of the first approaches was published by McCarthy and Buvac (1997).
 
-A logic based model defines the conditions on which a concluding expression or fact may be derived (a process known as reasoning or inferencing) from a set of other expressions or facts. In order to describe these conditions in a set of rules, a formal system is applied. In a logic based context model, the context is consequently defined as facts, expressions and rules. Usually contextual information is added to, updated or deleted from a logic based system in terms of facts or inferred from the rules in the system respectively. A high degree of formality is common to all logic based models.\cite{Strang2004}
+A logic based model defines the conditions on which a concluding expression or fact may be derived (a process known as reasoning or inferencing) from a set of other expressions or facts. In order to describe these conditions in a set of rules, a formal system is applied. In a logic based context model, the context is consequently defined as facts, expressions and rules. Usually contextual information is added to, updated or deleted from a logic based system in terms of facts or inferred from the rules in the system respectively. A high degree of formality is common to all logic based models \cite{Strang2004}.
 
 In early 1993 \citeauthor{McCarthy1993Notes} and his group at Stanford University researched one of the first logic based context modeling approaches and published it as a \textit{Notes on formalizing contexts}. They introduced contexts such as abstract mathematical entities with properties which are useful in artificial intelligence.
 
@@ -194,7 +194,7 @@ Next some aspects of \ac{SOAP} and \ac{REST} will be compared.
 
 \paragraph{API Flexibility \& Simplicity}
 
-The key to the \ac{REST} methodology is to use an interface that is already well known and widely used, the \ac{URI}, in order to write web services. For example, providing a currency converter service, in which a user types-in the desired currencies for input and output and the specific amount in order to receive a real-time conversion, could be as simple as making a script accessible on a web server via the following \ac{URI}: http://www.currencyconverter.com\/convert?in=us-dollar\&value=100\&out=euro
+The key to the \ac{REST} methodology is to use an interface that is already well known and widely used, the \ac{URI}, in order to write web services. For example, providing a currency converter service, in which a user types-in the desired currencies for input and output and the specific amount in order to receive a real-time conversion, could be as simple as making a script accessible on a web server via the following \ac{URI}: http://www.currencyconverter.com/convert?in=us-dollar\&value=100\&out=euro
 
 This service could easily be requested with an \ac{HTTP} GET command by any client or server application with \ac{HTTP} support. The resulting \ac{HTTP} response depends on how the service provider wrote the script and it might be as simple as some standard headers and a text string containing the current price for the given currencies, or it might be an \ac{XML} document.
 \\
@@ -207,7 +207,7 @@ The creation and modification of a \ac{URI} in order to access different web res
 \\
 \paragraph{Bandwidth Usage}
 
-The RESTful interface has short requests and responses, which is another advantage, whereas, an \ac{XML} wrapper around every request and response is required for \ac{SOAP}. For a four- or five-digit stock quote, a \ac{SOAP} response may require more than 10 times the number of bytes for, the same response in \ac{REST}, as \ac{SOAP} requires namespaces and typing to be present. 
+The RESTful interface has short requests and responses, which is another advantage, whereas, an \ac{XML} wrapper around every request and response is required for \ac{SOAP}. For a four- or five-digit stock quote, a \ac{SOAP} response may require more than 10 times the number of bytes for the same response in \ac{REST}, as \ac{SOAP} requires namespaces and typing to be present. 
 \\
 \\
 \paragraph{Security}
@@ -249,17 +249,17 @@ To consume a \ac{REST} based \ac{API} service, a simple GET request is needed, t
 \subsection{NoSQL Databases \label{sec:back_da_per}}
 \ac{SQL} databases have been used to solve storage problems for a long time, including cases in which there is a high discrepancy between the object model and its relational model. The conversion of graphs to tables represents yet another dis-functional use of data mapping. The complex structure of these kinds of mismanagement causes, depends on mapping frameworks and complex algorithms. The rigid relational scheme characteristic for \ac{SQL} becomes especially inefficient for such web applications as blogs, due to their multifaceted range of attributes that need to be stored in their respective tables, e.g. comments, pictures, audios, videos and source codes. Therefore, adding or removing a new feature to this sort of website could result in system unavailability.          
 
-Nowadays of course,  web sites are developing towards more interactive models, obliging databases to perform real-time scheme updates, thereby paving the way for \ac{NoSQL} to provide a database molded for modern demands. %The following section describes the characteristics of \ac{NoSQL} and its different types of databases.   
+Nowadays of course,  web sites are developing towards more interactive models, obliging databases to perform real-time schema updates, thereby paving the way for \ac{NoSQL} to provide a database molded for modern demands. %The following section describes the characteristics of \ac{NoSQL} and its different types of databases.   
 
 %\subsubsection{SQL\label{sec:back_da_per}}
 %\subsubsection{NoSQL\label{sec:back_da_per}}	
 
-There are a variety of ideas surrounding the \ac{NoSQL} movement, however, the core idea is to provide more flexible data models, as opposed to the \ac{SQL} approach, in order to provide live scheme updates. The ever increasing amount of data streaming through the web implies challenges, which any competitive website wishing to stay in business will have to meet. Besides dealing with vast amounts of data, these sites have to respond to constant requests around the globe without allowing any noticeable latency.
+There are a variety of ideas surrounding the \ac{NoSQL} movement, however, the core idea is to provide more flexible data models, as opposed to the \ac{SQL} approach, in order to provide live schema updates. The ever increasing amount of data streaming through the web implies challenges, which any competitive website wishing to stay in business will have to meet. Besides dealing with vast amounts of data, these sites have to respond to constant requests around the globe without allowing any noticeable latency.
 
 To this end, many companies have developed their own storage systems, according to their specific needs, which have been classified as \ac{NoSQL} databases. Considering the fact that these stores are set up to fulfill the individualized requirements of the companies they belong to, there can be no final answer as to which one works most efficiently. For example, Facebook implemented the \ac{NoSQL} database Cassandra, in order to solve the so called "Inbox Search Problem" - the challenge of allowing Facebook users to search through their sent and received messages - caused by the multitude of stored data along with the high number of active users. 
 \\
 \\
-A selection of the best known \ac{NoSQL} systems are shown in Table \ref{tbl:nosql_sys}, which are categorized into the following groups: Key Value Stores, Document Stores, Column Family Stores and  Graph Databases
+A selection of the most known \ac{NoSQL} systems are shown in Table \ref{tbl:nosql_sys}, which are categorized into the following groups: Key Value Stores, Document Stores, Column Family Stores and  Graph Databases
 \\
 \\
 \begin{table}[htb]
@@ -273,13 +273,13 @@ $\begin{array}{l} \textbf{HBase} \\ \textbf{Hypertable} \\ \textbf{Cassandra}  \
 $\begin{array}{l} \textbf{Neo4J} \\ \textbf{AllegroGraph}   \end{array}$ \\ 
 \hline 
 \end{tabular}
-\caption{best known \ac{NoSQL} systems}
+\caption{Most known NoSQL systems}
 \label{tbl:nosql_sys}
 \end{table}
 \\
 \\
 
-The following sections will examine these groups, each accompanied by one or more exemplary implementations.      
+The following subsections will examine these groups, each accompanied by one or more exemplary implementations.      
 
 \subsubsection{Key Value Stores}
 
@@ -316,15 +316,15 @@ There is no need to explicitly create a bucket because it is automatically creat
 
 
 \subsubsection{Document Stores}
-Document Stores interlace key value pairs in \ac{JSON} or \ac{JSON} like documents. Each of these documents contains a special key "ID", which is unique throughout a collection of documents and therefore identifies a document explicitly. 
+Document Stores interlace key value pairs in \ac{JSON} or \ac{JSON} like documents. Each of these documents contains a special key \textit{ID}, which is unique throughout a collection of documents and therefore identifies a document explicitly. 
 
-Key value stores don't allow values to be queried, because the values are only accessible through their respective keys. Document stores on the other hand, provide mechanisms for this additional function. They therefore allow complex data structures to be handled more efficiently. The interpretable \ac{JSON} format applied by document stores ensures a developer friendly usage by supporting data types. In contrast to key value stores which focus on high performance for read and write concurrent, document stores concentrate on storing big data efficiently while also providing high query performance. The best known document stores are CouchDB and MongoDB  which are described in detail in the following paragraphs.
+Key value stores don't allow values to be queried, because the values are only accessible through their respective keys. Document stores on the other hand, provide mechanisms for this additional function. They therefore allow complex data structures to be handled more efficiently. The interpretable \ac{JSON} format applied by document stores ensures a developer frien	dly usage by supporting data types. In contrast to key value stores which focus on high performance for read and write concurrent, document stores concentrate on storing big data efficiently while also providing high query performance. The most known document stores are CouchDB and MongoDB  which are described in detail in the following paragraphs.
 
 \paragraph{CouchDB:} CouchDB is a free open source document oriented database developed by Apache Software Foundation. It is written in Erlang, a programming language aimed at concurrent and distributed applications. It was first released in 2005 and in 2008 it became an Apache project.
 
 CouchDB implements a \ac{MVCC} to avoid the need to lock the database file while writing. The application has to be aware of resolving conflicts, which generally involves merging data into one of the documents, then deleting the stale one.
 
-CouchDB adopts a semi structured data model based on \ac{JSON} format, which is a collection of named key-value pairs. The value can either be a number, string, boolean, list or a dictionary. The data model is completely schema-free and it only needs to be conformed to the \ac{JSON} specification. An example document is shown in listing \ref{lst:couch_doc}, which represent the apple price in various supermarket. 
+CouchDB adopts a semi structured data model based on \ac{JSON} format, which is a collection of named key-value pairs. The value can either be a number, string, boolean, list or a dictionary. The data model is completely schema-free and it only needs to be conformed to the \ac{JSON} specification. An example document is shown in listing \ref{lst:couch_doc}, which represent the apple price in various supermarkets. 
 \\
 \\
 \begin{code}
@@ -344,7 +344,7 @@ CouchDB adopts a semi structured data model based on \ac{JSON} format, which is 
 \label{lst:couch_doc}
 \end{code}
 
-Each document is identified by a unique ID (the \textit{id} field) within a CouchDB database . CouchDB can simply be seen as a collection of documents and it does not know or track relationships between documents \cite{books/daglib/0024051}.  It provides a RESTful \ac{HTTP} \ac{API} to perform basic CRUD operations on all stored documents, which can easily be done via the \ac{HTTP} methods POST, GET, PUT and DELETE.
+Each document is identified by a unique ID (the \textit{id} field) within a CouchDB database . CouchDB can simply be seen as a collection of documents and it does not know or track relationships between documents \cite{books:daglib:0024051}.  It provides a RESTful \ac{HTTP} \ac{API} to perform basic CRUD operations on all stored documents, which can easily be done via the \ac{HTTP} methods POST, GET, PUT and DELETE.
 
 Figure \ref{fig:couchdb_repl} illustrates how easy the data synchronization is between any two databases. After replication, each database is able to work independently.
 
@@ -356,7 +356,7 @@ Figure \ref{fig:couchdb_repl} illustrates how easy the data synchronization is b
   \protect\cite{couchdb_cons}
 \end{figure}
 
-CouchDB relies on the \ac{MVCC} model for handling conflicts. Each document has a revision id and on each update of a document, the old version is kept and the new version is given a different revision id. In case of a conflict, the desired version is always saved as the most recent version and the old version is saved in the document's history. Thereby, the application handles the conflict by itself and decides which version is the desired one to keep and which is the old one \cite{books/daglib/0024051}.
+CouchDB relies on the \ac{MVCC} model for handling conflicts. Each document has a revision id and on each update of a document, the old version is kept and the new version is given a different revision id. In case of a conflict, the desired version is always saved as the most recent version and the old version is saved in the document's history. Thereby, the application handles the conflict by itself and decides which version is the desired one to keep and which is the old one \cite{books:daglib:0024051}.
 
 \paragraph{MongoDB:\label{sec:back_mongo}}
 MongoDB is a free and open source document oriented database written in C++ that provides high performance, high availability, and easy scalability. The development is supported by the open source community and also by the company 10gen. As in CouchDB, it is completely schema-free and its data model is based on \ac{JSON} format  that is easy to code, easy to manage, and yields excellent performance by grouping relevant data together internally \cite{mongodb_intro}. 
@@ -382,7 +382,7 @@ Bigtable has been used by Google in many projects, which require high throughput
 
 Big companies such as Google and Facebook, use their respective Column Family Stores (BigTable and Cassandra) to store data in the same way, as it will be required when requested later on. This sort of storage  ensures that only one data retrieval is needed when a request is launched, therefore saving considerable effort and maximizing performance as compared to the conventional process via MySQL which often requires multiple queries.  
 
-\paragraph{Cassandra}
+\paragraph{Cassandra:}
 Apache Cassandra is a free and open source distributed, structured key-value store with eventual consistency. It was initially developed by Facebook and now is developed by the Apache Foundation. It is designed to handle very large amounts of data, while providing high availability and scalability.
 
 A table in Cassandra is a distributed multi dimensional map indexed by a key. The value is an object which is highly structured \cite{biba2011learning}. Columns are grouped together into sets called column families very similar to the Bigtable system. Cassandra exposes two kinds of these columns families, Simple and Super column families. Super column families can be visualized as a column family within a column family\cite{biba2011learning}.
@@ -408,14 +408,14 @@ Max & 26.13ms & 44.41ms \\
 \protect\cite{Lakshman:2010}
 \end{table}
 
-\subsubsection{Graph Databases:}
+\subsubsection{Graph Databases}
 Graph databases are specialized with efficient management of heavily linked data and therefore are more suitable for applications based on data with many relationships, thereby cost intensive operations such as recursive joins can be replaced by efficient traversals \cite{Hecht:2011}.
 
 Neo4j and GraphDB are examples of graph databases. They are based on directed and multi relational property graphs. Nodes and edges consist of objects with embedded key value pairs. The range of keys and values can be defined in a schema, whereby the expression of more complex constraints can be easily described. Therefore, it is possible to define that a specific edge is only applicable between a certain types of nodes. Use cases for graph databases are location based services, knowledge representation and path finding problems raised in navigation systems, recommendation systems and all other use cases which involve complex relationships \cite{Hecht:2011}.
 
 Twitter has implemented their own graph database FlockDB in which they store a lot of relationships between people in order to provide their tweet following service. These one-way relationships are handled by FlockDB which is optimized for very large adjacency lists, fast reads and writes.
 
-\paragraph{Neo4J}
+\paragraph{Neo4J:}
 Neo4J is an open source project implemented in Java and has been developed by Neo Technology since 2007. In contrast to relational databases, which map nodes and edges in tables, Neo4J supports these graph elements natively which involves an easy structure of the data model.
 
 The node is the basic component within a graph in Neo4J, which has a unique and continuous ID. Nodes can optionally have schema-less properties such as key-value pairs which means that each node can have different keys. This is more flexible than relational databases, which need a separate table for each node type. 
@@ -506,7 +506,7 @@ curl -XPUT http://localhost:9200/blogs/blog/2 -d '{
     "content": "Second blog"
 }'
 \end{minted}
-\caption{schema free elasticsearch}
+\caption{Schema-less Elasticsearch}
 \label{lst:elasticsearch_schema-free}
 \end{code}
 
@@ -516,7 +516,7 @@ Elasticsearch uses an internal \ac{NoSQL} database system supporting \ac{JSON} d
 One of the unique features of Elasticsearch that makes it especially well suited to distributed systems, is the ease in which it can  can be scaled. It provides the ability to either add or remove resources, which are individual machines running Elasticsearch, at any time in order to support a growing data set or perhaps to satisfy an increasing amount of requests and also improve the performance of the desired solution.
 
 \subsection{Spring Framework\label{sec:back_sp_fr}}
-The Spring Framework is a lightweight solution and a potential one-stop-shop for building enterprise-ready applications. Due to its modularity, one need only use those parts that one needs, without having to include all other modules i.e. one can use the IoC container, with Struts on top, or else one can use only the Hibernate integration code or the \ac{JDBC} abstraction layer. The Spring Framework supports declarative transaction management, remote access to the application logic through \ac{RMI} or web services, and various options for persisting the data. It offers a full-featured \ac{MVC} framework, and enables integrating \ac{AOP} transparently into  softwares \cite{spring-framework-reference}.
+The Spring framework is a lightweight solution and a potential one-stop-shop for building enterprise-ready applications. Due to its modularity, one need only use those parts that one needs, without having to include all other modules i.e. one can use the IoC container, with Struts on top, or else one can use only the Hibernate integration code or the \ac{JDBC} abstraction layer. The Spring Framework supports declarative transaction management, remote access to the application logic through \ac{RMI} or web services, and various options for persisting the data. It offers a full-featured \ac{MVC} framework, and enables integrating \ac{AOP} transparently into  softwares \cite{spring-framework-reference}.
 
 
 The Spring Framework consists of features organized into about 20 modules. These modules are grouped into Core Container, Data Access/Integration, Web, \ac{AOP}, Instrumentation, and Test \cite{spring-framework-reference}, see figure \ref{fig:spring_arch} for illustration.

@@ -10,7 +10,6 @@ The style file: plainnat.bst
 Database file #1: ./bib/references.bib
 Warning--entry type for "W3C" isn't style-file defined
 --line 156 of file ./bib/references.bib
-Warning--I didn't find a database entry for "books/daglib/0024051"
 Warning--to sort, need author or key in W3C
 Warning--to sort, need author or key in bson_intro
 Warning--to sort, need author or key in amqp-concepts
@@ -24,45 +23,45 @@ Warning--empty year in cisco1
 Warning--empty year in mobile-media-report
 Warning--empty year in ec1
 Warning--empty year in youtube1
-You've used 44 entries,
+You've used 45 entries,
             2773 wiz_defined-function locations,
-            868 strings with 12683 characters,
-and the built_in function-call counts, 16966 in all, are:
-= -- 1615
-> -- 642
+            872 strings with 12811 characters,
+and the built_in function-call counts, 17386 in all, are:
+= -- 1648
+> -- 672
 < -- 38
-+ -- 240
-- -- 192
-* -- 1140
-:= -- 2430
-add.period$ -- 175
-call.type$ -- 44
-change.case$ -- 192
-chr.to.int$ -- 40
-cite$ -- 109
-duplicate$ -- 861
-empty$ -- 1641
-format.name$ -- 244
-if$ -- 3755
++ -- 250
+- -- 201
+* -- 1175
+:= -- 2499
+add.period$ -- 179
+call.type$ -- 45
+change.case$ -- 197
+chr.to.int$ -- 41
+cite$ -- 111
+duplicate$ -- 882
+empty$ -- 1674
+format.name$ -- 254
+if$ -- 3841
 int.to.chr$ -- 5
 int.to.str$ -- 1
-missing$ -- 21
-newline$ -- 265
-num.names$ -- 146
-pop$ -- 514
+missing$ -- 23
+newline$ -- 271
+num.names$ -- 150
+pop$ -- 528
 preamble$ -- 1
-purify$ -- 151
+purify$ -- 156
 quote$ -- 0
-skip$ -- 678
+skip$ -- 692
 stack$ -- 0
-substring$ -- 432
-swap$ -- 127
+substring$ -- 434
+swap$ -- 128
 text.length$ -- 8
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 474
+type$ -- 480
 warning$ -- 13
-while$ -- 138
+while$ -- 141
 width$ -- 0
-write$ -- 634
-(There were 15 warnings)
+write$ -- 648
+(There were 14 warnings)

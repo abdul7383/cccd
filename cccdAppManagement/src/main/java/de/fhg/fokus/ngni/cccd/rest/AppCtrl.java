@@ -63,7 +63,7 @@ public class AppCtrl extends BaseCtrl {
 		ObjectMapper mapper = new ObjectMapper();
 		
 		try {
-			amqpTemplate.convertAndSend("cccdApp",mapper.writeValueAsString(new AppEvent(appName,jsonBody.get("secret").toString(),"created")));
+			amqpTemplate.convertAndSend("AppEvents",mapper.writeValueAsString(new AppEvent(appName,jsonBody.get("secret").toString(),"created")));
 		} catch (JsonGenerationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -183,7 +183,7 @@ public class AppCtrl extends BaseCtrl {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			amqpTemplate.convertAndSend("cccdApp",mapper.writeValueAsString(new AppEvent(appName,"deleted")));
+			amqpTemplate.convertAndSend("AppEvents",mapper.writeValueAsString(new AppEvent(appName,"deleted")));
 		} catch (JsonGenerationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
