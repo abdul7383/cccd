@@ -41,7 +41,10 @@ public class CollectionsCtrl extends BaseCtrl {
 		}
 		logger_c.debug("/app/" + appName + "/collections/" + collName
 				+ " : doPOST()");
-
+		
+		if(reservedCollNames.contains(collName))
+			return response(false, null, "collection name: " + collName
+					+ " can't be used, please choose another name");
 		DB db = mongoDb.getDB(appName);
 		if (db.getCollectionNames().contains(collName))
 			return response(false, null, "collection: " + collName

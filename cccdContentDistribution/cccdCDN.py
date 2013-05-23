@@ -19,7 +19,7 @@ import logging.handlers
 message_broker_ip="10.0.0.140"
 locations_dir="/usr/local/nginx/locations/"
 www_dir="/usr/local/nginx/html/"
-nginx_bin="/usr/local/sbin/nginx"
+nginx_bin="/usr/local/nginx/sbin/nginx"
 
 location_tmpl = Template('location /$app/ {\n\
         secure_link $arg_st,$arg_e;\n\
@@ -91,8 +91,14 @@ def callback(ch, method, properties, body):
 		#reload the nginx server
 		os.system("%s %s %s"%(nginx_bin, '-s', 'reload'))
 	if(jsonBody['status']=="deleted"):
-		os.remove(locations_dir+jsonBody['appName']+'.conf')
-		shutil.rmtree(www_dir+jsonBody['appName'], ignore_errors=False, onerror=handleRemoveReadonly)
+		try:
+			os.remove(locations_dir+jsonBody['appName']+'.conf')
+		except Exception, e:
+			logger.debug(e)
+		try:
+			shutil.rmtree(www_dir+jsonBody['appName'], ignore_errors=False, onerror=handleRemoveReadonly)
+		except Exception, e:
+			logger.debug(e)
 		#reload the nginx server
 		os.system("%s %s %s"%(nginx_bin, '-s', 'reload'))
 
@@ -104,13 +110,13 @@ def callback(ch, method, properties, body):
 logger=init_logger(logger_setting)
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(
-        host='10.0.0.140'))
+        host=message_broker_ip))
 channel = connection.channel()
 
-channel.queue_declare(queue='cccdApp', durable=True)
+channel.queue_declare(queue='AppEvents', durable=True)
 
 logger.debug(' [*] Waiting for messages.')
 channel.basic_qos(prefetch_count=1)
-channel.basic_consume(callback,queue='cccdApp')
+channel.basic_consume(callback,queue='AppEvents')
 
 channel.start_consuming()

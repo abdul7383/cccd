@@ -1,9 +1,17 @@
 package de.fhg.fokus.ngni.cccd.rest;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.apache.log4j.Logger;
 import org.elasticsearch.client.Client;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoOperations;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
@@ -14,6 +22,7 @@ import com.mongodb.DBObject;
 import com.mongodb.Mongo;
 import com.mongodb.ReadPreference;
 
+import de.fhg.fokus.ngni.cccd.model.User;
 import de.fhg.fokus.ngni.cccd.services.CustomUserDetailsService;
 
 
@@ -43,6 +52,15 @@ public class BaseCtrl {
 	@Autowired
 	protected Boolean debugResponse;
 
+	@Autowired
+	protected @Resource(name="queuList") List<String> queuList;
+	
+	@Autowired
+	protected @Resource(name="reservedCollNames") List<String> reservedCollNames;
+	
+	@Autowired
+	private MongoTemplate mongoTemplate;
+	
 	protected static final boolean SUCCESS = true;
 	protected static final boolean ERROR = false;
 
@@ -52,6 +70,9 @@ public class BaseCtrl {
 	}
 
 	protected boolean canRead(String db, String user) {
+		MongoOperations mongoOperation = (MongoOperations) mongoTemplate;
+		User us = mongoOperation.findOne(new Query(Criteria.where("username")
+				.is(user)), User.class);
 		if (mongoDb.getDB(db).getCollectionNames().contains("users")) {
 			DBCollection col = mongoDb.getDB(db).getCollection("users");
 			//col.find();
@@ -60,12 +81,17 @@ public class BaseCtrl {
 				DBObject doc = cursor.next();
 				if (doc.get("username").toString().compareTo(user) == 0)
 					return true;
+				if ( us.getRole()==1)
+					return true;
 			}
 		}
 		return false;
 	}
 
 	protected boolean canWrite(String db, String user) {
+		MongoOperations mongoOperation = (MongoOperations) mongoTemplate;
+		User us = mongoOperation.findOne(new Query(Criteria.where("username")
+				.is(user)), User.class);
 		if (mongoDb.getDB(db).getCollectionNames().contains("users")) {
 			DBCollection col = mongoDb.getDB(db).getCollection("users");
 			//col.find();
@@ -73,6 +99,8 @@ public class BaseCtrl {
 			while (cursor.hasNext()) {
 				DBObject doc = cursor.next();
 				if (doc.get("username").toString().compareTo(user) == 0 && !(Boolean)doc.get("readOnly"))
+					return true;
+				if ( us.getRole()==1)
 					return true;
 			}
 		}
@@ -162,5 +190,17 @@ public class BaseCtrl {
 
 	public void setAmqpTemplate(RabbitTemplate amqpTemplate) {
 		this.amqpTemplate = amqpTemplate;
+	}
+
+	public void setQueuList(List<String> queuList) {
+		this.queuList = queuList;
+	}
+
+	public void setReservedCollNames(List<String> reservedCollNames) {
+		this.reservedCollNames = reservedCollNames;
+	}
+
+	public void setMongoTemplate(MongoTemplate mongoTemplate) {
+		this.mongoTemplate = mongoTemplate;
 	}
 }

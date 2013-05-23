@@ -20,12 +20,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import de.fhg.fokus.ngni.cccd.model.User;
 import de.fhg.fokus.ngni.cccd.rest.BaseCtrl;
 
+@SuppressWarnings("deprecation")
 public class CustomUserDetailsService implements UserDetailsService {
 
 	protected static final Logger logger_c = Logger.getLogger(BaseCtrl.class);
 	
 	@Autowired
 	private MongoTemplate mongoTemplate;
+	
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	@Autowired

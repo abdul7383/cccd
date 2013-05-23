@@ -91,7 +91,7 @@
 		<constructor-arg index="0">
 			<list value-type="com.mongodb.ServerAddress">
 				<bean class="com.mongodb.ServerAddress">
-					<constructor-arg index="0" value="10.0.0.136" />
+					<constructor-arg index="0" value="localhost" />
 					<constructor-arg index="1" value="27017" />
 				</bean>
 				<!--bean class="com.mongodb.ServerAddress"> 
@@ -129,7 +129,7 @@
 			<list value-type="org.elasticsearch.common.transport.InetSocketTransportAddress">
 				<bean
 					class="org.elasticsearch.common.transport.InetSocketTransportAddress">
-					<constructor-arg index="0" value="10.0.0.249" />
+					<constructor-arg index="0" value="localhost" />
 					<constructor-arg index="1" value="9300" />
 				</bean>
 				<!-- bean class="org.elasticsearch.common.transport.InetSocketTransportAddress"> 
@@ -146,7 +146,7 @@
 
 	<bean id="connectionFactory"
 		class="org.springframework.amqp.rabbit.connection.CachingConnectionFactory">
-		<constructor-arg value="10.0.0.235" />
+		<constructor-arg value="10.0.0.140" />
 		<property name="username" value="guest" />
 		<property name="password" value="guest" />
 	</bean>
@@ -155,15 +155,32 @@
 
 	<rabbit:admin connection-factory="connectionFactory" />
 
-	<rabbit:queue name="cccdApp" durable="true" />
+	<rabbit:queue name="cccdApp" durable="true"/>
 	<rabbit:queue name="cccdNewDocument" durable="true" />
 
+	<!-- A list for all available queues which can be used to send a notification
+		to it in case of a new created document -->
+	<util:list id="queuList" value-type="java.lang.String">
+	    <value>cccdCA</value>
+	</util:list>
+	
+	<!-- A list of reserved name which can't be used as collection name -->
+	<util:list id="reservedCollNames" value-type="java.lang.String">
+	    <value>secret</value>
+	    <value>profiles</value>
+	    <value>conf</value>
+	    <value>users</value>
+	</util:list>
+	
 	<bean id="baseCtrl" class="de.fhg.fokus.ngni.cccd.rest.BaseCtrl">
 		<property name="mongoDb" ref="mongoDb" />
 		<property name="esClient" ref="esClient" />
 		<property name="debugResponse" ref="debugResponse" />
 		<property name="customUserDetailsService" ref="customUserDetailsService" />
 		<property name="amqpTemplate" ref="amqpTemplate" />
+		<property name="queuList" ref="queuList" />
+		<property name="reservedCollNames" ref="reservedCollNames" />
+		<property name="mongoTemplate" ref="mongoTemplate" />
 	</bean>
 
 </beans>

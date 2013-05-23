@@ -1,1 +1,67 @@
-test
+2. http://admin:superpass@54.236.151.236:8080/cccd/users
+3. http://admin:superpass@54.236.151.236:8080/cccd/app
+4. http://admin:superpass@54.236.151.236:8080/cccd/users?username=user1&password=pass1&firstName=abdul&lastName=hamood&email=ab@yahoo.de&role=2
+5. http://admin:superpass@54.236.151.236:8080/cccd/users
+6. http://user1:pass1@54.236.151.236:8080/cccd/app/vod
+{
+"secret":"secret1",
+"profiles":["cell_16x9_150k","wifi_16x9_640k"]
+}
+7. http://user1:pass1@54.236.151.236:8080/cccd/app/vod/users
+   http://user1:pass1@54.236.151.236:8080/cccd/app
+8. http://user1:pass1@54.236.151.236:8080/cccd/app/vod/collections/secret
+   http://user1:pass1@54.236.151.236:8080/cccd/app/vod/collections/videos
+9. http://user1:pass1@54.236.151.236:8080/cccd/app/vod/collections/
+10. http://user1:pass1@54.236.151.236:8080/cccd/app/vod
+    http://user1:pass1@54.236.151.236:8080/cccd/app/vod?op=stats
+11. http://user1:pass1@54.236.151.236:8080/cccd/app/vod
+{
+"profiles":["cell_16x9_150k","cell_16x9_240k","wifi_16x9_640k"],
+"videos":["cccdCA"]
+}
+12. http://user1:pass1@54.236.151.236:8080/cccd/app/vod
+13. http://user1:pass1@54.236.151.236:8080/cccd/app/vod/buckets
+    http://user1:pass1@54.236.151.236:8080/cccd/app/vod/buckets/bucket1
+    http://user1:pass1@54.236.151.236:8080/cccd/app/vod/buckets
+14. http://user1:pass1@54.236.151.236:8080/cccd/app/vod/buckets/bucket1/files
+    http://user1:pass1@54.236.151.236:8080/cccd/app/vod/buckets/bucket1
+15. http://user1:pass1@54.236.151.236:8080/cccd/app/vod/collections/videos/mapping
+    http://user1:pass1@54.236.151.236:8080/cccd/app/vod/collections/videos/mapping
+{
+"videos" : {
+"properties" : {
+"user" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
+"titel" : {"type" : "string", "store" : "yes"},
+"description" : {"type" : "string", "store" : "yes"},
+"tags" : {"type" : "string", "store" : "yes"},
+"uploadTime" : {"type" : "date", "store" : "yes"},
+"location" : {"type" : "geo_point", "store" : "yes"},
+"fileLink" : {
+"type" : "object",
+"properties" : {
+"app" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
+"bucket" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"},
+"objectid" : {"type" : "string", "store" : "yes", "index" : "not_analyzed"}
+}
+}
+}
+}
+}
+
+    http://user1:pass1@54.236.151.236:8080/cccd/app/vod/collections/videos/mapping
+16. http://user1:pass1@54.236.151.236:8080/cccd/app/vod/collections/videos/doc 
+{
+"title" : "Brandenburger Tor New year 2013 ",
+"description" : "Berlin Brandenburger Tor - New year 2013",
+"tags" : "Berlin,Brandenburger Tor,new year 2013,fireworks",
+"uploadTime" : "2013-01-15T14:12:12",
+"location" : "52.516275,13.377227",
+"user" : "abdul",
+"fileLink" : {"app":"vod","bucket":"bucket1","objectid":"519d68eee4b049a7a34337e7"}
+}
+
+    http://user1:pass1@54.236.151.236:8080/cccd/app/vod/collections/videos/doc/519d81a4e4b0f47c25c4bae3
+{
+"title" : "Brandenburger Tor New year 2015"
+}
+

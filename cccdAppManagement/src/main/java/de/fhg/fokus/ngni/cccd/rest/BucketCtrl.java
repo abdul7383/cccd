@@ -2,6 +2,7 @@ package de.fhg.fokus.ngni.cccd.rest;
 
 import java.security.Principal;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.mongodb.BasicDBObject;
 import com.mongodb.DB;
 import com.mongodb.DBCursor;
+import com.mongodb.DBObject;
 import com.mongodb.gridfs.GridFS;
 
 /**
@@ -96,17 +98,24 @@ public class BucketCtrl extends BaseCtrl {
 			return response(false, null, "bucket: " + bucketName
 					+ " does not exist in app: " + appName);
 		BasicDBObject fields = new BasicDBObject();
-		fields.append("_id",0);
+		fields.append("_id",1);
 		fields.append("length",0);
 		fields.append("md5",0);
 		fields.append("aliases",0);
 		fields.append("chunkSize",0);
 		//DBCursor cursor = db.getCollection(bucketName+".files").find(new BasicDBObject(), fields).toArray();
 		GridFS gfs = new GridFS(db, bucketName);
-		List<String> fi = new ArrayList<String>();
+		List<HashMap<String,Object>> fi = new ArrayList<HashMap<String,Object>>();
 		DBCursor dbc = gfs.getFileList();
+		
 		while(dbc.hasNext()){
-			fi.add(dbc.next().get("filename").toString());
+			 HashMap<String,Object> map = new HashMap<String,Object>();
+			 DBObject dbo = dbc.next();
+			 //logger_c.debug(dbo.toString());
+			 map.put("filename", dbo.get("filename").toString());
+			 map.put("id", dbo.get("_id").toString());
+			 map.put("size", Long.parseLong(dbo.get("length").toString(), 10)/1000000 +"MB");
+			 fi.add(map);
 		}
 		return response(true, fi, null);
 	}

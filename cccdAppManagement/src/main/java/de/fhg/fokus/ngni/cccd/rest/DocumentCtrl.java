@@ -1,11 +1,19 @@
 package de.fhg.fokus.ngni.cccd.rest;
 
+import java.io.IOException;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.bson.types.ObjectId;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonNode;
+import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
+import org.elasticsearch.action.get.GetResponse;
+import org.springframework.amqp.AmqpException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +26,8 @@ import com.mongodb.BasicDBObject;
 import com.mongodb.BasicDBObjectBuilder;
 import com.mongodb.DB;
 import com.mongodb.DBObject;
+
+import de.fhg.fokus.ngni.cccd.model.DocEvent;
 
 /**
  * FundsController class will expose a series of RESTful endpoints
@@ -50,10 +60,27 @@ public class DocumentCtrl extends BaseCtrl {
 					+ " is no created in app: " + appName);
 		if (body == null || body.compareTo("") == 0)
 			return response(false, null, "html body can not be empty");
+		ObjectMapper mapper = new ObjectMapper();
 		try {
-			HashMap<String, Object> jsonBody;
+			HashMap<String, Object> jsonBody = null;
+			JsonNode fileLink = null;
+			ArrayList<String> profiles = null;
+			ArrayList<String> queues = null;;
 			try {
-				jsonBody = new ObjectMapper().readValue(body, HashMap.class);
+				jsonBody = mapper.readValue(body, HashMap.class);
+				if(db.getCollection("conf").findOne().containsField(collName)){
+					DBObject dbo1 = db.getCollection("conf").findOne();
+					//logger_c.debug(dbo1.toString());
+					queues = mapper.readValue(dbo1.get(collName).toString(), ArrayList.class);
+					//logger_c.debug(queues);
+					profiles = mapper.readValue(dbo1.get("profiles").toString(), ArrayList.class);
+					//logger_c.debug(profiles);
+					if(jsonBody!=null && jsonBody.containsKey("fileLink")){
+						JsonNode rootNode = mapper.readValue(body, JsonNode.class);
+						fileLink = rootNode.get("fileLink");
+						//logger_c.debug(fileLink);
+					}
+				}
 			} catch (Exception e) {
 				return response(false, null,
 						"jsonBody error: " + e.getMessage());
@@ -71,6 +98,27 @@ public class DocumentCtrl extends BaseCtrl {
 			esClient.prepareIndex(appName + "_" + collName, collName,
 					bdo.getObjectId("_id").toString()).setSource(jsonBody)
 					.execute().actionGet();
+			if(fileLink!=null){
+				for(String q:queues){
+					if(queuList.contains(q)){
+						try {
+							amqpTemplate.convertAndSend(q,mapper.writeValueAsString(new DocEvent(appName,fileLink.get("bucket").getTextValue(),fileLink.get("objectid").getTextValue(),"created",profiles.toString())));
+						} catch (JsonGenerationException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (JsonMappingException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (AmqpException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					}
+				}
+			}
 			// }
 		} catch (Exception ex) {
 			return response(false, null, "error : " + ex.getMessage());
@@ -123,6 +171,51 @@ public class DocumentCtrl extends BaseCtrl {
 		if (bdo == null)
 			return response(false, null, "no document found with id: " + id);
 		return response(true, bdo, null);
+	}
+	
+	@SuppressWarnings("unchecked")
+	// update a document in a collection
+	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+	public ModelAndView updateApp(@PathVariable String appName,
+			@PathVariable String collName, Principal principal,
+			@PathVariable String id, @RequestBody String body) {
+		
+		if (!canRead(appName, principal.getName())) {
+			if (!mongoDb.getDatabaseNames().contains(appName))
+				return response(false, null, "app: " + appName
+						+ " is not found");
+			return response(false, null, "you don't have permission");
+		}
+		logger_c.debug("/app/" + appName + "/collections/" + collName + "/doc/"
+				+ id + ": doPUT()");
+		
+		 DB db = mongoDb.getDB(appName);
+		 if (!db.getCollectionNames().contains(collName))
+				return response(false, null, "collection: " + collName
+						+ " is no created in app: " + appName);
+		 
+		 HashMap<String, Object> jsonBody;
+		 try{ 
+			 jsonBody = new ObjectMapper().readValue(body, HashMap.class);
+		 }
+		 catch (Exception e) { 
+			 return response(false, null, e.getMessage());
+		 }
+		 BasicDBObject doc = new BasicDBObject("$set",jsonBody);
+		 
+		 db.getCollection(collName).update(new BasicDBObject("_id",new ObjectId(id)), doc, true, false);
+		 GetResponse response = esClient.prepareGet(appName+"_"+collName, collName, id)
+			        .execute()
+			        .actionGet();
+		 Map<String,Object> source=response.getSource();
+		 for(String key:jsonBody.keySet()){
+			 source.put(key, jsonBody.get(key));
+		 }
+		 //logger_c.debug(response.getSource());
+		 esClient.prepareIndex(appName + "_" + collName, collName,
+					id).setSource(source)
+					.execute().actionGet();
+		 return response(true, null, "doc: updated succecfully");
 	}
 
 	// delete a document from a collection

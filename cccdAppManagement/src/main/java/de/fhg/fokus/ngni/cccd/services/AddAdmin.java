@@ -11,6 +11,7 @@ import org.springframework.security.authentication.encoding.PasswordEncoder;
 import de.fhg.fokus.ngni.cccd.model.User;
 
 
+@SuppressWarnings("deprecation")
 public class AddAdmin {
 
 	/**
