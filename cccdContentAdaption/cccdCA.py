@@ -15,13 +15,12 @@ import shutil
 import simplejson as json
 import logging
 import logging.handlers
-import pymongo
-from pymongo.objectid import ObjectId
-import gridfs
+import ftplib
 import urllib2, base64
 import tempfile
 import subprocess
-import contextlib
+#import contextlib
+import requests
 
 working_dir="/home/ubuntu/cccd/cccdContentAdaption/hls/"
 conf_file="/home/ubuntu/cccd/cccdContentAdaption/cccdCA.conf"
@@ -29,7 +28,10 @@ message_broker_ip="10.0.0.140"
 adminUsername="admin"
 adminPassword="superpass"
 cccdAppManagementIP="10.0.0.197"
-cccdCDN="10.0.0.209"
+cccdCDN="10.0.0.209" # or it can be a list of IP addresses ['10.0.0.209','10.0.0.153'] 
+cccdCDN_ftp_user="cdnuser"
+cccdCDN_ftp_pass="cdnuser"
+cccdCDN_load_balancer="10.0.0.209" # load balancer ip if exist, else set it to the cccdCDN IP
 
 #Setting for the logger
 logger_setting={
@@ -69,42 +71,13 @@ def init_logger(settings):
     logger.addHandler(ch2) 
     return logger
 
-# Unix, Windows and old Macintosh end-of-line
-newlines = ['\n', '\r\n', '\r']
-def unbuffered(proc, stream='stdout'):
-    stream = getattr(proc, stream)
-    with contextlib.closing(stream):
-        while True:
-            out = []
-            last = stream.read(1)
-            # Don't loop forever
-            if last == '' and proc.poll() is not None:
-                break
-            while last not in newlines:
-                out.append(last)
-                last = stream.read(1)
-            out = ''.join(out)
-            yield out
-
-def runSegmenter(tmpname):
-    cmd = ['/usr/bin/ruby', '/home/ubuntu/cccd/cccdContentAdaption/hls/http_streamer.rb', tmpname]
-    proc = subprocess.Popen(
-        cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.STDOUT,
-        # Make all end-of-lines '\n'
-        universal_newlines=True,
-    )
-    for line in unbuffered(proc):
-        print line
-
 def callback(ch, method, properties, body):
 	logger.debug(" [x] Received %r" % (body,))
 	#tmp = json.dumps(body)
 	jsonBody = json.loads(body)
 	if(jsonBody['status']=="created"):
 		url="http://"+cccdAppManagementIP+":8080/cccd/app/"+jsonBody['appName']+"/buckets/"+jsonBody['bucketName']+"/files?objectid="+jsonBody['objectId']
-		print url
+		#print url
 		request = urllib2.Request(url)
 		base64string = base64.encodestring('%s:%s' % (adminUsername, adminPassword)).replace('\n', '')
 		request.add_header("Authorization", "Basic %s" % base64string)   
@@ -116,30 +89,24 @@ def callback(ch, method, properties, body):
     			code.write(data)
 		
 		cfileStr = open(conf_file, 'r').read()
-		newCfileStr=cfileStr.replace("$FileToConvert",fileLink).replace("$Encoding_Profile",jsonBody['profiles'])
-		#newCfileStr=cfileStr.replace("$FileToConvert",fileLink)
+		newCfileStr=cfileStr.replace("$FileToConvert",fileLink)
+		newCfileStr=newCfileStr.replace("$Encoding_Profile",jsonBody['profiles'])
+		newCfileStr=newCfileStr.replace("$cccdCDN",cccdCDN)
+		newCfileStr=newCfileStr.replace("$ftp_user",cccdCDN_ftp_user)
+		newCfileStr=newCfileStr.replace("$ftp_pass",cccdCDN_ftp_pass)
 		newCfileStr=newCfileStr.replace("$UploadFolder","/"+jsonBody['appName']+"/"+jsonBody['bucketName']+"/"+jsonBody['objectId'])
 		newCfileStr=newCfileStr.replace("$appName",jsonBody['appName'])
 		newCfileStr=newCfileStr.replace("$bucketName",jsonBody['bucketName'])
 		newCfileStr=newCfileStr.replace("$objectId",jsonBody['objectId'])
-
+		#print newCfileStr
 		temp = tempfile.NamedTemporaryFile()
 		try:
 			temp.write(newCfileStr)
 			temp.seek(0)
-			print 'temp:', temp
-			print 'temp.name:', temp.name
 		finally:
-			# Automatically cleans up the file
-			#os.chdir(working_dir)
-			#os.system("%s %s"%("http_streamer.rb", temp.name))
-			#subprocess.check_output([working_dir+"http_streamer.rb", temp.name)
-			print 'launching slave process...'
-			#time.sleep(600)
-			#subprocess.check_output("/usr/bin/ruby /home/ubuntu/cccd/cccdContentAdaption/hls/http_streamer.rb "+ temp.name, shell=True)
-			#runSegmenter(temp.name)
-			cmdping = "/usr/bin/ruby /home/ubuntu/cccd/cccdContentAdaption/hls/http_streamer.rb "+ temp.name
-			p = subprocess.Popen(cmdping, shell=True, stderr=subprocess.PIPE)
+			logger.debug('launching segmenter process...')
+			cmdSegmenter = "/usr/bin/ruby /home/ubuntu/cccd/cccdContentAdaption/hls/http_streamer.rb "+ temp.name
+			p = subprocess.Popen(cmdSegmenter, shell=True, stderr=subprocess.PIPE)
 			while True:
     				out = p.stderr.read(1)
     				if out == '' and p.poll() != None:
@@ -147,11 +114,44 @@ def callback(ch, method, properties, body):
     				if out != '':
         				sys.stdout.write(out)
         				sys.stdout.flush()
+			
 			temp.close()
 			try:
                         	os.remove(fileLink)
                 	except Exception, e:
                         	logger.debug(e)
+			#return
+			try:
+				ftp = ftplib.FTP(cccdCDN) 
+				ftp.login(cccdCDN_ftp_user,cccdCDN_ftp_pass)
+			except Exception,e:
+				logger.debug(e)
+			else:
+				try:
+					#check if directory exist in FTP server
+					ftp.cwd("/"+jsonBody['appName']+"/"+jsonBody['bucketName']+"/"+jsonBody['objectId'])
+					#check if index file and the first segment exist
+					filelist = [] #to store all files
+					ftp.retrlines('LIST',filelist.append)    # append to list
+					ftp.quit()
+					found=0
+					links={}
+					links["hls_videos"]=[]
+					for f in filelist:
+						if f.endswith(".m3u8"):
+							fName=f.split()[-1]
+							found=1
+							s={}
+							s[fName]="http://"+cccdCDN_load_balancer+"/"+jsonBody['appName']+"/"+jsonBody['bucketName']+"/"+jsonBody['objectId']+"/"+fName
+							links["hls_videos"].append(s)
+					#print json.dumps(links)
+					if(found==1):
+						response=requests.put("http://"+cccdAppManagementIP+":8080/cccd/app/"+jsonBody['appName']+
+							"/collections/"+jsonBody['collName']+"/doc/"+jsonBody['docId'],auth=(adminUsername, adminPassword),data=json.dumps(links))
+						#print response.text
+						logger.debug("sending the links for the new generated contents to the appManagment component")
+				except Exception, e:
+					logger.debug(e)
 		#print newCfileStr
 		#sys.exit()
 		

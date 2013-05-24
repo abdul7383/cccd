@@ -8,6 +8,10 @@ public class DocEvent {
 
 	private String appName;
 	
+	private String collName;
+	
+	private String docId;
+	
 	private String bucketName;
 	
 	private String objectId;
@@ -19,10 +23,12 @@ public class DocEvent {
 	private String status;
 
 	
-	public DocEvent(String appName, String bucketName, String objectId,
+	public DocEvent(String appName, String collName, String docId, String bucketName, String objectId,
 			 String status, String profiles) {
 		super();
 		this.appName = appName;
+		this.collName = collName;
+		this.docId = docId;
 		this.bucketName = bucketName;
 		this.objectId = objectId;
 		this.timestamp = new Timestamp(System.currentTimeMillis());;
@@ -36,6 +42,22 @@ public class DocEvent {
 
 	public void setAppName(String appName) {
 		this.appName = appName;
+	}
+
+	public String getCollName() {
+		return collName;
+	}
+
+	public void setCollName(String collName) {
+		this.collName = collName;
+	}
+
+	public String getDocId() {
+		return docId;
+	}
+
+	public void setDocId(String docId) {
+		this.docId = docId;
 	}
 
 	public String getBucketName() {

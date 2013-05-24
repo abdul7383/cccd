@@ -317,8 +317,8 @@ git clone git://github.com/abdul7383/cccd.git
 
 \begin{code}
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
-sudo apt-get install ruby rubygem python-pika python-pip python-dev build-essential
-sudo pip install pymongo
+sudo apt-get install ruby rubygems python-pip python-dev build-essential requests
+sudo pip install pika
 \end{minted}
 \end{code}
 
@@ -365,14 +365,24 @@ wget http://nginx.org/download/nginx-1.2.7.tar.gz
 tar -xvvf nginx-1.2.7.tar.gz 
 cd nginx-1.2.7/
 sudo apt-get update
-sudo apt-get install gcc make
+sudo apt-get install gcc make  libpcre3 libpcre3-dev
 ./configure --with-http_secure_link_module \
-  --without-http_rewrite_module --without-http_gzip_module
+   --without-http_gzip_module
 make
 sudo make install
+sudo mkdir /usr/local/nginx/locations
 \end{minted}
 \end{code}
 
+In the configuration file \textit{/usr/local/nginx/conf/nginx.conf} one need to add following two lines to the \textit{server} block.
+
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+root /usr/local/nginx/html;
+include /usr/local/nginx/locations/*.conf;
+\end{minted}
+\end{code}
+ 
 The following command starts Nginx in the background.
 
 \begin{code}
@@ -388,7 +398,8 @@ The following commands are for the installing and the running of the python scri
 cd
 wget https://raw.github.com/abdul7383/cccd/master/cccdContentDistribution/cccdCDN.py
 chmod +x cccdCDN.py
-sudo apt-get install python-pika
+sudo apt-get install python-pip
+sudo pip install pika
 sudo ./cccdCDN.py
 \end{minted}
 \end{code}
@@ -430,8 +441,7 @@ Payload:
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{json}
 {
 "secret":"secret1",
-"profiles":["cell_16x9_150k","wifi_16x9_640k"],
-
+"profiles":["cell_16x9_150k","wifi_16x9_640k"]
 }
 \end{minted}
 Response:

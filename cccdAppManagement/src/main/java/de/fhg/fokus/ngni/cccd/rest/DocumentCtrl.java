@@ -102,7 +102,7 @@ public class DocumentCtrl extends BaseCtrl {
 				for(String q:queues){
 					if(queuList.contains(q)){
 						try {
-							amqpTemplate.convertAndSend(q,mapper.writeValueAsString(new DocEvent(appName,fileLink.get("bucket").getTextValue(),fileLink.get("objectid").getTextValue(),"created",profiles.toString())));
+							amqpTemplate.convertAndSend(q,mapper.writeValueAsString(new DocEvent(appName,collName,bdo.getObjectId("_id").toString(),fileLink.get("bucket").getTextValue(),fileLink.get("objectid").getTextValue(),"created",profiles.toString())));
 						} catch (JsonGenerationException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
