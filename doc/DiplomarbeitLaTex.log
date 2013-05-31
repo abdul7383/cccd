@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  8 APR 2013 09:21
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.6.30)  31 MAY 2013 17:15
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -881,7 +881,7 @@ Overfull \hbox (30.46977pt too wide) in paragraph at lines 18--22
 \openout2 = `./misc/abstract.aux'.
 
  (./misc/abstract.tex
-Underfull \hbox (badness 10000) in paragraph at lines 11--17
+Underfull \hbox (badness 10000) in paragraph at lines 11--16
 
  []
 
@@ -970,7 +970,7 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 45.
 Package acronym Info: Label `acro:HTTP' newly defined as it shall be overridden
 
-although it is yet undefined on input line 53.
+although it is yet undefined on input line 51.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -978,7 +978,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <Inp_Out.jpg, id=490, 942.52126pt x 259.7203pt>
 File: Inp_Out.jpg Graphic file (type jpg)
  <use Inp_Out.jpg>
-Package pdftex.def Info: Inp_Out.jpg used on input line 67.
+Package pdftex.def Info: Inp_Out.jpg used on input line 64.
 (pdftex.def)             Requested size: 377.00183pt x 103.88628pt.
 )
 (./chapters/chapter2.tex [5 <./Inp_Out.jpg>] [6
@@ -986,45 +986,45 @@ Package pdftex.def Info: Inp_Out.jpg used on input line 67.
 ]
 Chapter 2.
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 31--33
+Underfull \hbox (badness 10000) in paragraph at lines 29--31
 
  []
 
 [8] [9]
 Package acronym Info: Label `acro:OWL' newly defined as it shall be overridden
-although it is yet undefined on input line 77.
+although it is yet undefined on input line 68.
 Package acronym Info: Label `acro:RDF' newly defined as it shall be overridden
-although it is yet undefined on input line 77.
+although it is yet undefined on input line 68.
 Package acronym Info: Label `acro:UML' newly defined as it shall be overridden
-although it is yet undefined on input line 82.
+although it is yet undefined on input line 73.
  [10]
 Package acronym Info: Label `acro:SGML' newly defined as it shall be overridden
 
-although it is yet undefined on input line 86.
+although it is yet undefined on input line 77.
 Package acronym Info: Label `acro:XML' newly defined as it shall be overridden
-although it is yet undefined on input line 86.
+although it is yet undefined on input line 77.
 Package acronym Info: Label `acro:W3C' newly defined as it shall be overridden
-although it is yet undefined on input line 95.
+although it is yet undefined on input line 86.
 
-Underfull \hbox (badness 10000) in paragraph at lines 95--96
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
 
  []
 
 Package acronym Info: Label `acro:WSDL' newly defined as it shall be overridden
 
-although it is yet undefined on input line 97.
+although it is yet undefined on input line 88.
 Package acronym Info: Label `acro:REST' newly defined as it shall be overridden
 
-although it is yet undefined on input line 102.
+although it is yet undefined on input line 93.
 [11]
 Package acronym Info: Label `acro:SMTP' newly defined as it shall be overridden
 
-although it is yet undefined on input line 110.
+although it is yet undefined on input line 101.
  <soap_envelope.jpg, id=606, 292.09125pt x 327.2225pt>
 File: soap_envelope.jpg Graphic file (type jpg)
 
 <use soap_envelope.jpg>
-Package pdftex.def Info: soap_envelope.jpg used on input line 116.
+Package pdftex.def Info: soap_envelope.jpg used on input line 107.
 (pdftex.def)             Requested size: 146.04526pt x 163.61084pt.
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
@@ -1041,9 +1041,9 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 Package hyperref Info: bookmark level for unknown listing defaults to 0 on inpu
-t line 139.
+t line 130.
 Package acronym Info: Label `acro:URL' newly defined as it shall be overridden
-although it is yet undefined on input line 153.
+although it is yet undefined on input line 144.
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
 runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
@@ -1057,7 +1057,7 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 Package acronym Info: Label `acro:JSON' newly defined as it shall be overridden
 
-although it is yet undefined on input line 165.
+although it is yet undefined on input line 156.
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
 runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
@@ -1070,76 +1070,76 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 Package acronym Info: Label `acro:URI' newly defined as it shall be overridden
-although it is yet undefined on input line 197.
+although it is yet undefined on input line 188.
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--208
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 199--208
+Underfull \hbox (badness 10000) in paragraph at lines 190--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--208
+Underfull \hbox (badness 10000) in paragraph at lines 190--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--208
+Underfull \hbox (badness 10000) in paragraph at lines 190--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--213
+Underfull \hbox (badness 10000) in paragraph at lines 190--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 210--213
+Underfull \hbox (badness 10000) in paragraph at lines 201--204
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 201--204
 
  []
 
 [14]
 Package acronym Info: Label `acro:RPC' newly defined as it shall be overridden
-although it is yet undefined on input line 216.
+although it is yet undefined on input line 207.
 Package acronym Info: Label `acro:HTTPS' newly defined as it shall be overridde
 n
-although it is yet undefined on input line 218.
+although it is yet undefined on input line 209.
 Package acronym Info: Label `acro:LDAP' newly defined as it shall be overridden
 
-although it is yet undefined on input line 222.
+although it is yet undefined on input line 213.
 Package acronym Info: Label `acro:API' newly defined as it shall be overridden
-although it is yet undefined on input line 228.
+although it is yet undefined on input line 219.
  [15]
 Package acronym Info: Label `acro:SQL' newly defined as it shall be overridden
-although it is yet undefined on input line 250.
+although it is yet undefined on input line 241.
 Package acronym Info: Label `acro:NoSQL' newly defined as it shall be overridde
 n
-although it is yet undefined on input line 252.
+although it is yet undefined on input line 243.
  [16]
-Overfull \hbox (43.3936pt too wide) in paragraph at lines 266--276
+Overfull \hbox (43.3936pt too wide) in paragraph at lines 254--264
 [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--281
+Underfull \hbox (badness 10000) in paragraph at lines 247--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--281
+Underfull \hbox (badness 10000) in paragraph at lines 247--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--281
+Underfull \hbox (badness 10000) in paragraph at lines 247--269
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 259--281
+Underfull \hbox (badness 10000) in paragraph at lines 247--269
 
  []
 
@@ -1160,7 +1160,7 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 302--306
+Underfull \hbox (badness 10000) in paragraph at lines 290--294
 
  []
 
@@ -1178,7 +1178,7 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
  [18]
 Package acronym Info: Label `acro:MVCC' newly defined as it shall be overridden
 
-although it is yet undefined on input line 325.
+although it is yet undefined on input line 313.
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
 runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
@@ -1186,7 +1186,7 @@ runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
 .
 
  (./DiplomarbeitLaTex.out.pyg
-Underfull \hbox (badness 10000) in paragraph at lines 327--1
+Underfull \hbox (badness 10000) in paragraph at lines 315--1
 
  []
 
@@ -1201,16 +1201,16 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 File: couchdb_repl.png Graphic file (type png)
 
 <use couchdb_repl.png>
-Package pdftex.def Info: couchdb_repl.png used on input line 353.
+Package pdftex.def Info: couchdb_repl.png used on input line 341.
 (pdftex.def)             Requested size: 200.4283pt x 127.19489pt.
 Package acronym Info: Label `acro:BSON' newly defined as it shall be overridden
 
-although it is yet undefined on input line 364.
+although it is yet undefined on input line 352.
  <mongodb_repl.png, id=826, 345.54094pt x 195.73125pt>
 File: mongodb_repl.png Graphic file (type png)
 
 <use mongodb_repl.png>
-Package pdftex.def Info: mongodb_repl.png used on input line 372.
+Package pdftex.def Info: mongodb_repl.png used on input line 360.
 (pdftex.def)             Requested size: 345.54008pt x 195.73076pt.
  [20 <./couchdb_repl.png>] [21 <./mongodb_repl.png>]
 Underfull \vbox (badness 2990) has occurred while \output is active []
@@ -1219,7 +1219,7 @@ Underfull \vbox (badness 2990) has occurred while \output is active []
 <neo4j_n.png, id=866, 798.985pt x 305.14pt>
 File: neo4j_n.png Graphic file (type png)
  <use neo4j_n.png>
-Package pdftex.def Info: neo4j_n.png used on input line 431.
+Package pdftex.def Info: neo4j_n.png used on input line 419.
 (pdftex.def)             Requested size: 319.58833pt x 122.05382pt.
 
 Underfull \vbox (badness 3735) has occurred while \output is active []
@@ -1227,15 +1227,15 @@ Underfull \vbox (badness 3735) has occurred while \output is active []
  [23]
 Package acronym Info: Label `acro:AMQP' newly defined as it shall be overridden
 
-although it is yet undefined on input line 441.
+although it is yet undefined on input line 429.
 
 <rabbit_mq.png, id=880, 702.625pt x 295.1025pt>
 File: rabbit_mq.png Graphic file (type png)
  <use rabbit_mq.png>
-Package pdftex.def Info: rabbit_mq.png used on input line 446.
+Package pdftex.def Info: rabbit_mq.png used on input line 434.
 (pdftex.def)             Requested size: 421.57825pt x 177.06285pt.
 
-Overfull \hbox (3.32457pt too wide) in paragraph at lines 446--446
+Overfull \hbox (3.32457pt too wide) in paragraph at lines 434--434
  [][] 
  []
 
@@ -1243,14 +1243,14 @@ Overfull \hbox (3.32457pt too wide) in paragraph at lines 446--446
 File: rabbit_mq_direct.png Graphic file (type png)
 
 <use rabbit_mq_direct.png>
-Package pdftex.def Info: rabbit_mq_direct.png used on input line 459.
+Package pdftex.def Info: rabbit_mq_direct.png used on input line 447.
 (pdftex.def)             Requested size: 366.77307pt x 244.51538pt.
  [24 <./neo4j_n.png>]
 <rabbit_mq_fanout.png, id=899, 420.57124pt x 326.21875pt>
 File: rabbit_mq_fanout.png Graphic file (type png)
 
 <use rabbit_mq_fanout.png>
-Package pdftex.def Info: rabbit_mq_fanout.png used on input line 469.
+Package pdftex.def Info: rabbit_mq_fanout.png used on input line 457.
 (pdftex.def)             Requested size: 252.3447pt x 195.73274pt.
  [25 <./rabbit_mq.png>] [26 <./rabbit_mq_direct.png>]
 \openout3 = `DiplomarbeitLaTex.pyg'.
@@ -1267,19 +1267,19 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
  [27 <./rabbit_mq_fanout.png>]
 Package acronym Info: Label `acro:JDBC' newly defined as it shall be overridden
 
-although it is yet undefined on input line 519.
+although it is yet undefined on input line 506.
 Package acronym Info: Label `acro:RMI' newly defined as it shall be overridden
-although it is yet undefined on input line 519.
+although it is yet undefined on input line 506.
 Package acronym Info: Label `acro:MVC' newly defined as it shall be overridden
-although it is yet undefined on input line 519.
+although it is yet undefined on input line 506.
 Package acronym Info: Label `acro:AOP' newly defined as it shall be overridden
-although it is yet undefined on input line 519.
+although it is yet undefined on input line 506.
 
 <spring_architecture.png, id=941, 420.57124pt x 388.45125pt>
 File: spring_architecture.png Graphic file (type png)
 
 <use spring_architecture.png>
-Package pdftex.def Info: spring_architecture.png used on input line 529.
+Package pdftex.def Info: spring_architecture.png used on input line 513.
 (pdftex.def)             Requested size: 252.3447pt x 233.07254pt.
 ) (./chapters/chapter3.tex [28] [29 <./spring_architecture.png>] [30
 
@@ -1287,7 +1287,7 @@ Package pdftex.def Info: spring_architecture.png used on input line 529.
 Chapter 3.
 [31] [32]
 Package acronym Info: Label `acro:GUI' newly defined as it shall be overridden
-although it is yet undefined on input line 51.
+although it is yet undefined on input line 45.
 ) (./chapters/chapter4.tex [33] [34]
 Chapter 4.
 <./img/arch_overview.png, id=1002, 457.71pt x 333.245pt>
@@ -2283,7 +2283,7 @@ runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
 ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
 pyg DiplomarbeitLaTex.pyg)...executed.
 
- (./DiplomarbeitLaTex.out.pyg)
+ (./DiplomarbeitLaTex.out.pyg [68])
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
@@ -2293,32 +2293,43 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
 ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
 pyg DiplomarbeitLaTex.pyg)...executed.
-
-
-(./DiplomarbeitLaTex.out.pyg [68])
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
-pyg DiplomarbeitLaTex.pyg)...executed.
-
- (./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
-= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
- DiplomarbeitLaTex.pyg)...executed.
 
 
 (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
@@ -2330,7 +2341,8 @@ runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
 ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
 pyg DiplomarbeitLaTex.pyg)...executed.
 
- (./DiplomarbeitLaTex.out.pyg)
+
+(./DiplomarbeitLaTex.out.pyg)
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
@@ -2340,6 +2352,17 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
 = ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
  DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
 
 
 (./DiplomarbeitLaTex.out.pyg)
@@ -2358,12 +2381,24 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
+\openout3 = `DiplomarbeitLaTex.pyg'.
 
-<flows/newAppFlow.png, id=1397, 490.83376pt x 249.93375pt>
+runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
+= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
+ DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+ [70]
+<flows/newAppFlow.png, id=1405, 490.83376pt x 249.93375pt>
 File: flows/newAppFlow.png Graphic file (type png)
 
 <use flows/newAppFlow.png>
-Package pdftex.def Info: flows/newAppFlow.png used on input line 452.
+Package pdftex.def Info: flows/newAppFlow.png used on input line 485.
 (pdftex.def)             Requested size: 294.50252pt x 149.9614pt.
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
@@ -2388,7 +2423,6 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
- [70]
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
 runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
@@ -2405,6 +2439,18 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
 = ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
  DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg [71 <./flows/newAppFlow.png>])
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
 
 
 (./DiplomarbeitLaTex.out.pyg)
@@ -2414,9 +2460,9 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
-pyg DiplomarbeitLaTex.pyg)...executed.
+runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
+= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
+ DiplomarbeitLaTex.pyg)...executed.
 
  (./DiplomarbeitLaTex.out.pyg)
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
@@ -2425,9 +2471,9 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
-runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
-= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
- DiplomarbeitLaTex.pyg)...executed.
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
 
 
 (./DiplomarbeitLaTex.out.pyg)
@@ -2437,17 +2483,6 @@ runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
-pyg DiplomarbeitLaTex.pyg)...executed.
-
- (./DiplomarbeitLaTex.out.pyg [71 <./flows/newAppFlow.png>])
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
 runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
 = ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
  DiplomarbeitLaTex.pyg)...executed.
@@ -2458,11 +2493,11 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 
-<flows/newCollectionFlow.png, id=1414, 373.395pt x 248.93pt>
+<flows/newCollectionFlow.png, id=1416, 373.395pt x 248.93pt>
 File: flows/newCollectionFlow.png Graphic file (type png)
 
 <use flows/newCollectionFlow.png>
-Package pdftex.def Info: flows/newCollectionFlow.png used on input line 522.
+Package pdftex.def Info: flows/newCollectionFlow.png used on input line 555.
 (pdftex.def)             Requested size: 224.03873pt x 149.35915pt.
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
@@ -2493,111 +2528,7 @@ runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
 ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
 pyg DiplomarbeitLaTex.pyg)...executed.
 
- (./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
-= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
- DiplomarbeitLaTex.pyg)...executed.
-
-
-(./DiplomarbeitLaTex.out.pyg [72 <./flows/newCollectionFlow.png>])
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
-pyg DiplomarbeitLaTex.pyg)...executed.
-
-
-(./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
-= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
- DiplomarbeitLaTex.pyg)...executed.
-
- (./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
-pyg DiplomarbeitLaTex.pyg)...executed.
-
-
-(./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
-= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
- DiplomarbeitLaTex.pyg)...executed.
-
- (./DiplomarbeitLaTex.out.pyg [73])
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
-pyg DiplomarbeitLaTex.pyg)...executed.
-
-
-(./DiplomarbeitLaTex.out.pyg)
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
-= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
- DiplomarbeitLaTex.pyg)...executed.
-
- (./DiplomarbeitLaTex.out.pyg [74])
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
-pyg DiplomarbeitLaTex.pyg)...executed.
-
-
-(./DiplomarbeitLaTex.out.pyg [75])
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
-pyg DiplomarbeitLaTex.pyg)...executed.
-
- (./DiplomarbeitLaTex.out.pyg)
+ (./DiplomarbeitLaTex.out.pyg [72])
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
@@ -2632,6 +2563,64 @@ runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
  DiplomarbeitLaTex.pyg)...executed.
 
 
+(./DiplomarbeitLaTex.out.pyg [73 <./flows/newCollectionFlow.png>])
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
+= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
+ DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
+= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
+ DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg [74] [75])
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+
 (./DiplomarbeitLaTex.out.pyg)
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
@@ -2643,7 +2632,53 @@ runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
 ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
 pyg DiplomarbeitLaTex.pyg)...executed.
 
- (./DiplomarbeitLaTex.out.pyg [76])
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
+= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
+ DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg [76])
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
+= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
+ DiplomarbeitLaTex.pyg)...executed.
+
+
+(./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
@@ -2672,7 +2707,7 @@ runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 
-Overfull \hbox (32.6111pt too wide) in paragraph at lines 791--792
+Overfull \hbox (32.6111pt too wide) in paragraph at lines 824--825
 \OT1/cmr/m/n/12 within a max-i-mum dis-tance of 10 km from Pots-damer Platz(lat
 ,lon: 52.509693,13.376218)
  []
@@ -2694,7 +2729,7 @@ runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
 = ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
  DiplomarbeitLaTex.pyg)...executed.
 
- (./DiplomarbeitLaTex.out.pyg)
+ (./DiplomarbeitLaTex.out.pyg [78])
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
@@ -2706,41 +2741,38 @@ runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
  DiplomarbeitLaTex.pyg)...executed.
 
 
-(./DiplomarbeitLaTex.out.pyg [78]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [79])
-runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
-
-runsystem(rm DiplomarbeitLaTex.pyg)...executed.
-
-\openout3 = `DiplomarbeitLaTex.pyg'.
-
-runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
-ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
-pyg DiplomarbeitLaTex.pyg)...executed.
-
-
-(./DiplomarbeitLaTex.out.pyg)
+(./DiplomarbeitLaTex.out.pyg [79])
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
  [80]
-<img/Without_LoadBalancer_100_70_50_GET.pdf, id=1470, 849.1725pt x 596.2275pt>
+\openout3 = `DiplomarbeitLaTex.pyg'.
+
+runsystem(pygmentize -l console -f latex -F tokenmerge             -P "verbopti
+ons= ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.
+pyg DiplomarbeitLaTex.pyg)...executed.
+
+ (./DiplomarbeitLaTex.out.pyg)
+runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
+
+runsystem(rm DiplomarbeitLaTex.pyg)...executed.
+
+
+<img/Without_LoadBalancer_100_70_50_GET.pdf, id=1473, 849.1725pt x 596.2275pt>
 File: img/Without_LoadBalancer_100_70_50_GET.pdf Graphic file (type pdf)
 
 <use img/Without_LoadBalancer_100_70_50_GET.pdf>
 Package pdftex.def Info: img/Without_LoadBalancer_100_70_50_GET.pdf used on inp
-ut line 916.
+ut line 949.
 (pdftex.def)             Requested size: 339.66298pt x 238.48677pt.
 
-<img/With_LoadBalancer_200_250_300_400_GET.pdf, id=1472, 849.1725pt x 596.2275p
+<img/With_LoadBalancer_200_250_300_400_GET.pdf, id=1475, 849.1725pt x 596.2275p
 t>
 File: img/With_LoadBalancer_200_250_300_400_GET.pdf Graphic file (type pdf)
  <use img/With_LoadBalancer_200_250_300_400_GET.pdf>
 Package pdftex.def Info: img/With_LoadBalancer_200_250_300_400_GET.pdf used on 
-input line 925.
+input line 958.
 (pdftex.def)             Requested size: 339.66298pt x 238.48677pt.
 \openout3 = `DiplomarbeitLaTex.pyg'.
 
@@ -2760,30 +2792,29 @@ runsystem(pygmentize -l json -f latex -F tokenmerge             -P "verboptions
 = ,frame=single,tabsize=2,fontsize=\footnotesize " -o DiplomarbeitLaTex.out.pyg
  DiplomarbeitLaTex.pyg)...executed.
 
- (./DiplomarbeitLaTex.out.pyg [81 <./img/Without_LoadBalancer_100_70_50_GET.pdf
->])
+ (./DiplomarbeitLaTex.out.pyg [81])
 runsystem(rm DiplomarbeitLaTex.out.pyg)...executed.
 
 runsystem(rm DiplomarbeitLaTex.pyg)...executed.
 
 
-<img/Without_LoadBalancer_100_70_50_POST.pdf, id=1487, 849.1725pt x 596.2275pt>
+<img/Without_LoadBalancer_100_70_50_POST.pdf, id=1485, 849.1725pt x 596.2275pt>
 File: img/Without_LoadBalancer_100_70_50_POST.pdf Graphic file (type pdf)
 <use img/Without_LoadBalancer_100_70_50_POST.pdf>
 Package pdftex.def Info: img/Without_LoadBalancer_100_70_50_POST.pdf used on in
-put line 963.
+put line 996.
 (pdftex.def)             Requested size: 339.66298pt x 238.48677pt.
-
-<img/With_LoadBalancer_200_250_300_POST.pdf, id=1489, 849.1725pt x 596.2275pt>
+ [82 <./img/Without_LoadBalancer_100_70_50_GET.pdf>]
+<img/With_LoadBalancer_200_250_300_POST.pdf, id=1499, 849.1725pt x 596.2275pt>
 File: img/With_LoadBalancer_200_250_300_POST.pdf Graphic file (type pdf)
 
 <use img/With_LoadBalancer_200_250_300_POST.pdf>
 Package pdftex.def Info: img/With_LoadBalancer_200_250_300_POST.pdf used on inp
-ut line 972.
+ut line 1005.
 (pdftex.def)             Requested size: 339.66298pt x 238.48677pt.
- [82 <./img/With_LoadBalancer_200_250_300_400_GET.pdf>]) (./chapters/chapter7.t
-ex [83 <./img/Without_LoadBalancer_100_70_50_POST.pdf>] [84 <./img/With_LoadBal
-ancer_200_250_300_POST.pdf>]
+) (./chapters/chapter7.tex
+[83 <./img/With_LoadBalancer_200_250_300_400_GET.pdf>] [84 <./img/Without_LoadB
+alancer_100_70_50_POST.pdf> <./img/With_LoadBalancer_200_250_300_POST.pdf>]
 Chapter 7.
 [85
 
@@ -2965,9 +2996,15 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 102.
 (./misc/self-assertion.aux) (./misc/abstract.aux) (./misc/abstract_de.aux))
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 102.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 102.
-Package rerunfilecheck Info: File `DiplomarbeitLaTex.out' has not changed.
-(rerunfilecheck)             Checksum: 1933C11C868407D0FC380C04FABD01DC;3985.
 
+
+Package rerunfilecheck Warning: File `DiplomarbeitLaTex.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `DiplomarbeitLaTex.out':
+(rerunfilecheck)             Before: 1933C11C868407D0FC380C04FABD01DC;3985
+(rerunfilecheck)             After:  C485249D6E4D4C9A2F5F943101B1372B;3985.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -2977,27 +3014,63 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 102.
  ) 
 Here is how much of TeX's memory you used:
- 13659 strings out of 493488
- 210172 string characters out of 3141326
+ 13680 strings out of 493488
+ 210586 string characters out of 3141326
  348369 words of memory out of 3000000
  15949 multiletter control sequences out of 15000+200000
  10621 words of font info for 38 fonts, out of 3000000 for 9000
  960 hyphenation exceptions out of 8191
  50i,17n,54p,1595b,762s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb
-></usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb><
-/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></u
-sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></us
-r/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr
-/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/
-local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on DiplomarbeitLaTex.pdf (122 pages, 2038265 bytes).
+pdfTeX warning (dest): name{listing.caption.225} has been referenced but does
+ not exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.224} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{listing.caption.223} has been referenced but does n
+ot exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.219} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.218} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.214} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.213} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.199} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{figure.caption.194} has been referenced but does no
+t exist, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.222} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.221} has been referenced but does not exis
+t, replaced by a fixed one
+
+pdfTeX warning (dest): name{chapter*.220} has been referenced but does not exis
+t, replaced by a fixed one
+
+</usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmitt10.pfb><
+/usr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></u
+sr/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl12.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr
+/local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
+local/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/l
+ocal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/lo
+cal/texlive/2012/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
+Output written on DiplomarbeitLaTex.pdf (122 pages, 2039821 bytes).
 PDF statistics:
- 1864 PDF objects out of 2073 (max. 8388607)
- 1680 compressed objects within 17 object streams
- 489 named destinations out of 1000 (max. 500000)
+ 1881 PDF objects out of 2073 (max. 8388607)
+ 1697 compressed objects within 17 object streams
+ 504 named destinations out of 1000 (max. 500000)
  615 words of extra memory for PDF output out of 10000 (max. 10000000)
 
