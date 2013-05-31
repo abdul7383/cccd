@@ -328,6 +328,7 @@ sudo pip install pika
 \begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
 cd ~/cccd/cccdContentAdaption/hls
 make
+sudo cp *.rb /usr/local/lib/site-ruby/1.8/
 \end{minted}
 \end{code}
 
@@ -365,12 +366,34 @@ wget http://nginx.org/download/nginx-1.2.7.tar.gz
 tar -xvvf nginx-1.2.7.tar.gz 
 cd nginx-1.2.7/
 sudo apt-get update
-sudo apt-get install gcc make  libpcre3 libpcre3-dev
+sudo apt-get install gcc make  libpcre3 libpcre3-dev proftpd-basic
 ./configure --with-http_secure_link_module \
    --without-http_gzip_module
 make
 sudo make install
 sudo mkdir /usr/local/nginx/locations
+\end{minted}
+\end{code}
+
+The following commands are for the configuration of the ftp server, where the uid 1002 is the user id of the created user \textit{cdnuser}, which can be get with '\textit{id -u cdnuser}'.
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+sudo useradd cdnuser -d /usr/local/nginx/html/ -s /bin/false
+sudo passwd cdnuser
+sudo chown -R cdnuser:cdnuser /usr/local/nginx/html/
+cd /etc/proftpd/
+sudo ftpasswd --passwd --name cdnuser --uid 1002 --home /usr/local/nginx/html/ --shell /bin/false
+\end{minted}
+\end{code}
+
+One needs also to add the following lines to the end of the proftpd configuration file \textit{/etc/proftpd/proftpd.conf}
+\begin{code}
+\begin{minted}[frame=single,tabsize=2,fontsize=\footnotesize]{console}
+DefaultRoot ~
+AuthOrder                      mod_auth_file.c  mod_auth_unix.c
+AuthUserFile /etc/proftpd/ftpd.passwd
+AuthPAM off
+RequireValidShell off
 \end{minted}
 \end{code}
 

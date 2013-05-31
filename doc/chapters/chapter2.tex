@@ -10,7 +10,7 @@ Humans are quite successful at conveying ideas to each other and reacting approp
 
 \subsection{What is Context?}
 
-The report that first introduces the term \emph{context-aware}, [\citeauthor{ieee313011}] refers to context as location, identities of people and objects nearby, and changes to those objects. A similar definition, [\citeauthor{ieee626984}] describes context as location, identities of the people around the user, the time of day, season, temperature, etc. [\citeauthor{Ryan97}] defines context as the user's location, environment, identity and time. [\citeauthor{Dey98}] enumerates context as the user's emotional state, focus of attention, location and orientation, date and time, objects and people in the user's environment. %These definitions that define context by certain examples are difficult to apply. In order to determine whether certain types of information not listed in the definition are correct context or not, it is difficult to determine how we can use the definition to solve this dilemma.
+The report that first introduces the term \emph{context-aware}, [\citeauthor{ieee313011}] refers to context as location, identities of people and objects nearby, and changes to those objects. A similar definition, [\citeauthor{ieee626984}] describes context as location, identities of the people around the user, the time of day, season, temperature, etc. [\citeauthor{Ryan97}] defines context as the user's location, environment, identity and time. [\citeauthor{Dey98}] enumerates context as the user's emotional state, focus of attention, location and orientation, date and time, objects and people in the user's environment.
 
 A recent definition of context-awareness is described by [\citeauthor{Dey2000b}] who defines it as, context is any information that can be used to characterize the situation of an entity. An entity is a person, place, or object that is considered relevant to the interaction between a user and an application, including the user and the application themselves. 
 
@@ -22,8 +22,6 @@ After the term \textit{context} has been defined the term \textit{context-aware 
 Context-aware computing was first described by [\citeauthor{ieee313011}] in 1994 to be software, that adapts itself according to the location of use, the collection of nearby people and objects, as well as changes to those objects over time. However, it is commonly agreed, that context-aware computing was first investigated in 1992 by [\citeauthor{WantHFG92}]. 
 
 [\citeauthor{RyanME}] has also defined the term context-aware applications as applications that allow users to select from a range of physical and logical contexts according to their current interests or activities and also monitor input from environmental sensors.
-
-%\subsection{M2M}
 
 \subsection{Context Examples}
 The orientation of the screen of a tablet computer is automatically changed, maps can orientate themselves according to the user's direction with the zoom level adapted to the current speed, and the backlight of the phone is switched on when used in the dark.
@@ -59,14 +57,7 @@ In order to efficiently use the context data after acquisition, it needs to be r
 \begin{itemize}
 \item \textbf{Key-value model:}  This modeling technique represents contextual information with key-value pairs which is one of the most simple data structures for modeling contextual information. This model was already used in 1994 by \citeauthor{ieee512740} to present the context by providing the value of context information (e.g. location information) to an application as an environment variable. Distributed service frameworks  frequently use the key-value modeling approach. Although key-value pairs lack the capability for sophisticated structuring to enable efficient context retrieval algorithms, they are easy to manage.
 
-\item \textbf{Logic based model: } %This model is based on facts, expressions and rules. [10] A logic based system manipulates with the elemental items of this model and infers higher level logic by utilizing the already defined rules to deduce new facts.
-Logic-based models have a high degree of formality. Typically, facts, expressions and rules are used to define a context model \cite{BaldaufDustdarRosenberg07ijahuc}.
-
-
-
-%A logic based system is then used to manage the aforementioned terms and allows to add, update or remove new facts. The inference (also called reasoning) process can be used to derive new facts based on existing rules in the systems. The contextual information needs to be represented in a formal way as facts.\cite{BaldaufDustdarRosenberg07ijahuc}
-
-%One of the first approaches was published by McCarthy and Buvac (1997).
+\item \textbf{Logic based model: } Logic-based models have a high degree of formality. Typically, facts, expressions and rules are used to define a context model \cite{BaldaufDustdarRosenberg07ijahuc}.
 
 A logic based model defines the conditions on which a concluding expression or fact may be derived (a process known as reasoning or inferencing) from a set of other expressions or facts. In order to describe these conditions in a set of rules, a formal system is applied. In a logic based context model, the context is consequently defined as facts, expressions and rules. Usually contextual information is added to, updated or deleted from a logic based system in terms of facts or inferred from the rules in the system respectively. A high degree of formality is common to all logic based models \cite{Strang2004}.
 
@@ -249,10 +240,7 @@ To consume a \ac{REST} based \ac{API} service, a simple GET request is needed, t
 \subsection{NoSQL Databases \label{sec:back_da_per}}
 \ac{SQL} databases have been used to solve storage problems for a long time, including cases in which there is a high discrepancy between the object model and its relational model. The conversion of graphs to tables represents yet another dis-functional use of data mapping. The complex structure of these kinds of mismanagement causes, depends on mapping frameworks and complex algorithms. The rigid relational scheme characteristic for \ac{SQL} becomes especially inefficient for such web applications as blogs, due to their multifaceted range of attributes that need to be stored in their respective tables, e.g. comments, pictures, audios, videos and source codes. Therefore, adding or removing a new feature to this sort of website could result in system unavailability.          
 
-Nowadays of course,  web sites are developing towards more interactive models, obliging databases to perform real-time schema updates, thereby paving the way for \ac{NoSQL} to provide a database molded for modern demands. %The following section describes the characteristics of \ac{NoSQL} and its different types of databases.   
-
-%\subsubsection{SQL\label{sec:back_da_per}}
-%\subsubsection{NoSQL\label{sec:back_da_per}}	
+Nowadays of course,  web sites are developing towards more interactive models, obliging databases to perform real-time schema updates, thereby paving the way for \ac{NoSQL} to provide a database molded for modern demands.
 
 There are a variety of ideas surrounding the \ac{NoSQL} movement, however, the core idea is to provide more flexible data models, as opposed to the \ac{SQL} approach, in order to provide live schema updates. The ever increasing amount of data streaming through the web implies challenges, which any competitive website wishing to stay in business will have to meet. Besides dealing with vast amounts of data, these sites have to respond to constant requests around the globe without allowing any noticeable latency.
 
@@ -489,7 +477,6 @@ Solr is a popular, blazing fast open source enterprise search platform based on 
 Solr has \ac{REST}-like \ac{HTTP}/\ac{XML} and \ac{JSON} \ac{API}s that make it easy to use from virtually any programming language. Its major features include powerful full-text search, hit highlighting, faceted search, dynamic clustering, database integration, rich document (e.g., Word, PDF) handling, and geospatial search. Solr is highly scalable, providing distributed search and index replication and it powers the search and navigation features of many of the world's largest internet sites \cite{welcome_to_solr}.
 
 \subsubsection{Elasticsearch \label{sec:back_se_es}}
-%cite CERN:
 
 Elasticsearch is an open source search engine implemented in Java and is based on the Apache Lucene project. It provides both an indexing service as well as a data store and does not require a detailed schema. This means that the data which can be expressed as \ac{JSON} can be easily stored and indexed within Elasticsearch. Listing \ref{lst:elasticsearch_schema-free} shows two examples of indexing data that are in \ac{JSON} format. These examples show how easy the schema can be extended, i.e. the second \ac{JSON} data has a new tag called \textit{author}.
  
@@ -521,9 +508,6 @@ The Spring framework is a lightweight solution and a potential one-stop-shop for
 
 The Spring Framework consists of features organized into about 20 modules. These modules are grouped into Core Container, Data Access/Integration, Web, \ac{AOP}, Instrumentation, and Test \cite{spring-framework-reference}, see figure \ref{fig:spring_arch} for illustration.
 
-%cite http://www.tutorialspoint.com/images/spring_architecture.png
-%http://www.tutorialspoint.com/spring/spring_architecture.htm
-
 \begin{figure}[htb]
   \centering
   \includegraphics[scale=0.6]{spring_architecture.png}\\
@@ -531,52 +515,3 @@ The Spring Framework consists of features organized into about 20 modules. These
   \label{fig:spring_arch}
   \protect\cite{spring-framework-reference}
 \end{figure}
-
-
-
-%\paragraph{Core Container:}
-
-%The Core Container consists of the Core, Beans, Context, and Expression Language modules.
-
-%The Core and Beans modules provide the fundamental parts of the framework, including the IoC and
-%Dependency Injection features. The BeanFactory is a sophisticated implementation of the factory
-%pattern. It removes the need for programmatic singletons and allows you to decouple the configuration
-%and specification of dependencies from your actual program logic.
-
-%The Context module builds on the solid base provided by the Core and Beans modules: it is a means
-%to access objects in a framework-style manner that is similar to a JNDI registry. The Context module
-%inherits its features from the Beans module and adds support for internationalization (using, for example,
-%resource bundles), event-propagation, resource-loading, and the transparent creation of contexts by,
-%for example, a servlet container. The Context module also supports Java EE features such as EJB,
-%JMX ,and basic remoting. The ApplicationContext interface is the focal point of the Context module.
-
-%The Expression Language module provides a powerful expression language for querying and
-%manipulating an object graph at runtime. It is an extension of the unified expression language (unified
-%EL) as specified in the JSP 2.1 specification. The language supports setting and getting property values,
-%property assignment, method invocation, accessing the context of arrays, collections and indexers,
-%logical and arithmetic operators, named variables, and retrieval of objects by name from Spring's IoC
-%container. It also supports list projection and selection as well as common list aggregations.
-
-%\paragraph{Data Access/Integration:}
-%The Data Access/Integration layer consists of the \ac{JDBC}, ORM, OXM, JMS and Transaction modules.
-%
-%\paragraph{Web:} The Web layer consists of the Web, Web-Servlet, Web-Struts, and Web-Portlet modules.
-%
-%\paragraph{\ac{AOP} and Instrumentation:} Spring's AOP module provides an AOP Alliance-compliant aspect-oriented programming
-%implementation allowing you to define, for example, method-interceptors and pointcuts to cleanly
-%decouple code that implements functionality that should be separated. 
-%
-%The separate Aspects module provides integration with AspectJ.
-%
-%The Instrumentation module provides class instrumentation support and classloader implementations
-%to be used in certain application servers.
-%
-%\paragraph{Test:} The Test module supports the testing of Spring components with JUnit or TestNG. It provides consistent
-%loading of Spring ApplicationContexts and caching of those contexts. It also provides mock objects that
-%you can use to test your code in isolation.
-
-%\subsection{Application Servers\label{sec:back_sp_fr}}
-
-
-
-%\section{Related Work\label{sec:back_rel_work}}

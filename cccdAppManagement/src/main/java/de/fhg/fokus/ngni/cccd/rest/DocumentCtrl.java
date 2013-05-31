@@ -64,7 +64,7 @@ public class DocumentCtrl extends BaseCtrl {
 		try {
 			HashMap<String, Object> jsonBody = null;
 			JsonNode fileLink = null;
-			ArrayList<String> profiles = null;
+			String profiles = null;
 			ArrayList<String> queues = null;;
 			try {
 				jsonBody = mapper.readValue(body, HashMap.class);
@@ -73,7 +73,9 @@ public class DocumentCtrl extends BaseCtrl {
 					//logger_c.debug(dbo1.toString());
 					queues = mapper.readValue(dbo1.get(collName).toString(), ArrayList.class);
 					//logger_c.debug(queues);
-					profiles = mapper.readValue(dbo1.get("profiles").toString(), ArrayList.class);
+					//logger_c.debug("############"+dbo1.get("profiles").toString());
+					//logger_c.debug(dbo1.get("profiles"));
+					profiles = dbo1.get("profiles").toString();
 					//logger_c.debug(profiles);
 					if(jsonBody!=null && jsonBody.containsKey("fileLink")){
 						JsonNode rootNode = mapper.readValue(body, JsonNode.class);
@@ -102,7 +104,7 @@ public class DocumentCtrl extends BaseCtrl {
 				for(String q:queues){
 					if(queuList.contains(q)){
 						try {
-							amqpTemplate.convertAndSend(q,mapper.writeValueAsString(new DocEvent(appName,collName,bdo.getObjectId("_id").toString(),fileLink.get("bucket").getTextValue(),fileLink.get("objectid").getTextValue(),"created",profiles.toString())));
+							amqpTemplate.convertAndSend(q,mapper.writeValueAsString(new DocEvent(appName,collName,bdo.getObjectId("_id").toString(),fileLink.get("bucket").getTextValue(),fileLink.get("objectid").getTextValue(),"created",profiles)));
 						} catch (JsonGenerationException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();

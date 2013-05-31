@@ -21,17 +21,19 @@ import tempfile
 import subprocess
 #import contextlib
 import requests
+import types
 
-working_dir="/home/ubuntu/cccd/cccdContentAdaption/hls/"
-conf_file="/home/ubuntu/cccd/cccdContentAdaption/cccdCA.conf"
-message_broker_ip="10.0.0.140"
+working_dir="/home/hco/cccd/cccdContentAdaption/hls/"
+conf_file="/home/hco/cccd/cccdContentAdaption/cccdCA.conf"
+message_broker_ip="192.168.144.30"
 adminUsername="admin"
 adminPassword="superpass"
-cccdAppManagementIP="10.0.0.197"
-cccdCDN="10.0.0.209" # or it can be a list of IP addresses ['10.0.0.209','10.0.0.153'] 
+cccdAppManagementIP="192.168.144.31"
+cccdCDN="192.168.144.30" # or it can be a list of IP addresses ['10.0.0.209','10.0.0.153'] 
+#cccdCDN=['192.168.144.30','192.168.144.31'] # or it can be a list of IP addresses ['10.0.0.209','10.0.0.153'] 
 cccdCDN_ftp_user="cdnuser"
 cccdCDN_ftp_pass="cdnuser"
-cccdCDN_load_balancer="10.0.0.209" # load balancer ip if exist, else set it to the cccdCDN IP
+cccdCDN_load_balancer="192.168.144.30" # load balancer ip if exist, else set it to the cccdCDN IP
 
 #Setting for the logger
 logger_setting={
@@ -91,7 +93,10 @@ def callback(ch, method, properties, body):
 		cfileStr = open(conf_file, 'r').read()
 		newCfileStr=cfileStr.replace("$FileToConvert",fileLink)
 		newCfileStr=newCfileStr.replace("$Encoding_Profile",jsonBody['profiles'])
-		newCfileStr=newCfileStr.replace("$cccdCDN",cccdCDN)
+		if(isinstance(cccdCDN, types.ListType)):
+			newCfileStr=newCfileStr.replace("'$cccdCDN'",str(cccdCDN))
+		else:
+			newCfileStr=newCfileStr.replace("$cccdCDN",cccdCDN)
 		newCfileStr=newCfileStr.replace("$ftp_user",cccdCDN_ftp_user)
 		newCfileStr=newCfileStr.replace("$ftp_pass",cccdCDN_ftp_pass)
 		newCfileStr=newCfileStr.replace("$UploadFolder","/"+jsonBody['appName']+"/"+jsonBody['bucketName']+"/"+jsonBody['objectId'])
@@ -99,13 +104,15 @@ def callback(ch, method, properties, body):
 		newCfileStr=newCfileStr.replace("$bucketName",jsonBody['bucketName'])
 		newCfileStr=newCfileStr.replace("$objectId",jsonBody['objectId'])
 		#print newCfileStr
+		#ch.basic_ack(delivery_tag = method.delivery_tag)
+		#sys.exit()
 		temp = tempfile.NamedTemporaryFile()
 		try:
 			temp.write(newCfileStr)
 			temp.seek(0)
 		finally:
 			logger.debug('launching segmenter process...')
-			cmdSegmenter = "/usr/bin/ruby /home/ubuntu/cccd/cccdContentAdaption/hls/http_streamer.rb "+ temp.name
+			cmdSegmenter = "/usr/bin/ruby /home/hco/cccd/cccdContentAdaption/hls/http_streamer.rb "+ temp.name
 			p = subprocess.Popen(cmdSegmenter, shell=True, stderr=subprocess.PIPE)
 			while True:
     				out = p.stderr.read(1)
@@ -122,7 +129,10 @@ def callback(ch, method, properties, body):
                         	logger.debug(e)
 			#return
 			try:
-				ftp = ftplib.FTP(cccdCDN) 
+				if(isinstance(cccdCDN, types.ListType)):
+					ftp = ftplib.FTP(cccdCDN[0])
+				else:
+					ftp = ftplib.FTP(cccdCDN)
 				ftp.login(cccdCDN_ftp_user,cccdCDN_ftp_pass)
 			except Exception,e:
 				logger.debug(e)
@@ -150,13 +160,13 @@ def callback(ch, method, properties, body):
 							"/collections/"+jsonBody['collName']+"/doc/"+jsonBody['docId'],auth=(adminUsername, adminPassword),data=json.dumps(links))
 						#print response.text
 						logger.debug("sending the links for the new generated contents to the appManagment component")
+						logger.debug(" [x] Done, send ack to this message: %r" % (body,))
+						ch.basic_ack(delivery_tag = method.delivery_tag)
 				except Exception, e:
 					logger.debug(e)
 		#print newCfileStr
 		#sys.exit()
 		
-	logger.debug(" [x] Done, send ack to this message: %r" % (body,))
-	ch.basic_ack(delivery_tag = method.delivery_tag)
 
 ####################################################################
 

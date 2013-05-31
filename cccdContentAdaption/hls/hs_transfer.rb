@@ -44,6 +44,59 @@ class HSTransfer
     @transfer_queue = Queue.new
     @log = log
     @config = config
+    transfer_config = @config[@config['transfer_profile']]
+
+    case transfer_config['transfer_type']
+         when 'ftp'
+               require 'net/ftp'
+               if transfer_config['remote_host'].kind_of?(Array)
+			0.upto(transfer_config['remote_host'].length-1) do | zahl |
+                        	Net::FTP.open(transfer_config['remote_host'][zahl]) do |ftp|
+                        	ftp.login(transfer_config['user_name'], transfer_config['password'])
+                        	begin
+	                        	ftp.mkdir(transfer_config['appName')
+	          		rescue
+                             		@log.info("INFO: directory exist: " + transfer_config['appName'])
+	          		end
+	          		ftp.chdir(transfer_config['appName'])
+	          		begin
+	          			ftp.mkdir(transfer_config['bucketName'])
+   	       			rescue
+	          			@log.info("INFO: directory exist: " + transfer_config['appName'])
+	       			end
+	                        ftp.chdir(transfer_config['bucketName'])
+	       			begin
+	    			ftp.mkdir(transfer_config['objectId'])
+	       			rescue
+	             			@log.info("INFO: directory exist: " + transfer_config['objectId'])
+	             		end
+                       
+   				end
+			end
+		else   
+                	Net::FTP.open(transfer_config['remote_host']) do |ftp|
+                	ftp.login(transfer_config['user_name'], transfer_config['password'])
+                	begin
+                	        ftp.mkdir(transfer_config['appName'])
+                	rescue
+                	        @log.info("INFO: directory exist: "+ transfer_config['appName'])
+                	end
+                	ftp.chdir(transfer_config['appName'])
+                	begin
+                        	ftp.mkdir(transfer_config['bucketName'])
+                	rescue
+                	        @log.info("INFO: directory exist: "+ transfer_config['bucketName'])
+                	end
+                	ftp.chdir(transfer_config['bucketName'])
+                	begin
+                	        ftp.mkdir(transfer_config['objectId'])
+                	rescue
+                	        @log.info("INFO: directory exist: "+ transfer_config['objectId'])
+                	end
+                	end
+
+        	end
+	end
   end
 
   def start_transfer_thread
@@ -162,8 +215,8 @@ class HSTransfer
          if transfer_config['remote_host'].kind_of?(Array)
          	0.upto(transfer_config['remote_host'].length-1) do | zahl |
          		Net::FTP.open(transfer_config['remote_host'][zahl]) do |ftp|
-           		ftp.login(transfer_config['user_name'][zahl], transfer_config['password'][zahl])
-           		files = ftp.chdir(transfer_config['directory'][zahl])
+           		ftp.login(transfer_config['user_name'], transfer_config['password'])
+           		files = ftp.chdir(transfer_config['directory'])
            		ftp.putbinaryfile(source_file, destination_file)
            		end
            	end
