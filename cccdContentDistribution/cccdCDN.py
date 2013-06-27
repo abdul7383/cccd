@@ -30,7 +30,20 @@ location_tmpl = Template('location /$app/ {\n\
         if ($secure_link = "0") {\n\
                 return 403;\n\
         }\n\
-}')
+}\n\
+location ~ ^/$app/.*\.m3u8$ {\n\
+        set $secure_word $secret;\n\
+        secure_link $arg_st,$arg_e;\n\
+        secure_link_md5 $secret$uri$arg_e;\n\
+        if ($secure_link = "") {\n\
+                return 403;\n\
+        }\n\
+        if ($secure_link = "0") {\n\
+                return 403;\n\
+        }\n\
+        content_by_lua_file /usr/local/nginx/sbin/m3u8.lua;\n\
+}\n\
+')
 
 #Setting for the logger
 logger_setting={
